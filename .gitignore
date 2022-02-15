@@ -1,0 +1,7 @@
+# Configuration
+vendor/
+/node_modules/
+.vscode/
+*.fig
+.DS_Store
+config.php
