@@ -1,0 +1,28 @@
+<svg id="_3L" data-name="3L" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1749.72 982.92">
+    <defs>
+        <style>
+            .cls-1{fill:#cee8ff;}.cls-1,.cls-2{opacity:0.68;}.cls-2{fill:#fcffb5;} #_3L{max-width: 80%;}
+            #_3L rect:hover{fill:red;cursor:pointer;}
+        </style>
+    </defs>
+    <title>2019_08_xref_3.OG-1_200</title>
+    <g id="LS"><rect x="185.04" width="1079.58" height="260.28"/>
+        <rect id="_358" data-name="358" class="cls-1" x="1143" y="3.84" width="117.36" height="118.92"/>
+        <rect id="_359" data-name="359" class="cls-1" x="1143" y="125.76" width="117.36" height="130.02"/>
+        <rect id="_360" data-name="360" class="cls-1" x="1004.07" y="170.97" width="54.84" height="84.81"/>
+        <rect id="_361" data-name="361" class="cls-1" x="924.6" y="170.97" width="77.64" height="84.81"/>
+        <rect id="_362" data-name="362" class="cls-1" x="885.73" y="170.97" width="36.85" height="84.81"/>
+        <rect id="_363" data-name="363" class="cls-1" x="796.2" y="172.59" width="86.17" height="83.19"/>
+        <rect id="_364" data-name="364" class="cls-1" x="687.24" y="172.08" width="105.51" height="83.19"/>
+        <rect id="_365" data-name="365" class="cls-1" x="617.54" y="172.08" width="66.37" height="83.19"/>
+        <rect id="S3" class="cls-2" x="1044.96" y="21.84" width="55.56" height="102.12"/>
+    </g>
+    <g id="RS">
+        <polygon points="1749.72 573.6 106.08 573.6 106.08 647.04 0 647.04 0 825.72 106.08 825.72 336.16 825.72 336.16 982.92 649.44 982.92 649.44 825.72 1749.72 825.72 1749.72 573.6"/>
+    </g>
+    <g id="FC">
+        <rect x="314.58" y="258.04" width="332.34" height="316.97"/>
+        <rect x="278.16" y="339.74" width="40.64" height="125.38"/>
+    </g>
+    <rect id="BC" x="1065.6" y="258.04" width="33.45" height="316.97"/>
+</svg>
