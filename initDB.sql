@@ -8,8 +8,7 @@ CREATE TABLE users(
   first_name VARCHAR(255) NOT NULL,
   last_name VARCHAR(255) NOT NULL,
   studies VARCHAR(25) NOT NULL,
-  role VARCHAR(5) NOT NULL,
-  joined_date TIMESTAMP NOT NULL
+  role VARCHAR(25) NOT NULL
 );
 CREATE TABLE projects(
   ID serial PRIMARY KEY NOT NULL,
