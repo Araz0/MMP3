@@ -7,4 +7,5 @@
             <li><a href="/logout.php">logout</a></li>
         <?php } ?>
     </ul>
+    <h1><?php echo $_SESSION['fhsUser']; ?></h1>
 </nav>
