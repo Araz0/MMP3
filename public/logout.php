@@ -1,16 +1,18 @@
 <?php
+session_start();
 // Löschen aller Session-Variablen.
 $_SESSION = array();
 
-// Löscht das Session-Cookie.
-if (isset($_COOKIE[session_name()])) {
-  setcookie(
-    session_name(),  // Cookie-Name war gleich Name der Session 
-    '',             // Cookie-Daten. Achtung! Leerer String hier hilft nicht!
-    time()-42000,  // Ablaufdatum in der Vergangenheit. Erst das löscht!
-    '/'           // Wirkungsbereich des Cookies: der ganze Server
+
+if (ini_get("session.use_cookies")) {
+  $params = session_get_cookie_params();
+  setcookie(session_name(), '', time() - 42000,
+      $params["path"], $params["domain"],
+      $params["secure"], $params["httponly"]
   );
 }
+
+// Finally, destroy the session.
 session_destroy();
 
 header("Location: index.php");

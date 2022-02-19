@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 $pagetitle = "Multimedia Technology | OAuth Login | Authorized";
 require 'config.php'; //This is the oauth-config! You will also need your standard-config file
 
@@ -14,7 +14,7 @@ if(isset($resourceOwner))
   // if yes then get the user from your database
 
   // Set parameters for $_SESSION
-  $_SESSION['username'] = $resourceOwner['preferred_username'];
+  $_SESSION['fhsUser'] = $resourceOwner['preferred_username'];
 
   /*
   sub: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
@@ -40,11 +40,10 @@ if(isset($resourceOwner))
   */
 
   // HTTPonly
-  setcookie("fhsUser", $_SESSION['username'], time()+2*24*60*60, NULL, NULL, NULL, TRUE);
-
+  setcookie("fhsUser", $_SESSION['fhsUser'], time()+2*24*60*60, NULL, NULL, NULL, TRUE);
 
   //Login worked, lead the user to a page you want
-  header("Location: /index.php");
+  header("Location: /");
  
 }
 else{

@@ -1,13 +1,14 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="en">
 
 <?php 
     $pagetitle = "MMP3";
-    include "head.php"; 
+    require "components/head.php"; 
 ?>
 
 <body>
-<a href="/auth/authorized.php">login ?</a>
+<?php require "components/nav.php"; ?>
 
 </body>
 

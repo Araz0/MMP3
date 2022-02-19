@@ -1,1 +1,0 @@
-<a href="/auth/authorized.php">login ?</a>
