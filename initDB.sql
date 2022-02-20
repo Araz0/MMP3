@@ -19,14 +19,12 @@ CREATE TABLE projects(
   description TEXT NOT NULL,
   thumbnail VARCHAR(255) NOT NULL,
   hero VARCHAR(255) NOT NULL,
-  members JSON NOT NULL,
-  degree degrees NOT NULL,
-  category categories NOT NULL,
+  members VARCHAR(255) NOT NULL,
+  degree VARCHAR(10) NOT NULL,
+  category VARCHAR(10) NOT NULL,
   tags VARCHAR(255) NOT NULL,
-  links JSON NOT NULL,
-  location JSON NOT NULL,
-  first_release_date TIMESTAMP NOT NULL,
-  full_release_date TIMESTAMP NOT NULL,
+  links VARCHAR(255) NOT NULL,
+  location VARCHAR(255) NOT NULL,
   user_id INTEGER REFERENCES users(id) ON DELETE CASCADE
 );
 CREATE TABLE maps(
