@@ -35,8 +35,8 @@
         }
 
         $project_location = array(
-            'type' => $_POST['project_location_type'][$i],
-            'address' => $_POST['project_location_address'][$i]
+            'type' => $_POST['project_location_type'],
+            'address' => $_POST['project_location_address']
         );
 
         //define file names and other variables to make code easier to read
