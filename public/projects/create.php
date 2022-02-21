@@ -4,8 +4,6 @@
 <html lang="en">
 
 <?php 
-error_reporting(E_ALL);
-ini_set('error_reporting', E_ALL);
 
     $pagetitle = "Create Project";
     require '../config.php'; //This is the oauth-config! You will also need your standard-config file
@@ -26,9 +24,7 @@ ini_set('error_reporting', E_ALL);
             );
             //$member_data = json_encode($member_data, JSON_FORCE_OBJECT);
             $project_members[] = $member_data;
-
         }
-        $project_members = json_encode($project_members, JSON_FORCE_OBJECT);
 
         for ($i=0; $i < count($_POST['project_link_title']); $i++) { 
             $link_data = array(
@@ -37,7 +33,11 @@ ini_set('error_reporting', E_ALL);
             );
             $project_links[] = $link_data;
         }
-        $project_links = json_encode($project_links, JSON_FORCE_OBJECT);
+
+        $project_location = array(
+            'type' => $_POST['project_location_type'][$i],
+            'address' => $_POST['project_location_address'][$i]
+        );
 
         //define file names and other variables to make code easier to read
         $upload_folder = "storage/";

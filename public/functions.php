@@ -29,9 +29,9 @@ function createUser($username, $email, $first_name, $last_name, $studies, $role)
 function createProject($sufix, $title, $subtitle, $excerpt, $description, $thumbnail, $hero, $members, $degree, $category, $tags, $links, $location, $user_id) {
     global $dbh;
 
-    $members = json_encode($members);
-    $links = json_encode($links);
-    $location = json_encode($location);
+    $members = json_encode($members, JSON_FORCE_OBJECT);
+    $links = json_encode($links, JSON_FORCE_OBJECT);
+    $location = json_encode($location, JSON_FORCE_OBJECT);
 
     $query = "INSERT INTO projects (sufix, title, subtitle, excerpt, description, thumbnail, hero, members, degree, category, tags, links, location, user_id) VALUES (:sufix, :title, :subtitle, :excerpt, :description, :thumbnail, :hero, :members, :degree, :category, :tags, :links, :location, :user_id)";
     $sth = $dbh->prepare($query);
