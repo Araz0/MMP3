@@ -53,3 +53,11 @@ function createProject($sufix, $title, $subtitle, $excerpt, $description, $thumb
     $sth->execute();
 
 }
+
+function getProject($project_id){
+    global $dhb;
+    $query = "SELECT * FROM projects WHERE id=?";
+    $sth = $dbh->prepare($query);
+    $sth->execute(array($project_id));
+    return $sth->fetch();
+}
