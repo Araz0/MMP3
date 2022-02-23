@@ -62,7 +62,7 @@
 ?>
 
 <body>
-
+    
     <?php //createProject(); //sufix, title, subtitle, excerpt, description, thumbnail, hero, members, degree, category, tags, links, location, user_id ?>
     
     <form action="/projects/create.php" method="post" enctype="multipart/form-data">
@@ -103,8 +103,9 @@
                     <input type="text" name="project_members_role[]" id="project_members_role" value="member role 1" required>
                 </label>
                 <label for="project_members_thumbnail[]"><b>project_members_thumbnail</b>
-                    <input type="file" name="project_members_thumbnail[]" id="project_members_thumbnail" accept="image/*,.jpg" required>
+                    <input type="file" name="project_members_thumbnail[]" id="project_members_thumbnail" accept="image/*,.jpg" >
                 </label>
+                <button type="button" onclick="deleteField(this)">Delete Memeber</button> 
             </div>
             <button type="button" id="add_new_member_btn">Add New Member</button> 
         </div>
@@ -138,7 +139,9 @@
                 </label>
                 <label for="project_link_url[]"><b>project_link_url</b>
                     <input type="text" name="project_link_url[]" id="project_link_url" value="https://www.example.com" required>
-                </label> <br>
+                </label> 
+                <button type="button" onclick="deleteField(this)">Delete Link</button> 
+                <br>
             </div>
             <button type="button" id="add_new_link_btn">Add New Link</button> 
         </div>
@@ -157,7 +160,8 @@
         <input class="" type="submit" value='Create' name='create_project'>
     </form>
 
+    
 </body>
-    <script src="../js/addProjectFields.js"></script>
+    <script src="../js/manageProjectFields.js"></script>
     <script src="../js/checkMediaLength.js"></script>
 </html>

@@ -16,6 +16,7 @@ function addMemberField(){
         <label for="project_members_thumbnail[]"><b>project_members_thumbnail</b>
             <input type="file" name="project_members_thumbnail[]" id="project_members_thumbnail" accept="image/*,.jpg" required>
         </label>
+        <button type="button" onclick="deleteField(this)">Delete Memeber</button> 
     </div>
     `;
 
@@ -41,7 +42,9 @@ function addLinkField(){
         </label>
         <label for="project_link_url[]"><b>project_link_url</b>
             <input type="text" name="project_link_url[]" id="project_link_url" value="https://www.example.com" required>
-        </label> <br>
+        </label>
+        <button type="button" onclick="deleteField(this)">Delete Link</button> 
+        <br>
     </div>
     `;
 
@@ -52,3 +55,8 @@ function addLinkField(){
 document.getElementById("add_new_link_btn").addEventListener("click",function(e){
     addLinkField();
 },false);
+
+
+function deleteField(element){
+    element.parentElement.remove();
+}
