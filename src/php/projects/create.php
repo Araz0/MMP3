@@ -62,7 +62,7 @@
 ?>
 
 <body>
-
+    
     <?php //createProject(); //sufix, title, subtitle, excerpt, description, thumbnail, hero, members, degree, category, tags, links, location, user_id ?>
     
     <form action="/projects/create.php" method="post" enctype="multipart/form-data">
@@ -103,30 +103,28 @@
                     <input type="text" name="project_members_role[]" id="project_members_role" value="member role 1" required>
                 </label>
                 <label for="project_members_thumbnail[]"><b>project_members_thumbnail</b>
-                    <input type="file" name="project_members_thumbnail[]" id="project_members_thumbnail" accept="image/*,.jpg" required>
+                    <input type="file" name="project_members_thumbnail[]" id="project_members_thumbnail" accept="image/*,.jpg" >
                 </label>
             </div>
             <button type="button" id="add_new_member_btn">Add New Member</button> 
         </div>
 
         <label for="project_degree"><b>project_degree</b>
-            <input type="text" name="project_degree" value="Bachelor" list="degrees_list">
-            <datalist id="degrees_list">
-                <option value="Bachelor">
-                <option value="Master">
-            </datalist>
+            <select name="project_degree" >
+                <option value="Bachelor">Bachelor</option>
+                <option value="Master">Master</option>
+            </select>
         </label> <br>
 
         <label for="project_category"><b>project_category</b>
-            <input type="text" name="project_category" value="MMP1" list="categories_list"> 
-            <datalist id="categories_list">
-                <option value="MMP1">
-                <option value="MMP2">
-                <option value="MMP2a">
-                <option value="MMP2b">
-                <option value="MMP3">
-                <option value="Master Project">
-            </datalist>
+            <select name="project_category" > 
+                <option value="MMP1">MMP1</option>
+                <option value="MMP2">MMP2</option>
+                <option value="MMP2a">MMP2a</option>
+                <option value="MMP2b">MMP2b</option>
+                <option value="MMP3">MMP3</option>
+                <option value="AbschlussProject">AbschlussProject</option>
+            </select>
         </label> <br>
 
         <label for="project_tags"><b>project_tags</b>
@@ -146,11 +144,10 @@
         </div>
 
         <label for="project_location_type"><b>project_location_type</b>
-            <input type="text" name="project_location_type" value="FH Room" list="locations_list">
-            <datalist id="locations_list">
-                <option value="FH Room">
-                <option value="Street Address">
-            </datalist>
+            <select name="project_location_type" >
+                <option value="FH Room">FH Room</option>
+                <option value="Street Address">Street Address</option>
+            </select>
         </label> <br>
 
         <label for="project_location_address"><b>project_location_address</b>
@@ -160,6 +157,8 @@
         <input class="" type="submit" value='Create' name='create_project'>
     </form>
 
+    
 </body>
     <script src="../js/addProjectFields.js"></script>
+    <script src="../js/checkMediaLength.js"></script>
 </html>
