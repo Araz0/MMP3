@@ -16,24 +16,31 @@
         $project_excerpt = $_POST['project_excerpt'];
         $project_description = $_POST['project_description'];
 
-        for ($i=0; $i < count($_POST['project_members_name']); $i++) { 
-            $member_data = array(
-                'name' => $_POST['project_members_name'][$i],
-                'role' => $_POST['project_members_role'][$i],
-                'thumbnail' => $_FILES['project_members_thumbnail']['name'][$i]
-            );
-            //$member_data = json_encode($member_data, JSON_FORCE_OBJECT);
-            $project_members[] = $member_data;
+        if (isset($_POST['project_members_name'])) {
+            for ($i=0; $i < count($_POST['project_members_name']); $i++) { 
+                $member_data = array(
+                    'name' => $_POST['project_members_name'][$i],
+                    'role' => $_POST['project_members_role'][$i],
+                    'thumbnail' => $_FILES['project_members_thumbnail']['name'][$i]
+                );
+                //$member_data = json_encode($member_data, JSON_FORCE_OBJECT);
+                $project_members[] = $member_data;
+            }
+        }else{
+            echo "no members were found... make sure to add 1 at minimum."
         }
-
-        for ($i=0; $i < count($_POST['project_link_title']); $i++) { 
-            $link_data = array(
-                'title' => $_POST['project_link_title'][$i],
-                'link' => $_POST['project_link_url'][$i]
-            );
-            $project_links[] = $link_data;
+        
+        if (isset($_POST['project_link_title'])) {
+            for ($i=0; $i < count($_POST['project_link_title']); $i++) { 
+                $link_data = array(
+                    'title' => $_POST['project_link_title'][$i],
+                    'link' => $_POST['project_link_url'][$i]
+                );
+                $project_links[] = $link_data;
+            }
+        }else {
+            $project_links = [];
         }
-
         $project_location = array(
             'type' => $_POST['project_location_type'],
             'address' => $_POST['project_location_address']
