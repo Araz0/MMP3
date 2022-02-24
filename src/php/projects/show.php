@@ -4,7 +4,7 @@
 
 <?php 
     $pagetitle = "show projects";
-    include "../head.php"; 
+    include "../components/head.php"; 
 ?>
 
 <body>
