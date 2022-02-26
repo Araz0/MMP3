@@ -17,9 +17,12 @@
         $project_subtitle = $_POST['project_subtitle'];
         $project_excerpt = $_POST['project_excerpt'];
         $project_description = $_POST['project_description'];
+
+        $_inputName = "project_thumbnail";
+        $input_array = array(basename($_FILES[$_inputName]['name']), $_FILES[$_inputName]['tmp_name'], $_FILES[$_inputName]['size'], $_FILES[$_inputName]['type'], $_FILES[$_inputName]['error']);
         
-        fileUpload("storage", "project_thumbnail", array('jpeg','jpg','png'));
-        mutlipleFilesUpload("storage", "project_members_thumbnail", array('jpeg','jpg','png'));
+        fileUpload( $input_array, $storage_folder, array('jpeg','jpg','png'));
+        mutlipleFilesUpload("project_members_thumbnail", $storage_folder, array('jpeg','jpg','png'));
 
         if (isset($_POST['project_members_name'])) {
             for ($i=0; $i < count($_POST['project_members_name']); $i++) { 

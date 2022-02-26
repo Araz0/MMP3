@@ -1,48 +1,37 @@
 <?php
 $sufixRegex = "/^([a-zA-Z0-9]+([_-]?[a-zA-Z0-9])*){3,64}$/"; 
 $errors = array();
+$storage_folder = "storage";
 
-function mutlipleFilesUpload($_uploadFolder, $_inputName, $_allowedExtentions){
+function mutlipleFilesUpload($_inputName, $_uploadFolder, $_allowedExtentions){
 
     if (isset($_FILES[$_inputName])) {
-        $uploaddir = dirname( $_SERVER["DOCUMENT_ROOT"] )."/public/$_uploadFolder/";
 
         if (count($_FILES[$_inputName]['name']) > 0) {
             for ($i=0; $i<count($_FILES[$_inputName]['name']); $i++) {
                 $tmpFilePath = $_FILES[$_inputName]['tmp_name'][$i];
                 if ($tmpFilePath != "") {
-                    $filename = basename($_FILES[$_inputName]['name'][$i]);
-                    $fileExtension =substr($filename, -3);
-                    $fileHashedName = md5($filename.$fileTmpName).".$fileExtension";
-                    $filePath = $uploaddir . $fileHashedName;
-                    if (move_uploaded_file($tmpFilePath, $filePath)) {
-                        $files[] = $filename."🚀🚀🚀🚀🚀 \n";
-                        $localFileName = "/$_uploadFolder/$fileHashedName";
-                        echo "<img src='$localFileName' alt='$filename'>";             
-                    }else {
-                        $files[] = $filename."❌❌❌❌❌ \n";
-                    }
+                    
+                    $_inputNameX = "project_members_thumbnail";
+                    $input_array = array(basename($_FILES[$_inputNameX]['name'][$i]), $_FILES[$_inputNameX]['tmp_name'][$i], $_FILES[$_inputNameX]['size'][$i], $_FILES[$_inputNameX]['type'][$i], $_FILES[$_inputNameX]['error'][$i]);
+        
+                    fileUpload( $input_array, $_uploadFolder, array('jpeg','jpg','png'));
                 }
             }
-            /*echo '<pre>debugging info:';
-            print_r($files);
-            print '</pre>';*/
         }
         
     }
 }
-function fileUpload($_uploadFolder, $_inputName, $_allowedExtentions){
-    if (isset($_FILES[$_inputName])) {
-        //$currentDirectory = getcwd();
+function fileUpload($_inputArray, $_uploadFolder, $_allowedExtentions){
+    if (isset($_inputArray)) {
 
-        $uploaddir = dirname( $_SERVER["DOCUMENT_ROOT"] )."/public/$_uploadFolder/";
-    
-        $filename = basename($_FILES[$_inputName]['name']);
-        $fileSize = $_FILES[$_inputName]['size'];
-        $fileTmpName  = $_FILES[$_inputName]['tmp_name'];
-        $fileType = $_FILES[$_inputName]['type'];
+        $filename = $_inputArray[0];
+        $fileTmpName  = $_inputArray[1];
+        $fileSize = $_inputArray[2];
+        $fileType = $_inputArray[3];
+        $fileError = $_inputArray[3];
         $fileExtension =substr($filename, -3);
-        $fileHashedName = md5($filename.$fileTmpName).".$fileExtension";
+        $localFileName = md5($filename.$fileTmpName).".$fileExtension";
         
         /*if (!in_array($fileExtension, $_allowedExtentions)) {
             //array_push($errors, "file format must be one of the following: ".implode(" ",$_allowedExtentions));
@@ -51,20 +40,20 @@ function fileUpload($_uploadFolder, $_inputName, $_allowedExtentions){
         if ($fileSize > 4000000) {
             //array_push($errors,"File exceeds maximum size (4MB)");
         }*/
-        $uploadfile = $uploaddir . $fileHashedName;
+        $uploadFilePath = $_SERVER["DOCUMENT_ROOT"]."$_uploadFolder/" . $localFileName;
 
         if (empty($errors)) {
-            if (move_uploaded_file($_FILES[$_inputName]['tmp_name'], $uploadfile)) {
+            if (move_uploaded_file($fileTmpName, $uploadFilePath)) {
                 echo $filename." 🚀🚀🚀🚀🚀 \n";
-                $localFileName = "/$_uploadFolder/$fileHashedName";
-                echo "<img src='$localFileName' alt='$filename'>";   
+                $localFilePath = "/$_uploadFolder/$localFileName";
+                echo "<img src='$localFilePath' alt='$filename'>";   
             } else {
                 echo $filename . "❌❌❌❌❌ \n";
-                echo $_FILES[$_inputName]['error'];
+                echo $fileError;
             }
-            echo '<pre>debugging info:';
+            /*ifecho '<pre>debugging info:';
             print_r($_FILES);
-            print '</pre>';
+            print '</pre>';*/
         } else {
             foreach ($errors as $error) {
                 echo $error . "These are the errors" . "\n";
