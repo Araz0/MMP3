@@ -2,6 +2,81 @@
 $sufixRegex = "/^([a-zA-Z0-9]+([_-]?[a-zA-Z0-9])*){3,64}$/"; 
 $errors = array();
 
+function mutlipleFilesUpload($_uploadFolder, $_inputName, $_allowedExtentions){
+
+    if (isset($_FILES[$_inputName])) {
+        $uploaddir = dirname( $_SERVER["DOCUMENT_ROOT"] )."/public/$_uploadFolder/";
+
+        if (count($_FILES[$_inputName]['name']) > 0) {
+            for ($i=0; $i<count($_FILES[$_inputName]['name']); $i++) {
+                $tmpFilePath = $_FILES[$_inputName]['tmp_name'][$i];
+                if ($tmpFilePath != "") {
+                    $filename = basename($_FILES[$_inputName]['name'][$i]);
+                    $fileExtension =substr($filename, -3);
+                    $fileHashedName = md5($filename.$fileTmpName).".$fileExtension";
+                    $filePath = $uploaddir . $fileHashedName;
+                    if (move_uploaded_file($tmpFilePath, $filePath)) {
+                        $files[] = $filename."🚀🚀🚀🚀🚀 \n";
+                        $localFileName = "/$_uploadFolder/$fileHashedName";
+                        echo "<img src='$localFileName' alt='$filename'>";             
+                    }else {
+                        $files[] = $filename."❌❌❌❌❌ \n";
+                    }
+                }
+            }
+            /*echo '<pre>debugging info:';
+            print_r($files);
+            print '</pre>';*/
+        }
+        
+    }
+}
+function fileUpload($_uploadFolder, $_inputName, $_allowedExtentions){
+    if (isset($_FILES[$_inputName])) {
+        //$currentDirectory = getcwd();
+
+        $uploaddir = dirname( $_SERVER["DOCUMENT_ROOT"] )."/public/$_uploadFolder/";
+    
+        $filename = basename($_FILES[$_inputName]['name']);
+        $fileSize = $_FILES[$_inputName]['size'];
+        $fileTmpName  = $_FILES[$_inputName]['tmp_name'];
+        $fileType = $_FILES[$_inputName]['type'];
+        $fileExtension =substr($filename, -3);
+        $fileHashedName = md5($filename.$fileTmpName).".$fileExtension";
+        
+        /*if (!in_array($fileExtension, $_allowedExtentions)) {
+            //array_push($errors, "file format must be one of the following: ".implode(" ",$_allowedExtentions));
+        }
+
+        if ($fileSize > 4000000) {
+            //array_push($errors,"File exceeds maximum size (4MB)");
+        }*/
+        $uploadfile = $uploaddir . $fileHashedName;
+
+        if (empty($errors)) {
+            if (move_uploaded_file($_FILES[$_inputName]['tmp_name'], $uploadfile)) {
+                echo $filename." 🚀🚀🚀🚀🚀 \n";
+                $localFileName = "/$_uploadFolder/$fileHashedName";
+                echo "<img src='$localFileName' alt='$filename'>";   
+            } else {
+                echo $filename . "❌❌❌❌❌ \n";
+                echo $_FILES[$_inputName]['error'];
+            }
+            echo '<pre>debugging info:';
+            print_r($_FILES);
+            print '</pre>';
+        } else {
+            foreach ($errors as $error) {
+                echo $error . "These are the errors" . "\n";
+            }
+        }
+        
+        
+        
+
+    }
+}
+
 function getUser($username){
     global $dbh;
     $username = strtolower($username);
