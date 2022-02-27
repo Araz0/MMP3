@@ -147,6 +147,10 @@ a {
   color: black;
 }
 
+img {
+  max-width: 100%;
+}
+
 .artplayer {
   width: 44rem;
   height: 24.75rem;
