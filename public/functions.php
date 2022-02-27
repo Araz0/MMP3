@@ -9,15 +9,21 @@ function mutlipleFilesUpload($_inputName, $_uploadFolder, $_allowedExtentions){
 
         if (count($_FILES[$_inputName]['name']) > 0) {
             for ($i=0; $i<count($_FILES[$_inputName]['name']); $i++) {
-                $tmpFilePath = $_FILES[$_inputName]['tmp_name'][$i];
-                if ($tmpFilePath != "") {
+                if ($_FILES[$_inputName]['tmp_name'][$i] != "") {
                     
                     $_inputNameX = "project_members_thumbnail";
                     $input_array = array(basename($_FILES[$_inputNameX]['name'][$i]), $_FILES[$_inputNameX]['tmp_name'][$i], $_FILES[$_inputNameX]['size'][$i], $_FILES[$_inputNameX]['type'][$i], $_FILES[$_inputNameX]['error'][$i]);
-        
-                    fileUpload( $input_array, $_uploadFolder, array('jpeg','jpg','png'));
+                    $localFilePath = fileUpload( $input_array, $_uploadFolder, array('jpeg','jpg','png'));
+
+                    $member_data = array(
+                        'name' => $_POST['project_members_name'][$i],
+                        'role' => $_POST['project_members_role'][$i],
+                        'thumbnail' => $localFilePath
+                    );
+                    $project_members[] = $member_data;
                 }
             }
+            return $project_members;
         }
         
     }
@@ -46,7 +52,8 @@ function fileUpload($_inputArray, $_uploadFolder, $_allowedExtentions){
             if (move_uploaded_file($fileTmpName, $uploadFilePath)) {
                 echo $filename." 🚀🚀🚀🚀🚀 \n";
                 $localFilePath = "/$_uploadFolder/$localFileName";
-                echo "<img src='$localFilePath' alt='$filename'>";   
+                echo "<img src='$localFilePath' alt='$filename'>";
+                return $localFilePath;
             } else {
                 echo $filename . "❌❌❌❌❌ \n";
                 echo $fileError;

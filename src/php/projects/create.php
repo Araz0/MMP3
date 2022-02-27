@@ -20,24 +20,12 @@
 
         $_inputName = "project_thumbnail";
         $input_array = array(basename($_FILES[$_inputName]['name']), $_FILES[$_inputName]['tmp_name'], $_FILES[$_inputName]['size'], $_FILES[$_inputName]['type'], $_FILES[$_inputName]['error']);
-        
-        fileUpload( $input_array, $storage_folder, array('jpeg','jpg','png'));
-        mutlipleFilesUpload("project_members_thumbnail", $storage_folder, array('jpeg','jpg','png'));
+        $project_thumbnail = fileUpload( $input_array, $storage_folder, array('jpeg','jpg','png'));
+        $project_members = [];
+        $project_members = mutlipleFilesUpload("project_members_thumbnail", $storage_folder, array('jpeg','jpg','png'));
+        $project_members = json_encode($project_members, JSON_FORCE_OBJECT);
 
-        if (isset($_POST['project_members_name'])) {
-            for ($i=0; $i < count($_POST['project_members_name']); $i++) { 
-                $member_data = array(
-                    'name' => $_POST['project_members_name'][$i],
-                    'role' => $_POST['project_members_role'][$i],
-                    'thumbnail' => $_FILES['project_members_thumbnail']['name'][$i]
-                );
-                //$member_data = json_encode($member_data, JSON_FORCE_OBJECT);
-                $project_members[] = $member_data;
-            }
-        }else{
-            echo "no members were found... make sure to add 1 at minimum.";
-        }
-        
+        $project_links = [];
         if (isset($_POST['project_link_title'])) {
             for ($i=0; $i < count($_POST['project_link_title']); $i++) { 
                 $link_data = array(
@@ -46,14 +34,14 @@
                 );
                 $project_links[] = $link_data;
             }
-        }else {
-            $project_links = [];
         }
+        $project_links = json_encode($project_links, JSON_FORCE_OBJECT);
+
         $project_location = array(
             'type' => $_POST['project_location_type'],
             'address' => $_POST['project_location_address']
         );
-
+        $project_location = json_encode($project_location, JSON_FORCE_OBJECT);
         
 
     }
