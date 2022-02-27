@@ -11,3 +11,22 @@ a {
 img {
   max-width: 100%;
 }
+
+form {
+  display: grid;
+  max-width: 45rem;
+  margin: 0 auto;
+  gap: 0.5rem;
+  grid-template-columns: auto auto;
+}
+.span-2-col {
+  grid-column: span 2;
+}
+
+.form-group-wrapper {
+  display: grid;
+  gap: 0.2rem;
+  border: solid 1px gray;
+  border-radius: 5px;
+  padding: 0.5em;
+}

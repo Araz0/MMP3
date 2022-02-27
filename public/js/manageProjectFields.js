@@ -6,8 +6,8 @@ function addMemberField(){
     newMemberWrapper.classList.add("project_member_wrapper");
 
     newMemberWrapper.innerHTML = `
-    <div class="project_member_wrapper">
-        <label for="project_members_name[]"><b>project_members</b></label>
+    <div class="project_member_wrapper form-group-wrapper">
+        <label for="project_members_name[]"><b>project_members_name</b></label>
         <input type="text" name="project_members_name[]" id="project_members_name" value="member name 1" required>
         
         <label for="project_members_department[]"><b>project_members_department</b></label>
@@ -43,7 +43,7 @@ function addLinkField(){
     newLinkWrapper.classList.add("project_link_wrapper");
 
     newLinkWrapper.innerHTML = `
-    <div class="project_link_wrapper">
+    <div class="project_link_wrapper form-group-wrapper">
         <label for="project_link_title[]"><b>project_link_title</b></label>
         <input type="text" name="project_link_title[]" id="project_link_title" value="link 1" required>
 

@@ -60,6 +60,8 @@
     
     
     <form action="/projects/create.php" method="post" enctype="multipart/form-data">
+        <input type="hidden" name="project_id" value="0" id="project_id" required>
+
         <label for="project_title"><b>project_title</b></label>
         <input type="text" name="project_title" value="my title" id="project_title" required>
         
@@ -88,9 +90,9 @@
         <input type="file" name="project_hero" id="project_hero" accept="image/*,.jpg,video/mp4">
         
         
-        <div class="project_members_container" id="project_members_container">
-            <div class="project_member_wrapper">
-                <label for="project_members_name[]"><b>project_members</b></label>
+        <div class="project_members_container span-2-col" id="project_members_container">
+            <div class="project_member_wrapper form-group-wrapper">
+                <label for="project_members_name[]"><b>project_members_name</b></label>
                 <input type="text" name="project_members_name[]" id="project_members_name" value="member name 1" required>
                 
                 <label for="project_members_department[]"><b>project_members_department</b></label>
@@ -133,8 +135,8 @@
         <input type="text" name="project_tags" value="tag1, tag2, tag3" id="project_tags" required>
         
 
-        <div class="project_links_container" id="project_links_container">
-            <div class="project_link_wrapper">
+        <div class="project_links_container span-2-col" id="project_links_container">
+            <div class="project_link_wrapper form-group-wrapper">
                 <label for="project_link_title[]"><b>project_link_title</b></label>
                 <input type="text" name="project_link_title[]" id="project_link_title" value="link 1" required>
 
