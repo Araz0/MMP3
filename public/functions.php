@@ -3,7 +3,7 @@ $sufixRegex = "/^([a-zA-Z0-9]+([_-]?[a-zA-Z0-9])*){3,64}$/";
 $errors = array();
 $storage_folder = "storage";
 
-function mutlipleFilesUpload($_inputName, $_uploadFolder, $_allowedExtentions){
+function ProcessProjectMembers($_inputName, $_uploadFolder, $_allowedExtentions){
 
     if (isset($_FILES[$_inputName])) {
 
@@ -18,6 +18,7 @@ function mutlipleFilesUpload($_inputName, $_uploadFolder, $_allowedExtentions){
                     $member_data = array(
                         'name' => $_POST['project_members_name'][$i],
                         'role' => $_POST['project_members_role'][$i],
+                        'department' => $_POST['project_members_department'][$i],
                         'thumbnail' => $localFilePath
                     );
                     $project_members[] = $member_data;
@@ -29,6 +30,7 @@ function mutlipleFilesUpload($_inputName, $_uploadFolder, $_allowedExtentions){
     }
 }
 function fileUpload($_inputArray, $_uploadFolder, $_allowedExtentions){
+    //$input_array = array(basename($_FILES[$_inputNameX]['name'][$i]), $_FILES[$_inputNameX]['tmp_name'][$i], $_FILES[$_inputNameX]['size'][$i], $_FILES[$_inputNameX]['type'][$i], $_FILES[$_inputNameX]['error'][$i]);
     if (isset($_inputArray)) {
 
         $filename = $_inputArray[0];
@@ -52,7 +54,7 @@ function fileUpload($_inputArray, $_uploadFolder, $_allowedExtentions){
             if (move_uploaded_file($fileTmpName, $uploadFilePath)) {
                 echo $filename." 🚀🚀🚀🚀🚀 \n";
                 $localFilePath = "/$_uploadFolder/$localFileName";
-                echo "<img src='$localFilePath' alt='$filename'>";
+                //echo "<img src='$localFilePath' alt='$filename'>";
                 return $localFilePath;
             } else {
                 echo $filename . "❌❌❌❌❌ \n";
@@ -100,10 +102,10 @@ function createUser($username, $email, $first_name, $last_name, $studies, $role)
 function createProject($sufix, $title, $subtitle, $excerpt, $description, $thumbnail, $hero, $members, $degree, $category, $tags, $links, $location, $user_id) {
     global $dbh;
 
-    $members = json_encode($members, JSON_FORCE_OBJECT);
-    $links = json_encode($links, JSON_FORCE_OBJECT);
-    $location = json_encode($location, JSON_FORCE_OBJECT);
-
+    $members = json_encode($members);
+    $links = json_encode($links);
+    $location = json_encode($location);
+    
     $query = "INSERT INTO projects (sufix, title, subtitle, excerpt, description, thumbnail, hero, members, degree, category, tags, links, location, user_id) VALUES (:sufix, :title, :subtitle, :excerpt, :description, :thumbnail, :hero, :members, :degree, :category, :tags, :links, :location, :user_id)";
     $sth = $dbh->prepare($query);
 

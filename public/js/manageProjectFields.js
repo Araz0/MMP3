@@ -10,6 +10,13 @@ function addMemberField(){
         <label for="project_members_name[]"><b>project_members</b></label>
         <input type="text" name="project_members_name[]" id="project_members_name" value="member name 1" required>
         
+        <label for="project_members_department[]"><b>project_members_department</b></label>
+        <select name="project_members_department[]" id="project_members_department"> 
+            <option value="MMA">MMA</option>
+            <option value="MMT">MMT</option>
+            <option value="BWL">BWL</option>
+        </select>
+        
         <label for="project_members_role[]"><b>project_members_role</b></label>
         <input type="text" name="project_members_role[]" id="project_members_role" value="member role 1" required>
         

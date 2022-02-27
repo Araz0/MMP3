@@ -21,10 +21,17 @@
         $_inputName = "project_thumbnail";
         $input_array = array(basename($_FILES[$_inputName]['name']), $_FILES[$_inputName]['tmp_name'], $_FILES[$_inputName]['size'], $_FILES[$_inputName]['type'], $_FILES[$_inputName]['error']);
         $project_thumbnail = fileUpload( $input_array, $storage_folder, array('jpeg','jpg','png'));
-        $project_members = [];
-        $project_members = mutlipleFilesUpload("project_members_thumbnail", $storage_folder, array('jpeg','jpg','png'));
-        $project_members = json_encode($project_members, JSON_FORCE_OBJECT);
 
+        $_inputName = "project_hero";
+        $input_array = array(basename($_FILES[$_inputName]['name']), $_FILES[$_inputName]['tmp_name'], $_FILES[$_inputName]['size'], $_FILES[$_inputName]['type'], $_FILES[$_inputName]['error']);
+        $project_hero = fileUpload( $input_array, $storage_folder, array('jpeg','jpg','png'));
+
+        $project_members = [];
+        $project_members = ProcessProjectMembers("project_members_thumbnail", $storage_folder, array('jpeg','jpg','png'));
+
+        $project_excerpt = $_POST['project_excerpt'];
+        $project_category = $_POST['project_category'];
+        $project_tags = $_POST['project_tags'];
         $project_links = [];
         if (isset($_POST['project_link_title'])) {
             for ($i=0; $i < count($_POST['project_link_title']); $i++) { 
@@ -35,22 +42,22 @@
                 $project_links[] = $link_data;
             }
         }
-        $project_links = json_encode($project_links, JSON_FORCE_OBJECT);
+
 
         $project_location = array(
             'type' => $_POST['project_location_type'],
             'address' => $_POST['project_location_address']
         );
-        $project_location = json_encode($project_location, JSON_FORCE_OBJECT);
         
-
+        $user_id = getUser($_SESSION['fhsUser'])->id;
+        
+        createProject($project_sufix, $project_title, $project_subtitle, $project_excerpt, $project_description, $project_thumbnail, $project_hero, $project_members, $project_excerpt, $project_category, $project_tags, $project_links, $project_location, $user_id);
     }
     
 ?>
 
 <body>
     
-    <?php //createProject(); //sufix, title, subtitle, excerpt, description, thumbnail, hero, members, degree, category, tags, links, location, user_id ?>
     
     <form action="/projects/create.php" method="post" enctype="multipart/form-data">
         <label for="project_title"><b>project_title</b></label>
@@ -86,6 +93,13 @@
                 <label for="project_members_name[]"><b>project_members</b></label>
                 <input type="text" name="project_members_name[]" id="project_members_name" value="member name 1" required>
                 
+                <label for="project_members_department[]"><b>project_members_department</b></label>
+                <select name="project_members_department[]" id="project_members_department"> 
+                    <option value="MMA">MMA</option>
+                    <option value="MMT">MMT</option>
+                    <option value="BWL">BWL</option>
+                </select>
+
                 <label for="project_members_role[]"><b>project_members_role</b></label>
                 <input type="text" name="project_members_role[]" id="project_members_role" value="member role 1" required>
                 
@@ -98,14 +112,14 @@
         </div>
 
         <label for="project_degree"><b>project_degree</b></label>
-        <select name="project_degree" >
+        <select name="project_degree" id="project_degree">
             <option value="Bachelor">Bachelor</option>
             <option value="Master">Master</option>
         </select>
         
 
         <label for="project_category"><b>project_category</b></label>
-        <select name="project_category" > 
+        <select name="project_category" id="project_category"> 
             <option value="MMP1">MMP1</option>
             <option value="MMP2">MMP2</option>
             <option value="MMP2a">MMP2a</option>
@@ -134,7 +148,7 @@
         </div>
 
         <label for="project_location_type"><b>project_location_type</b></label>
-        <select name="project_location_type" >
+        <select name="project_location_type" id="project_location_type">
             <option value="FH Room">FH Room</option>
             <option value="Street Address">Street Address</option>
         </select>
