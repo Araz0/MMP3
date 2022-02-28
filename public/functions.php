@@ -3,31 +3,12 @@ $sufixRegex = "/^([a-zA-Z0-9]+([_-]?[a-zA-Z0-9])*){3,64}$/";
 $errors = array();
 $storage_folder = "storage";
 
-function ProcessProjectMembers($_inputName, $_uploadFolder, $_allowedExtentions){
 
-    if (isset($_FILES[$_inputName])) {
-
-        if (count($_FILES[$_inputName]['name']) > 0) {
-            for ($i=0; $i<count($_FILES[$_inputName]['name']); $i++) {
-                if ($_FILES[$_inputName]['tmp_name'][$i] != "") {
-                    
-                    $_inputNameX = "project_members_thumbnail";
-                    $input_array = array(basename($_FILES[$_inputNameX]['name'][$i]), $_FILES[$_inputNameX]['tmp_name'][$i], $_FILES[$_inputNameX]['size'][$i], $_FILES[$_inputNameX]['type'][$i], $_FILES[$_inputNameX]['error'][$i]);
-                    $localFilePath = fileUpload( $input_array, $_uploadFolder, array('jpeg','jpg','png'));
-
-                    $member_data = array(
-                        'name' => $_POST['project_members_name'][$i],
-                        'role' => $_POST['project_members_role'][$i],
-                        'department' => $_POST['project_members_department'][$i],
-                        'thumbnail' => $localFilePath
-                    );
-                    $project_members[] = $member_data;
-                }
-            }
-            return $project_members;
-        }
-        
-    }
+function makeStrUrlReady($string){
+    $change_letters_from = ['ä','ö','ü',' '];
+    $change_letters_to = ['ea','eo','eu','_'];
+    $string = str_replace($change_letters_from, $change_letters_to, $string);
+    return preg_replace("/[^a-zA-Z0-9_]/", "", $string);
 }
 function fileUpload($_inputArray, $_uploadFolder, $_allowedExtentions){
     //$input_array = array(basename($_FILES[$_inputNameX]['name'][$i]), $_FILES[$_inputNameX]['tmp_name'][$i], $_FILES[$_inputNameX]['size'][$i], $_FILES[$_inputNameX]['type'][$i], $_FILES[$_inputNameX]['error'][$i]);
@@ -52,13 +33,13 @@ function fileUpload($_inputArray, $_uploadFolder, $_allowedExtentions){
 
         if (empty($errors)) {
             if (move_uploaded_file($fileTmpName, $uploadFilePath)) {
-                echo $filename." 🚀🚀🚀🚀🚀 \n";
+                //echo $filename." 🚀🚀🚀🚀🚀 \n";
                 $localFilePath = "/$_uploadFolder/$localFileName";
                 //echo "<img src='$localFilePath' alt='$filename'>";
                 return $localFilePath;
             } else {
-                echo $filename . "❌❌❌❌❌ \n";
-                echo $fileError;
+                //echo $filename . "❌❌❌❌❌ \n";
+                //echo $fileError;
             }
             /*ifecho '<pre>debugging info:';
             print_r($_FILES);
@@ -99,14 +80,13 @@ function createUser($username, $email, $first_name, $last_name, $studies, $role)
     $sth->execute();
 }
 
-function createProject($sufix, $title, $subtitle, $excerpt, $description, $thumbnail, $hero, $members, $degree, $category, $tags, $links, $location, $user_id) {
+function createProject($sufix, $title, $subtitle, $excerpt, $description, $thumbnail, $teaser, $members, $degree, $tags, $links, $user_id) {
     global $dbh;
 
     $members = json_encode($members);
     $links = json_encode($links);
-    $location = json_encode($location);
     
-    $query = "INSERT INTO projects (sufix, title, subtitle, excerpt, description, thumbnail, hero, members, degree, category, tags, links, location, user_id) VALUES (:sufix, :title, :subtitle, :excerpt, :description, :thumbnail, :hero, :members, :degree, :category, :tags, :links, :location, :user_id)";
+    $query = "INSERT INTO projects (sufix, title, subtitle, excerpt, description, thumbnail, teaser, members, degree, tags, links, user_id) VALUES (:sufix, :title, :subtitle, :excerpt, :description, :thumbnail, :teaser, :members, :degree, :tags, :links, :user_id)";
     $sth = $dbh->prepare($query);
 
     $sth->bindParam('sufix', $sufix, PDO::PARAM_STR);
@@ -115,22 +95,41 @@ function createProject($sufix, $title, $subtitle, $excerpt, $description, $thumb
     $sth->bindParam('excerpt', $excerpt, PDO::PARAM_STR);
     $sth->bindParam('description', $description, PDO::PARAM_STR);
     $sth->bindParam('thumbnail', $thumbnail, PDO::PARAM_STR);
-    $sth->bindParam('hero', $hero, PDO::PARAM_STR);
+    $sth->bindParam('teaser', $teaser, PDO::PARAM_STR);
     $sth->bindParam('members', $members, PDO::PARAM_STR);
     $sth->bindParam('degree', $degree, PDO::PARAM_STR);
-    $sth->bindParam('category', $category, PDO::PARAM_STR);
     $sth->bindParam('tags', $tags, PDO::PARAM_STR);
     $sth->bindParam('links', $links, PDO::PARAM_STR);
-    $sth->bindParam('location', $location, PDO::PARAM_STR);
     $sth->bindParam('user_id', $user_id, PDO::PARAM_INT);
     $sth->execute();
 
 }
 
-function getProject($project_id){
-    global $dhb;
+function createMediaBlock($title, $type, $content, $description, $project_id){
+    global $dbh;
+    $query = "INSERT INTO media_blocks (title, type, content, description, project_id) VALUES (:title, :type, :content, :description, :project_id)";
+    $sth = $dbh->prepare($query);
+
+    $sth->bindParam('title', $title, PDO::PARAM_STR);
+    $sth->bindParam('type', $type, PDO::PARAM_STR);
+    $sth->bindParam('content', $content, PDO::PARAM_STR);
+    $sth->bindParam('description', $description, PDO::PARAM_STR);
+    $sth->bindParam('project_id', $project_id, PDO::PARAM_INT);
+    $sth->execute();
+}
+
+function getProjectbyId($project_id){
+    global $dbh;
     $query = "SELECT * FROM projects WHERE id=?";
     $sth = $dbh->prepare($query);
     $sth->execute(array($project_id));
+    return $sth->fetch();
+}
+
+function getProjectbySufixAndUser($sufix, $user_id){
+    global $dbh;
+    $query = "SELECT * FROM projects WHERE sufix=? AND user_id=?";
+    $sth = $dbh->prepare($query);
+    $sth->execute(array($sufix, $user_id));
     return $sth->fetch();
 }

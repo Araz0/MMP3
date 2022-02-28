@@ -1,6 +1,4 @@
 /*	CREATE DATABASE MMP3	*/
-CREATE TYPE degrees AS ENUM ('Master', 'Bachelor');
-CREATE TYPE categories AS ENUM ('MMP1', 'MMP2', 'MMP2a', 'MMP2b', 'MMP3');
 CREATE TABLE users(
   ID serial PRIMARY KEY NOT NULL,
   username VARCHAR(255) NOT NULL,
@@ -18,22 +16,23 @@ CREATE TABLE projects(
   excerpt TEXT NOT NULL,
   description TEXT NOT NULL,
   thumbnail VARCHAR(255) NOT NULL,
-  hero VARCHAR(255) NOT NULL,
-  members VARCHAR(255) NOT NULL,
-  degree VARCHAR(10) NOT NULL,
-  category VARCHAR(10) NOT NULL,
+  teaser VARCHAR(255) NOT NULL,
+  members TEXT NOT NULL,
+  degree VARCHAR(25) NOT NULL,
   tags VARCHAR(255) NOT NULL,
-  links VARCHAR(255) NOT NULL,
-  location VARCHAR(255) NOT NULL,
+  links TEXT NOT NULL,
   user_id INTEGER REFERENCES users(id) ON DELETE CASCADE
 );
-CREATE TABLE maps(
+CREATE TABLE media_blocks (
   ID serial PRIMARY KEY NOT NULL,
+  title VARCHAR(255) NOT NULL,
+  type VARCHAR(255) NOT NULL,
+  content TEXT NOT NULL,
+  description TEXT,
   project_id INTEGER REFERENCES projects(id) ON DELETE CASCADE
 );
-
-
-
 /*   Seeding   */
-
-INSERT INTO users VALUES (1, 'aro', 'root', current_timestamp );
+INSERT INTO
+  users
+VALUES
+  (1, 'aro', 'root', current_timestamp);
