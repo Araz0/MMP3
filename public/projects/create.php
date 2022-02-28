@@ -235,7 +235,7 @@
                 <input type="text" name="project_link_url[]" id="project_link_url" value="https://www.example.com" required>
 
                 <button type="button" onclick="deleteField(this)">Delete Link</button> 
-                <br>
+                
             </div>
             <button type="button" id="add_new_link_btn">Add New Link</button> 
         </div>
