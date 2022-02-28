@@ -57,10 +57,8 @@
 ?>
 
 <body>
-    
-    
-    <form action="/projects/create.php" method="post" enctype="multipart/form-data">
-        <input type="hidden" name="project_id" value="0" id="project_id" required>
+    <form action="" method="post" enctype="multipart/form-data">
+        <input type="hidden" name="project_id" value="-" id="project_id" required>
 
         <label for="project_title"><b>project_title</b></label>
         <input type="text" name="project_title" value="my title" id="project_title" required>
@@ -147,6 +145,28 @@
                 <br>
             </div>
             <button type="button" id="add_new_link_btn">Add New Link</button> 
+        </div>
+
+        <div class="project_media_container span-2-col" id="project_media_container">
+            <div class="project_media_wrapper form-group-wrapper">
+                <label for="project_media_type[]"><b>project_media_type</b></label>
+                <select name="project_media_type[]" id="project_media_type" onchange="changeInputType(this)" required> 
+                    <option value="Text">Text</option>
+                    <option value="Media">Media</option>
+                    <option value="Document">Document</option>
+                    <option value="Gallery">Gallery</option>
+                </select>
+    
+                <label for="project_media_title[]"><b>project_media_title</b></label>
+                <input type="text" name="project_media_title[]" value="media title" id="project_media_title" required>
+    
+                <div class="project_media_block">
+                    <label for="project_media_text[]"><b>project_media_text</b></label>
+                    <textarea name="project_media_text[]" id="project_media_text" rows="4" cols="50" required>project_media_text project_media_text project_media_text</textarea>
+                </div>
+                <button type="button" onclick="deleteField(this)">Delete Media</button> 
+            </div>
+            <button type="button" id="add_new_media_btn">Add New Media</button> 
         </div>
 
         <label for="project_location_type"><b>project_location_type</b></label>
