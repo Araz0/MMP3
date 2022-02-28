@@ -105,6 +105,32 @@ function createProject($sufix, $title, $subtitle, $excerpt, $description, $thumb
 
 }
 
+
+function updateProject($sufix, $title, $subtitle, $excerpt, $description, $thumbnail, $teaser, $members, $degree, $tags, $links, $old_sufix) {
+    global $dbh;
+
+    $members = json_encode($members);
+    $links = json_encode($links);
+    
+    $query = "UPDATE projects SET sufix=:sufix, title=:title, subtitle=:subtitle, excerpt=:excerpt, description=:description, thumbnail=:thumbnail, teaser=:teaser, members=:members, degree=:degree, tags=:tags, links=:links WHERE sufix=:old_sufix";
+    $sth = $dbh->prepare($query);
+
+    $sth->bindParam('sufix', $sufix, PDO::PARAM_STR);
+    $sth->bindParam('title', $title, PDO::PARAM_STR);
+    $sth->bindParam('subtitle', $subtitle, PDO::PARAM_STR);
+    $sth->bindParam('excerpt', $excerpt, PDO::PARAM_STR);
+    $sth->bindParam('description', $description, PDO::PARAM_STR);
+    $sth->bindParam('thumbnail', $thumbnail, PDO::PARAM_STR);
+    $sth->bindParam('teaser', $teaser, PDO::PARAM_STR);
+    $sth->bindParam('members', $members, PDO::PARAM_STR);
+    $sth->bindParam('degree', $degree, PDO::PARAM_STR);
+    $sth->bindParam('tags', $tags, PDO::PARAM_STR);
+    $sth->bindParam('links', $links, PDO::PARAM_STR);
+    $sth->bindParam('old_sufix', $old_sufix, PDO::PARAM_STR);
+    $sth->execute();
+
+}
+
 function createMediaBlock($title, $type, $content, $description, $project_id){
     global $dbh;
     $query = "INSERT INTO media_blocks (title, type, content, description, project_id) VALUES (:title, :type, :content, :description, :project_id)";
