@@ -148,8 +148,6 @@ newMediaBtn.addEventListener("click", function() {
             <input type="text" name="project_media_description[]" value="project_media_description" id="project_media_description" required>
         </div>
 
-        
-
         <button type="button" onclick="deleteField(this)">Delete Media</button> 
     `;
 
