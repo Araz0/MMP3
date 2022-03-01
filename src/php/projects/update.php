@@ -280,7 +280,67 @@
 
         <div class="project_media_container span-2-col" id="project_media_container">
             <?php 
-                
+                $mediaBlocks = getMediaBlocks($project->id);
+                if (isset($mediaBlocks)) {
+                    
+                    foreach ($mediaBlocks as $key => $mediaBlock) {
+                        echo '<div class="project_media_wrapper form-group-wrapper">';
+                        echo '
+                        <label for="project_media_type[]"><b>project_media_type</b></label>
+                        <select name="project_media_type[]" id="project_media_type" value="'.$mediaBlock->type.'" onchange="changeInputType(this)" required> 
+                            <option value="Text">Text</option>
+                            <option value="Media">Media(image, video, audio, document)</option>
+                            <option value="Embeded">Embeded youtube | Vimeo</option>
+                            <option value="Gallery">Gallery</option>
+                        </select>
+
+                        <label for="project_media_title[]"><b>project_media_title</b></label>
+                        <input type="text" name="project_media_title[]" value="'.$mediaBlock->title.'" id="project_media_title" required>
+
+                        <div class="project_media_block">';
+                        switch ($mediaBlock->type){
+                            case "text":
+                                echo '
+                                <label for="project_media_text[]"><b>project_media_text</b></label>
+                                <textarea name="project_media_text[]" id="project_media_text" rows="4" cols="50" required>'.$mediaBlock->content.'</textarea>
+                                ';
+                              break;
+                              case "Media":
+                                if (isset($mediaBlock->file)) {
+                                    echo '
+                                    <label for="project_media_file[]"><b>project_media_file</b></label>
+                                    <input type="file" name="project_media_file[]" id="project_media_file" value="'.$mediaBlock->file.'" accept="image/*,.jpg">
+                                ';
+                                }
+                              break;
+                            case "Embeded":
+                                echo '
+                                    <label for="project_media_url[]"><b>project_media_url</b></label>
+                                    <input type="text" name="project_media_url[]" value="'.$mediaBlock->content.'" id="project_media_url" required>
+                                ';
+                              break;
+                            case "Gallery":
+                                echo '
+                                    <label for="project_media_gallery[]"><b>project_media_gallery</b></label>
+                                    <input type="file" name="project_media_gallery[]" id="project_media_gallery" accept="image/*,.jpg" multiple>
+                                    ';
+                                break;
+                            default:
+                              
+                        } 
+
+                            
+                        echo '
+                            <label for="project_media_description[]"><b>project_media_description</b></label>
+                            <input type="text" name="project_media_description[]" value='.$mediaBlock->description.'" id="project_media_description" required>
+                        </div>
+
+                        <button type="button" onclick="deleteField(this)">Delete Media</button> 
+                        ';
+                        echo '</div>';
+                    }
+                    
+                }
             ?>
             <button type="button" id="add_new_media_btn">Add New Media</button> 
         </div>
