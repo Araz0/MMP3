@@ -144,6 +144,14 @@ function createMediaBlock($title, $type, $content, $description, $project_id){
     $sth->execute();
 }
 
+function getMediaBlocks($pid) {
+    global $dbh;
+    $query = "SELECT * FROM media_blocks WHERE project_id=?";
+    $sth = $dbh->prepare($query);
+    $sth->execute(array($pid));
+    return $sth->fetchAll();
+}
+
 function getProjectbyId($project_id){
     global $dbh;
     $query = "SELECT * FROM projects WHERE id=?";
