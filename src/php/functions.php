@@ -35,23 +35,15 @@ function fileUpload($_inputArray, $_uploadFolder, $_allowedExtentions){
             if (move_uploaded_file($fileTmpName, $uploadFilePath)) {
                 //echo $filename." 🚀🚀🚀🚀🚀 \n";
                 $localFilePath = "/$_uploadFolder/$localFileName";
-                //echo "<img src='$localFilePath' alt='$filename'>";
                 return $localFilePath;
             } else {
                 //echo $filename . "❌❌❌❌❌ \n";
-                //echo $fileError;
             }
-            /*ifecho '<pre>debugging info:';
-            print_r($_FILES);
-            print '</pre>';*/
         } else {
             foreach ($errors as $error) {
                 echo $error . "These are the errors" . "\n";
             }
         }
-        
-        
-        
 
     }
 }
