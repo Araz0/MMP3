@@ -176,52 +176,54 @@
                 
                 if (isset($members) && count($members) > 0) {
                     for ($i=0; $i<count($members); $i++) {
-                        echo '
+                        ?>
                         <div class="project_member_wrapper form-group-wrapper">
                             <label for="project_members_name[]"><b>project_members_name</b></label>
-                            <input type="text" name="project_members_name[]" id="project_members_name" value="'.$members[$i]['name'].'" required>
+                            <input type="text" name="project_members_name[]" id="project_members_name" value="<?php echo $members[$i]['name'];?>" required>
                             
                             <label for="project_members_department[]"><b>project_members_department</b></label>
-                            <select name="project_members_department[]" id="project_members_department" value="'.$members[$i]['department'].'"> 
-                                <option value="MMT">MMT</option>
-                                <option value="MMA">MMA</option>
-                                <option value="HCI">HCI</option>
-                                <option value="KMU">KMU</option>
-                                <option value="HTB">HTB</option>
-                                <option value="SMB">SMB</option>
-                                <option value="SMC">SMC</option>
-                                <option value="ITS">ITS</option>
-                                <option value="AIS">AIS</option>
-                                <option value="HTW">HTW</option>
-                                <option value="BWI">BWI</option>
-                                <option value="IMT">IMT</option>
-                                <option value="SOZA">SOZA</option>
-                                <option value="PDM">PDM</option>
-                                <option value="BMA">BMA</option>
-                                <option value="HEB">HEB</option>
-                                <option value="GUK">GUK</option>
-                                <option value="OTH">OTH</option>
-                                <option value="ETH">ETH</option>
-                                <option value="PTH">PTH</option>
-                                <option value="RET">RET</option>
+                            <select name="project_members_department[]" id="project_members_department"> 
+                                <?php $member_dep = $members[$i]['department'];?>
+                                <option value="MMT" <?php echo $member_dep == 'MMP1' ? ' selected ' : '';?>>MMT</option>
+                                <option value="MMA" <?php echo $member_dep == 'MMA' ? ' selected ' : '';?>>MMA</option>
+                                <option value="HCI" <?php echo $member_dep == 'HCI' ? ' selected ' : '';?>>HCI</option>
+                                <option value="KMU" <?php echo $member_dep == 'KMU' ? ' selected ' : '';?>>KMU</option>
+                                <option value="HTB" <?php echo $member_dep == 'HTB' ? ' selected ' : '';?>>HTB</option>
+                                <option value="SMB" <?php echo $member_dep == 'SMB' ? ' selected ' : '';?>>SMB</option>
+                                <option value="SMC" <?php echo $member_dep == 'SMC' ? ' selected ' : '';?>>SMC</option>
+                                <option value="ITS" <?php echo $member_dep == 'ITS' ? ' selected ' : '';?>>ITS</option>
+                                <option value="AIS" <?php echo $member_dep == 'AIS' ? ' selected ' : '';?>>AIS</option>
+                                <option value="HTW" <?php echo $member_dep == 'HTW' ? ' selected ' : '';?>>HTW</option>
+                                <option value="BWI" <?php echo $member_dep == 'BWI' ? ' selected ' : '';?>>BWI</option>
+                                <option value="IMT" <?php echo $member_dep == 'IMT' ? ' selected ' : '';?>>IMT</option>
+                                <option value="SOZA" <?php echo $member_dep == 'SOZA' ? ' selected ' : '';?>>SOZA</option>
+                                <option value="PDM" <?php echo $member_dep == 'PDM' ? ' selected ' : '';?>>PDM</option>
+                                <option value="BMA" <?php echo $member_dep == 'BMA' ? ' selected ' : '';?>>BMA</option>
+                                <option value="HEB" <?php echo $member_dep == 'HEB' ? ' selected ' : '';?>>HEB</option>
+                                <option value="GUK" <?php echo $member_dep == 'GUK' ? ' selected ' : '';?>>GUK</option>
+                                <option value="OTH" <?php echo $member_dep == 'OTH' ? ' selected ' : '';?>>OTH</option>
+                                <option value="ETH" <?php echo $member_dep == 'ETH' ? ' selected ' : '';?>>ETH</option>
+                                <option value="PTH" <?php echo $member_dep == 'PTH' ? ' selected ' : '';?>>PTH</option>
+                                <option value="RET" <?php echo $member_dep == 'RET' ? ' selected ' : '';?>>RET</option>
                             </select>
             
                             <label for="project_members_role[]"><b>project_members_role</b></label>
-                            <input type="text" name="project_members_role[]" id="project_members_role" value="'.$members[$i]['role'].'" required>
+                            <input type="text" name="project_members_role[]" id="project_members_role" value="<?php echo $members[$i]['role'];?>" required>
                             
                             <label for="project_members_category[]"><b>project_members_category</b></label>
-                            <select name="project_members_category[]" id="project_members_category" value="'.$members[$i]['category'].'"> 
-                                <option value="MMP1">MMP1</option>
-                                <option value="MMP2">MMP2</option>
-                                <option value="MMP2a">MMP2a</option>
-                                <option value="MMP2b">MMP2b</option>
-                                <option value="MMP3">MMP3</option>
-                                <option value="AbschlussProject">Master Project</option>
+                            <select name="project_members_category[]" id="project_members_category"> 
+                                <?php $member_cat = $members[$i]['category'];?>
+                                <option value="MMP1" <?php echo $member_cat == 'MMP1' ? ' selected ' : '';?>>MMP1</option>
+                                <option value="MMP2" <?php echo $member_cat == 'MMP2' ? ' selected ' : '';?>>MMP2</option>
+                                <option value="MMP2a" <?php echo $member_cat == 'MMP2a' ? ' selected ' : '';?>>MMP2a</option>
+                                <option value="MMP2b" <?php echo $member_cat == 'MMP2b' ? ' selected ' : '';?>>MMP2b</option>
+                                <option value="MMP3" <?php echo $member_cat == 'MMP3' ? ' selected ' : '';?>>MMP3</option>
+                                <option value="AbschlussProject" <?php echo $member_cat == 'AbschlussProject' ? ' selected ' : '';?>>Master Project</option>
                             </select>
                             
                             <button type="button" onclick="deleteField(this)">Delete Memeber</button> 
                         </div>
-                        ';
+                        <?php
                     }
                     
                 }
