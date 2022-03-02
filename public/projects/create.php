@@ -133,6 +133,7 @@
                 }
             }
         }
+        header('Location: /projects/update.php?pid='.$project_sufix);
     }
     
 ?>
@@ -160,11 +161,11 @@
         
 
         <label for="project_thumbnail"><b>project_thumbnail</b></label>
-        <input type="file" name="project_thumbnail" id="project_thumbnail" accept="image/*,.jpg">
+        <input type="file" name="project_thumbnail" id="project_thumbnail" accept="image/*,.jpg" required>
         
 
         <label for="project_teaser"><b>project_teaser</b></label>
-        <input type="file" name="project_teaser" id="project_teaser" accept="image/*,.jpg,video/mp4">
+        <input type="file" name="project_teaser" id="project_teaser" accept="image/*,.jpg,video/mp4" required>
         
         <label for="project_degree"><b>project_degree</b></label>
         <select name="project_degree" id="project_degree">

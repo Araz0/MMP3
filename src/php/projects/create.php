@@ -130,9 +130,11 @@
                 for ($i=0; $i<count($media_blocks); $i++) { 
                     //$media_blocks[$i]
                     createMediaBlock($media_blocks[$i]['title'], $media_blocks[$i]['type'], $media_blocks[$i]['content'], $media_blocks[$i]['description'], $media_blocks[$i]['pid']);
+                    
                 }
             }
         }
+        header('Location: /projects/update.php?pid='.$project_sufix);
     }
     
 ?>
