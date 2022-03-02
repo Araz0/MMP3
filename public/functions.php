@@ -106,13 +106,13 @@ function createProject($sufix, $title, $subtitle, $excerpt, $description, $thumb
 }
 
 
-function updateProject($sufix, $title, $subtitle, $excerpt, $description, $thumbnail, $teaser, $members, $degree, $tags, $links, $old_sufix) {
+function updateProject($sufix, $title, $subtitle, $excerpt, $description, $thumbnail, $teaser, $members, $degree, $tags, $links, $Project_id) {
     global $dbh;
 
     $members = json_encode($members);
     $links = json_encode($links);
     
-    $query = "UPDATE projects SET sufix=:sufix, title=:title, subtitle=:subtitle, excerpt=:excerpt, description=:description, thumbnail=:thumbnail, teaser=:teaser, members=:members, degree=:degree, tags=:tags, links=:links WHERE sufix=:old_sufix";
+    $query = "UPDATE projects SET sufix=:sufix, title=:title, subtitle=:subtitle, excerpt=:excerpt, description=:description, thumbnail=:thumbnail, teaser=:teaser, members=:members, degree=:degree, tags=:tags, links=:links WHERE id=:Project_id";
     $sth = $dbh->prepare($query);
 
     $sth->bindParam('sufix', $sufix, PDO::PARAM_STR);
@@ -126,7 +126,7 @@ function updateProject($sufix, $title, $subtitle, $excerpt, $description, $thumb
     $sth->bindParam('degree', $degree, PDO::PARAM_STR);
     $sth->bindParam('tags', $tags, PDO::PARAM_STR);
     $sth->bindParam('links', $links, PDO::PARAM_STR);
-    $sth->bindParam('old_sufix', $old_sufix, PDO::PARAM_STR);
+    $sth->bindParam('Project_id', $Project_id, PDO::PARAM_INT);
     $sth->execute();
 
 }

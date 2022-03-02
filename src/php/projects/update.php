@@ -17,7 +17,7 @@
 
     if (isset($_POST['update_project'])) {
         $project_title = $_POST['project_title'];
-        $project_sufix = makeStrUrlReady($project_title);
+        $project_sufix = $_POST['project_sufix'];
         $project_subtitle = $_POST['project_subtitle'];
         $project_excerpt = $_POST['project_excerpt'];
         $project_description = $_POST['project_description'];
@@ -25,11 +25,15 @@
         $_inputName = "project_thumbnail";
         $input_array = array(basename($_FILES[$_inputName]['name']), $_FILES[$_inputName]['tmp_name'], $_FILES[$_inputName]['size'], $_FILES[$_inputName]['type'], $_FILES[$_inputName]['error']);
         $project_thumbnail = fileUpload( $input_array, $storage_folder, array('jpeg','jpg','png'));
-
+        if ($project_thumbnail == null) {
+            $project_thumbnail = $project->thumbnail;
+        }
         $_inputName = "project_teaser";
         $input_array = array(basename($_FILES[$_inputName]['name']), $_FILES[$_inputName]['tmp_name'], $_FILES[$_inputName]['size'], $_FILES[$_inputName]['type'], $_FILES[$_inputName]['error']);
         $project_teaser = fileUpload( $input_array, $storage_folder, array('jpeg','jpg','png','mp4'));
-
+        if ($project_teaser == null) {
+            $project_teaser = $project->teaser;
+        }
         $project_excerpt = $_POST['project_excerpt'];
         $project_degree = $_POST['project_degree'];
 
@@ -61,10 +65,8 @@
         
         $user_id = getUser($_SESSION['fhsUser'])->id;
         
-        createProject($project_sufix, $project_title, $project_subtitle, $project_excerpt, $project_description, $project_thumbnail, $project_teaser, $project_members, $project_degree, $project_tags, $project_links, $user_id);
-        
-        if (isset($_POST['project_media_type'])) {
-            $project = getProjectbySufixAndUser($project_sufix, $user_id);
+        updateProject($project_sufix, $project_title, $project_subtitle, $project_excerpt, $project_description, $project_thumbnail, $project_teaser, $project_members, $project_degree, $project_tags, $project_links, $project->id);
+        /*if (isset($_POST['project_media_type'])) {
             $project_id = $project->id;
 
             $project_media_blocks = [];
@@ -136,7 +138,8 @@
                     createMediaBlock($media_blocks[$i]['title'], $media_blocks[$i]['type'], $media_blocks[$i]['content'], $media_blocks[$i]['description'], $media_blocks[$i]['pid']);
                 }
             }
-        }
+        }*/
+        header('Location: /projects/update.php?pid='.$project_sufix);
     }
     
 ?>
@@ -345,7 +348,7 @@
             <button type="button" id="add_new_media_btn">Add New Media</button> 
         </div>
 
-        <input class="" type="submit" value='Create' name='update_project'>
+        <input type="submit" value='Create' name='update_project'>
     </form>
 
     
