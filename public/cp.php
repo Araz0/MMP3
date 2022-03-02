@@ -13,9 +13,10 @@
     require "components/head.php";
 
     $user_id = getUser($_SESSION['fhsUser'])->id;
+    
     $all_users = [];
     if (isset($_POST['set_configs'])) {
-        
+        updateConfigs($_POST['first_date_time'], $_POST['first_title'], $_POST['second_date_time'], $_POST['second_title']);
     }
     if (isset($_POST['update_user'])) {
         updateUserRole($_POST['user_id'], $_POST['user_role']);
@@ -25,26 +26,27 @@
     }else {
         $all_users = getAllUsers();
     }
-    
+    $configs = getConfigs();
 ?>
 
 <body>
-    <form action="" method="post" enctype="multipart/form-data">
-        <label for="first_title"><b>First Release Title</b></label>
-        <input type="text" name="first_title" value="" id="first_title" required>
+    <section>
+        <form action="" method="post" enctype="multipart/form-data">
+            <label for="first_title"><b>First Release Title</b></label>
+            <input type="text" name="first_title" id="first_title" value="<?php echo $configs->first_release_title; ?>">
 
-        <label for="first_date_time">date and time:</label>
-        <input type="datetime-local" id="first_date_time" name="first_date_time"> 
+            <label for="first_date_time">date and time:</label>
+            <input type="datetime-local" id="first_date_time" name="first_date_time" value="<?php echo $configs->first_release_date; ?>"> 
 
-        <label for="second_title"><b>Second Release Title</b></label>
-        <input type="text" name="first_title" value="" id="first_title" required>
+            <label for="second_title"><b>Second Release Title</b></label>
+            <input type="text" name="second_title" id="second_title" value="<?php echo $configs->second_release_title; ?>">
 
-        <label for="second_date_time">date and time:</label>
-        <input type="datetime-local" id="second_date_time" name="second_date_time">
+            <label for="second_date_time">date and time:</label>
+            <input type="datetime-local" id="second_date_time" name="second_date_time" value="<?php echo $configs->second_release_date; ?>">
 
-        <input type="submit" value='Update' name='set_configs'>
-    </form>
-
+            <input type="submit" value='Update' name='set_configs'>
+        </form>
+    </section>
     <section>
         <form action="" method="post" enctype="multipart/form-data">
             <label for="user_search"><b>Search: </b></label>

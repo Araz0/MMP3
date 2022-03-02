@@ -31,15 +31,17 @@ CREATE TABLE media_blocks (
   description TEXT,
   project_id INTEGER REFERENCES projects(id) ON DELETE CASCADE
 );
-
 CREATE TABLE configs (
   ID serial PRIMARY KEY NOT NULL,
-  first_release_date DATE NOT NULL,
-  second_release_date NOT NULL,
-  departments varchar(255) NOT NULL, /* MMT,MMA,HCI,KMU,HTB,SMB,SMC,ITS,AIS,HTW,BWI,IMT,SOZA,PDM,BMA,HEB,GUK,OTH,ETH,PTH,RET */
-  categories varchar(255) NOT NULL, /* MMP1,MMP2,MMP2a,MMP2b,MMP3,Master Project */
+  first_release_date TIMESTAMP NOT NULL,
+  first_release_title VARCHAR(255) NOT NULL,
+  second_release_date TIMESTAMP NOT NULL,
+  second_release_title VARCHAR(255) NOT NULL
 );
-
+/*
+departments varchar(255) NOT NULL, // MMT,MMA,HCI,KMU,HTB,SMB,SMC,ITS,AIS,HTW,BWI,IMT,SOZA,PDM,BMA,HEB,GUK,OTH,ETH,PTH,RET 
+  categories varchar(255) NOT NULL, // MMP1,MMP2,MMP2a,MMP2b,MMP3,Master Project 
+*/
 /*   Seeding   */
 INSERT INTO
   users

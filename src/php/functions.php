@@ -47,7 +47,37 @@ function fileUpload($_inputArray, $_uploadFolder, $_allowedExtentions){
 
     }
 }
+function initConfigs($first_release_date, $first_release_title, $second_release_date, $second_release_title){
+    global $dbh;
+    $first_release_date = date('d/M/Y H:i', strtotime($first_release_date));
+    $second_release_date = date('d/M/Y H:i', strtotime($second_release_date));
 
+    $query = "INSERT INTO configs (first_release_date, first_release_title, second_release_date, second_release_title) VALUES (:first_release_date, :first_release_title, :second_release_date, :second_release_title)";
+    $sth = $dbh->prepare($query);
+    $sth->bindParam('first_release_date', $first_release_date, PDO::PARAM_STR);
+    $sth->bindParam('first_release_title', $first_release_title, PDO::PARAM_STR);
+    $sth->bindParam('second_release_date', $second_release_date, PDO::PARAM_STR);
+    $sth->bindParam('second_release_title', $second_release_title, PDO::PARAM_STR);
+
+    $sth->execute();
+}
+function getConfigs(){
+    global $dbh;
+    $query = "SELECT * FROM configs WHERE id=?";
+    $sth = $dbh->prepare($query);
+    $sth->execute(array(1));
+    return $sth->fetch();
+}
+function updateConfigs($first_release_date, $first_release_title, $second_release_date, $second_release_title){
+    global $dbh;
+    $query = "UPDATE configs SET first_release_date=:first_release_date, first_release_title=:first_release_title, second_release_date=:second_release_date, second_release_title=:second_release_title WHERE id=1";
+    $sth = $dbh->prepare($query);
+    $sth->bindParam('first_release_date', $first_release_date, PDO::PARAM_STR);
+    $sth->bindParam('first_release_title', $first_release_title, PDO::PARAM_STR);
+    $sth->bindParam('second_release_date', $second_release_date, PDO::PARAM_STR);
+    $sth->bindParam('second_release_title', $second_release_title, PDO::PARAM_STR);
+    $sth->execute();
+}
 function getUser($username){
     global $dbh;
     $username = strtolower($username);
