@@ -176,7 +176,7 @@
         <input type="text" name="project_tags" value="tag1, tag2, tag3" id="project_tags" required>
         
         <div class="project_members_container span-2-col" id="project_members_container">
-            <div class="project_member_wrapper form-group-wrapper">
+            <?php /*<div class="project_member_wrapper form-group-wrapper">
                 <label for="project_members_name[]"><b>project_members_name</b></label>
                 <input type="text" name="project_members_name[]" id="project_members_name" value="member name 1" required>
                 
@@ -219,7 +219,7 @@
                 </select>
                 
                 <button type="button" onclick="deleteField(this)">Delete Memeber</button> 
-            </div>
+            </div>*/?>
             <button type="button" id="add_new_member_btn">Add New Member</button> 
         </div>
 
@@ -227,7 +227,7 @@
         
 
         <div class="project_links_container span-2-col" id="project_links_container">
-            <div class="project_link_wrapper form-group-wrapper">
+            <?php /*<div class="project_link_wrapper form-group-wrapper">
                 <label for="project_link_title[]"><b>project_link_title</b></label>
                 <input type="text" name="project_link_title[]" id="project_link_title" value="link 1" required>
 
@@ -236,7 +236,7 @@
 
                 <button type="button" onclick="deleteField(this)">Delete Link</button> 
                 
-            </div>
+            </div>*/?>
             <button type="button" id="add_new_link_btn">Add New Link</button> 
         </div>
 
