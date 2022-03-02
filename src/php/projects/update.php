@@ -8,13 +8,14 @@
 
 
     $pagetitle = "Create Project";
-    require '../config.php'; //This is the oauth-config! You will also need your standard-config file
+    require '../config.php';
     require '../functions.php';
     require "../components/head.php";
 
     $user_id = getUser($_SESSION['fhsUser'])->id;
     $project = getProjectbySufixAndUser($_GET['pid'], $user_id);
-
+    $mediaBlocks = getMediaBlocks($project->id);
+    
     if (isset($_POST['update_project'])) {
         $project_title = $_POST['project_title'];
         $project_sufix = $_POST['project_sufix'];
@@ -66,79 +67,56 @@
         $user_id = getUser($_SESSION['fhsUser'])->id;
         
         updateProject($project_sufix, $project_title, $project_subtitle, $project_excerpt, $project_description, $project_thumbnail, $project_teaser, $project_members, $project_degree, $project_tags, $project_links, $project->id);
-        /*if (isset($_POST['project_media_type'])) {
+
+        if (isset($_POST['project_media_type'])) {
             $project_id = $project->id;
-
+            
             $project_media_blocks = [];
-            $_inputName = "project_media_text";
-            if (isset($_POST[$_inputName]) && count($_POST[$_inputName]) > 0) {
-                for ($i=0; $i<count($_POST[$_inputName]); $i++) {
-                    $media_data = array(
-                        'title' => $_POST['project_media_title'][$i],
-                        'type' => $_POST['project_media_type'][$i],
-                        'content' => $_POST['project_media_text'][$i],
-                        'description' => '-',
-                        'pid' => $project_id
-                    );
-                    $project_media_blocks[] = $media_data;
-                }
-                
-            }
-            $_inputName = "project_media_file";
-            if (isset($_FILES[$_inputName]['name']) && count($_FILES[$_inputName]['name']) > 0) {
-                for ($i=0; $i<count($_FILES[$_inputName]['name']); $i++) {
-                    $input_array = array(basename($_FILES[$_inputName]['name'][$i]), $_FILES[$_inputName]['tmp_name'][$i], $_FILES[$_inputName]['size'][$i], $_FILES[$_inputName]['type'][$i], $_FILES[$_inputName]['error'][$i]);
-                    $media_file = fileUpload( $input_array, $storage_folder, array('jpeg','jpg','png','gif','mp3','mp4','pdf','doc'));
+
+            $_inputTypeName = "project_media_type";
+            if (isset($_POST[$_inputTypeName]) && count($_POST[$_inputTypeName]) > 0) {
+                for ($i=0; $i<count($_POST[$_inputTypeName]); $i++) {
+                    $media_block_content = '';
+                    
+                    if ($_inputTypeName[$i] == 'Media' || $_inputTypeName[$i] == 'Gallery') {
+                        # code...
+                    }else{
+                        $media_block_content = $_POST['project_media_content'][$i];
+                        
+                    }
 
                     $media_data = array(
+                        'id' => $_POST['project_media_id'][$i],
+                        'status' => $_POST['project_media_status'][$i],
                         'title' => $_POST['project_media_title'][$i],
                         'type' => $_POST['project_media_type'][$i],
-                        'content' => $media_file,
+                        'content' => $media_block_content,
                         'description' => $_POST['project_media_description'][$i],
                         'pid' => $project_id
                     );
+
                     $project_media_blocks[] = $media_data;
                 }
                 
             }
-            $_inputName = "project_media_url";
-            if (isset($_POST[$_inputName]) && count($_POST[$_inputName]) > 0) {
-                for ($i=0; $i<count($_POST[$_inputName]); $i++) {
-                    $media_data = array(
-                        'title' => $_POST['project_media_title'][$i],
-                        'type' => $_POST['project_media_type'][$i],
-                        'content' => $_POST['project_media_url'][$i],
-                        'description' => $_POST['project_media_description'][$i],
-                        'pid' => $project_id
-                    );
-                    $project_media_blocks[] = $media_data;
-                }
-                
-            }
-            $_inputName = "project_media_gallery";
-            if (isset($_POST[$_inputName]) && count($_POST[$_inputName]) > 0) {
-                for ($i=0; $i<count($_POST[$_inputName]); $i++) {
-                    $media_data = array(
-                        'title' => $_POST['project_media_title'][$i],
-                        'type' => $_POST['project_media_type'][$i],
-                        'content' => $_POST['project_media_gallery'][$i],
-                        'description' => $_POST['project_media_description'][$i],
-                        'pid' => $project_id
-                    );
-                    $project_media_blocks[] = $media_data;
-                }
-                
-            }
-           
+
             $media_blocks = (array)$project_media_blocks;
-            //createMediaBlock($title, $type, $content, $description, $project_id)
+            
             if ($media_blocks) {
                 for ($i=0; $i<count($media_blocks); $i++) { 
                     //$media_blocks[$i]
-                    createMediaBlock($media_blocks[$i]['title'], $media_blocks[$i]['type'], $media_blocks[$i]['content'], $media_blocks[$i]['description'], $media_blocks[$i]['pid']);
+                    if ($media_blocks[$i]['id'] == '-') {
+                        createMediaBlock($media_blocks[$i]['title'], $media_blocks[$i]['type'], $media_blocks[$i]['content'], $media_blocks[$i]['description'], $media_blocks[$i]['pid']);
+                    }else{
+                        if ($media_blocks[$i]['status'] == 'remove') {
+                            deleteMediaBlock($media_blocks[$i]['id']);
+                        }else{
+                            updateMediaBlock($media_blocks[$i]['title'], $media_blocks[$i]['type'], $media_blocks[$i]['content'], $media_blocks[$i]['description'], $media_blocks[$i]['id']);
+                        }
+                    }
                 }
             }
-        }*/
+        }
         header('Location: /projects/update.php?pid='.$project_sufix);
     }
     
@@ -283,72 +261,70 @@
 
         <div class="project_media_container span-2-col" id="project_media_container">
             <?php 
-                $mediaBlocks = getMediaBlocks($project->id);
                 if (isset($mediaBlocks)) {
-                    
                     foreach ($mediaBlocks as $key => $mediaBlock) {
-                        echo '<div class="project_media_wrapper form-group-wrapper">';
-                        echo '
-                        <label for="project_media_type[]"><b>project_media_type</b></label>
-                        <select name="project_media_type[]" id="project_media_type" value="'.$mediaBlock->type.'" onchange="changeInputType(this)" required> 
-                            <option value="Text">Text</option>
-                            <option value="Media">Media(image, video, audio, document)</option>
-                            <option value="Embeded">Embeded youtube | Vimeo</option>
-                            <option value="Gallery">Gallery</option>
-                        </select>
+                        ?>
+                        <div>
+                            <input type="hidden" name="project_media_status[]" value="good" id="project_media_status">
+                            <input type="hidden" name="project_media_id[]" value="<?php echo $mediaBlock->id; ?>" id="project_media_id">
 
-                        <label for="project_media_title[]"><b>project_media_title</b></label>
-                        <input type="text" name="project_media_title[]" value="'.$mediaBlock->title.'" id="project_media_title" required>
+                            <div class="project_media_wrapper form-group-wrapper">
+                                <label for="project_media_type[]"><b>project_media_type</b></label>
+                                <select name="project_media_type[]" id="project_media_type" value="<?php echo $mediaBlock->type; ?>" onchange="changeInputType(this)" required> 
+                                    <option value="Text" <?php echo $mediaBlock->type == 'Text' ? ' selected ' : '';?>>Text</option>
+                                    <option value="Media" <?php echo $mediaBlock->type == 'Media' ? ' selected ' : '';?>>Media(image, video, audio, document)</option>
+                                    <option value="Embeded" <?php echo $mediaBlock->type == 'Embeded' ? ' selected ' : '';?>>Embeded youtube | Vimeo</option>
+                                    <option value="Gallery" <?php echo $mediaBlock->type == 'Gallery' ? ' selected ' : '';?>>Gallery</option>
+                                </select>
 
-                        <div class="project_media_block">';
-                        switch ($mediaBlock->type){
-                            case "text":
-                                echo '
-                                <label for="project_media_text[]"><b>project_media_text</b></label>
-                                <textarea name="project_media_text[]" id="project_media_text" rows="4" cols="50" required>'.$mediaBlock->content.'</textarea>
-                                ';
-                              break;
-                              case "Media":
-                                if (isset($mediaBlock->file)) {
-                                    echo '
-                                    <label for="project_media_file[]"><b>project_media_file</b></label>
-                                    <input type="file" name="project_media_file[]" id="project_media_file" value="'.$mediaBlock->file.'" accept="image/*,.jpg">
-                                ';
-                                }
-                              break;
-                            case "Embeded":
-                                echo '
-                                    <label for="project_media_url[]"><b>project_media_url</b></label>
-                                    <input type="text" name="project_media_url[]" value="'.$mediaBlock->content.'" id="project_media_url" required>
-                                ';
-                              break;
-                            case "Gallery":
-                                echo '
-                                    <label for="project_media_gallery[]"><b>project_media_gallery</b></label>
-                                    <input type="file" name="project_media_gallery[]" id="project_media_gallery" accept="image/*,.jpg" multiple>
-                                    ';
-                                break;
-                            default:
-                              
-                        } 
+                                <label for="project_media_title[]"><b>project_media_title</b></label>
+                                <input type="text" name="project_media_title[]" value="<?php echo $mediaBlock->title; ?>" id="project_media_title" required>
 
+                                <div class="project_media_block">
+                                    <label for="project_media_content[]"><b>project_media_content</b></label>
+                                <?php switch ($mediaBlock->type){
+                                    case "Text":
+                                        echo '
+                                        <textarea name="project_media_content[]" id="project_media_content" rows="4" cols="50" required>'.$mediaBlock->content.'</textarea>
+                                        ';
+                                    break;
+                                    case "Media":
+                                        if (isset($mediaBlock->file)) {
+                                            echo '
+                                            <input type="file" name="project_media_content[]" id="project_media_content" value="'.$mediaBlock->content.'" accept="image/*,.jpg">
+                                        ';
+                                        }
+                                    break;
+                                    case "Embeded":
+                                        echo '
+                                            <input type="text" name="project_media_content[]" value="'.$mediaBlock->content.'" id="project_media_content" required>
+                                        ';
+                                    break;
+                                    case "Gallery":
+                                        echo '
+                                            <input type="file" name="project_media_content[]" id="project_media_content" accept="image/*,.jpg" multiple>
+                                            ';
+                                        break;
+                                    default:
+                                    
+                                } 
+                                ?>
+                                    <label for="project_media_description[]"><b>project_media_description</b></label>
+                                    <input type="text" name="project_media_description[]" value="<?php echo $mediaBlock->description;?>" id="project_media_description" required>
+                                </div>
                             
-                        echo '
-                            <label for="project_media_description[]"><b>project_media_description</b></label>
-                            <input type="text" name="project_media_description[]" value='.$mediaBlock->description.'" id="project_media_description" required>
-                        </div>
+                                <button type="button" onclick="deleteMediaBlock(this)">Delete Media</button>
+                            </div>
 
-                        <button type="button" onclick="deleteField(this)">Delete Media</button> 
-                        ';
-                        echo '</div>';
-                    }
+                        </div>
+                <?php   }
                     
                 }
             ?>
             <button type="button" id="add_new_media_btn">Add New Media</button> 
         </div>
 
-        <input type="submit" value='Create' name='update_project'>
+        <input type="submit" value='Update' name='update_project'>
     </form>
 
     

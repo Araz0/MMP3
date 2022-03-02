@@ -128,7 +128,13 @@ function updateProject($sufix, $title, $subtitle, $excerpt, $description, $thumb
     $sth->bindParam('links', $links, PDO::PARAM_STR);
     $sth->bindParam('Project_id', $Project_id, PDO::PARAM_INT);
     $sth->execute();
-
+}
+function deleteProject($pid){
+    global $dbh;
+    $query = "DELETE FROM projects WHERE id=:pid";
+    $sth = $dbh->prepare($query);
+    $sth->bindParam('pid', $pid, PDO::PARAM_INT);
+    $sth->execute();
 }
 
 function createMediaBlock($title, $type, $content, $description, $project_id){
@@ -141,6 +147,26 @@ function createMediaBlock($title, $type, $content, $description, $project_id){
     $sth->bindParam('content', $content, PDO::PARAM_STR);
     $sth->bindParam('description', $description, PDO::PARAM_STR);
     $sth->bindParam('project_id', $project_id, PDO::PARAM_INT);
+    $sth->execute();
+}
+
+function updateMediaBlock($title, $type, $content, $description, $block_id){
+    global $dbh;
+    $query = "UPDATE media_blocks SET title=:title, type=:type, content=:content, description=:description WHERE id=:block_id";
+    $sth = $dbh->prepare($query);
+
+    $sth->bindParam('title', $title, PDO::PARAM_STR);
+    $sth->bindParam('type', $type, PDO::PARAM_STR);
+    $sth->bindParam('content', $content, PDO::PARAM_STR);
+    $sth->bindParam('description', $description, PDO::PARAM_STR);
+    $sth->bindParam('block_id', $block_id, PDO::PARAM_INT);
+    $sth->execute();
+}
+function deleteMediaBlock($block_id){
+    global $dbh;
+    $query = "DELETE FROM media_blocks WHERE id=:block_id";
+    $sth = $dbh->prepare($query);
+    $sth->bindParam('block_id', $block_id, PDO::PARAM_INT);
     $sth->execute();
 }
 

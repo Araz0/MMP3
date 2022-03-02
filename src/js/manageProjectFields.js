@@ -82,37 +82,37 @@ function deleteField(element){
     element.parentElement.remove();
 }
 
+function deleteMediaBlock(element){
+    element.parentElement.parentElement.firstElementChild.value = 'remove';
+    element.parentElement.style.border ="dashed 2px red";
+}
+
 function changeInputType(element){
-    let mediaBlock = element.parentNode.getElementsByClassName("project_media_block")[0]
+    let mediaBlock = element.parentNode.getElementsByClassName("project_media_block")[0];
     let mediaDescriptionInput = `
         <label for="project_media_description[]"><b>project_media_description</b></label>
         <input type="text" name="project_media_description[]" value="project_media_description" id="project_media_description" required>
     `;
+    let mediaInputLabel = '<label for="project_media_content[]"><b>project_media_content</b></label>';
     switch(element.value) {
         case "Text":
-            mediaBlock.innerHTML = `
-                <label for="project_media_text[]"><b>project_media_text</b></label>
-                <textarea name="project_media_text[]" id="project_media_text" rows="4" cols="50" required>project_media_text project_media_text project_media_text</textarea>
+            mediaBlock.innerHTML = mediaInputLabel + `
+                <textarea name="project_media_content[]" id="project_media_content" rows="4" cols="50" required>project_media_content project_media_content project_media_content</textarea>
             `;
           break;
         case "Media":
-            mediaBlock.innerHTML = `
-                <label for="project_media_file[]"><b>project_media_file</b></label>
-                <input type="file" name="project_media_file[]" id="project_media_file" accept="image/*,.jpg">
-
+            mediaBlock.innerHTML = mediaInputLabel + `
+                <input type="file" name="project_media_content[]" id="project_media_content" accept="image/*,.jpg">
             ` + mediaDescriptionInput;
           break;
         case "Embeded":
-            mediaBlock.innerHTML = `
-                <label for="project_media_url[]"><b>project_media_url</b></label>
-                <input type="text" name="project_media_url[]" value="https://www.youtube.com/watch?v=Yl5wMXsSDbY" id="project_media_url" required>
-
+            mediaBlock.innerHTML = mediaInputLabel + `
+                <input type="text" name="project_media_content[]" value="https://www.youtube.com/watch?v=Yl5wMXsSDbY" id="project_media_content" required>
             ` + mediaDescriptionInput;
           break;
         case "Gallery":
-            mediaBlock.innerHTML = `
-                <label for="project_media_gallery[]"><b>project_media_gallery</b></label>
-                <input type="file" name="project_media_gallery[]" id="project_media_gallery" accept="image/*,.jpg" multiple>
+            mediaBlock.innerHTML = mediaInputLabel + `
+                <input type="file" name="project_media_content[]" id="project_media_content" accept="image/*,.jpg" multiple>
             ` + mediaDescriptionInput;
             break;
         default:
@@ -125,30 +125,32 @@ newMediaBtn.addEventListener("click", function() {
     var mediaContainer = document.getElementById("project_media_container");
 
     var newMediaWrapper = document.createElement("div");
-    newMediaWrapper.classList.add("project_media_wrapper");
-    newMediaWrapper.classList.add("form-group-wrapper");
 
     newMediaWrapper.innerHTML = `
-        <label for="project_media_type[]"><b>project_media_type</b></label>
-        <select name="project_media_type[]" id="project_media_type" onchange="changeInputType(this)" required> 
-            <option value="Text">Text</option>
-            <option value="Media">Media(image, video, audio, document)</option>
-            <option value="Embeded">Embeded youtube | Vimeo</option>
-            <option value="Gallery">Gallery</option>
-        </select>
+        <input type="hidden" name="project_media_status[]" value="new" id="project_media_status">
+        <input type="hidden" name="project_media_id[]" value="-" id="project_media_id">
+        <div class="project_media_wrapper form-group-wrapper">
+            <label for="project_media_type[]"><b>project_media_type</b></label>
+            <select name="project_media_type[]" id="project_media_type" onchange="changeInputType(this)" required> 
+                <option value="Text">Text</option>
+                <option value="Media">Media(image, video, audio, document)</option>
+                <option value="Embeded">Embeded youtube | Vimeo</option>
+                <option value="Gallery">Gallery</option>
+            </select>
 
-        <label for="project_media_title[]"><b>project_media_title</b></label>
-        <input type="text" name="project_media_title[]" value="media title" id="project_media_title" required>
+            <label for="project_media_title[]"><b>project_media_title</b></label>
+            <input type="text" name="project_media_title[]" value="media title" id="project_media_title" required>
 
-        <div class="project_media_block">
-            <label for="project_media_text[]"><b>project_media_text</b></label>
-            <textarea name="project_media_text[]" id="project_media_text" rows="4" cols="50" required>project_media_text project_media_text project_media_text</textarea>
-            
-            <label for="project_media_description[]"><b>project_media_description</b></label>
-            <input type="text" name="project_media_description[]" value="project_media_description" id="project_media_description" required>
+            <div class="project_media_block">
+                <label for="project_media_content[]"><b>project_media_content</b></label>
+                <textarea name="project_media_content[]" id="project_media_content" rows="4" cols="50" required>project_media_content project_media_content project_media_content</textarea>
+                
+                <label for="project_media_description[]"><b>project_media_description</b></label>
+                <input type="text" name="project_media_description[]" value="project_media_description" id="project_media_description" required>
+            </div>
+
+            <button type="button" onclick="deleteMediaBlock(this)">Delete Media</button>
         </div>
-
-        <button type="button" onclick="deleteField(this)">Delete Media</button> 
     `;
 
     // Append the hole thing to the main container

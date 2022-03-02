@@ -8,7 +8,7 @@
 
 
     $pagetitle = "Create Project";
-    require '../config.php'; //This is the oauth-config! You will also need your standard-config file
+    require '../config.php';
     require '../functions.php';
     require "../components/head.php";
     if (isset($_POST['create_project'])) {
