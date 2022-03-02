@@ -64,7 +64,32 @@ function getUser($username){
     $sth->execute(array($username));
     return $sth->fetch();
 }
+function getAllUsers(){
+    global $dbh;
+    $query = "SELECT * FROM users";
+    $sth = $dbh->prepare($query);
+    $sth->execute();
+    return $sth->fetchAll();
+}
+function getSearchedUsers($query_string){
+    global $dbh;
+    $query_string = '%'.$query_string.'%';
+    $query = "SELECT * FROM users WHERE username ILIKE ? OR email ILIKE ? OR first_name ILIKE ? OR last_name ILIKE ? OR studies ILIKE ? OR role ILIKE ?;";
+    $sth = $dbh->prepare($query);
+    $sth->execute(array($query_string,$query_string,$query_string,$query_string,$query_string,$query_string));
+    return $sth->fetchAll();
+}
+function updateUserRole($user_id, $new_role){
+    global $dbh;
 
+    $query = "UPDATE users SET role=:new_role WHERE id=:user_id";
+    $sth = $dbh->prepare($query);
+
+    $sth->bindParam('user_id', $user_id, PDO::PARAM_INT);
+    $sth->bindParam('new_role', $new_role, PDO::PARAM_STR);
+    
+    $sth->execute();
+}
 function createUser($username, $email, $first_name, $last_name, $studies, $role) {
     global $dbh;
     
