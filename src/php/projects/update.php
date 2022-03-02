@@ -162,8 +162,8 @@
         
         <label for="project_degree"><b>project_degree</b></label>
         <select name="project_degree" id="project_degree" value="<?php echo $project->degree; ?>">
-            <option value="Bachelor">Bachelor</option>
-            <option value="Master">Master</option>
+            <option value="Bachelor" <?php echo $project->degree == 'Bachelor' ? ' selected ' : '';?>>Bachelor</option>
+            <option value="Master" <?php echo $project->degree == 'Master' ? ' selected ' : '';?>>Master</option>
         </select>
 
         <label for="project_tags"><b>project_tags</b></label>
