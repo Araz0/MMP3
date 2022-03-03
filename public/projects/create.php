@@ -11,6 +11,8 @@
     require '../config.php';
     require '../functions.php';
     require "../components/head.php";
+    $user_id = getUser($_SESSION['fhsUser'])->id;
+    
     if (isset($_POST['create_project'])) {
         $project_title = $_POST['project_title'];
         $project_sufix = makeStrUrlReady($project_title);
@@ -19,12 +21,12 @@
         $project_description = $_POST['project_description'];
 
         $_inputName = "project_thumbnail";
-        $input_array = array(basename($_FILES[$_inputName]['name']), $_FILES[$_inputName]['tmp_name'], $_FILES[$_inputName]['size'], $_FILES[$_inputName]['type'], $_FILES[$_inputName]['error']);
+        $input_array = array(basename($_FILES[$_inputName]['name']), $_FILES[$_inputName]['tmp_name'], $_FILES[$_inputName]['size'], $_FILES[$_inputName]['type'], $_FILES[$_inputName]['error'], $user_id);
         $project_thumbnail = fileUpload( $input_array, $storage_folder, array('jpeg','jpg','png'));
         if ($project_thumbnail == null) { echo implode("\n ",$errors); exit(); }
         
         $_inputName = "project_teaser";
-        $input_array = array(basename($_FILES[$_inputName]['name']), $_FILES[$_inputName]['tmp_name'], $_FILES[$_inputName]['size'], $_FILES[$_inputName]['type'], $_FILES[$_inputName]['error']);
+        $input_array = array(basename($_FILES[$_inputName]['name']), $_FILES[$_inputName]['tmp_name'], $_FILES[$_inputName]['size'], $_FILES[$_inputName]['type'], $_FILES[$_inputName]['error'], $user_id);
         $project_teaser = fileUpload( $input_array, $storage_folder, array('jpeg','jpg','png','mp4'));
         if ($project_teaser == null) { echo implode("\n ",$errors); exit(); }
 

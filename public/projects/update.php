@@ -29,7 +29,7 @@
         $project_description = $_POST['project_description'];
 
         $_inputName = "project_thumbnail";
-        $input_array = array(basename($_FILES[$_inputName]['name']), $_FILES[$_inputName]['tmp_name'], $_FILES[$_inputName]['size'], $_FILES[$_inputName]['type'], $_FILES[$_inputName]['error']);
+        $input_array = array(basename($_FILES[$_inputName]['name']), $_FILES[$_inputName]['tmp_name'], $_FILES[$_inputName]['size'], $_FILES[$_inputName]['type'], $_FILES[$_inputName]['error'], $user_id);
         $project_thumbnail = fileUpload( $input_array, $storage_folder, array('jpeg','jpg','png'));
 
         if ($project_thumbnail == null) {
@@ -39,7 +39,7 @@
         }
 
         $_inputName = "project_teaser";
-        $input_array = array(basename($_FILES[$_inputName]['name']), $_FILES[$_inputName]['tmp_name'], $_FILES[$_inputName]['size'], $_FILES[$_inputName]['type'], $_FILES[$_inputName]['error']);
+        $input_array = array(basename($_FILES[$_inputName]['name']), $_FILES[$_inputName]['tmp_name'], $_FILES[$_inputName]['size'], $_FILES[$_inputName]['type'], $_FILES[$_inputName]['error'], $user_id);
         $project_teaser = fileUpload( $input_array, $storage_folder, array('jpeg','jpg','png','gif','mp4'));
         
         if ($project_teaser == null) {
@@ -76,8 +76,6 @@
                 $project_members[] = $member_data;
             }
         }
-        
-        $user_id = getUser($_SESSION['fhsUser'])->id;
         
         updateProject($project_sufix, $project_title, $project_subtitle, $project_excerpt, $project_description, $project_thumbnail, $project_teaser, $project_members, $project_degree, $project_tags, $project_links, $project->id);
 

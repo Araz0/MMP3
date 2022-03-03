@@ -12,16 +12,16 @@ function makeStrUrlReady($string){
 }
 function fileUpload($_inputArray, $_uploadFolder, $_allowedExtentions){
     $errors = [];
-    //$input_array = array(basename($_FILES[$_inputNameX]['name'][$i]), $_FILES[$_inputNameX]['tmp_name'][$i], $_FILES[$_inputNameX]['size'][$i], $_FILES[$_inputNameX]['type'][$i], $_FILES[$_inputNameX]['error'][$i]);
     if (isset($_inputArray)) {
 
         $filename = $_inputArray[0];
         $fileTmpName  = $_inputArray[1];
         $fileSize = $_inputArray[2];
         $fileType = $_inputArray[3];
-        $fileError = $_inputArray[3];
+        $fileError = $_inputArray[4];
+        $user_id = $_inputArray[5];
         $fileExtension =strtolower(substr($filename, -3));
-        $localFileName = md5($filename.$fileTmpName).".$fileExtension";
+        $localFileName = $user_id."A".md5($filename.$fileTmpName).".$fileExtension";
         
         if (!in_array($fileExtension, $_allowedExtentions)) {
             array_push($errors, "file format must be one of the following: ".implode(" ",$_allowedExtentions));
@@ -186,6 +186,13 @@ function updateProject($sufix, $title, $subtitle, $excerpt, $description, $thumb
 }
 function deleteProject($pid, $user_id){
     global $dbh;
+    $query = "SELECT * FROM projects WHERE id=? AND user_id=?";
+    $sth = $dbh->prepare($query);
+    $sth->execute(array($pid, $user_id));
+    $block = $sth->fetch();
+    deleteFile($block->thumbnail);
+    deleteFile($block->teaser);
+
     $query = "DELETE FROM projects WHERE id=:pid AND user_id=:user_id";
     $sth = $dbh->prepare($query);
     $sth->bindParam('pid', $pid, PDO::PARAM_INT);
@@ -220,6 +227,12 @@ function updateMediaBlock($title, $type, $content, $description, $block_id){
 }
 function deleteMediaBlock($block_id){
     global $dbh;
+    $query = "SELECT * FROM media_blocks WHERE id=?";
+    $sth = $dbh->prepare($query);
+    $sth->execute(array($block_id));
+    $block = $sth->fetch();
+    deleteFile($block->content);
+
     $query = "DELETE FROM media_blocks WHERE id=:block_id";
     $sth = $dbh->prepare($query);
     $sth->bindParam('block_id', $block_id, PDO::PARAM_INT);
