@@ -14,6 +14,9 @@
 
     $user_id = getUser($_SESSION['fhsUser'])->id;
     $project = getProjectbySufixAndUser($_GET['pid'], $user_id);
+    if (!isset($project->id)) {
+        header('Location: /404.php');
+    }
     $mediaBlocks = getMediaBlocks($project->id);
     if (isset($_POST['delete_project'])) {
         deleteProject($project->id, $user_id);
