@@ -4,8 +4,6 @@
 <html lang="en">
 
 <?php 
-// Show all information, defaults to INFO_ALL
-
 
     $pagetitle = "Create Project";
     require '../config.php';
@@ -17,6 +15,7 @@
     if (!isset($project->id)) {
         header('Location: /404.php');
     }
+    
     $mediaBlocks = getMediaBlocks($project->id);
     if (isset($_POST['delete_project'])) {
         deleteProject($project->id, $user_id);
@@ -32,15 +31,23 @@
         $_inputName = "project_thumbnail";
         $input_array = array(basename($_FILES[$_inputName]['name']), $_FILES[$_inputName]['tmp_name'], $_FILES[$_inputName]['size'], $_FILES[$_inputName]['type'], $_FILES[$_inputName]['error']);
         $project_thumbnail = fileUpload( $input_array, $storage_folder, array('jpeg','jpg','png'));
+
         if ($project_thumbnail == null) {
             $project_thumbnail = $project->thumbnail;
+        }else{
+            deleteFile($project->thumbnail);
         }
+
         $_inputName = "project_teaser";
         $input_array = array(basename($_FILES[$_inputName]['name']), $_FILES[$_inputName]['tmp_name'], $_FILES[$_inputName]['size'], $_FILES[$_inputName]['type'], $_FILES[$_inputName]['error']);
         $project_teaser = fileUpload( $input_array, $storage_folder, array('jpeg','jpg','png','gif','mp4'));
+        
         if ($project_teaser == null) {
             $project_teaser = $project->teaser;
+        }else{
+            deleteFile($project->teaser);
         }
+
         $project_excerpt = $_POST['project_excerpt'];
         $project_degree = $_POST['project_degree'];
 

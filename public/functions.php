@@ -11,7 +11,7 @@ function makeStrUrlReady($string){
     return preg_replace("/[^a-zA-Z0-9_]/", "", $string);
 }
 function fileUpload($_inputArray, $_uploadFolder, $_allowedExtentions){
-    global $errors;
+    $errors = [];
     //$input_array = array(basename($_FILES[$_inputNameX]['name'][$i]), $_FILES[$_inputNameX]['tmp_name'][$i], $_FILES[$_inputNameX]['size'][$i], $_FILES[$_inputNameX]['type'][$i], $_FILES[$_inputNameX]['error'][$i]);
     if (isset($_inputArray)) {
 
@@ -36,14 +36,23 @@ function fileUpload($_inputArray, $_uploadFolder, $_allowedExtentions){
             if (move_uploaded_file($fileTmpName, $uploadFilePath)) {
                 //echo $filename." 🚀🚀🚀🚀🚀 \n";
                 $localFilePath = "/$_uploadFolder/$localFileName";
+                
                 return $localFilePath;
             } else {
-                //echo $filename . "❌❌❌❌❌ \n";
+                echo $filename . "❌❌❌❌❌ \n";
             }
         } else {
             return null;
         }
 
+    }else{
+        return null;
+    }
+}
+function deleteFile($file){
+    $file = $_SERVER["DOCUMENT_ROOT"].$file;
+    if (file_exists($file)) {
+        unlink($file);
     }
 }
 function initConfigs($first_release_date, $first_release_title, $second_release_date, $second_release_title){
