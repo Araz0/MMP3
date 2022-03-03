@@ -176,11 +176,12 @@ function updateProject($sufix, $title, $subtitle, $excerpt, $description, $thumb
     $sth->bindParam('Project_id', $Project_id, PDO::PARAM_INT);
     $sth->execute();
 }
-function deleteProject($pid){
+function deleteProject($pid, $user_id){
     global $dbh;
-    $query = "DELETE FROM projects WHERE id=:pid";
+    $query = "DELETE FROM projects WHERE id=:pid AND user_id=:user_id";
     $sth = $dbh->prepare($query);
     $sth->bindParam('pid', $pid, PDO::PARAM_INT);
+    $sth->bindParam('user_id', $user_id, PDO::PARAM_INT);
     $sth->execute();
 }
 

@@ -15,7 +15,10 @@
     $user_id = getUser($_SESSION['fhsUser'])->id;
     $project = getProjectbySufixAndUser($_GET['pid'], $user_id);
     $mediaBlocks = getMediaBlocks($project->id);
-    
+    if (isset($_POST['delete_project'])) {
+        deleteProject($project->id, $user_id);
+        header('Location: /projects/');
+    }
     if (isset($_POST['update_project'])) {
         $project_title = $_POST['project_title'];
         $project_sufix = $_POST['project_sufix'];
@@ -327,6 +330,7 @@
         </div>
 
         <input type="submit" value='Update' name='update_project'>
+        <input type="submit" value='Delete' name='delete_project'>
     </form>
 
     
