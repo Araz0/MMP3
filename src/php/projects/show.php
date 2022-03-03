@@ -8,7 +8,7 @@
 ?>
 
 <body>
-    
+<script src="/js/artplayer.js"></script>
 
     <script src="/js/three.js"></script>
     <script>
@@ -38,7 +38,7 @@
 
 <div class="artplayer" id="artplayer-app"></div>
 </body>
-<script src="/js/artplayer.js"></script>
+
 <script>
     var art = new Artplayer({
         container: '#artplayer-app',

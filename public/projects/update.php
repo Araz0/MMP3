@@ -129,6 +129,7 @@
 ?>
 
 <body>
+<script src="/js/artplayer.js"></script>
     <form action="" method="post" enctype="multipart/form-data">
         <input type="hidden" name="project_id" value="-" id="project_id" required>
 
@@ -158,10 +159,17 @@
         <label for="project_teaser"><b>project_teaser</b></label>
         <input type="file" name="project_teaser" id="project_teaser" accept="image/*,.jpg,video/mp4">
         <?php 
-            $fileExtension = $project->teaser;
-            if ($fileExtension == 'mp4') {
-                # code...
-            }else{ ?>
+            $fileExtension = strtolower(substr($project->teaser, -3));
+            if ($fileExtension == 'mp4') {?>
+                <div class="artplayer span-2-col" id="artplayer-<?php echo $project->sufix; ?>"></div>
+                
+                <script>
+                    var art = new Artplayer({
+                        container: '#artplayer-<?php echo $project->sufix; ?>',
+                        url: '<?php echo $project->teaser; ?>',
+                    });
+                </script>
+            <?php }else{ ?>
                 <img src="<?php echo $project->teaser; ?>" alt="<?php echo $project->title . ' teaser'; ?>" class="span-2-col">
             <?php }
         ?>
