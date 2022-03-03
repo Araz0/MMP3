@@ -37,7 +37,7 @@
         }
         $_inputName = "project_teaser";
         $input_array = array(basename($_FILES[$_inputName]['name']), $_FILES[$_inputName]['tmp_name'], $_FILES[$_inputName]['size'], $_FILES[$_inputName]['type'], $_FILES[$_inputName]['error']);
-        $project_teaser = fileUpload( $input_array, $storage_folder, array('jpeg','jpg','png','mp4'));
+        $project_teaser = fileUpload( $input_array, $storage_folder, array('jpeg','jpg','png','gif','mp4'));
         if ($project_teaser == null) {
             $project_teaser = $project->teaser;
         }

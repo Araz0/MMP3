@@ -21,10 +21,12 @@
         $_inputName = "project_thumbnail";
         $input_array = array(basename($_FILES[$_inputName]['name']), $_FILES[$_inputName]['tmp_name'], $_FILES[$_inputName]['size'], $_FILES[$_inputName]['type'], $_FILES[$_inputName]['error']);
         $project_thumbnail = fileUpload( $input_array, $storage_folder, array('jpeg','jpg','png'));
-
+        if ($project_thumbnail == null) { echo implode("\n ",$errors); exit(); }
+        
         $_inputName = "project_teaser";
         $input_array = array(basename($_FILES[$_inputName]['name']), $_FILES[$_inputName]['tmp_name'], $_FILES[$_inputName]['size'], $_FILES[$_inputName]['type'], $_FILES[$_inputName]['error']);
         $project_teaser = fileUpload( $input_array, $storage_folder, array('jpeg','jpg','png','mp4'));
+        if ($project_teaser == null) { echo implode("\n ",$errors); exit(); }
 
         $project_excerpt = $_POST['project_excerpt'];
         $project_degree = $_POST['project_degree'];
@@ -56,9 +58,9 @@
         }
         
         $user_id = getUser($_SESSION['fhsUser'])->id;
-        
-        createProject($project_sufix, $project_title, $project_subtitle, $project_excerpt, $project_description, $project_thumbnail, $project_teaser, $project_members, $project_degree, $project_tags, $project_links, $user_id);
-        
+        if (empty($errors)) {
+            createProject($project_sufix, $project_title, $project_subtitle, $project_excerpt, $project_description, $project_thumbnail, $project_teaser, $project_members, $project_degree, $project_tags, $project_links, $user_id);
+        }
         if (isset($_POST['project_media_type'])) {
             $project = getProjectbySufixAndUser($project_sufix, $user_id);
             $project_id = $project->id;

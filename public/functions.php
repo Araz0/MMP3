@@ -11,6 +11,7 @@ function makeStrUrlReady($string){
     return preg_replace("/[^a-zA-Z0-9_]/", "", $string);
 }
 function fileUpload($_inputArray, $_uploadFolder, $_allowedExtentions){
+    global $errors;
     //$input_array = array(basename($_FILES[$_inputNameX]['name'][$i]), $_FILES[$_inputNameX]['tmp_name'][$i], $_FILES[$_inputNameX]['size'][$i], $_FILES[$_inputNameX]['type'][$i], $_FILES[$_inputNameX]['error'][$i]);
     if (isset($_inputArray)) {
 
@@ -19,16 +20,16 @@ function fileUpload($_inputArray, $_uploadFolder, $_allowedExtentions){
         $fileSize = $_inputArray[2];
         $fileType = $_inputArray[3];
         $fileError = $_inputArray[3];
-        $fileExtension =substr($filename, -3);
+        $fileExtension =strtolower(substr($filename, -3));
         $localFileName = md5($filename.$fileTmpName).".$fileExtension";
         
-        /*if (!in_array($fileExtension, $_allowedExtentions)) {
-            //array_push($errors, "file format must be one of the following: ".implode(" ",$_allowedExtentions));
+        if (!in_array($fileExtension, $_allowedExtentions)) {
+            array_push($errors, "file format must be one of the following: ".implode(" ",$_allowedExtentions));
         }
 
-        if ($fileSize > 4000000) {
-            //array_push($errors,"File exceeds maximum size (4MB)");
-        }*/
+        if ($fileSize > 10000000) {
+            array_push($errors,"File exceeds maximum size (10MB)");
+        }
         $uploadFilePath = $_SERVER["DOCUMENT_ROOT"]."$_uploadFolder/" . $localFileName;
 
         if (empty($errors)) {
@@ -40,9 +41,7 @@ function fileUpload($_inputArray, $_uploadFolder, $_allowedExtentions){
                 //echo $filename . "❌❌❌❌❌ \n";
             }
         } else {
-            foreach ($errors as $error) {
-                echo $error . "These are the errors" . "\n";
-            }
+            return null;
         }
 
     }
