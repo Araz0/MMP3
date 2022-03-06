@@ -8,7 +8,6 @@
 
 
     $pagetitle = "Create Project";
-    require '../config.php';
     require '../functions.php';
     require "../components/head.php";
     $user_id = getUser($_SESSION['fhsUser'])->id;

@@ -6,7 +6,6 @@
 <?php 
 
     $pagetitle = "Create Project";
-    require '../config.php';
     require '../functions.php';
     require "../components/head.php";
 

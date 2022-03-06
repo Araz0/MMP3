@@ -1,4 +1,5 @@
 <?php
+require 'config.php';
 $sufixRegex = "/^([a-zA-Z0-9]+([_-]?[a-zA-Z0-9])*){3,64}$/"; 
 $errors = array();
 $storage_folder = "storage";
