@@ -14,8 +14,11 @@
     if (!isset($project->id)) {
         header('Location: /404.php');
     }
-    
+    if ($user_id != $project->user_id) {
+        header('Location: /405.php');
+    }
     $mediaBlocks = getMediaBlocks($project->id);
+
     if (isset($_POST['delete_project'])) {
         deleteProject($project->id, $user_id);
         header('Location: /projects/');
