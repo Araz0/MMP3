@@ -1,0 +1,17 @@
+.main-menu{
+    display: flex;
+    width: 100%;
+    background-color: white;
+    border: 1px solid black;
+    padding: 5px 1em;
+
+    ul{
+        display: flex;
+        gap: 1em;
+        align-items: center;
+    }
+    ul:last-child{
+        margin-left: auto;
+    }
+    
+}
