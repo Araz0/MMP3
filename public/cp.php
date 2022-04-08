@@ -14,6 +14,7 @@
 
     $user_id = getUser($_SESSION['fhsUser'])->id;
     
+    $all_captchas = getAllCaptchas();
     $all_users = [];
     if (isset($_POST['set_configs'])) {
         updateConfigs($_POST['first_date_time'], $_POST['first_title'], $_POST['second_date_time'], $_POST['second_title']);
@@ -25,6 +26,20 @@
         $all_users = getSearchedUsers($_POST['user_search']);
     }else {
         $all_users = getAllUsers();
+    }
+
+    if (isset($_POST['submit_new_captcha'])){
+        $_inputName = "new_captcha_file";
+        $input_array = array(basename($_FILES[$_inputName]['name']), $_FILES[$_inputName]['tmp_name'], $_FILES[$_inputName]['size'], $_FILES[$_inputName]['type'], $_FILES[$_inputName]['error'], $user_id);
+        $captcha_file_path = fileUpload( $input_array, $storage_folder, array('jpeg','jpg','png'));
+
+        createCaptcha($_POST['new_captcha_title'], $captcha_file_path, $_POST['new_captcha_solution']);
+        header("Refresh:0");
+    }
+    if (isset($_POST['remove_captcha'])){
+        deleteFile($_POST['captcha_path']);
+        delete_captcha($_POST['captcha_path']);
+        header("Refresh:0");
     }
     $configs = getConfigs();
 ?>
@@ -78,7 +93,32 @@
             <?php }
         ?>
     </section>
-    
+    <section>
+        <?php 
+            foreach($all_captchas as $i => $captcha) {?>
+                <form action="" method="post" enctype="multipart/form-data">
+                    <input type="hidden" name="captcha_path" id="captcha_path" value="<?php echo $captcha->path;?>">
+                    <p><?php echo $captcha->title; ?></p>
+                    <p><?php echo $captcha->solution; ?></p>
+                    <img src="<?php echo $captcha->path; ?>" alt="<?php echo $captcha->title; ?>">
+                    <input type="submit" value='Remove' name='remove_captcha'>
+                </form>
+                
+            <?php }
+        ?>
+        <form action="" method="post" enctype="multipart/form-data">
+            <label for="new_captcha_title"><b>new_captcha_title: </b></label>
+            <input type="text" name="new_captcha_title" id="new_captcha_title" required>
+
+            <label for="new_captcha_file"><b>new_captcha_file: </b></label>
+            <input type="file" id="new_captcha_file" name="new_captcha_file" accept="image/png, image/jpeg" required>
+
+            <label for="new_captcha_solution"><b>new_captcha_solution: </b></label>
+            <input type="text" name="new_captcha_solution" id="new_captcha_solution" required>
+
+            <input type="submit" value='Upload' name='submit_new_captcha'>
+        </form>
+    </section>
 </body>
 
 </html>
