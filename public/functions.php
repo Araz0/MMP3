@@ -31,7 +31,7 @@ function fileUpload($_inputArray, $_uploadFolder, $_allowedExtentions){
         if ($fileSize > 10000000) {
             array_push($errors,"File exceeds maximum size (10MB)");
         }
-        $uploadFilePath = $_SERVER["DOCUMENT_ROOT"]."$_uploadFolder/" . $localFileName;
+        $uploadFilePath = $_SERVER["DOCUMENT_ROOT"]."/$_uploadFolder/" . $localFileName;
 
         if (empty($errors)) {
             if (move_uploaded_file($fileTmpName, $uploadFilePath)) {
@@ -262,4 +262,32 @@ function getProjectbySufixAndUser($sufix, $user_id){
     $sth = $dbh->prepare($query);
     $sth->execute(array($sufix, $user_id));
     return $sth->fetch();
+}
+
+function createCaptcha($title, $path, $solution){
+    global $dbh;
+    $query = "INSERT INTO captchas (title, path, solution) VALUES (:title, :path, :solution)";
+    $sth = $dbh->prepare($query);
+
+    $sth->bindParam('title', $title, PDO::PARAM_STR);
+    $sth->bindParam('path', $path, PDO::PARAM_STR);
+    $sth->bindParam('solution', $solution, PDO::PARAM_STR);
+    $sth->execute();
+}
+
+function getAllCaptchas(){
+    global $dbh;
+    $query = "SELECT * FROM captchas";
+    $sth = $dbh->prepare($query);
+    $sth->execute();
+    return $sth->fetchAll();
+}
+
+function delete_captcha($path){
+    global $dbh;
+    
+    $query = "DELETE FROM captchas WHERE path=:path";
+    $sth = $dbh->prepare($query);
+    $sth->bindParam('path', $path, PDO::PARAM_INT);
+    $sth->execute();
 }
