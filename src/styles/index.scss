@@ -1,4 +1,8 @@
-@use "reset.scss";
-@use "variables.scss";
-@use "base.scss";
-@use "player.scss";
+@import  "reset.scss";
+@import  "variables.scss";
+@import  "base.scss";
+
+@import  "_nav.scss";
+
+@import  "home.scss";
+@import  "player.scss";
