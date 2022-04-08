@@ -38,12 +38,15 @@ CREATE TABLE configs (
   second_release_date TIMESTAMP NOT NULL,
   second_release_title VARCHAR(255) NOT NULL
 );
+CREATE TABLE captchas (
+  ID serial PRIMARY KEY NOT NULL,
+  title VARCHAR(255) NOT NULL,
+  path VARCHAR(255) NOT NULL,
+  solution VARCHAR(255) NOT NULL
+);
 /*
 departments varchar(255) NOT NULL, // MMT,MMA,HCI,KMU,HTB,SMB,SMC,ITS,AIS,HTW,BWI,IMT,SOZA,PDM,BMA,HEB,GUK,OTH,ETH,PTH,RET 
   categories varchar(255) NOT NULL, // MMP1,MMP2,MMP2a,MMP2b,MMP3,Master Project 
 */
 /*   Seeding   */
-INSERT INTO
-  users
-VALUES
-  (1, 'aro', 'root', current_timestamp);
+INSERT INTO users VALUES ('fhs41238', 'aalhamdani.mmt-b2020@fh-salzburg.ac.at', 'Araz', 'Al Hamdani', 'MMT-B 2020', 'ADMIN');
