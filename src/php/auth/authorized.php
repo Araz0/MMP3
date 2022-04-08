@@ -11,10 +11,6 @@ if(isset($resourceOwner))
 {
   $resourceOwner = $resourceOwner->toArray();
   //Normally you have a database included so you need to check if this user is already in your database
-  // if yes then get the user from your database
-
-  // Set parameters for $_SESSION
-  $_SESSION['fhsUser'] = $resourceOwner['preferred_username'];
 
   $username = $resourceOwner['preferred_username'];
   $email = $resourceOwner['email'];
@@ -26,6 +22,10 @@ if(isset($resourceOwner))
   if (getUser($username) == null) {
     createUser($username, $email, $first_name, $last_name, $studies, $role);
   }
+
+  // Set parameters for $_SESSION
+  $_SESSION['fhsUser'] = $resourceOwner['preferred_username'];
+  
   /*
   sub: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
   created_at: 1602662245
