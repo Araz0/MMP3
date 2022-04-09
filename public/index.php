@@ -8,6 +8,8 @@
 ?>
 
 <body>
+    <?php // $captcha_image_path = "media/logo-icon.png"; include 'components/captcha.php';?>
+
     <?php require "components/nav.php"; ?>
     <section class="section-hero">
         <img src="media/rundgang-px.png" alt="rundgang pixelated text">
@@ -67,5 +69,5 @@
         </div>
     </section>
 </body>
-
+<script src="/js/captcha.js"></script>
 </html>
