@@ -1,0 +1,54 @@
+/* used from https://www.w3docs.com/snippets/css/how-to-style-a-checkbox-with-css.html */
+
+.custom-checkbox{
+    position: relative;
+    padding-left: 10px;
+}
+
+/* Hide the default checkbox */
+input[type=checkbox] {
+    visibility: hidden;
+}
+/* creating a custom checkbox based on demand */
+.custom-checkbox-box {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    background-color: $color-white;
+    border: 2px solid $color-black;
+}
+/* specify the background color to be shown when hovering over checkbox */
+.custom-checkbox:hover input ~ .custom-checkbox-box {
+    background-color: orange;
+}
+/* specify the background color to be shown when checkbox is active */
+.custom-checkbox input:active ~ .custom-checkbox-box {
+    background-color: red;
+}
+/* specify the background color to be shown when checkbox is checked */
+.custom-checkbox input:checked ~ .custom-checkbox-box {
+    background-color: black;
+}
+/* checkmark to be shown in checkbox */
+/* It is not be shown when not checked */
+.custom-checkbox-box:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+/* display checkmark when checked */
+.custom-checkbox input:checked ~ .custom-checkbox-box:after {
+    display: block;
+}
+/* styling the checkmark using webkit */
+/* creating a square to be the sign of checkmark */
+.custom-checkbox .custom-checkbox-box:after {
+    left: 3px;
+    bottom: 3px;
+    width: 7px;
+    height: 7px;
+    border: solid $color-white;
+    border-width: 4px;
+}
