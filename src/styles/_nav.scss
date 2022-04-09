@@ -1,8 +1,10 @@
 .main-menu{
     display: flex;
+    font-family: "lores-12";
+    font-size: 21px;
     width: 100%;
-    background-color: white;
-    border: 1px solid black;
+    background-color: $color-white;
+    border: 1px solid $color-black;
     padding: 5px 1em;
 
     ul{
