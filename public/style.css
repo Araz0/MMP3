@@ -530,6 +530,141 @@ form {
   margin-left: auto;
 }
 
+.captcha-container {
+  background-color: #fafafa;
+  width: 25rem;
+  position: absolute;
+  left: 40%;
+  top: 10%;
+  border: 2px solid #0f0f0f;
+}
+
+#captcha-header {
+  cursor: move;
+  font-family: "lores-12";
+  font-size: 22px;
+  border-bottom: 2px solid #0f0f0f;
+  border-top: 0px;
+}
+#captcha-header button {
+  border: 2px solid #0f0f0f;
+  height: 25px;
+  width: 25px;
+  line-height: 0px;
+}
+
+.captcha-row-spacebetween {
+  background-color: #fafafa;
+  color: #0f0f0f;
+  padding: 5px;
+  display: flex;
+  justify-content: space-between;
+  border-top: 2px solid #0f0f0f;
+}
+.captcha-row-spacebetween button {
+  font-family: "lores-12";
+  font-size: 22px;
+  height: 32px;
+  background-color: #fafafa;
+  border: 2px solid #0f0f0f;
+}
+
+img {
+  width: 100%;
+  height: 100%;
+}
+
+.images {
+  position: absolute;
+  display: grid;
+  gap: 2px;
+  grid-template-columns: 1fr 1fr 1fr;
+  width: 100%;
+  height: 25rem;
+}
+
+.images input {
+  display: none;
+}
+
+.images input[type=checkbox]:Qchecked + label {
+  border: 1px #3cec44 solid;
+  background-color: rgba(255, 255, 255, 0.25);
+}
+
+.images label {
+  width: 100%;
+  height: 100%;
+  border: 1px rgba(255, 255, 255, 0.5) solid;
+  cursor: pointer;
+}
+
+.images-Container {
+  width: 25rem;
+  height: 25rem;
+}
+
+/* used from https://www.w3docs.com/snippets/css/how-to-style-a-checkbox-with-css.html */
+.custom-checkbox {
+  position: relative;
+  padding-left: 10px;
+}
+
+/* Hide the default checkbox */
+input[type=checkbox] {
+  visibility: hidden;
+}
+
+/* creating a custom checkbox based on demand */
+.custom-checkbox-box {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  background-color: #fafafa;
+  border: 2px solid #0f0f0f;
+}
+
+/* specify the background color to be shown when hovering over checkbox */
+.custom-checkbox:hover input ~ .custom-checkbox-box {
+  background-color: orange;
+}
+
+/* specify the background color to be shown when checkbox is active */
+.custom-checkbox input:active ~ .custom-checkbox-box {
+  background-color: red;
+}
+
+/* specify the background color to be shown when checkbox is checked */
+.custom-checkbox input:checked ~ .custom-checkbox-box {
+  background-color: black;
+}
+
+/* checkmark to be shown in checkbox */
+/* It is not be shown when not checked */
+.custom-checkbox-box:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* display checkmark when checked */
+.custom-checkbox input:checked ~ .custom-checkbox-box:after {
+  display: block;
+}
+
+/* styling the checkmark using webkit */
+/* creating a square to be the sign of checkmark */
+.custom-checkbox .custom-checkbox-box:after {
+  left: 3px;
+  bottom: 3px;
+  width: 7px;
+  height: 7px;
+  border: solid #fafafa;
+  border-width: 4px;
+}
+
 .section-hero__content {
   display: grid;
   grid-template-columns: repeat(6, 1fr);
@@ -571,7 +706,7 @@ form {
   grid-row: 2;
 }
 .section-schedule__information li {
-  border: 1px solid black;
+  border: 1px solid #0f0f0f;
   border-radius: 5px;
   padding: 3px;
 }
@@ -596,7 +731,7 @@ form {
   grid-column: 6;
 }
 .section-konzept__information li {
-  border: 1px solid black;
+  border: 1px solid #0f0f0f;
   border-radius: 5px;
   padding: 3px;
 }
