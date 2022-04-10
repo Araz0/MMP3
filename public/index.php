@@ -70,4 +70,5 @@
     </section>
 </body>
 <script src="/js/captcha.js"></script>
+<script src="/js/burgerMenuHandler.js"></script>
 </html>

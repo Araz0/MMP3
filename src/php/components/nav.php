@@ -1,6 +1,5 @@
 <nav class="main-menu">
-
-    
+    <button id="burgerButton">Menu</button>
     <ul>
         <?php if (isSet($_SESSION['fhsUser'])) echo $_SESSION['fhsUser']; ?>
         <li><a href="/"><img src="media/logo-icon.png" alt="Rundgang Logo Icon"></a></li>
