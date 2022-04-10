@@ -513,7 +513,6 @@ form {
 }
 
 .main-menu {
-  display: flex;
   font-family: "lores-12";
   font-size: 21px;
   width: 100%;
@@ -521,15 +520,49 @@ form {
   border: 1px solid #0f0f0f;
   padding: 5px 1em;
 }
-.main-menu ul {
-  display: flex;
-  gap: 1em;
-  align-items: center;
+.main-menu img {
+  display: none;
 }
-.main-menu ul:last-child {
-  margin-left: auto;
+.main-menu button {
+  border: none;
+  padding: 0px;
+  background-color: white;
+  font-family: "lores-12";
+  font-size: 21px;
+  cursor: pointer;
+}
+.main-menu ul {
+  display: none;
+  flex-direction: column;
+}
+.main-menu .show-menu {
+  display: flex;
 }
 
+/* Medium devices (tablets, 768px and up) The navbar toggle appears at this breakpoint */
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+  .main-menu {
+    display: flex;
+  }
+  .main-menu button {
+    display: none;
+  }
+  .main-menu img {
+    display: block;
+    width: 26px;
+  }
+  .main-menu ul {
+    display: flex;
+    flex-direction: row;
+    gap: 1em;
+    align-items: center;
+  }
+  .main-menu ul:last-child {
+    margin-left: auto;
+  }
+}
+/* Extra large devices (large desktops, 1200px and up) */
 .captcha-container {
   background-color: #fafafa;
   width: 25rem;
