@@ -1,19 +1,54 @@
 .main-menu{
-    display: flex;
     font-family: "lores-12";
     font-size: 21px;
     width: 100%;
     background-color: $color-white;
     border: 1px solid $color-black;
     padding: 5px 1em;
-
+    img{
+        display: none;
+    }
+    button{
+        border: none;
+        padding: 0px;
+        background-color: white;
+        font-family: "lores-12";
+        font-size: 21px;
+        cursor: pointer;
+    }
     ul{
+        display: none;
+        flex-direction: column;
+    }
+    .show-menu{
         display: flex;
-        gap: 1em;
-        align-items: center;
     }
-    ul:last-child{
-        margin-left: auto;
-    }
-    
 }
+
+
+/* Medium devices (tablets, 768px and up) The navbar toggle appears at this breakpoint */
+@media (min-width: 768px) {}
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+    .main-menu{
+        display: flex;
+        button{
+            display: none;
+        }
+        img{
+            display: block;
+            width: 26px;
+        }
+        ul{
+            display: flex;
+            flex-direction: row;
+            gap: 1em;
+            align-items: center;
+        }
+        ul:last-child{
+            margin-left: auto;
+        }
+    }
+}
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {}
