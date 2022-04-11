@@ -1,32 +1,23 @@
 .section-hero{
     &__content{
-        display: grid;
-        grid-template-columns: repeat(6, 1fr);
         outline: $grid-gap-line;
+        padding: 1rem 0.5rem;
+        margin-top: 0.5rem;
         p{
-            grid-column: span 3;
+            font-family: PPNeueMontreal;
+            line-height: 1.2rem;
         }
         img{
-            width: 233px;
-            height: 233px;
-            grid-column: 5;
-        }
-        *{
-            outline: $grid-gap-line;
+            display: none;
         }
     }
 }
 .section-schedule{
-    display: grid;
-    grid-template-columns: repeat(6, 1fr);
+    font-family: PPNeueMontreal;
+    line-height: 1.2rem;
     &__table{
-        grid-column: span 4;
-        grid-row: span 3;
         display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        h3:nth-child(3n-2){
-            grid-column: span 2;
-        }
+        grid-template-columns: 2fr 1fr 1fr;
     }
     &__information{
         grid-column: 6;
@@ -69,3 +60,12 @@
         }
     }
 }
+
+/* Medium devices (tablets, 768px and up) The navbar toggle appears at this breakpoint */
+@media (min-width: 768px) {}
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+
+}
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {}
