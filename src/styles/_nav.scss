@@ -3,11 +3,8 @@
     font-size: 21px;
     width: 100%;
     background-color: $color-white;
-    border: 1px solid $color-black;
-    padding: 5px 1em;
-    img{
-        display: none;
-    }
+    border: 2px solid $color-black;
+    padding: 5px 0.5em;
     button{
         border: none;
         padding: 0px;
@@ -16,15 +13,46 @@
         font-size: 21px;
         cursor: pointer;
     }
-    ul{
-        display: none;
-        flex-direction: column;
+    img{
+        width: 26px;
     }
-    .show-menu{
+    #main-menu__search-icon{
+        width: 17px;
+        padding: 1px;
+    }
+    ul{
         display: flex;
+        align-items:center;
+        gap: 1rem;
+    }
+    ul:first-child{
+        gap: 0.5rem;
+        li:nth-child(2){
+            margin-right: auto;
+        }
+        li:nth-child(3), li:nth-child(4){
+            border: 2px solid black;
+        }
+    }
+    
+    ul:nth-child(2){
+        display: none;
     }
 }
+.mobile-menu{
+    display: none;
 
+    font-family: "lores-12";
+    font-size: 21px;
+    width: 100%;
+    background-color: $color-white;
+    border: 2px solid $color-black;
+    border-top: none;
+}
+.show-menu{
+    display: flex;
+    flex-direction: column;
+}
 
 /* Medium devices (tablets, 768px and up) The navbar toggle appears at this breakpoint */
 @media (min-width: 768px) {}
@@ -32,21 +60,23 @@
 @media (min-width: 992px) {
     .main-menu{
         display: flex;
-        button{
-            display: none;
-        }
         img{
             display: block;
             width: 26px;
         }
+        ul:nth-child(2){
+            display: flex;
+            margin: 0px 1rem;
+        }
         ul{
             display: flex;
             flex-direction: row;
-            gap: 1em;
             align-items: center;
         }
-        ul:last-child{
-            margin-left: auto;
+        ul:first-child{
+            :not(:first-child){
+                display: none;
+            }
         }
     }
 }
