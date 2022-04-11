@@ -12,7 +12,7 @@
 
     <?php require "components/nav.php"; ?>
     <section class="section-hero">
-        <img src="media/rundgang-px.png" alt="rundgang pixelated text">
+        <img srcset="media/rundgang-v.png 193w, media/rundgang-px.png 278w" sizes="(max-width: 480px) 120px" alt="rundgang pixelated text">
         <div class="section-hero__content">
             <p>Der Rundgang, ist eine Veranstaltung der FH Salzburg bei der alle MultiMediaArt und MultiMediaTechnology Bachelor- und Masterprojekte sowie einige Human-Computer Interaction Projekte ausgestellt werden. Er findet am 02.06.2022 im Stadtkino Hallein und am 03.06.2022 am FH Salzburg Campus Urstein statt.</p>
             <img src="media/logo-icon.png" alt="Rundgang Logo Icon Big">
@@ -20,12 +20,12 @@
     </section>
     <section class="section-schedule">
         <div class="section-schedule__table">
-            <h3>Donnerstag</h3>
-            <h3>Ab</h3>
-            <h3>Kino</h3>
-            <h3>Freitag</h3>
-            <h3>Ab</h3>
-            <h3>Puch</h3>
+            <h3>Donnerstag 02/06/2022</h3>
+            <h3>Ab 14:00</h3>
+            <h3>Kino Hallein</h3>
+            <h3>Freitag  03/06/2022</h3>
+            <h3>Ab 13:00</h3>
+            <h3>Puch Urstein</h3>
             <h3>Afterparty</h3>
             <h3>22:30</h3>
         </div>
