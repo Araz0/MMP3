@@ -3,6 +3,12 @@ $color-white: #fafafa;
 $color-gray: #D1D1D1;
 $color-black: rgb(15, 15, 15);
 
+// font
+@font-face {
+    font-family: 'PPNeueMontreal';
+    src: url('fonts/PPNeueMontreal-Medium.woff');
+}
+
 // font sizes
 $h1-size: 3rem;
 $h1-size-small: 1.75rem;

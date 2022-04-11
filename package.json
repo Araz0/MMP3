@@ -9,6 +9,7 @@
     "build:images": "rsync -vaE --progress ./src/media/ ./public/media",
     "build:js": "rsync -vaE --progress ./src/js/ ./public/js",
     "build:files": "rsync -vaE --progress ./src/files/ ./public",
+    "build:fonts": "rsync -vaE --progress ./src/fonts/ ./public/fonts",
     "build:rights": "sudo chown arabaz:www-data ~/sites/mmp3/public/storage && sudo chmod 775 ~/sites/mmp3/public/storage",
     "build": "npm-run-all build:*"
   },
