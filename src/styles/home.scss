@@ -169,15 +169,74 @@
             grid-template-columns: repeat(6, 1fr);
             p{
                 grid-column: span 3;
+                border-right: $grid-gap-line;
             }
             img{
                 display: block;
-                border-left: $grid-gap-line;
+                padding: 0.5rem;
             }
-            span{
+            span:first-of-type {
+                border-right: $grid-gap-line;
+            }
+            span:last-child {
                 border-left: $grid-gap-line;
             }
         }
+    }
+    .section-schedule{
+        display: grid;
+        grid-template-areas: 
+            "times times times times . infos"
+            "empty empty filler filler filler infos";
+        grid-template-columns: repeat(6,1fr);
+        img{
+            grid-area: filler;
+        }
+        &__table{
+            grid-area: times;
+        }
+        &__table-4{
+            grid-area: empty;
+            border-right: $grid-gap-line;
+            span{
+                height:100%;
+            }
+            span:nth-child(1){
+                border: none;
+            }
+            span:nth-child(2){
+                display: block;
+                border-bottom: none;
+            }
+            span:nth-child(n+3){
+                display: none;
+            }
+        }
+        &__layout{
+            grid-area: infos;
+            flex-direction: column;
+            border-bottom: none;
+            &__information{
+                width: 100%;
+                border-bottom: $grid-gap-line;
+                border-left: $grid-gap-line;
+                p{
+                    border-right:none;
+                }
+                p:first-child{
+                    border-right:none;
+                }
+            }
+        }
+    }
+    .section-konzept{
+        grid-template-columns: repeat(6, 1fr);
+        img{
+            grid-column: span 3;
+        }
+    }
+    .section__captchas-38rem{
+        display: none;
     }
 }
 /* Extra large devices (large desktops, 1200px and up) */

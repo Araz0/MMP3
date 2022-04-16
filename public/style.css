@@ -933,13 +933,73 @@ input[type=checkbox] {
   }
   .section-hero__content p {
     grid-column: span 3;
+    border-right: 3px solid #161615;
   }
   .section-hero__content img {
     display: block;
+    padding: 0.5rem;
+  }
+  .section-hero__content span:first-of-type {
+    border-right: 3px solid #161615;
+  }
+  .section-hero__content span:last-child {
     border-left: 3px solid #161615;
   }
-  .section-hero__content span {
+
+  .section-schedule {
+    display: grid;
+    grid-template-areas: "times times times times . infos" "empty empty filler filler filler infos";
+    grid-template-columns: repeat(6, 1fr);
+  }
+  .section-schedule img {
+    grid-area: filler;
+  }
+  .section-schedule__table {
+    grid-area: times;
+  }
+  .section-schedule__table-4 {
+    grid-area: empty;
+    border-right: 3px solid #161615;
+  }
+  .section-schedule__table-4 span {
+    height: 100%;
+  }
+  .section-schedule__table-4 span:nth-child(1) {
+    border: none;
+  }
+  .section-schedule__table-4 span:nth-child(2) {
+    display: block;
+    border-bottom: none;
+  }
+  .section-schedule__table-4 span:nth-child(n+3) {
+    display: none;
+  }
+  .section-schedule__layout {
+    grid-area: infos;
+    flex-direction: column;
+    border-bottom: none;
+  }
+  .section-schedule__layout__information {
+    width: 100%;
+    border-bottom: 3px solid #161615;
     border-left: 3px solid #161615;
+  }
+  .section-schedule__layout__information p {
+    border-right: none;
+  }
+  .section-schedule__layout__information p:first-child {
+    border-right: none;
+  }
+
+  .section-konzept {
+    grid-template-columns: repeat(6, 1fr);
+  }
+  .section-konzept img {
+    grid-column: span 3;
+  }
+
+  .section__captchas-38rem {
+    display: none;
   }
 }
 /* Extra large devices (large desktops, 1200px and up) */
