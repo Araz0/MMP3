@@ -2,13 +2,13 @@
     <ul>
         <li><a href="/"><img src="media/logo-icon.png" alt="Rundgang Logo Icon"></a></li>
         <li><button id="burgerButton">Menu</button></li>
+        <li><a href=""><img id="main-menu__search-icon" src="media/search-icon.png" alt="Search Icon"></a></li>
         <?php 
         if (!isSet($_SESSION['fhsUser'])) { ?> 
             <li><a href="/auth/authorized.php">login</a></li>
         <?php }else { ?>
             <li><a href="/logout.php">logout</a></li>
         <?php } ?>
-        <li><a href=""><img id="main-menu__search-icon" src="media/search-icon.png" alt="Search Icon"></a></li>
     </ul>
     <ul>
         <?php if (isSet($_SESSION['fhsUser'])) echo $_SESSION['fhsUser']; ?>

@@ -11,7 +11,13 @@ a {
   text-decoration: none;
   color: black;
 }
-
+h2{
+  font-size: $h2-size-small;
+}
+h3{
+  font-size: $h3-size-small;
+  line-height: 30px;
+}
 img {
   max-width: 100%;
 }
@@ -33,4 +39,8 @@ form {
   border: solid 1px gray;
   border-radius: 5px;
   padding: 0.5em;
+}
+
+.filler-pixels{
+  object-fit: none;
 }
