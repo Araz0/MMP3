@@ -15,7 +15,7 @@
         <li><a href="">Home</a></li>
         <li><a href="">Programm</a></li>
         <li><a href="">Speeddating</a></li>
-        <li><a href="">Tickts</a></li>
+        <li><a href="">Tickets</a></li>
         <li><a href="">Projekte</a></li>
         <li><a href="">About</a></li>
     </ul>
