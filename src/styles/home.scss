@@ -14,7 +14,9 @@
 }
 .section-schedule{
     font-family: PPNeueMontreal;
-    line-height: 1.2rem;
+    img{
+        height: 10rem;
+    }
     &__table{
         display: grid;
         grid-template-columns: 25% 25% 25% 25%;
@@ -88,6 +90,7 @@
     }
     &__img-pixles{
         grid-row: span 2;
+        border-top: none;
     }
 
     &__information{
@@ -115,7 +118,7 @@
     border-top: $grid-gap-line;
     
     .filler-pixels{
-        height: auto;
+        height: 100%;
         grid-area: pxbg;
         border-right: $grid-gap-line;
     }
@@ -237,6 +240,9 @@
         &__table{
             grid-area: times;
         }
+        &__span{
+            border-bottom: $grid-gap-line;
+        }
         &__table-4{
             grid-area: empty;
             border-right: $grid-gap-line;
@@ -274,6 +280,9 @@
     .section-konzept{
         grid-template-columns: repeat(6, 1fr);
         grid-template-rows: 1fr 5fr;
+        &__img-pixles{
+            border-top: $grid-gap-line;
+        }
         img{
             grid-column: span 3;
         }

@@ -32,6 +32,7 @@
             <h3>22:30</h3>
             <span></span>
         </div>
+        <span class="section-schedule__span"></span>
         <div class="section-schedule__table-4">
             <span></span>
             <span></span>

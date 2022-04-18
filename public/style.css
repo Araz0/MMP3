@@ -804,7 +804,9 @@ input[type=checkbox] {
 
 .section-schedule {
   font-family: PPNeueMontreal;
-  line-height: 1.2rem;
+}
+.section-schedule img {
+  height: 10rem;
 }
 .section-schedule__table {
   display: grid;
@@ -880,6 +882,7 @@ input[type=checkbox] {
 }
 .section-konzept__img-pixles {
   grid-row: span 2;
+  border-top: none;
 }
 .section-konzept__information {
   grid-column: 6;
@@ -905,7 +908,7 @@ input[type=checkbox] {
   border-top: 3px solid #161615;
 }
 .section__socials .filler-pixels {
-  height: auto;
+  height: 100%;
   grid-area: pxbg;
   border-right: 3px solid #161615;
 }
@@ -1026,6 +1029,9 @@ input[type=checkbox] {
   .section-schedule__table {
     grid-area: times;
   }
+  .section-schedule__span {
+    border-bottom: 3px solid #161615;
+  }
   .section-schedule__table-4 {
     grid-area: empty;
     border-right: 3px solid #161615;
@@ -1063,6 +1069,9 @@ input[type=checkbox] {
   .section-konzept {
     grid-template-columns: repeat(6, 1fr);
     grid-template-rows: 1fr 5fr;
+  }
+  .section-konzept__img-pixles {
+    border-top: 3px solid #161615;
   }
   .section-konzept img {
     grid-column: span 3;
