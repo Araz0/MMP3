@@ -11,3 +11,7 @@ function toggleMenu() {
 }
 
 burgerbutton.addEventListener("click", toggleMenu);
+
+function toggleStudy(e) {
+    e.parentElement.parentElement.children[1].classList.toggle("show-study");
+}
