@@ -2,14 +2,43 @@ footer{
     font-family: 'PPNeueMontreal';
     border-bottom: $grid-gap-line;
     border-top: $grid-gap-line;
-    li{
-        font-size:  1.60rem;
-        width: 100%;
-        border-bottom: $grid-gap-line;
-        padding: 0.5rem 1rem;
+    display: grid;
+    grid-template-areas: "empty emtpy content";
+    .filler-pixels{
+        display: none;
     }
-    p{
-        padding: 0.5rem;
+    .footer-content{
+        grid-area: content;
+        li{
+            font-size:  1.60rem;
+            width: 100%;
+            border-bottom: $grid-gap-line;
+            padding: 0.5rem 1rem;
+        }
+        p{
+            padding: 0.5rem;
+        }
     }
     
 }
+/* Medium devices (tablets, 768px and up) The navbar toggle appears at this breakpoint */
+@media (min-width: 768px) {}
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+    footer{
+        display: grid;
+        grid-template-areas: "pxbg pxbg content";
+        grid-template-columns: 1fr 1fr 1fr;
+        .filler-pixels{
+            display: block;
+            grid-area: pxbg;
+        }
+        .footer-content{
+            grid-area: content;
+            border-left: $grid-gap-line;
+        }
+        
+    }
+}
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {}
