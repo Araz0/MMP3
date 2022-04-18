@@ -192,6 +192,7 @@ form {
 
 .filler-pixels {
   object-fit: none;
+  background-image: url("media/px-bg.png");
 }
 
 /*
@@ -616,17 +617,43 @@ footer {
   font-family: "PPNeueMontreal";
   border-bottom: 3px solid #161615;
   border-top: 3px solid #161615;
+  display: grid;
+  grid-template-areas: "empty emtpy content";
 }
-footer li {
+footer .filler-pixels {
+  display: none;
+}
+footer .footer-content {
+  grid-area: content;
+}
+footer .footer-content li {
   font-size: 1.6rem;
   width: 100%;
   border-bottom: 3px solid #161615;
   padding: 0.5rem 1rem;
 }
-footer p {
+footer .footer-content p {
   padding: 0.5rem;
 }
 
+/* Medium devices (tablets, 768px and up) The navbar toggle appears at this breakpoint */
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+  footer {
+    display: grid;
+    grid-template-areas: "pxbg pxbg content";
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+  footer .filler-pixels {
+    display: block;
+    grid-area: pxbg;
+  }
+  footer .footer-content {
+    grid-area: content;
+    border-left: 3px solid #161615;
+  }
+}
+/* Extra large devices (large desktops, 1200px and up) */
 .captcha-container {
   background-color: #fafafa;
   width: 25rem;
@@ -837,7 +864,6 @@ input[type=checkbox] {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   font-family: PPNeueMontreal;
-  border-bottom: 3px solid #161615;
 }
 .section-konzept h2, .section-konzept p {
   grid-column: span 3;
@@ -869,17 +895,28 @@ input[type=checkbox] {
 }
 .section__captchas-38rem {
   height: 38rem;
+  border-top: 3px solid #161615;
 }
 
 .section__socials {
-  display: flex;
+  display: grid;
   font-family: PPNeueMontreal;
+  grid-template-areas: "pxbg list" "image image";
   border-top: 3px solid #161615;
-  border-bottom: 3px solid #161615;
 }
-.section__socials img {
+.section__socials .filler-pixels {
   height: auto;
+  grid-area: pxbg;
   border-right: 3px solid #161615;
+}
+.section__socials__logo {
+  grid-area: image;
+  border-top: 3px solid #161615;
+}
+.section__socials__information {
+  position: relative;
+  grid-area: list;
+  min-height: 12rem;
 }
 .section__socials__information p {
   height: 7rem;
@@ -889,6 +926,9 @@ input[type=checkbox] {
 }
 .section__socials__information ul {
   margin-top: -7px;
+  bottom: 0px;
+  position: absolute;
+  width: 100%;
 }
 .section__socials__information li {
   border: 1px solid #161615;
@@ -905,6 +945,7 @@ input[type=checkbox] {
 
 .section__moreStudyInfo {
   font-family: PPNeueMontreal;
+  border-bottom: 3px solid #161615;
 }
 .section__moreStudyInfo__splited {
   display: grid;
@@ -922,6 +963,34 @@ input[type=checkbox] {
 }
 .section__moreStudyInfo__splited :first-child {
   border-right: 3px solid #161615;
+}
+
+.section__studies {
+  font-family: PPNeueMontreal;
+}
+.section__studies .show-study {
+  display: block;
+}
+.section__studies__part p {
+  display: none;
+}
+.section__studies__part:nth-child(2), .section__studies__part:nth-child(3) {
+  border-top: 3px solid #161615;
+}
+.section__studies__part__header {
+  display: flex;
+  justify-content: space-between;
+}
+.section__studies__part__header span {
+  display: block;
+  width: 22px;
+  height: 22px;
+  background-image: url("media/icon-dropdown.png");
+  background-repeat: no-repeat;
+  cursor: pointer;
+}
+.section__studies__filler {
+  display: none;
 }
 
 /* Medium devices (tablets, 768px and up) The navbar toggle appears at this breakpoint */
@@ -993,13 +1062,71 @@ input[type=checkbox] {
 
   .section-konzept {
     grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: 1fr 5fr;
   }
   .section-konzept img {
     grid-column: span 3;
   }
+  .section-konzept h2 {
+    padding-top: 1.5rem;
+  }
 
   .section__captchas-38rem {
     display: none;
+  }
+
+  .section__moreStudyInfo__splited {
+    display: none;
+  }
+
+  .section__socials {
+    grid-template-columns: 5fr 1fr;
+    grid-template-areas: "image list";
+  }
+  .section__socials .filler-pixels {
+    display: none;
+  }
+  .section__socials__logo {
+    border-top: none;
+  }
+  .section__socials__information {
+    border-left: 3px solid #161615;
+  }
+
+  .section__studies {
+    display: grid;
+    grid-template-columns: 5fr 1fr;
+  }
+  .section__studies__part p {
+    display: block;
+  }
+  .section__studies__part span {
+    display: none;
+  }
+  .section__studies__filler {
+    display: grid;
+    grid-template-areas: "empty empty pxbg pxbg pxbg pxbg";
+    grid-column: span 6;
+    min-height: 10rem;
+  }
+  .section__studies__filler .filler-pixels {
+    grid-area: pxbg;
+    border-left: 3px solid #161615;
+  }
+  .section__studies__collection {
+    border-top: 3px solid #161615;
+  }
+  .section__studies .section__socials {
+    border-left: 3px solid #161615;
+    grid-template-areas: "pxbg pxbg" "list list";
+    border-top: none;
+  }
+  .section__studies .section__socials .filler-pixels {
+    display: block;
+  }
+  .section__studies .section__socials__information {
+    border-top: 3px solid #161615;
+    border-left: none;
   }
 }
 /* Extra large devices (large desktops, 1200px and up) */
