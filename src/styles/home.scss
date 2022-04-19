@@ -15,7 +15,7 @@
 .section-schedule{
     font-family: PPNeueMontreal;
     img{
-        height: 10rem;
+        height: 14rem;
     }
     &__table{
         display: grid;
@@ -75,6 +75,7 @@
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     font-family: PPNeueMontreal;
+    margin-top: -3px;
     h2, p{
         grid-column: span 3;
         border-right: $grid-gap-line;
