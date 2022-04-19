@@ -663,25 +663,34 @@ footer .footer-content p {
 /* Extra large devices (large desktops, 1200px and up) */
 .captcha-container {
   background-color: #fafafa;
-  width: 25rem;
+  width: 20rem;
   position: absolute;
   left: 40%;
   top: 10%;
   border: 2px solid #161615;
+  z-index: 50;
 }
 
-#captcha-header {
+.captcha-message, .captcha-footer {
+  font-family: PPNeueMontreal;
+}
+
+.captcha-message {
+  padding: 1rem;
+}
+
+.captcha-header {
   cursor: move;
   font-family: "lores-12";
   font-size: 22px;
   border-bottom: 2px solid #161615;
-  border-top: 0px;
 }
-#captcha-header button {
+.captcha-header button {
   border: 2px solid #161615;
   height: 25px;
   width: 25px;
   line-height: 0px;
+  cursor: pointer;
 }
 
 .captcha-row-spacebetween {
@@ -690,7 +699,6 @@ footer .footer-content p {
   padding: 5px;
   display: flex;
   justify-content: space-between;
-  border-top: 2px solid #161615;
 }
 .captcha-row-spacebetween button {
   font-family: "lores-12";
@@ -698,6 +706,7 @@ footer .footer-content p {
   height: 32px;
   background-color: #fafafa;
   border: 2px solid #161615;
+  cursor: pointer;
 }
 
 img {
@@ -711,14 +720,14 @@ img {
   gap: 2px;
   grid-template-columns: 1fr 1fr 1fr;
   width: 100%;
-  height: 25rem;
+  height: 20rem;
 }
 
 .images input {
   display: none;
 }
 
-.images input[type=checkbox]:Qchecked + label {
+.images input[type=checkbox]:checked + label {
   border: 1px #3cec44 solid;
   background-color: rgba(255, 255, 255, 0.25);
 }
@@ -731,69 +740,15 @@ img {
 }
 
 .images-Container {
-  width: 25rem;
-  height: 25rem;
+  width: calc(20rem - 2px);
+  height: 20rem;
+  border-top: 2px solid #161615;
+  border-bottom: 2px solid #161615;
 }
 
-/* used from https://www.w3docs.com/snippets/css/how-to-style-a-checkbox-with-css.html */
-.custom-checkbox {
-  position: relative;
-  padding-left: 10px;
-}
-
-/* Hide the default checkbox */
-input[type=checkbox] {
-  visibility: hidden;
-}
-
-/* creating a custom checkbox based on demand */
-.custom-checkbox-box {
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 25px;
-  width: 25px;
-  background-color: #fafafa;
-  border: 2px solid #161615;
-}
-
-/* specify the background color to be shown when hovering over checkbox */
-.custom-checkbox:hover input ~ .custom-checkbox-box {
-  background-color: orange;
-}
-
-/* specify the background color to be shown when checkbox is active */
-.custom-checkbox input:active ~ .custom-checkbox-box {
-  background-color: red;
-}
-
-/* specify the background color to be shown when checkbox is checked */
-.custom-checkbox input:checked ~ .custom-checkbox-box {
-  background-color: black;
-}
-
-/* checkmark to be shown in checkbox */
-/* It is not be shown when not checked */
-.custom-checkbox-box:after {
-  content: "";
-  position: absolute;
-  display: none;
-}
-
-/* display checkmark when checked */
-.custom-checkbox input:checked ~ .custom-checkbox-box:after {
-  display: block;
-}
-
-/* styling the checkmark using webkit */
-/* creating a square to be the sign of checkmark */
-.custom-checkbox .custom-checkbox-box:after {
-  left: 3px;
-  bottom: 3px;
-  width: 7px;
-  height: 7px;
-  border: solid #fafafa;
-  border-width: 4px;
+.custom-checkbox input {
+  height: 1rem;
+  width: 1rem;
 }
 
 .section-hero__content {
@@ -870,21 +825,22 @@ input[type=checkbox] {
 }
 
 .section-konzept {
+  position: relative;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   font-family: PPNeueMontreal;
   margin-top: -3px;
 }
-.section-konzept h2, .section-konzept p {
+.section-konzept__header, .section-konzept__message {
   grid-column: span 3;
   border-right: 3px solid #161615;
 }
-.section-konzept h2 {
+.section-konzept__header {
   padding: 0.5rem 0rem 1rem 1rem;
   border-top: 3px solid #161615;
   border-bottom: 3px solid #161615;
 }
-.section-konzept p {
+.section-konzept__message {
   grid-row: 2;
   padding: 1rem 0.5rem;
 }

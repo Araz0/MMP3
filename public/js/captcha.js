@@ -1,17 +1,21 @@
 // Make the DIV element draggable:
-dragElement(document.getElementById("captcha"));
-document.getElementById("captcha-close-btn").addEventListener("click", () => {
-    document.getElementById("captcha-close-btn").parentElement.parentElement.remove();
+var captchas = document.querySelectorAll('.captcha-container');
+captchas.forEach(element => {
+    dragElement(element);
+    element.style.top = (Math.floor(Math.random() * 20) + 1)+"%";
+    element.style.left = (Math.floor(Math.random() * 40) + 1)+"%";
 });
-document.getElementById("captcha-next-btn").addEventListener("click", () => {
-    document.getElementById("captcha-next-btn").parentElement.parentElement.remove();
-});
+
+
+function closeCaptchaOnClick(e){
+    e.parentElement.parentElement.remove();
+}
 
 function dragElement(elmnt) {
     var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
-    if (document.getElementById("captcha-header")) {
+    if (elmnt.children[0]) {
         // if present, the header is where you move the DIV from:
-        document.getElementById("captcha-header").onmousedown = dragMouseDown;
+        elmnt.children[0].onmousedown = dragMouseDown;
     } else {
         // otherwise, move the DIV from anywhere inside the DIV:
         elmnt.onmousedown = dragMouseDown;

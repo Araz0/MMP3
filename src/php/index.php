@@ -12,6 +12,31 @@
 
     <?php require "components/nav.php"; ?>
     <section class="section-hero">
+        <?php 
+        $popup_title = "02/06/2022"; 
+        $popup_message = "14 Uhr \n Film Screening im Stadtkino Hallein";
+        include 'components/popup.php';
+        ?>
+        <?php 
+        $captcha_image_path = "media/logo-icon.png"; 
+        $captcha_message = "Select all squares with palm trees.";
+        include 'components/captcha.php';
+        ?>
+        <?php
+        $captcha_image_path = "media/logo-icon.png";
+        $captcha_message = "Select all squares with crosswalks.";
+        include 'components/captcha.php';
+        ?>
+        <?php
+        $captcha_image_path = "media/logo-icon.png";
+        $captcha_message = "Select all squares with cars.";
+        include 'components/captcha.php';
+        ?>
+        <?php
+        $captcha_image_path = "media/logo-icon.png";
+        $captcha_message = "Select all squares with signs.";
+        include 'components/captcha.php';
+        ?>
         <img srcset="media/rundgang-v.png 193w, media/rundgang-px.png 278w" sizes="(max-width: 480px) 120px" alt="rundgang pixelated text">
         <div class="section-hero__content">
             <p>Der Rundgang, ist eine Veranstaltung der FH Salzburg bei der alle MultiMediaArt und MultiMediaTechnology Bachelor- und Masterprojekte sowie einige Human-Computer Interaction Projekte ausgestellt werden. Er findet am 02.06.2022 im Stadtkino Hallein und am 03.06.2022 am FH Salzburg Campus Urstein statt.</p>
@@ -68,8 +93,28 @@
         
     </section>
     <section class="section-konzept">
-        <h2>Konzept</h2>
-        <p>Die vier unterschiedlichen Captcha Bilder, machen bei genauerer Betrachtung auf die Problemstellungen in unserer Welt aufmerksam. Auch MultiMediaArt, MultiMediaTechnology und Human-Computer Interaction beschäftigen sich neben dem Einsatz unterschiedlicher technischer Innovationen und neuen Medien vor allem auch mit aktuellen, kritischen Fragestellungen. Die subtil kritischen Captcha Bilder greifen dies auf, geben uns Menschen - im Gegensatz zu Robotern - einen Denkanstoß und berühren uns. Daher verifiziert man sich in einer interaktiven Animation, kein Roboter zu sein. In dieser Animation verschmelzen Technik und Konzept - das Captcha verschwindet und legt den Blick auf den verpixelten Rundgang-Schriftzug frei, der einlädt, an der zukunftsschaffenden Welt von MultiMediaArt, MultiMediaTechnology und Human-Computer Interaction teilhaben zu können.</p>
+    <?php 
+        $captcha_image_path = "media/logo-icon.png"; 
+        $captcha_message = "Select all squares with palm trees.";
+        include 'components/captcha.php';
+        ?>
+        <?php
+        $captcha_image_path = "media/logo-icon.png";
+        $captcha_message = "Select all squares with crosswalks.";
+        include 'components/captcha.php';
+        ?>
+        <?php
+        $captcha_image_path = "media/logo-icon.png";
+        $captcha_message = "Select all squares with cars.";
+        include 'components/captcha.php';
+        ?>
+        <?php
+        $captcha_image_path = "media/logo-icon.png";
+        $captcha_message = "Select all squares with signs.";
+        include 'components/captcha.php';
+        ?>
+        <h2 class="section-konzept__header">Konzept</h2>
+        <p class="section-konzept__message">Die vier unterschiedlichen Captcha Bilder, machen bei genauerer Betrachtung auf die Problemstellungen in unserer Welt aufmerksam. Auch MultiMediaArt, MultiMediaTechnology und Human-Computer Interaction beschäftigen sich neben dem Einsatz unterschiedlicher technischer Innovationen und neuen Medien vor allem auch mit aktuellen, kritischen Fragestellungen. Die subtil kritischen Captcha Bilder greifen dies auf, geben uns Menschen - im Gegensatz zu Robotern - einen Denkanstoß und berühren uns. Daher verifiziert man sich in einer interaktiven Animation, kein Roboter zu sein. In dieser Animation verschmelzen Technik und Konzept - das Captcha verschwindet und legt den Blick auf den verpixelten Rundgang-Schriftzug frei, der einlädt, an der zukunftsschaffenden Welt von MultiMediaArt, MultiMediaTechnology und Human-Computer Interaction teilhaben zu können.</p>
         <img class="section-konzept__img-pixles filler-pixels" src="media/px-bg-trans.png" alt="pixlated background image filler">
     </section>
     <section class="section__captchas-38rem"></section>

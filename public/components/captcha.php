@@ -1,7 +1,10 @@
-<div id="captcha" class="captcha-container">
-    <div id="captcha-header" class="captcha-row-spacebetween">
+<div class="captcha-container">
+    <div class="captcha-header captcha-row-spacebetween">
         <span>Captcha</span>
-        <button id="captcha-close-btn">X</button>
+        <button onclick="closeCaptchaOnClick(this)">X</button>
+    </div>
+    <div class="captcha-message">
+        <p><?php echo $captcha_message; ?></p>
     </div>
     <div class="images-Container">
         <div class="images">
@@ -26,12 +29,12 @@
         </div>
         <img src="<?php echo $captcha_image_path; ?>" alt="Captcha image">
     </div>
-    <div class="captcha-row-spacebetween">
+    <div class="captcha-footer captcha-row-spacebetween">
         <label class="custom-checkbox" for="notarobot">
             <input type="checkbox" name="notarobot" id="notarobot">I'm not a robot</input>
-            <span class="custom-checkbox-box"></span>
+            
         </label>
-        <button id="captcha-next-btn">verify</button>
+        <button onclick="closeCaptchaOnClick(this)">verify</button>
     </div>
     
 </div>

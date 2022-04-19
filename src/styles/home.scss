@@ -72,20 +72,21 @@
     }
 }
 .section-konzept{
+    position: relative;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     font-family: PPNeueMontreal;
     margin-top: -3px;
-    h2, p{
+    &__header, &__message{
         grid-column: span 3;
         border-right: $grid-gap-line;
     }
-    h2{
+    &__header{
         padding: 0.5rem 0rem 1rem 1rem;
         border-top: $grid-gap-line;
         border-bottom: $grid-gap-line;
     }
-    p{
+    &__message{
         grid-row: 2;
         padding: 1rem 0.5rem;
     }
