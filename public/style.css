@@ -147,6 +147,11 @@ body {
   background-color: #D1D1D1;
 }
 
+main {
+  position: relative;
+  min-height: 60vh;
+}
+
 .max-container-width {
   max-width: 1280px;
   margin: 2em auto;
@@ -162,12 +167,30 @@ h2 {
 }
 
 h3 {
-  font-size: 1.45rem;
-  line-height: 30px;
+  font-size: 70px;
+  line-height: 70px;
 }
 
+@media (max-width: 1340px) {
+  h3 {
+    font-size: 45px;
+    line-height: 50px;
+  }
+}
+@media (max-width: 768px) {
+  h3 {
+    font-size: 26px;
+    line-height: 30px;
+  }
+}
 img {
   max-width: 100%;
+}
+
+.old-btn {
+  border: 2px solid #161615;
+  font-family: "lores-12";
+  padding: 2px;
 }
 
 form {
@@ -193,6 +216,10 @@ form {
 .filler-pixels {
   object-fit: none;
   background-image: url("media/px-bg.png");
+}
+
+.pushleft2rem {
+  margin-left: 3.5rem;
 }
 
 /*
@@ -532,7 +559,7 @@ form {
 
 .main-menu {
   font-family: "lores-12";
-  font-size: 21px;
+  font-size: 1.25rem;
   width: 100%;
   background-color: #fafafa;
   border: 2px solid #161615;
@@ -608,7 +635,7 @@ form {
   }
   .main-menu ul:nth-child(2) {
     display: flex;
-    margin: 0px 1rem;
+    margin: 0px 0px 0px 1rem;
   }
   .main-menu ul {
     display: flex;
@@ -625,7 +652,7 @@ footer {
   border-bottom: 3px solid #161615;
   border-top: 3px solid #161615;
   display: grid;
-  grid-template-areas: "empty emtpy content";
+  grid-template-areas: "content" "empty";
 }
 footer .filler-pixels {
   display: none;
@@ -641,8 +668,17 @@ footer .footer-content li {
 }
 footer .footer-content p {
   padding: 0.5rem;
+  font-size: 26px;
+  line-height: 2rem;
 }
 
+@media (max-width: 768px) {
+  footer .footer-content p {
+    padding: 0.5rem;
+    font-size: 18px;
+    line-height: 24px;
+  }
+}
 /* Medium devices (tablets, 768px and up) The navbar toggle appears at this breakpoint */
 /* Large devices (desktops, 992px and up) */
 @media (min-width: 992px) {
@@ -654,6 +690,7 @@ footer .footer-content p {
   footer .filler-pixels {
     display: block;
     grid-area: pxbg;
+    max-height: 29rem;
   }
   footer .footer-content {
     grid-area: content;
@@ -663,12 +700,15 @@ footer .footer-content p {
 /* Extra large devices (large desktops, 1200px and up) */
 .captcha-container {
   background-color: #fafafa;
-  width: 20rem;
+  width: auto;
   position: absolute;
   left: 40%;
   top: 10%;
   border: 2px solid #161615;
   z-index: 50;
+}
+.captcha-container img {
+  padding: 0px;
 }
 
 .captcha-message, .captcha-footer {
@@ -676,7 +716,9 @@ footer .footer-content p {
 }
 
 .captcha-message {
-  padding: 1rem;
+  padding: 0.5rem 1rem;
+  line-height: 1.6rem;
+  font-size: 1.4rem;
 }
 
 .captcha-header {
@@ -692,6 +734,9 @@ footer .footer-content p {
   line-height: 0px;
   cursor: pointer;
 }
+.captcha-header span {
+  font-size: 1.25rem;
+}
 
 .captcha-row-spacebetween {
   background-color: #fafafa;
@@ -702,8 +747,12 @@ footer .footer-content p {
 }
 .captcha-row-spacebetween button {
   font-family: "lores-12";
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
   font-size: 22px;
-  height: 32px;
+  height: 20px;
+  width: 22px;
   background-color: #fafafa;
   border: 2px solid #161615;
   cursor: pointer;
@@ -717,7 +766,7 @@ img {
 .images {
   position: absolute;
   display: grid;
-  gap: 2px;
+  gap: 1px;
   grid-template-columns: 1fr 1fr 1fr;
   width: 100%;
   height: 20rem;
@@ -728,8 +777,8 @@ img {
 }
 
 .images input[type=checkbox]:checked + label {
-  border: 1px #3cec44 solid;
-  background-color: rgba(255, 255, 255, 0.25);
+  border: 1px #222 solid;
+  background-color: rgba(0, 0, 0, 0.3);
 }
 
 .images label {
@@ -740,10 +789,7 @@ img {
 }
 
 .images-Container {
-  width: calc(20rem - 2px);
   height: 20rem;
-  border-top: 2px solid #161615;
-  border-bottom: 2px solid #161615;
 }
 
 .custom-checkbox input {
@@ -751,24 +797,63 @@ img {
   width: 1rem;
 }
 
+.captcha-footer {
+  padding: 15px 10px;
+}
+.captcha-footer label {
+  line-height: 1.4rem;
+  font-size: 1.4rem;
+  height: 1.5rem;
+  margin-top: 4px;
+}
+.captcha-footer button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  height: 32px;
+  width: auto;
+  color: #161615;
+}
+
+.max-width {
+  max-width: 20rem;
+}
+
+#popupfiller {
+  position: relative;
+  width: 100%;
+}
+
+.section-hero__hero-img {
+  padding: 1rem;
+}
 .section-hero__content {
   outline: 3px solid #161615;
   margin-top: 0.5rem;
 }
 .section-hero__content p {
   font-family: PPNeueMontreal;
-  padding: 1rem 0.5rem;
+  padding: 0.8rem 1.8rem;
+  font-size: 26px;
+  line-height: 2rem;
 }
 .section-hero__content img {
   display: none;
   width: 233px;
 }
 
+@media (max-width: 768px) {
+  .section-hero__content p {
+    font-size: 18px;
+    padding: 0.8rem 0.8rem;
+    line-height: 24px;
+  }
+}
 .section-schedule {
   font-family: PPNeueMontreal;
 }
 .section-schedule img {
-  height: 14rem;
+  max-height: 27rem;
 }
 .section-schedule__table {
   display: grid;
@@ -777,7 +862,7 @@ img {
 .section-schedule__table * {
   border-right: 3px solid #161615;
   border-bottom: 3px solid #161615;
-  padding: 1rem;
+  padding: 0.7rem;
 }
 .section-schedule__table h3:nth-child(3n+1) {
   grid-column: span 2;
@@ -795,35 +880,42 @@ img {
 .section-schedule__layout {
   display: flex;
   border-bottom: 3px solid #161615;
+  min-height: 20rem;
 }
 .section-schedule__layout__information {
   width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 .section-schedule__layout__information p {
-  height: 7rem;
   font-size: 1rem;
   line-height: 1.3rem;
   padding: 0.5rem;
-}
-.section-schedule__layout__information p:first-child {
-  border-right: 3px solid #161615;
+  font-size: 26px;
+  line-height: 2rem;
 }
 .section-schedule__layout__information ul {
   margin-top: -7px;
 }
 .section-schedule__layout__information li {
   border: 3px solid #161615;
-  border-top: none;
-  border-radius: 10px;
-  padding: 3px 10px;
+  font-size: 26px;
+  line-height: 2rem;
+  margin-bottom: -2px;
+  border-radius: 16px;
+  padding: 7px 15px;
 }
-.section-schedule__layout__information li:first-child {
-  border-top: 3px solid #161615;
-}
-.section-schedule__layout__information li:last-child {
-  border-bottom: none;
+.section-schedule__layout__information:first-child {
+  border-right: 3px solid #161615;
 }
 
+@media (max-width: 768px) {
+  .section-schedule__layout__information p, .section-schedule__layout__information li {
+    font-size: 18px;
+    line-height: 24px;
+  }
+}
 .section-konzept {
   position: relative;
   display: grid;
@@ -842,7 +934,9 @@ img {
 }
 .section-konzept__message {
   grid-row: 2;
-  padding: 1rem 0.5rem;
+  padding: 0.8rem 1.8rem;
+  font-size: 21px;
+  line-height: 1.7rem;
 }
 .section-konzept__img-pixles {
   grid-row: span 2;
@@ -857,6 +951,13 @@ img {
   padding: 3px;
 }
 
+@media (max-width: 768px) {
+  .section-konzept__message {
+    padding: 0.8rem 0.8rem;
+    font-size: 18px;
+    line-height: 24px;
+  }
+}
 .section__captchas {
   width: 100%;
 }
@@ -881,38 +982,49 @@ img {
   border-top: 3px solid #161615;
 }
 .section__socials__information {
-  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   grid-area: list;
   min-height: 12rem;
 }
 .section__socials__information p {
-  height: 7rem;
+  min-height: 10rem;
   font-size: 1rem;
   line-height: 1.3rem;
   padding: 0.5rem;
+  font-size: 26px;
+  line-height: 2rem;
+}
+.section__socials__information p:first-child {
+  border-right: 3px solid #161615;
 }
 .section__socials__information ul {
   margin-top: -7px;
-  bottom: 0px;
-  position: absolute;
-  width: 100%;
 }
 .section__socials__information li {
-  border: 1px solid #161615;
-  border-top: none;
-  border-radius: 10px;
-  padding: 3px 10px;
+  border: 3px solid #161615;
+  font-size: 26px;
+  line-height: 2rem;
+  margin-bottom: -2px;
+  margin-left: -2px;
+  border-radius: 16px;
+  padding: 7px 15px;
 }
 .section__socials__information li:first-child {
-  border-top: 1px solid #161615;
-}
-.section__socials__information li:last-child {
-  border-bottom: none;
+  border-top: 3px solid #161615;
 }
 
+@media (max-width: 768px) {
+  .section__socials__information p, .section__socials__information li {
+    font-size: 18px;
+    line-height: 24px;
+  }
+}
 .section__moreStudyInfo {
   font-family: PPNeueMontreal;
   border-bottom: 3px solid #161615;
+  position: relative;
 }
 .section__moreStudyInfo__splited {
   display: grid;
@@ -932,21 +1044,41 @@ img {
   border-right: 3px solid #161615;
 }
 
+@media (max-width: 768px) {
+  .section__moreStudyInfo__splited p {
+    font-size: 18px;
+    line-height: 24px;
+  }
+}
 .section__studies {
   font-family: PPNeueMontreal;
+  position: relative;
 }
 .section__studies .show-study {
   display: block;
+  margin-top: 1rem;
+  line-height: 1.5rem;
+  margin: 0.5rem 0.5rem 1.5rem 0.5rem;
 }
 .section__studies__part p {
   display: none;
+  padding: 0px;
+  font-size: 21px;
+  line-height: 1.7rem;
 }
 .section__studies__part:nth-child(2), .section__studies__part:nth-child(3) {
   border-top: 3px solid #161615;
 }
+.section__studies__part:nth-child(1), .section__studies__part:nth-child(2) {
+  height: 30%;
+}
+.section__studies__part:nth-child(3) {
+  height: 40%;
+}
 .section__studies__part__header {
   display: flex;
   justify-content: space-between;
+  padding: 0.5rem;
 }
 .section__studies__part__header span {
   display: block;
@@ -955,6 +1087,9 @@ img {
   background-image: url("media/icon-dropdown.png");
   background-repeat: no-repeat;
   cursor: pointer;
+}
+.section__studies__part__header .dropdown-isup {
+  background-image: url("media/icon-dropup.png");
 }
 .section__studies__filler {
   display: none;
@@ -974,6 +1109,7 @@ img {
   .section-hero__content img {
     display: block;
     padding: 0.5rem;
+    margin: 0px auto;
   }
   .section-hero__content span:first-of-type {
     border-right: 3px solid #161615;
@@ -986,6 +1122,7 @@ img {
     display: grid;
     grid-template-areas: "times times times times . infos" "empty empty filler filler filler infos";
     grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: 1fr 1fr;
   }
   .section-schedule img {
     grid-area: filler;
@@ -1015,11 +1152,16 @@ img {
   }
   .section-schedule__layout {
     grid-area: infos;
+    justify-content: space-between;
     flex-direction: column;
     border-bottom: none;
   }
   .section-schedule__layout__information {
     width: 100%;
+    height: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     border-bottom: 3px solid #161615;
     border-left: 3px solid #161615;
   }
@@ -1033,6 +1175,7 @@ img {
   .section-konzept {
     grid-template-columns: repeat(6, 1fr);
     grid-template-rows: 1fr 5fr;
+    max-height: 30rem;
   }
   .section-konzept__img-pixles {
     border-top: 3px solid #161615;
@@ -1070,17 +1213,27 @@ img {
     display: grid;
     grid-template-columns: 5fr 1fr;
   }
+  .section__studies__part {
+    display: grid;
+    grid-template-columns: 2fr 3fr;
+    padding: 0px;
+  }
   .section__studies__part p {
     display: block;
+    padding: 1rem;
   }
   .section__studies__part span {
     display: none;
+  }
+  .section__studies__part__header {
+    border-right: 3px solid #161615;
   }
   .section__studies__filler {
     display: grid;
     grid-template-areas: "empty empty pxbg pxbg pxbg pxbg";
     grid-column: span 6;
     min-height: 10rem;
+    max-height: 30rem;
   }
   .section__studies__filler .filler-pixels {
     grid-area: pxbg;
@@ -1103,6 +1256,16 @@ img {
   }
 }
 /* Extra large devices (large desktops, 1200px and up) */
+.myprojects__container {
+  font-family: PPNeueMontreal;
+  max-width: 80%;
+  margin: 2rem auto;
+}
+
+.projects__create__container {
+  margin-top: 3rem;
+}
+
 .artplayer {
   width: 44rem;
   height: 24.75rem;

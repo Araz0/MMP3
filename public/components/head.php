@@ -3,7 +3,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rundgang FH-Salzburg 02.06.2022 und 03.06.2022</title>
+    <title><?php echo $pagetitle; ?></title>
     
     <script type="module">
         document.documentElement.classList.remove('no-js');
@@ -21,6 +21,9 @@
     <meta name="twitter:card" content="summary" />
     <meta property="og:url" content="https://www.rundgang-fhsalzburg.com" />
     <link rel="canonical" href="https://www.rundgang-fhsalzburg.com" />
+
+    <link rel="icon" type="image/svg+xml" href="/favicon/favicon.svg">
+    <link rel="icon" type="image/png" href="/favicon/favicon.png">
 
     <!--<link rel="icon" href="============/favicons/favicon.ico" />
     <link rel="apple-touch-icon" sizes="180x180" href="============/favicons/apple-touch-icon.png">

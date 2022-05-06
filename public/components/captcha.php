@@ -1,31 +1,32 @@
-<div class="captcha-container">
+<div class="captcha-container" xH="<?php echo $captcha_xH; ?>" xV="<?php echo $captcha_xV; ?>">
     <div class="captcha-header captcha-row-spacebetween">
         <span>Captcha</span>
-        <button onclick="closeCaptchaOnClick(this)">X</button>
+        <button onclick="closeCaptchaOnClick(this)"><img src="media/icon-x-close.png" alt="close button for the captcha window"></button>
     </div>
     <div class="captcha-message">
         <p><?php echo $captcha_message; ?></p>
     </div>
     <div class="images-Container">
         <div class="images">
-            <input type="checkbox" id="bx1" name="bx1" value="bx1">
-            <label for="bx1"></label>
-            <input type="checkbox" id="bx2" name="bx2" value="bx2">
-            <label for="bx2"></label>
-            <input type="checkbox" id="bx3" name="bx3" value="bx3">
-            <label for="bx3"></label>
-            <input type="checkbox" id="bx4" name="bx4" value="bx4">
-            <label for="bx4"></label>
-            <input type="checkbox" id="bx5" name="bx5" value="bx5">
-            <label for="bx5"></label>
-            <input type="checkbox" id="bx6" name="bx6" value="bx6">
-            <label for="bx6"></label>
-            <input type="checkbox" id="bx7" name="bx7" value="bx7">
-            <label for="bx7"></label>
-            <input type="checkbox" id="bx8" name="bx8" value="bx8">
-            <label for="bx8"></label>
-            <input type="checkbox" id="bx9" name="bx9" value="bx9">
-            <label for="bx9"></label>
+            <?php $cbid = rand();?>
+            <input type="checkbox" id="<?php echo $cbid; ?>1" name="<?php echo $cbid; ?>1" value="<?php echo $cbid; ?>1">
+            <label for="<?php echo $cbid; ?>1"></label>
+            <input type="checkbox" id="<?php echo $cbid; ?>2" name="<?php echo $cbid; ?>2" value="<?php echo $cbid; ?>2">
+            <label for="<?php echo $cbid; ?>2"></label>
+            <input type="checkbox" id="<?php echo $cbid; ?>3" name="<?php echo $cbid; ?>3" value="<?php echo $cbid; ?>3">
+            <label for="<?php echo $cbid; ?>3"></label>
+            <input type="checkbox" id="<?php echo $cbid; ?>4" name="<?php echo $cbid; ?>4" value="<?php echo $cbid; ?>4">
+            <label for="<?php echo $cbid; ?>4"></label>
+            <input type="checkbox" id="<?php echo $cbid; ?>5" name="<?php echo $cbid; ?>5" value="<?php echo $cbid; ?>5">
+            <label for="<?php echo $cbid; ?>5"></label>
+            <input type="checkbox" id="<?php echo $cbid; ?>6" name="<?php echo $cbid; ?>6" value="<?php echo $cbid; ?>6">
+            <label for="<?php echo $cbid; ?>6"></label>
+            <input type="checkbox" id="<?php echo $cbid; ?>7" name="<?php echo $cbid; ?>7" value="<?php echo $cbid; ?>7">
+            <label for="<?php echo $cbid; ?>7"></label>
+            <input type="checkbox" id="<?php echo $cbid; ?>8" name="<?php echo $cbid; ?>8" value="<?php echo $cbid; ?>8">
+            <label for="<?php echo $cbid; ?>8"></label>
+            <input type="checkbox" id="<?php echo $cbid; ?>9" name="<?php echo $cbid; ?>9" value="<?php echo $cbid; ?>9">
+            <label for="<?php echo $cbid; ?>9"></label>
         </div>
         <img src="<?php echo $captcha_image_path; ?>" alt="Captcha image">
     </div>
@@ -34,7 +35,7 @@
             <input type="checkbox" name="notarobot" id="notarobot">I'm not a robot</input>
             
         </label>
-        <button onclick="closeCaptchaOnClick(this)">verify</button>
+        <button class="captcha-footer__button" onclick="closeCaptchaOnClick(this)">verify</button>
     </div>
     
 </div>

@@ -3,7 +3,7 @@ footer{
     border-bottom: $grid-gap-line;
     border-top: $grid-gap-line;
     display: grid;
-    grid-template-areas: "empty emtpy content";
+    grid-template-areas: "content" "empty";
     .filler-pixels{
         display: none;
     }
@@ -17,9 +17,23 @@ footer{
         }
         p{
             padding: 0.5rem;
+            font-size: $text-size-big;
+            line-height: $text-linehight-big;
         }
     }
     
+}
+@media (max-width: 768px) {
+    footer{
+        .footer-content{
+            p{
+                padding: 0.5rem;
+                font-size: $text-size-small;
+                line-height: $text-linehight-small;
+            }
+        }
+        
+    }
 }
 /* Medium devices (tablets, 768px and up) The navbar toggle appears at this breakpoint */
 @media (min-width: 768px) {}
@@ -32,6 +46,7 @@ footer{
         .filler-pixels{
             display: block;
             grid-area: pxbg;
+            max-height: 29rem;
         }
         .footer-content{
             grid-area: content;

@@ -1,21 +1,43 @@
+#popupfiller{
+    position: relative;
+    width: 100%;
+}
+
 .section-hero{
+    &__hero-img{
+        padding: 1rem;
+    }
     &__content{
         outline: $grid-gap-line;
         margin-top: 0.5rem;
         p{
             font-family: PPNeueMontreal;
-            padding: 1rem 0.5rem;
+            padding: 0.8rem 1.8rem;
+            font-size: $text-size-big;
+            line-height: $text-linehight-big;
         }
         img{
             display: none;
             width: 233px;
+            
+        }
+    }
+}
+@media (max-width: 768px) {
+    .section-hero{
+        &__content{
+            p{
+                font-size: $text-size-small;
+                padding: 0.8rem 0.8rem;
+                line-height: $text-linehight-small;
+            }
         }
     }
 }
 .section-schedule{
     font-family: PPNeueMontreal;
     img{
-        height: 14rem;
+        max-height: 27rem;
     }
     &__table{
         display: grid;
@@ -23,7 +45,7 @@
         *{
             border-right: $grid-gap-line;
             border-bottom: $grid-gap-line;
-            padding: 1rem;
+            padding: 0.7rem;
         }
         h3:nth-child(3n+1) {
             grid-column: span 2;
@@ -42,31 +64,47 @@
     &__layout{
         display:flex;
         border-bottom: $grid-gap-line;
+        min-height: 20rem;
         &__information{
             width: 50%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
             p{
-                height: 7rem;
                 font-size: 1rem;
                 line-height: 1.3rem;
                 padding: 0.5rem;
+                font-size: $text-size-big;
+                line-height: $text-linehight-big;
             }
-            p:first-child{
-                border-right: $grid-gap-line;
-            }
+            
             ul{
                 margin-top: -7px;
             }
             li{
                 border: $grid-gap-line;
-                border-top: none;
-                border-radius: 10px;
-                padding: 3px 10px;
+                font-size: $text-size-big;
+                line-height: $text-linehight-big;
+                margin-bottom: -2px;
+                border-radius: 16px;
+                padding: 7px 15px;
             }
-            li:first-child{
-                border-top: $grid-gap-line;
-            }
-            li:last-child{
-                border-bottom: none;
+            
+        }
+        &__information:first-child{
+            border-right: $grid-gap-line;
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .section-schedule{
+        &__layout{
+            &__information{
+                p, li{
+                    font-size: $text-size-small;
+                    line-height: $text-linehight-small;
+                }
             }
         }
     }
@@ -88,7 +126,9 @@
     }
     &__message{
         grid-row: 2;
-        padding: 1rem 0.5rem;
+        padding: 0.8rem 1.8rem;
+        font-size: $text-size-medium;
+        line-height: $text-linehight-medium;
     }
     &__img-pixles{
         grid-row: span 2;
@@ -101,6 +141,15 @@
             border: 1px solid $color-black;
             border-radius: 5px;
             padding: 3px;
+        }
+    }
+}
+@media (max-width: 768px) {
+    .section-konzept{
+        &__message{
+            padding: 0.8rem 0.8rem;
+            font-size: $text-size-small;
+            line-height: $text-linehight-small;
         }
     }
 }
@@ -129,38 +178,53 @@
         border-top: $grid-gap-line;
     }
     &__information{
-        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
         grid-area: list;
         min-height: 12rem;
         p{
-            height: 7rem;
+            min-height: 10rem;
             font-size: 1rem;
             line-height: 1.3rem;
             padding: 0.5rem;
+            font-size: $text-size-big;
+            line-height: $text-linehight-big;
+        }
+        p:first-child{
+            border-right: $grid-gap-line;
         }
         ul{
             margin-top: -7px;
-            bottom: 0px;
-            position: absolute;
-            width: 100%;
         }
         li{
-            border: 1px solid $color-black;
-            border-top: none;
-            border-radius: 10px;
-            padding: 3px 10px;
+            border: $grid-gap-line;
+            font-size: $text-size-big;
+            line-height: $text-linehight-big;
+            margin-bottom: -2px;
+            margin-left: -2px;
+            border-radius: 16px;
+            padding: 7px 15px;
         }
         li:first-child{
-            border-top: 1px solid $color-black;
+            border-top: $grid-gap-line;
         }
-        li:last-child{
-            border-bottom: none;
+    }
+}
+@media (max-width: 768px) {
+    .section__socials{
+        &__information{
+            p, li{
+                font-size: $text-size-small;
+                line-height: $text-linehight-small;
+            }
         }
     }
 }
 .section__moreStudyInfo{
     font-family: PPNeueMontreal;
     border-bottom: $grid-gap-line;
+    position: relative;
     &__splited{
         display: grid;
         grid-template-columns: repeat(2, 1fr);
@@ -179,20 +243,45 @@
         }
     }
 }
+@media (max-width: 768px) {
+    .section__moreStudyInfo{
+        &__splited{
+            p{
+                font-size: $text-size-small;
+                line-height: $text-linehight-small;
+            }
+        }
+    }
+}
 .section__studies{
     font-family: PPNeueMontreal;
+    position: relative;
     .show-study{
         display: block;
+        margin-top: 1rem;
+        line-height: 1.5rem;
+        margin: 0.5rem 0.5rem 1.5rem 0.5rem;
     }
+    
     &__part p{
         display: none;
+        padding: 0px;
+        font-size: $text-size-medium;
+        line-height: $text-linehight-medium;
     }
     &__part:nth-child(2), &__part:nth-child(3){
         border-top: $grid-gap-line;
     }
+    &__part:nth-child(1), &__part:nth-child(2){
+        height: 30%;
+    }
+    &__part:nth-child(3){
+        height: 40%;
+    }
     &__part__header{
         display: flex;
         justify-content: space-between;
+        padding: 0.5rem;
         span{
             display: block;
             width: 22px;
@@ -201,11 +290,15 @@
             background-repeat: no-repeat;
             cursor: pointer;
         }
+        .dropdown-isup{
+            background-image: url("media/icon-dropup.png");
+        }
     }
     &__filler{
         display: none;
     }
 }
+
 /* Medium devices (tablets, 768px and up) The navbar toggle appears at this breakpoint */
 @media (min-width: 768px) {}
 /* Large devices (desktops, 992px and up) */
@@ -221,6 +314,7 @@
             img{
                 display: block;
                 padding: 0.5rem;
+                margin: 0px auto;
             }
             span:first-of-type {
                 border-right: $grid-gap-line;
@@ -236,6 +330,7 @@
             "times times times times . infos"
             "empty empty filler filler filler infos";
         grid-template-columns: repeat(6,1fr);
+        grid-template-rows: 1fr 1fr;
         img{
             grid-area: filler;
         }
@@ -264,10 +359,15 @@
         }
         &__layout{
             grid-area: infos;
+            justify-content: space-between;
             flex-direction: column;
             border-bottom: none;
             &__information{
                 width: 100%;
+                height: 50%;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
                 border-bottom: $grid-gap-line;
                 border-left: $grid-gap-line;
                 p{
@@ -282,6 +382,7 @@
     .section-konzept{
         grid-template-columns: repeat(6, 1fr);
         grid-template-rows: 1fr 5fr;
+        max-height: 30rem;
         &__img-pixles{
             border-top: $grid-gap-line;
         }
@@ -318,11 +419,18 @@
         display: grid;
         grid-template-columns: 5fr 1fr;
         &__part{
+            display: grid;
+            grid-template-columns: 2fr 3fr;
+            padding: 0px;
             p{
                 display: block;
+                padding: 1rem;
             }
             span{
                 display: none;
+            }
+            &__header{
+                border-right: $grid-gap-line;
             }
         }
         &__filler{
@@ -330,6 +438,7 @@
             grid-template-areas: "empty empty pxbg pxbg pxbg pxbg";
             grid-column: span 6;
             min-height: 10rem;
+            max-height: 30rem;
             .filler-pixels{
                 grid-area: pxbg;
                 border-left: $grid-gap-line;

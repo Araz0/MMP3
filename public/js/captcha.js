@@ -1,9 +1,34 @@
 // Make the DIV element draggable:
 var captchas = document.querySelectorAll('.captcha-container');
+var viewport_width = document.documentElement.clientWidth;
 captchas.forEach(element => {
     dragElement(element);
-    element.style.top = (Math.floor(Math.random() * 20) + 1)+"%";
-    element.style.left = (Math.floor(Math.random() * 40) + 1)+"%";
+    const xH = element.getAttribute("xH");
+    const xV = element.getAttribute("xV");
+
+    // if (element.getAttribute("sideH") == "right") {
+    //     element.style.right = (Math.floor(Math.random() * xH) + 1)+"%";
+    //     element.style.left = "auto";
+    // } else {
+    //     element.style.left = (Math.floor(Math.random() * xH) + 1)+"%";
+    // }
+    // if (element.getAttribute("sideV") == "buttom") {
+    //     element.style.buttom = (Math.floor(Math.random() * xV) + 1)+"%";
+    //     element.style.top = "auto";
+    // } else {
+    //     element.style.top = (Math.floor(Math.random() * xV) + 1)+"%";
+    // }
+    element.style.top = (Math.floor(Math.random() * 25) + 2)+"rem";
+    if (viewport_width < 790) {
+        element.style.left = (Math.floor(Math.random() * 40) + 1)+"%";
+        element.style.top = (Math.floor(Math.random() * 35) + 2)+"rem";
+    } else if (viewport_width < 1280) {
+        element.style.left = (Math.floor(Math.random() * 50) + 1)+"%";
+    } else if (viewport_width > 1280) {
+        element.style.left = (Math.floor(Math.random() * 75) + 1)+"%";
+    }
+    
+    
 });
 
 
