@@ -1,4 +1,4 @@
-<div class="captcha-container max-width">
+<div class="captcha-container max-width popup">
     <div class="captcha-header captcha-row-spacebetween">
         <span><?php echo $popup_title; ?></span>
         <button onclick="closeCaptchaOnClick(this)"><img src="media/icon-x-close.png" alt="close button for the captcha window"></button>

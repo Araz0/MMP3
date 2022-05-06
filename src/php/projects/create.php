@@ -185,13 +185,13 @@
             <label for="project_teaser"><b>project_teaser</b></label>
             <input type="file" name="project_teaser" id="project_teaser" accept="image/*,.jpg,video/mp4">
     */?>
-            <label for="project_degree"><b>project_degree</b></label>
+            <label for="project_degree"><b>Project degree</b></label>
             <select name="project_degree" id="project_degree" required>
                 <option value="Bachelorprojekt">Bachelorprojekt</option>
                 <option value="Masterprojekt">Masterprojekt</option>
                 <option value="Sonstiges">Sonstiges Projekt</option>
             </select>
-            <label for="project_category"><b>project_category</b></label>
+            <label for="project_category"><b>Project category</b></label>
             <select name="project_category" id="project_category" required>
                 <option value="Album">Album</option>
                 <option value="Animationsfilm">Animationsfilm</option>
@@ -219,10 +219,10 @@
                 <option value="Werbespot">Werbespot</option>
             </select>
 
-            <label for="project_tags"><b>project_tags</b></label>
+            <label for="project_tags"><b>Project tags</b></label>
             <input type="text" name="project_tags" value="tag1, tag2, tag3" id="project_tags" required>
 
-            <label for="project_members"><b>project_members</b></label>
+            <label for="project_members"><b>Project members</b></label>
             <input type="text" name="project_members" value="name 1, name 2, name 3" id="project_members" required>
             
             <div class="project_members_container span-2-col" id="project_members_container">
@@ -292,8 +292,8 @@
                 <button class="old-btn" type="button" id="add_new_link_btn">Add New Link</button> 
             </div>
 
-            <label for="project_thumbnail"><b>project_thumbnail</b></label>
-            <input type="file" name="project_thumbnail" id="project_thumbnail" accept="image/*,.jpg" required>
+            <label for="project_thumbnail"><b>Thumbnail (1MB max)</b></label>
+            <input type="file" name="project_thumbnail" id="project_thumbnail" max-size="1000" accept="image/*,.jpg" required>
     <?php /*
             <div class="project_media_container span-2-col" id="project_media_container">
                 <button type="button" id="add_new_media_btn">Add New Media</button> 

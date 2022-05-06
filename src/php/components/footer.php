@@ -1,5 +1,5 @@
 <footer>
-    <img class="filler-pixels" src="media/px-bg-trans.png" alt="pixlated background image filler">
+    <img class="filler-pixels" src="/media/px-bg-trans.png" alt="pixlated background image filler">
     <div class="footer-content">
         <nav>
             <ul>

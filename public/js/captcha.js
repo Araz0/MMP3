@@ -1,6 +1,26 @@
 // Make the DIV element draggable:
 var captchas = document.querySelectorAll('.captcha-container');
 var viewport_width = document.documentElement.clientWidth;
+
+if (viewport_width < 790) {
+    var heroCaptchas = document.querySelector('.section-hero').querySelectorAll('.captcha-window');
+    hideCaptchasPopupsFromCollection(heroCaptchas);
+    var heroPopups = document.querySelector('#popupfiller').querySelectorAll('.popup');
+    hideCaptchasPopupsFromCollection(heroPopups);
+    var konzeptCaptchas = document.querySelector('.section-konzept').querySelectorAll('.captcha-window');
+    hideCaptchasPopupsFromCollection(konzeptCaptchas);
+    var studypopups = document.querySelector('.section__moreStudyInfo').querySelectorAll('.popup');
+    hideCaptchasPopupsFromCollection(studypopups);
+
+}
+function hideCaptchasPopupsFromCollection(nodeCollection){
+    let savedIndex = Math.floor(Math.random() * nodeCollection.length);
+    for (let i = 0; i < nodeCollection.length; i++) {
+        if (i != savedIndex) {
+            nodeCollection[i].style.display = "none" 
+        }
+    }
+}
 captchas.forEach(element => {
     dragElement(element);
     const xH = element.getAttribute("xH");

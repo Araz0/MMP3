@@ -1,3 +1,5 @@
+
+
 // let newMemberBtn = document.getElementById("add_new_member_btn");
 // newMemberBtn.addEventListener("click",function(){
 //     var membersContainer = document.getElementById("project_members_container");
@@ -54,6 +56,18 @@
 //     // Append the hole thing to the main container
 //     membersContainer.insertBefore(newMemberWrapper, newMemberBtn);
 // });
+
+
+var uploadField = document.getElementById("project_thumbnail");
+
+uploadField.onchange = function() {
+console.log(this.files[0].size);
+    if(this.files[0].size > 1000000){
+       alert("File is too big! keep it under 1MB please.");
+       this.value = "";
+    };
+};
+
 
 let newLinkBtn = document.getElementById("add_new_link_btn");
 newLinkBtn.addEventListener("click",function() {

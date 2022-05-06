@@ -185,13 +185,14 @@
                     <?php }
                 ?>
             */?>
-            <label for="project_degree"><b>project_degree</b></label>
+            <label for="project_degree"><b>Project degree</b></label>
             <select name="project_degree" id="project_degree" value="<?php echo $project->degree; ?>" required>
-                <option value="Bachelor" <?php echo $project->degree == 'Bachelor' ? ' selected ' : '';?>>Bachelor</option>
-                <option value="Master" <?php echo $project->degree == 'Master' ? ' selected ' : '';?>>Master</option>
+                <option value="Bachelor" <?php echo $project->degree == 'Bachelorprojekt' ? ' selected ' : '';?>>Bachelorprojekt</option>
+                <option value="Master" <?php echo $project->degree == 'Masterprojekt' ? ' selected ' : '';?>>Masterprojekt</option>
+                <option value="Master" <?php echo $project->degree == 'Sonstiges' ? ' selected ' : '';?>>Sonstiges</option>
             </select>
             
-            <label for="project_category"><b>project_category</b></label>
+            <label for="project_category"><b>Project category</b></label>
                 <select name="project_category" id="project_category" required>
                     <option value="Album">Album</option>
                     <option value="Animationsfilm">Animationsfilm</option>
@@ -219,10 +220,10 @@
                     <option value="Werbespot">Werbespot</option>
                 </select>
             
-            <label for="project_tags"><b>project_tags</b></label>
+            <label for="project_tags"><b>Project tags</b></label>
             <input type="text" name="project_tags" value="<?php echo $project->tags; ?>" id="project_tags" required>
             
-            <label for="project_members"><b>project_members</b></label>
+            <label for="project_members"><b>Project members</b></label>
             <input type="text" name="project_members" value="name 1, name 2, name 3" id="project_members" required>
 
             <div class="project_members_container span-2-col" id="project_members_container">
@@ -315,8 +316,8 @@
                 <button class="old-btn" type="button" id="add_new_link_btn">Add New Link</button> 
             </div>
 
-            <label for="project_thumbnail"><b>project_thumbnail</b></label>
-            <input type="file" name="project_thumbnail" id="project_thumbnail" accept="image/*,.jpg">
+            <label for="project_thumbnail"><b>Thumbnail (1MB max)</b></label>
+            <input type="file" name="project_thumbnail" id="project_thumbnail" max-size="1000" accept="image/*,.jpg">
             <img src="<?php echo $project->thumbnail; ?>" alt="<?php echo $project->title . ' thumbnail'; ?>" class="span-2-col">
         <?php /*
             <div class="project_media_container span-2-col" id="project_media_container">
