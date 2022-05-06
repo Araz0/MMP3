@@ -189,8 +189,21 @@ img {
 
 .old-btn {
   border: 2px solid #161615;
+  background-color: #fafafa;
   font-family: "lores-12";
   padding: 2px;
+  cursor: pointer;
+}
+
+.delete-btn {
+  background-color: #df7070;
+  width: 4rem;
+  margin-left: auto;
+}
+
+.save-btn {
+  background-color: #aff7a5;
+  width: 5rem;
 }
 
 form {
@@ -1261,9 +1274,48 @@ img {
   max-width: 80%;
   margin: 2rem auto;
 }
+.myprojects__container__newBtn {
+  display: flex;
+  justify-content: flex-end;
+}
 
 .projects__create__container {
   margin-top: 3rem;
+}
+
+.myprojects__container h1 {
+  font-size: 2rem;
+  font-family: "lores-12";
+}
+
+.myprojects__container__projects {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin: 2rem auto;
+}
+
+.myprojects__container__projects__entry {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  background-color: white;
+  padding: 1rem;
+}
+.myprojects__container__projects__entry____header {
+  font-family: "lores-12";
+}
+.myprojects__container__projects__entry__body {
+  display: flex;
+  justify-content: space-between;
+}
+.myprojects__container__projects__entry__img {
+  height: 10rem;
+  width: fit-content;
+}
+
+.project_links_container {
+  margin-bottom: 2rem;
 }
 
 .artplayer {

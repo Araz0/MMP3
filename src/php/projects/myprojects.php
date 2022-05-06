@@ -16,12 +16,34 @@
 <body>
     <?php require "../components/nav.php"; ?>
     <section class="myprojects__container">
-        <a class="old-btn" href="/projects/create.php">Add new Project</a>
+        <h1>Meine Projekte</h1>
+        <div class="myprojects__container__newBtn">
+            <a class="old-btn" href="/projects/create.php">Add new Project</a>
+        </div>
+        <div class="myprojects__container__projects">
         <?php 
             foreach ($user_projects as $i => $project) {
-                echo "$project->title <br>";
+        ?>
+            <div class="myprojects__container__projects__entry">
+                <div class="myprojects__container__projects__entry__header">
+                    <h2><?php echo "$project->title"; ?></h2>
+                </div>
+                <div class="myprojects__container__projects__entry__body">
+                    <span><?php echo "$project->degree - $project->category"; ?></span>
+                    <a class="old-btn" href='/projects/update.php?pid=<?php echo "$project->sufix"; ?>'>manage</a>
+                </div>
+                <div class="myprojects__container__projects__entry__img">
+                    <img src='<?php echo "$project->thumbnail"; ?>' alt='<?php echo "$project->title"; ?>'>
+                </div>
+                
+            </div>
+            
+
+        <?php
             }
         ?>
+        </div>
+        
     </section>
 </body>
 </html>

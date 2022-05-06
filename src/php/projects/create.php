@@ -54,19 +54,19 @@
             $project_members_result = $project_members;
         }
 
-        $project_members = [];
-        $_inputName = "project_members_name";
-        if (isset($_POST[$_inputName]) && count($_POST[$_inputName]) > 0) {
-            for ($i=0; $i<count($_POST[$_inputName]); $i++) {
-                $member_data = array(
-                    'name' => $_POST['project_members_name'][$i],
-                    'role' => $_POST['project_members_role'][$i],
-                    'department' => $_POST['project_members_department'][$i],
-                    'category' => $_POST['project_members_category'][$i]
-                );
-                $project_members[] = $member_data;
-            }
-        }
+        // $project_members = [];
+        // $_inputName = "project_members_name";
+        // if (isset($_POST[$_inputName]) && count($_POST[$_inputName]) > 0) {
+        //     for ($i=0; $i<count($_POST[$_inputName]); $i++) {
+        //         $member_data = array(
+        //             'name' => $_POST['project_members_name'][$i],
+        //             'role' => $_POST['project_members_role'][$i],
+        //             'department' => $_POST['project_members_department'][$i],
+        //             'category' => $_POST['project_members_category'][$i]
+        //         );
+        //         $project_members[] = $member_data;
+        //     }
+        // }
         
         $user_id = getUser($_SESSION['fhsUser'])->id;
         if (empty($errors)) {

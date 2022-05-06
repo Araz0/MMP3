@@ -39,9 +39,20 @@ img {
   max-width: 100%;
 }
 .old-btn{
-  border: 2px solid #161615;
+  border: $grid-gap-line2px;
+  background-color: $color-white;
   font-family: "lores-12";
   padding: 2px;
+  cursor: pointer;
+}
+.delete-btn{
+  background-color: #df7070;
+  width: 4rem;
+  margin-left: auto;
+}
+.save-btn{
+  background-color: #aff7a5;
+  width: 5rem;
 }
 form {
   display: grid;

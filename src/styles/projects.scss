@@ -2,7 +2,43 @@
     font-family: PPNeueMontreal;
     max-width: 80%;
     margin: 2rem auto;
+    &__newBtn{
+        display: flex;
+        justify-content: flex-end;
+    }
 }
 .projects__create__container{
     margin-top: 3rem;
+    
+}
+.myprojects__container h1{
+    font-size: 2.0rem;
+    font-family: "lores-12";
+}
+.myprojects__container__projects{
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    margin: 2rem auto;
+}
+.myprojects__container__projects__entry{
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    background-color: white;
+    padding: 1rem;
+    &____header{
+        font-family: "lores-12";
+    }
+    &__body{
+        display: flex;
+        justify-content: space-between;
+    }
+    &__img{
+        height: 10rem;
+        width: fit-content;
+    }
+}
+.project_links_container {
+    margin-bottom: 2rem;
 }
