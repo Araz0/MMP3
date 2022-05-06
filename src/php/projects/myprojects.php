@@ -22,6 +22,7 @@
         </div>
         <div class="myprojects__container__projects">
         <?php 
+        if (count($user_projects) > 0) {
             foreach ($user_projects as $i => $project) {
         ?>
             <div class="myprojects__container__projects__entry">
@@ -41,9 +42,15 @@
 
         <?php
             }
+        }else {
+        ?>
+            <p>you have not published any projects yet...</p>
+        <?php
+        }
         ?>
         </div>
         
     </section>
+    <?php require "../components/footer.php"; ?>
 </body>
 </html>

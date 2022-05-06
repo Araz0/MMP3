@@ -12,11 +12,11 @@
     </ul>
     <ul>
         <li><a href="/">Home</a></li>
-        <li><a href="programm.php">Programm</a></li>
-        <li><a href="speeddating.php">Speeddating</a></li>
-        <li><a href="tickets.php">Tickets</a></li>
-        <li><a href="projects.php">Projekte</a></li>
-        <li><a href="about.php">About</a></li>
+        <li><a href="/programm.php">Programm</a></li>
+        <li><a href="/speeddating.php">Speeddating</a></li>
+        <li><a href="/tickets.php">Tickets</a></li>
+        <li><a href="/projects.php">Projekte</a></li>
+        <li><a href="/about.php">About</a></li>
         <?php 
         if (!isSet($_SESSION['fhsUser'])) { ?> 
             <li><a href="/auth/authorized.php">login</a></li>
@@ -31,9 +31,9 @@
     <ul>
         <li><a href="/">Home</a></li>
         <li><a href="programm.php">Programm</a></li>
-        <li><a href="speeddating.php">Speeddating</a></li>
-        <li><a href="tickets.php">Tickets</a></li>
-        <li><a href="projects.php">Projekte</a></li>
-        <li><a href="about.php">About</a></li>
+        <li><a href="/speeddating.php">Speeddating</a></li>
+        <li><a href="/tickets.php">Tickets</a></li>
+        <li><a href="/projects.php">Projekte</a></li>
+        <li><a href="/about.php">About</a></li>
     </ul>
 </nav>

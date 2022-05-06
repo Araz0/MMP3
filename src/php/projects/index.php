@@ -15,6 +15,7 @@
 
 <body>
     <?php require "../components/nav.php"; ?>
+    <?php /*
     <section class="myprojects__container">
         <a class="old-btn" href="/projects/create.php">Add new Project</a>
         <?php 
@@ -23,5 +24,6 @@
             }
         ?>
     </section>
+    */ ?>
 </body>
 </html>

@@ -1273,6 +1273,7 @@ img {
   font-family: PPNeueMontreal;
   max-width: 80%;
   margin: 2rem auto;
+  margin-bottom: 10rem;
 }
 .myprojects__container__newBtn {
   display: flex;
@@ -1280,7 +1281,9 @@ img {
 }
 
 .projects__create__container {
+  font-family: PPNeueMontreal;
   margin-top: 3rem;
+  margin-bottom: 5rem;
 }
 
 .myprojects__container h1 {

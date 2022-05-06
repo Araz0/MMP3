@@ -69,7 +69,7 @@ newLinkBtn.addEventListener("click",function() {
         <label for="project_link_url[]"><b>link url</b></label>
         <input type="text" name="project_link_url[]" id="project_link_url" value="https://www.example.com" required>
         
-        <button type="button" onclick="deleteField(this)">Delete Link</button> 
+        <button class="old-btn" type="button" onclick="deleteField(this)">Delete Link</button> 
         <br>
     `;
 

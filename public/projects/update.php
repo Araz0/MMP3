@@ -148,27 +148,22 @@
         <form action="" method="post" enctype="multipart/form-data">
             <input type="hidden" name="project_id" value="-" id="project_id" required>
 
-            <label for="project_title"><b>project_title</b></label>
+            <label for="project_title"><b>Project title</b></label>
             <input type="text" name="project_title" value="<?php echo $project->title; ?>" id="project_title" required>
             
-            <label for="project_sufix"><b>project_sufix</b></label>
-            <input type="text" name="project_sufix" value="<?php echo $project->sufix; ?>" id="project_sufix" required>
+            <!-- <label for="project_sufix"><b>URL sufix</b></label> -->
+            <input type="hidden" name="project_sufix" value="<?php echo $project->sufix; ?>" id="project_sufix" required>
 
-            <label for="project_subtitle"><b>project_subtitle</b></label>
-            <input type="text" name="project_subtitle" value="<?php echo $project->subtitle; ?>" id="project_subtitle" required>
+            <!-- <label for="project_subtitle"><b>project_subtitle</b></label> -->
+            <input type="hidden" name="project_subtitle" value="<?php echo $project->subtitle; ?>" id="project_subtitle" required>
             
 
-            <label for="project_excerpt"><b>project_excerpt</b></label>
+            <label for="project_excerpt"><b>Short description</b></label>
             <input type="text" name="project_excerpt" value="<?php echo $project->excerpt; ?>" id="project_excerpt" required>
             
 
-            <label for="project_description"><b>project_description</b></label>
+            <label for="project_description"><b>Full description</b></label>
             <textarea name="project_description" id="project_description" rows="4" cols="50" required><?php echo $project->description; ?></textarea>
-            
-
-            <label for="project_thumbnail"><b>project_thumbnail</b></label>
-            <input type="file" name="project_thumbnail" id="project_thumbnail" accept="image/*,.jpg">
-            <img src="<?php echo $project->thumbnail; ?>" alt="<?php echo $project->title . ' thumbnail'; ?>" class="span-2-col">
             
 
             <?php /*
@@ -319,6 +314,10 @@
                 
                 <button class="old-btn" type="button" id="add_new_link_btn">Add New Link</button> 
             </div>
+
+            <label for="project_thumbnail"><b>project_thumbnail</b></label>
+            <input type="file" name="project_thumbnail" id="project_thumbnail" accept="image/*,.jpg">
+            <img src="<?php echo $project->thumbnail; ?>" alt="<?php echo $project->title . ' thumbnail'; ?>" class="span-2-col">
         <?php /*
             <div class="project_media_container span-2-col" id="project_media_container">
                 <?php 
@@ -389,7 +388,7 @@
             <input class="old-btn delete-btn" type="submit" value='Delete' name='delete_project'>
         </form>
     </section>
-    
+    <?php require "../components/footer.php"; ?>
 </body>
     <script src="../js/manageProjectFields.js"></script>
     <script src="../js/checkMediaLength.js"></script>
