@@ -13,7 +13,7 @@
     <?php require "components/nav.php"; ?>
     <section class="section-hero">
         <?php 
-        $popup_title = "02/06/2022"; 
+        $popup_title = "03/06/2022"; 
         $popup_message = "09:00 Uhr<br>Film Screening im <br>Stadtkino Hallein";
 
         include 'components/popup.php';
@@ -28,7 +28,7 @@
         include 'components/captcha.php';
         ?>
         <?php 
-        $popup_title = "02/06/2022"; 
+        $popup_title = "03/06/2022"; 
         $popup_message = "09:00 Uhr <br>FH Salzburg <br>Puch Urstein <br><span class='pushleft2rem'></span>23:00 Uhr <br><span class='pushleft2rem'></span>Afterparty";
         include 'components/popup.php';
         ?>
@@ -59,7 +59,7 @@
         <div class="section-hero__content">
             <p>Der Rundgang, ist eine Veranstaltung der FH Salzburg bei der alle MultiMediaArt und MultiMediaTechnology Bachelor- und Masterprojekte sowie einige Human-Computer Interaction Projekte ausgestellt werden. Er findet am 02.06.2022 im Stadtkino Hallein und am 03.06.2022 am FH Salzburg Campus Urstein statt.</p>
             <span></span>
-            <img src="media/logo-icon-big.png" alt="Rundgang Logo Icon Big">
+            <img src="/media/logo-icon-big.png" alt="Rundgang Logo Icon Big">
             <span></span>
         </div>
     </section>
@@ -125,7 +125,7 @@
                 Kuffergasse 2 <br>
                 5400 Hallein</p>
                 <ul>
-                    <li><a href="https://www.kino-theater.at">Website</a></li>
+                    <li><a href="https://www.kino-theater.at" target="_blank">Website</a></li>
                     <li><a href="https://goo.gl/maps/MSkcDgWho1VXRmnU6" target="_blank" rel="noopener noreferrer">Routenplaner</a></li>
                     <li><a href="tickets.php">Kinotickets</a></li>
                     <li><a href="programm.php#kino">Programm</a></li>
@@ -137,7 +137,7 @@
                 Urstein Süd 1 <br>
                 5412 Puch</p>
                 <ul>
-                    <li><a href="https://www.fh-salzburg.ac.at">Website</a></li>
+                    <li><a href="https://www.fh-salzburg.ac.at" target="_blank">Website</a></li>
                     <li><a href="https://goo.gl/maps/njhwYiuQfu3u2PrZ6" target="_blank" rel="noopener noreferrer">Routenplaner</a></li>
                     <li><a href="programm.php#fhs">Programm</a></li>
                 </ul>
@@ -178,9 +178,9 @@
         <div class="section__socials__information">
             <p>Folge Rundgang auf Social Media um nichts zu verpassen.</p>
             <ul>
-                <li><a href="">Instagram</a></li>
-                <li><a href="">Facebook</a></li>
-                <li><a href="">TikTok</a></li>
+                <li><a href="https://www.instagram.com/rundgang.fhsalzburg/" target="_blank">Instagram</a></li>
+                <li><a href="https://www.facebook.com/rundgang.fhsalzburg" target="_blank">Facebook</a></li>
+                <li><a href="https://www.tiktok.com/@rundgang.fhsalzburg" target="_blank">TikTok</a></li>
             </ul>
         </div>
         <img class="section__socials__logo" srcset="media/not-a-robot-px-borderd-v.png 193w, media/not-a-robot-px-borderd.png 278w" sizes="(max-width: 480px) 120px" alt="pixlated im not a robot signe">
@@ -313,9 +313,9 @@
             <div class="section__socials__information">
                 <p>Alle Details zu den Studiengängen sind auf der FH Website.</p>
                 <ul>
-                    <li><a href="https://multimediaart.at/">MultiMedia Art</a></li>
-                    <li><a href="https://multimediatechnology.at/">MultiMedia Technology</a></li>
-                    <li><a href="https://www.fh-salzburg.ac.at/en/study/design-media-and-arts/human-computer-interaction-joint-master">Human-Computer Interaction</a></li>
+                    <li><a href="https://multimediaart.at/" target="_blank">MultiMedia Art</a></li>
+                    <li><a href="https://multimediatechnology.at/" target="_blank">MultiMedia Technology</a></li>
+                    <li><a href="https://www.fh-salzburg.ac.at/en/study/design-media-and-arts/human-computer-interaction-joint-master" target="_blank">Human-Computer Interaction</a></li>
                 </ul>
             </div>
         </div>

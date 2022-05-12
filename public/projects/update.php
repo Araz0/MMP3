@@ -8,19 +8,34 @@
     $pagetitle = "Create Project";
     require '../functions.php';
     require "../components/head.php";
-
-    $user_id = getUser($_SESSION['fhsUser'])->id;
-    $project = getProjectbySufixAndUser($_GET['pid'], $user_id);
+    $user = getUser($_SESSION['fhsUser']);
+    $user_id = $user->id;
+    $project = new stdClass();
+    if(in_array($user->username, $admins)){
+        $project = getProjectbySufixAndAdmin($_GET['pid']);
+        $isAdmin = true;
+    }else{
+        $project = getProjectbySufixAndUser($_GET['pid'], $user_id);
+        if ($user_id != $project->user_id) {
+            header('Location: /405.php');
+        }
+    }
     if (!isset($project->id)) {
         header('Location: /404.php');
     }
-    if ($user_id != $project->user_id) {
-        header('Location: /405.php');
-    }
+    
+    
     //$mediaBlocks = getMediaBlocks($project->id);
 
     if (isset($_POST['delete_project'])) {
-        deleteProject($project->id, $user_id);
+        if(in_array($user->username, $admins)){
+            $project = getProjectbySufixAndAdmin($_GET['pid']);
+            $isAdmin = true;
+            deleteProjectByAdmin($project->id);
+        }else{
+            deleteProject($project->id, $user_id);
+        }
+        
         header('Location: /projects/myprojects.php');
     }
     if (isset($_POST['update_project'])) {
@@ -32,6 +47,7 @@
         $project_excerpt = $_POST['project_excerpt'];
         $project_degree = $_POST['project_degree'];
         $project_category = $_POST['project_category'];
+        $project_members = $_POST['project_members'];
 
         $_inputName = "project_thumbnail";
         $input_array = array(basename($_FILES[$_inputName]['name']), $_FILES[$_inputName]['tmp_name'], $_FILES[$_inputName]['size'], $_FILES[$_inputName]['type'], $_FILES[$_inputName]['error'], $user_id);
@@ -65,11 +81,7 @@
             }
         }
 
-        $project_members = $_POST['project_members'];
-        $project_members_result = "";
-        if (isset($project_members)) {
-            $project_members_result = $project_members;
-        }
+       
 
         // $project_members = [];
         // $_inputName = "project_members_name";
@@ -85,7 +97,7 @@
         //     }
         // }
         
-        updateProject($project_sufix, $project_title, $project_subtitle, $project_excerpt, $project_description, $project_thumbnail, $project_members_result, $project_degree, $project_category, $project_tags, $project_links, $project->id);
+        updateProject($project_sufix, $project_title, $project_subtitle, $project_excerpt, $project_description, $project_thumbnail, $project_members, $project_degree, $project_category, $project_tags, $project_links, $project->id);
         
         // if (isset($_POST['project_media_type'])) {
         //     $project_id = $project->id;
@@ -145,6 +157,10 @@
 <body>
 <?php require "../components/nav.php"; ?>
     <section class="projects__create__container">
+        <?php if ($isAdmin == true){
+            echo '<h1 style="text-align: center;font-size: 2rem;margin-bottom: 2rem;color: green;font-family: &quot;lores-12&quot;;">Logged in as Admin</h1>';
+        } 
+        ?>
         <form action="" method="post" enctype="multipart/form-data">
             <input type="hidden" name="project_id" value="-" id="project_id" required>
 
@@ -158,8 +174,8 @@
             <input type="hidden" name="project_subtitle" value="<?php echo $project->subtitle; ?>" id="project_subtitle" required>
             
 
-            <label for="project_excerpt"><b>Short description</b></label>
-            <input type="text" name="project_excerpt" value="<?php echo $project->excerpt; ?>" id="project_excerpt" required>
+            <!-- <label for="project_excerpt"><b>Short description</b></label> -->
+            <input type="hidden" name="project_excerpt" value="<?php echo $project->excerpt; ?>" id="project_excerpt" required>
             
 
             <label for="project_description"><b>Full description</b></label>
@@ -186,45 +202,45 @@
                 ?>
             */?>
             <label for="project_degree"><b>Project degree</b></label>
-            <select name="project_degree" id="project_degree" value="<?php echo $project->degree; ?>" required>
-                <option value="Bachelor" <?php echo $project->degree == 'Bachelorprojekt' ? ' selected ' : '';?>>Bachelorprojekt</option>
-                <option value="Master" <?php echo $project->degree == 'Masterprojekt' ? ' selected ' : '';?>>Masterprojekt</option>
-                <option value="Master" <?php echo $project->degree == 'Sonstiges' ? ' selected ' : '';?>>Sonstiges</option>
+            <select name="project_degree" id="project_degree" required>
+                <option value="Bachelorprojekt" <?php echo $project->degree == 'Bachelorprojekt' ? ' selected ' : '';?>>Bachelorprojekt</option>
+                <option value="Masterprojekt" <?php echo $project->degree == 'Masterprojekt' ? ' selected ' : '';?>>Masterprojekt</option>
+                <option value="Sonstiges" <?php echo $project->degree == 'Sonstiges' ? ' selected ' : '';?>>Sonstiges</option>
             </select>
             
             <label for="project_category"><b>Project category</b></label>
                 <select name="project_category" id="project_category" required>
-                    <option value="Album">Album</option>
-                    <option value="Animationsfilm">Animationsfilm</option>
-                    <option value="App">App</option>
-                    <option value="Ausstellung">Ausstellung</option>
-                    <option value="Branding">Branding</option>
-                    <option value="Editorial">Editorial</option>
-                    <option value="Film">Film</option>
-                    <option value="Fotografien">Fotografien</option>
-                    <option value="Game">Game</option>
-                    <option value="Illustration">Illustration</option>
-                    <option value="Installation">Installation</option>
-                    <option value="Hörbuch">Hörbuch</option>
-                    <option value="Kampagne">Kampagne</option>
-                    <option value="Kurzfilm">Kurzfilm</option>
-                    <option value="Musik">Musik</option>
-                    <option value="Musikvideo">Musikvideo</option>
-                    <option value="Performance">Performance</option>
-                    <option value="Prototyp">Prototyp</option>
-                    <option value="Trailer">Trailer</option>
-                    <option value="Veranstaltung">Veranstaltung</option>
-                    <option value="Reality">Reality</option>
-                    <option value="Applikation">Applikation</option>
-                    <option value="Website">Website</option>
-                    <option value="Werbespot">Werbespot</option>
+                    <option value="Album" <?php echo $project->category == 'Album' ? ' selected ' : '';?>>Album</option>
+                    <option value="Animationsfilm" <?php echo $project->category == 'Animationsfilm' ? ' selected ' : '';?>>Animationsfilm</option>
+                    <option value="App" <?php echo $project->category == 'App' ? ' selected ' : '';?>>App</option>
+                    <option value="Ausstellung" <?php echo $project->category == 'Ausstellung' ? ' selected ' : '';?>>Ausstellung</option>
+                    <option value="Branding" <?php echo $project->category == 'Branding' ? ' selected ' : '';?>>Branding</option>
+                    <option value="Editorial" <?php echo $project->category == 'Editorial' ? ' selected ' : '';?>>Editorial</option>
+                    <option value="Film" <?php echo $project->category == 'Film' ? ' selected ' : '';?>>Film</option>
+                    <option value="Fotografien" <?php echo $project->category == 'Fotografien' ? ' selected ' : '';?>>Fotografien</option>
+                    <option value="Game" <?php echo $project->category == 'Game' ? ' selected ' : '';?>>Game</option>
+                    <option value="Illustration" <?php echo $project->category == 'Illustration' ? ' selected ' : '';?>>Illustration</option>
+                    <option value="Installation" <?php echo $project->category == 'Installation' ? ' selected ' : '';?>>Installation</option>
+                    <option value="Hörbuch" <?php echo $project->category == 'Hörbuch' ? ' selected ' : '';?>>Hörbuch</option>
+                    <option value="Kampagne" <?php echo $project->category == 'Kampagne' ? ' selected ' : '';?>>Kampagne</option>
+                    <option value="Kurzfilm" <?php echo $project->category == 'Kurzfilm' ? ' selected ' : '';?>>Kurzfilm</option>
+                    <option value="Musik" <?php echo $project->category == 'Musik' ? ' selected ' : '';?>>Musik</option>
+                    <option value="Musikvideo" <?php echo $project->category == 'Musikvideo' ? ' selected ' : '';?>>Musikvideo</option>
+                    <option value="Performance" <?php echo $project->category == 'Performance' ? ' selected ' : '';?>>Performance</option>
+                    <option value="Prototyp" <?php echo $project->category == 'Prototyp' ? ' selected ' : '';?>>Prototyp</option>
+                    <option value="Trailer" <?php echo $project->category == 'Trailer' ? ' selected ' : '';?>>Trailer</option>
+                    <option value="Veranstaltung" <?php echo $project->category == 'Veranstaltung' ? ' selected ' : '';?>>Veranstaltung</option>
+                    <option value="Reality" <?php echo $project->category == 'Reality' ? ' selected ' : '';?>>Reality</option>
+                    <option value="Applikation" <?php echo $project->category == 'Applikation' ? ' selected ' : '';?>>Applikation</option>
+                    <option value="Website" <?php echo $project->category == 'Website' ? ' selected ' : '';?>>Website</option>
+                    <option value="Werbespot" <?php echo $project->category == 'Werbespot' ? ' selected ' : '';?>>Werbespot</option>
                 </select>
             
             <label for="project_tags"><b>Project tags</b></label>
             <input type="text" name="project_tags" value="<?php echo $project->tags; ?>" id="project_tags" required>
             
             <label for="project_members"><b>Project members</b></label>
-            <input type="text" name="project_members" value="name 1, name 2, name 3" id="project_members" required>
+            <input type="text" name="project_members" value="<?php echo $project->members; ?>" id="project_members" required>
 
             <div class="project_members_container span-2-col" id="project_members_container">
             <?php /*            
@@ -313,7 +329,7 @@
                     }
                 ?>
                 
-                <button class="old-btn" type="button" id="add_new_link_btn">Add New Link</button> 
+                <!-- <button class="old-btn" type="button" id="add_new_link_btn">Add New Link</button>  -->
             </div>
 
             <label for="project_thumbnail"><b>Thumbnail (1MB max)</b></label>

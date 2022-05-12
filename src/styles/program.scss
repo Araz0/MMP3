@@ -1,0 +1,140 @@
+.program-hero{
+    grid-template-columns: repeat(6, 1fr);
+    display: grid;
+    grid-template-areas: "hero hero hero hero hero ." "header header header header header header";
+    img{
+        grid-area: hero;
+    }
+    .section-hero__content{
+        grid-area: header;
+        grid-template-areas: "content content content span1 logo span2";
+        p{
+            grid-area: content;
+        }
+        img{
+            grid-area: logo;
+        }
+        span:nth-child(2){
+            grid-area: span1;
+        }
+        span:nth-child(4){
+            grid-area: span2;
+        }
+    }
+}
+.program-container{
+    font-family: PPNeueMontreal;
+    p{
+        font-family: PPNeueMontreal;
+        padding: 0.5rem 1.8rem;
+        font-size: 26px;
+        line-height: 2rem;
+    }
+    &__header{
+        display: grid;
+        grid-template-columns: 3fr 3fr;
+        border-bottom: $grid-gap-line;
+        padding: 1rem 1.5rem;
+    }
+    
+    &__table{
+        display: grid;
+        grid-template-columns: repeat(6, 1fr);;
+        grid-template-areas: "entry entry entry entry filler filler";
+        &__list{
+            grid-area: entry;
+        }
+        &__entry{
+            grid-area: entry;
+            h3{
+                margin-left: 1.5rem;
+            }
+        }
+        &__filler{
+            grid-area: filler;
+        }
+
+    }
+}
+.program-container__table__entry:last-child{
+    border-bottom: none;
+}
+.program-container__table__entry{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: 6rem auto;
+    grid-template-areas: "time title title fillerr"
+                        "fillerl slots slots slots";
+    height: fit-content;
+    border-bottom: $grid-gap-line;
+    &__time{
+        grid-area: time;
+        display: grid;
+        border-right: $grid-gap-line;
+        h3{
+            align-self: center;
+        }
+    }
+    &__title{
+        grid-area: title;
+        display: grid;
+        border-right: $grid-gap-line;
+        h3{
+            align-self: center;
+        }
+    }
+    &__filler-r{
+        grid-area: fillerr;
+        border-right: $grid-gap-line;
+    }
+    &__filler-l{
+        grid-area: fillerl;
+        border-right: $grid-gap-line;
+        border-top: $grid-gap-line;
+    }
+    &__slots{
+        grid-area: slots;
+        height: fit-content;
+        border-top: $grid-gap-line;
+        border-right: $grid-gap-line;
+        &__item > *{
+            height: 3rem;
+        }
+        &__item:not(:last-child){
+            .program-container__table__entry__slots__item__title{
+                border-bottom: $grid-gap-line;
+            }
+        }
+        &__item{
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-areas: "title title link";
+            margin-top: -3px;
+            &__title{
+                grid-area: title;
+                border-right: $grid-gap-line;
+                margin-right: -2px;
+            }
+            
+            &__link{
+                grid-area: link;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 0.2rem 1.5rem;
+                border: 3px solid;
+                border-radius: 20px;
+    
+                font-family: PPNeueMontreal;
+                padding: 0.5rem 1.8rem;
+                font-size: 26px;
+                line-height: 2rem;
+                img{
+                    width: fit-content;
+                    height: fit-content;
+                    transform: rotate(90deg);
+                }
+            }
+        }
+    }
+}

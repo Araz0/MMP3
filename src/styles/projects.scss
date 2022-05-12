@@ -1,3 +1,258 @@
+.Project-opend{
+    grid-template-areas: "img title title members degree category" "img tags tags members desc desc" !important;
+}
+.selected_tag{
+    background-color: $color-black;
+    color: $color-gray;
+}
+.projects__filter{
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-areas: "header header header header header header" "tags tags tags tags degree category";
+    font-family: PPNeueMontreal;
+    &__header{
+        display: grid;
+        grid-template-columns: repeat(6, 1fr);
+        grid-area: header;
+        border-top: $grid-gap-line;
+        border-bottom: $grid-gap-line;
+        h3{
+            grid-column: span 2;
+            border-right: $grid-gap-line;
+            padding: 0.7rem 1.2rem;
+        }
+        .s2{
+            border-right: $grid-gap-line;
+        }
+        .s4{
+            border-left: $grid-gap-line;
+        }
+    }
+    &__tags{
+        grid-area: tags;
+        border-right: $grid-gap-line;
+        &__container{
+            display: flex;
+            flex-wrap: wrap;
+            margin-bottom: -3px;
+            padding-left: 3px;
+        }
+        span{
+            align-items: center;
+            display: flex;
+            height: 44px;
+            margin-top: -3px;
+            margin-left: -3px;
+            padding: 1px 6px;
+            border: $grid-gap-line;
+            border-radius: 12px;
+            font-size: 26px;
+            width: fit-content;
+            cursor: pointer;
+        }
+        span:hover {
+            background-color: #e9e9e9;
+            color: $color-black;
+        }
+    }
+    &__degree{
+        grid-area: degree;
+        display: flex;
+        flex-direction: column;
+        &__head{
+            font-size: 26px;
+            padding: 7px 15px;
+            display: flex;
+            justify-content: space-between;
+            h4{
+                max-width: calc(100% - (35px + 1rem));
+            }
+            span{
+                display: block;
+                width: 35px;
+                height: 20px;
+                background-image: url("/media/icon-dropdown.svg");
+                background-repeat: no-repeat;
+                background-size: cover;
+                cursor: pointer;
+                margin-right: 1rem;
+            }
+        }
+        &__options{
+            display: none;
+            flex-direction: column;
+            border-top: $grid-gap-line;
+            margin-bottom: 3rem;
+            span{
+                border: $grid-gap-line;
+                font-size: 26px;
+                line-height: 2rem;
+                margin-bottom: -2px;
+                margin-left: -2px;
+                margin-right: -2px;
+                border-radius: 16px;
+                padding: 7px 15px;
+                cursor: pointer;
+            }
+            span:first-child{
+                margin-top: -3px;
+            }
+        }
+    }
+    &__category{
+        grid-area: category;
+        display: flex;
+        flex-direction: column;
+        border-left: $grid-gap-line;
+        &__head{
+            
+            font-size: 26px;
+            padding: 7px 15px;
+            display: flex;
+            justify-content: space-between;
+            h4{
+                max-width: calc(100% - (35px + 1rem));
+            }
+            span{
+                display: block;
+                width: 35px;
+                height: 20px;
+                background-image: url("/media/icon-dropdown.svg");
+                background-repeat: no-repeat;
+                background-size: cover;
+                cursor: pointer;
+                margin-right: 1rem;
+            }
+        }
+        &__options{
+            display: none;
+            flex-direction: column;
+            border-top: $grid-gap-line;
+            margin-bottom: 3rem;
+            span{
+                border: $grid-gap-line;
+                font-size: 26px;
+                line-height: 2rem;
+                margin-bottom: -2px;
+                margin-left: -2px;
+                margin-right: -2px;
+                border-radius: 16px;
+                padding: 7px 15px;
+                cursor: pointer;
+            }
+            span:first-child{
+                margin-top: -3px;
+            }
+        }
+    }
+    
+}
+.projects__container{
+    border-top: $grid-gap-line;
+}
+.projects__container__project{
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-areas: "img title title members degree category" "img title title members degree category";
+    border-bottom: $grid-gap-line;
+    font-family: PPNeueMontreal;
+    h3{
+        padding: 0.7rem;
+    }
+    p{
+        font-family: PPNeueMontreal;
+        padding: 0.8rem 1.2rem;
+        font-size: 26px;
+        line-height: 2rem;
+    }
+    &__thumbnail{
+        grid-area: img;
+        max-height: 11rem;
+        img{
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+        }
+    }
+    &__title{
+        grid-area: title;
+        border-right: $grid-gap-line;
+        border-left: $grid-gap-line;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        h3{
+            max-width: calc(100% - (calc(35px + 1rem)));
+        }
+        span{
+            display: block;
+            width: 35px;
+            height: 20px;
+            background-image: url("/media/icon-dropdown.svg");
+            background-repeat: no-repeat;
+            background-size: cover;
+            cursor: pointer;
+            margin-right: 1rem;
+        }
+        
+    }
+    &__tags{
+        display: none;
+        grid-area: tags;
+        border-top: $grid-gap-line;
+        border-right: $grid-gap-line;
+        border-left: $grid-gap-line;
+        padding: 0;
+        &_container{
+            display: flex;
+            flex-wrap: wrap;
+            height: fit-content;
+            span{
+                align-items: center;
+                display: flex;
+                height: 44px;
+                margin-top: -3px;
+                margin-left: -3px;
+                padding: 1px 6px;
+                border: $grid-gap-line;
+                border-radius: 12px;
+                font-size: 26px;
+            }
+        }
+        
+    }
+    &__members{
+        grid-area: members;
+        border-right: $grid-gap-line;
+        p{
+            font-size: 21px;
+        }
+    }
+    &__degree{
+        grid-area: degree;
+    }
+    &__category{
+        grid-area: category;
+        border-left: $grid-gap-line;
+    }
+    &__description{
+        display: none;
+        grid-area: desc;
+        border-top: $grid-gap-line;
+        p{
+            font-size: 21px;
+        }
+    }
+}
+.show-project{
+    display: flex !important;
+}
+.show-filter-dropdown{ 
+    display: flex !important;
+}
+.extra-wide-filler{ 
+    grid-template-areas: "pxbg pxbg pxbg pxbg pxbg pxbg";
+}
 .myprojects__container{
     font-family: PPNeueMontreal;
     max-width: 80%;
@@ -29,6 +284,7 @@
     gap: 0.5rem;
     background-color: white;
     padding: 1rem;
+    border: $grid-gap-line2px;
     &____header{
         font-family: "lores-12";
     }
@@ -43,4 +299,68 @@
 }
 .project_links_container {
     margin-bottom: 2rem;
+}
+
+@media (max-width: 992px) {
+    .slide-herosection-up{
+        margin-top: -1.7rem !important;
+    }
+    .Project-opend{
+        grid-template-areas: 
+        "img title title category"
+        "tags tags tags degree"
+        "members desc desc desc" !important;
+    }
+    .projects__filter{
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-areas: "header header header header" "tags tags tags tags" "degree degree category category";
+        &__header{
+            h3{
+                grid-column: span 4;
+                border-right: none;
+            }
+            span{
+                display: none;
+            }
+        }
+        &__degree{
+            border-top: $grid-gap-line;
+        }
+        &__category{
+            border-top: $grid-gap-line;
+        }
+        &__tags{
+            &__container{
+                max-height: 12rem;
+                overflow: scroll;
+            }
+        }
+    }
+    .projects__container__project{
+        grid-template-columns: 0.8fr 0.8fr 0.8fr 1.0fr;
+        grid-template-areas: 
+    "img title title category"
+    "tags tags tags degree"
+    "members desc desc desc";
+        &__category{
+            border-left: none;
+            font-size: $text-size-small !important;
+        }
+        &__members{
+            border-top: $grid-gap-line;
+            display: none;
+            font-size: $text-size-small !important;
+        }
+        &__degree{
+            border-top: $grid-gap-line;
+            display: none;
+            font-size: $text-size-small !important;
+        }
+        &__thumbnail{
+            max-height: 5.2rem;
+        }
+    }
+    .section__moreStudyInfo__splited{
+        border-top: none;
+    }
 }

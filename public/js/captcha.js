@@ -4,16 +4,16 @@ var viewport_width = document.documentElement.clientWidth;
 
 if (viewport_width < 790) {
     var heroCaptchas = document.querySelector('.section-hero').querySelectorAll('.captcha-window');
-    hideCaptchasPopupsFromCollection(heroCaptchas);
+    hideall(heroCaptchas);
     var heroPopups = document.querySelector('#popupfiller').querySelectorAll('.popup');
-    hideCaptchasPopupsFromCollection(heroPopups);
+    hidebutone(heroPopups);
     var konzeptCaptchas = document.querySelector('.section-konzept').querySelectorAll('.captcha-window');
-    hideCaptchasPopupsFromCollection(konzeptCaptchas);
+    hideall(konzeptCaptchas);
     var studypopups = document.querySelector('.section__moreStudyInfo').querySelectorAll('.popup');
-    hideCaptchasPopupsFromCollection(studypopups);
+    hidebutone(studypopups);
 
 }
-function hideCaptchasPopupsFromCollection(nodeCollection){
+function hidebutone(nodeCollection){
     let savedIndex = Math.floor(Math.random() * nodeCollection.length);
     for (let i = 0; i < nodeCollection.length; i++) {
         if (i != savedIndex) {
@@ -21,6 +21,12 @@ function hideCaptchasPopupsFromCollection(nodeCollection){
         }
     }
 }
+function hideall(nodeCollection){
+    for (let i = 0; i < nodeCollection.length; i++) {
+        nodeCollection[i].style.display = "none" 
+    }
+}
+
 captchas.forEach(element => {
     dragElement(element);
     const xH = element.getAttribute("xH");

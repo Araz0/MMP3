@@ -3,7 +3,8 @@ require 'config.php';
 $sufixRegex = "/^([a-zA-Z0-9]+([_-]?[a-zA-Z0-9])*){3,64}$/"; 
 $errors = array();
 $storage_folder = "storage";
-
+$admins = array("fhs41238", "fhs44373","fhs44332","fhs44366", "fhs44380","fhs44318");
+$isAdmin = false;
 
 function makeStrUrlReady($string){
     $change_letters_from = ['ä','ö','ü',' '];
@@ -162,7 +163,6 @@ function createProject($sufix, $title, $subtitle, $excerpt, $description, $thumb
 function updateProject($sufix, $title, $subtitle, $excerpt, $description, $thumbnail, $members, $degree, $category, $tags, $links, $Project_id) {
     global $dbh;
 
-    $members = json_encode($members);
     $links = json_encode($links);
     
     $query = "UPDATE projects SET sufix=:sufix, title=:title, subtitle=:subtitle, excerpt=:excerpt, description=:description, thumbnail=:thumbnail, members=:members, degree=:degree, category=:category, tags=:tags, links=:links WHERE id=:Project_id";
@@ -184,17 +184,30 @@ function updateProject($sufix, $title, $subtitle, $excerpt, $description, $thumb
 }
 function deleteProject($pid, $user_id){
     global $dbh;
+    
     $query = "SELECT * FROM projects WHERE id=? AND user_id=?";
     $sth = $dbh->prepare($query);
     $sth->execute(array($pid, $user_id));
     $block = $sth->fetch();
     deleteFile($block->thumbnail);
-    deleteFile($block->teaser);
 
     $query = "DELETE FROM projects WHERE id=:pid AND user_id=:user_id";
     $sth = $dbh->prepare($query);
     $sth->bindParam('pid', $pid, PDO::PARAM_INT);
     $sth->bindParam('user_id', $user_id, PDO::PARAM_INT);
+    $sth->execute();
+}
+function deleteProjectByAdmin($pid){
+    global $dbh;
+    $query = "SELECT * FROM projects WHERE id=?";
+    $sth = $dbh->prepare($query);
+    $sth->execute(array($pid));
+    $block = $sth->fetch();
+    deleteFile($block->thumbnail);
+
+    $query = "DELETE FROM projects WHERE id=:pid";
+    $sth = $dbh->prepare($query);
+    $sth->bindParam('pid', $pid, PDO::PARAM_INT);
     $sth->execute();
 }
 
@@ -260,12 +273,33 @@ function getUserProjectbyUserId($user_id){
     $sth->execute(array($user_id));
     return $sth->fetchAll();
 }
+function getUserbyId($id){
+    global $dbh;
+    $query = "SELECT * FROM users WHERE id=?";
+    $sth = $dbh->prepare($query);
+    $sth->execute(array($id));
+    return $sth->fetch();
+}
+function getAllProjects(){
+    global $dbh;
+    $query = "SELECT * FROM projects order by title asc";
+    $sth = $dbh->prepare($query);
+    $sth->execute();
+    return $sth->fetchAll();
+}
 
 function getProjectbySufixAndUser($sufix, $user_id){
     global $dbh;
     $query = "SELECT * FROM projects WHERE sufix=? AND user_id=?";
     $sth = $dbh->prepare($query);
     $sth->execute(array($sufix, $user_id));
+    return $sth->fetch();
+}
+function getProjectbySufixAndAdmin($sufix){
+    global $dbh;
+    $query = "SELECT * FROM projects WHERE sufix=?";
+    $sth = $dbh->prepare($query);
+    $sth->execute(array($sufix));
     return $sth->fetch();
 }
 

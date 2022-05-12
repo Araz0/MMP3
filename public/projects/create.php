@@ -164,7 +164,7 @@
             <input type="hidden" name="project_id" value="-" id="project_id" required>
 
             <label for="project_title"><b>Project Title</b></label>
-            <input type="text" name="project_title" value="my title ö2" id="project_title" required>
+            <input type="text" name="project_title" placeholder="please write project title here" value="" id="project_title" required>
             
             <input type="hidden" name="project_sufix" value="mysufix" id="project_sufix" required>
             
@@ -173,12 +173,12 @@
             <input type="hidden" name="project_subtitle" value="subtitle here" id="project_subtitle" required>
             
 
-            <label for="project_excerpt"><b>Short description</b></label>
-            <input type="text" name="project_excerpt" value="excerpt here of description" id="project_excerpt" required>
+            <!-- <label for="project_excerpt"><b>Short description</b></label> -->
+            <input type="hidden" name="project_excerpt" value="excerpt here of description" id="project_excerpt" required>
             
 
             <label for="project_description"><b>Full description</b></label>
-            <textarea name="project_description" id="project_description" rows="4" cols="50" required>project_description project_description project_description</textarea>
+            <textarea name="project_description" id="project_description" placeholder="please write project description here" cols="50" required></textarea>
             
             
     <?php /*
@@ -220,10 +220,10 @@
             </select>
 
             <label for="project_tags"><b>Project tags</b></label>
-            <input type="text" name="project_tags" value="tag1, tag2, tag3" id="project_tags" required>
+            <input type="text" name="project_tags" placeholder="tag1, tag2, tag3" value="" id="project_tags" required>
 
             <label for="project_members"><b>Project members</b></label>
-            <input type="text" name="project_members" value="name 1, name 2, name 3" id="project_members" required>
+            <input type="text" name="project_members" placeholder="name 1, name 2, name 3" value="" id="project_members" required>
             
             <div class="project_members_container span-2-col" id="project_members_container">
                 <?php /*<div class="project_member_wrapper form-group-wrapper">
@@ -289,7 +289,7 @@
                     <button type="button" onclick="deleteField(this)">Delete Link</button> 
                 </div>
             */?>
-                <button class="old-btn" type="button" id="add_new_link_btn">Add New Link</button> 
+                <!-- <button class="old-btn" type="button" id="add_new_link_btn">Add New Link</button>  -->
             </div>
 
             <label for="project_thumbnail"><b>Thumbnail (1MB max)</b></label>
