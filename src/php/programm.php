@@ -22,7 +22,7 @@
         </section>
         <div class="program-container">
             <div class="program-container__header">
-                <h3>Donnerstag<br>03/06/2022</h3>
+                <h3>Donnerstag<br>02/06/2022</h3>
                 <h3>Stadtkino Hallein<br>Kuffergasse 2</h3>
             </div>
             <div class="program-container__table">
@@ -51,6 +51,57 @@
                                         );
                     ?>
                     <?php include "components/program_block_entry.php"; ?>
+                    <?php
+                        $program_block_entry_time = "15:00";
+                        $program_block_entry_title = "3. Filmblock";
+                        $program_block_entry_rfiller = false;
+                        $entry_items = array(
+                                            array("Namik","https://wwww.rundgang-fhsalzburg.com"),
+                                            array("Babushka","https://wwww.rundgang-fhsalzburg.com"),
+                                            array("Leo","https://wwww.rundgang-fhsalzburg.com"),
+                                            array("FLOCK","https://wwww.rundgang-fhsalzburg.com")
+                                        );
+                    ?>
+                    <?php include "components/program_block_entry.php"; ?>
+                    <?php
+                        $program_block_entry_time = "17:15";
+                        $program_block_entry_title = "4. Filmblock";
+                        $program_block_entry_rfiller = false;
+                        $entry_items = array(
+                                            array("Sould","https://wwww.rundgang-fhsalzburg.com"),
+                                            array("90 bpm","https://wwww.rundgang-fhsalzburg.com"),
+                                            array("Journey.","https://wwww.rundgang-fhsalzburg.com"),
+                                            array("train cabin","https://wwww.rundgang-fhsalzburg.com"),
+                                            array("Express Yourself","https://wwww.rundgang-fhsalzburg.com")
+                                        );
+                    ?>
+                    <?php include "components/program_block_entry.php"; ?>
+                    <?php
+                        $program_block_entry_time = "19:45";
+                        $program_block_entry_title = "5. Filmblock";
+                        $program_block_entry_rfiller = false;
+                        $entry_items = array(
+                                            array("Kugellager","https://wwww.rundgang-fhsalzburg.com"),
+                                            array("Ein tödliches Wochenende","https://wwww.rundgang-fhsalzburg.com"),
+                                            array("Der Erbsenzähler","https://wwww.rundgang-fhsalzburg.com"),
+                                            array("The Showdown","https://wwww.rundgang-fhsalzburg.com"),
+                                            array("Wer bin ich?","https://wwww.rundgang-fhsalzburg.com")
+                                        );
+                    ?>
+                    <?php include "components/program_block_entry.php"; ?>
+
+                </div>
+                <div class="program-container__table__filler">
+                    <img class="filler-pixels" src="/media/px-bg-trans.png" alt="pixlated background image filler">
+                </div>
+            </div>
+            <div class="program-container__header">
+                <h3>Freitag<br>03/06/2022</h3>
+                <h3>FH Salzburg<br>Urstein Süd 1</h3>
+            </div>
+            <div class="program-container__table">
+                <div class="program-container__table__list">
+                    
 
                 </div>
                 <div class="program-container__table__filler">

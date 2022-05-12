@@ -15,18 +15,20 @@
     <div class="program-container__table__entry__filler-l"></div>
     <div class="program-container__table__entry__slots">
         <?php 
-        foreach ($entry_items as $ei => $item) {
-        ?>
-            <div class="program-container__table__entry__slots__item">
-                <div class="program-container__table__entry__slots__item__title">
-                    <p><?php echo $item[0];?></p>
+        if (isset($entry_items)) {
+            foreach ($entry_items as $ei => $item) {
+            ?>
+                <div class="program-container__table__entry__slots__item">
+                    <div class="program-container__table__entry__slots__item__title">
+                        <p><?php echo $item[0];?></p>
+                    </div>
+                    <div class="program-container__table__entry__slots__item__link">
+                        <a href="<?php echo $item[1];?>">mehr zum Film</a>
+                        <img src="/media/icon-dropup.png" alt="arrow to another link">
+                    </div>
                 </div>
-                <div class="program-container__table__entry__slots__item__link">
-                    <a href="<?php echo $item[1];?>">mehr zum Film</a>
-                    <img src="/media/icon-dropup.png" alt="arrow to another link">
-                </div>
-            </div>
-        <?php 
+            <?php 
+            }
         }
         ?>
         
