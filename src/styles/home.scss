@@ -382,7 +382,6 @@
     .section-konzept{
         grid-template-columns: repeat(6, 1fr);
         grid-template-rows: 1fr 5fr;
-        max-height: 30rem;
         &__img-pixles{
             border-top: $grid-gap-line;
         }
@@ -462,4 +461,8 @@
     }
 }
 /* Extra large devices (large desktops, 1200px and up) */
-@media (min-width: 1200px) {}
+@media (min-width: 1230px) {
+    .section-konzept__img-pixles{
+        max-height: 36rem;
+    }
+}

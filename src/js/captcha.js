@@ -59,9 +59,20 @@ captchas.forEach(element => {
 
 
 function closeCaptchaOnClick(e){
+    var section_captchas = e.parentElement.parentElement.parentElement.querySelectorAll('.captcha-container');
     e.parentElement.parentElement.remove();
-}
 
+    for (let i = 0; i < section_captchas.length; i++) {
+        const element = section_captchas[i];
+        setTimeout(function(i) {
+            element.remove(); 
+        },500 * i,i);
+        
+    };
+}
+let sleep = ms => {  
+    return 
+};  
 function dragElement(elmnt) {
     var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
     if (elmnt.children[0]) {

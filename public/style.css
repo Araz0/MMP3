@@ -585,6 +585,9 @@ form {
   background-color: #fafafa;
   border: 2px solid #161615;
   padding: 5px 0.5em;
+  position: sticky;
+  top: 0;
+  z-index: 100;
 }
 .main-menu button {
   border: none;
@@ -1207,7 +1210,6 @@ footer .footer-content p {
   .section-konzept {
     grid-template-columns: repeat(6, 1fr);
     grid-template-rows: 1fr 5fr;
-    max-height: 30rem;
   }
   .section-konzept__img-pixles {
     border-top: 3px solid #161615;
@@ -1284,6 +1286,11 @@ footer .footer-content p {
   }
 }
 /* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1230px) {
+  .section-konzept__img-pixles {
+    max-height: 36rem;
+  }
+}
 .Project-opend {
   grid-template-areas: "img title title members degree category" "img tags tags members desc desc" !important;
 }
@@ -1691,6 +1698,10 @@ footer .footer-content p {
   display: grid;
   grid-template-columns: 3fr 3fr;
   border-bottom: 3px solid #161615;
+  position: sticky;
+  top: 0;
+  background-color: #D1D1D1;
+  border-top: 3px solid #161615;
 }
 .program-container__header h3 {
   padding: 1rem 1.5rem;

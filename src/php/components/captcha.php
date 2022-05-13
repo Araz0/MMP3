@@ -31,8 +31,8 @@
         <img src="<?php echo $captcha_image_path; ?>" alt="Captcha image">
     </div>
     <div class="captcha-footer captcha-row-spacebetween">
-        <label class="custom-checkbox" for="notarobot">
-            <input type="checkbox" name="notarobot" id="notarobot">I'm not a robot</input>
+        <label class="custom-checkbox" for="notarobot<?php echo $cbid; ?>">
+            <input type="checkbox" name="notarobot<?php echo $cbid; ?>" id="notarobot<?php echo $cbid; ?>">I'm not a robot</input>
             
         </label>
         <button class="captcha-footer__button" onclick="closeCaptchaOnClick(this)">verify</button>

@@ -34,6 +34,10 @@
         display: grid;
         grid-template-columns: 3fr 3fr;
         border-bottom: $grid-gap-line;
+        position: sticky;
+        top: 0;
+        background-color: $color-gray;
+        border-top:  $grid-gap-line;
         h3{
             padding: 1rem 1.5rem;
         }
