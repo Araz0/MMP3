@@ -35,7 +35,7 @@
             <input type="checkbox" name="notarobot<?php echo $cbid; ?>" id="notarobot<?php echo $cbid; ?>">I'm not a robot</input>
             
         </label>
-        <button class="captcha-footer__button" onclick="closeCaptchaOnClick(this)">verify</button>
+        <button class="captcha-footer__button" onclick="closeSectionCaptchasOnVerify(this)">verify</button>
     </div>
     
 </div>

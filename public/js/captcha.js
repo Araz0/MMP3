@@ -4,11 +4,11 @@ var viewport_width = document.documentElement.clientWidth;
 
 if (viewport_width < 790) {
     var heroCaptchas = document.querySelector('.section-hero').querySelectorAll('.captcha-window');
-    hideall(heroCaptchas);
+    hidebutone(heroCaptchas);
     var heroPopups = document.querySelector('#popupfiller').querySelectorAll('.popup');
     hidebutone(heroPopups);
     var konzeptCaptchas = document.querySelector('.section-konzept').querySelectorAll('.captcha-window');
-    hideall(konzeptCaptchas);
+    hidebutone(konzeptCaptchas);
     var studypopups = document.querySelector('.section__moreStudyInfo').querySelectorAll('.popup');
     hidebutone(studypopups);
 
@@ -17,13 +17,13 @@ function hidebutone(nodeCollection){
     let savedIndex = Math.floor(Math.random() * nodeCollection.length);
     for (let i = 0; i < nodeCollection.length; i++) {
         if (i != savedIndex) {
-            nodeCollection[i].style.display = "none" 
+            nodeCollection[i].remove(); 
         }
     }
 }
 function hideall(nodeCollection){
     for (let i = 0; i < nodeCollection.length; i++) {
-        nodeCollection[i].style.display = "none" 
+        nodeCollection[i].remove(); 
     }
 }
 
@@ -57,8 +57,12 @@ captchas.forEach(element => {
     
 });
 
-
 function closeCaptchaOnClick(e){
+    e.parentElement.parentElement.remove();
+}
+
+
+function closeSectionCaptchasOnVerify(e){
     var section_captchas = e.parentElement.parentElement.parentElement.querySelectorAll('.captcha-container');
     e.parentElement.parentElement.remove();
 
@@ -66,7 +70,7 @@ function closeCaptchaOnClick(e){
         const element = section_captchas[i];
         setTimeout(function(i) {
             element.remove(); 
-        },1000 * i,i);
+        },500 * i,i);
         
     };
 }

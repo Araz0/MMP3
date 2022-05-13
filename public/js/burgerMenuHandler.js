@@ -113,7 +113,7 @@ function filterCategory(e) {
     }
 }
 if (document.getElementsByClassName("program-container__table__entry__slots__item__link")) {
-    if (viewport_width <= 992) {
+    if (viewport_width <= 1470) {
         let links = document.getElementsByClassName("program-container__table__entry__slots__item__link");
         for (let i = 0; i < links.length; i++) {
             links[i].children[0].innerText = "About";
