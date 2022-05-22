@@ -1,9 +1,22 @@
+.program-index {
+    .section__moreStudyInfo{
+        border-bottom: none;
+    }
+}
+
 .Project-opend{
     grid-template-areas: "img title title members degree category" "img tags tags members desc desc" !important;
+    grid-template-rows: 11rem auto !important;
 }
 .selected_tag{
     background-color: $color-black;
     color: $color-gray;
+}
+.clamp_projects{
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
 }
 .projects__filter{
     display: grid;
@@ -36,6 +49,8 @@
             flex-wrap: wrap;
             margin-bottom: -3px;
             padding-left: 3px;
+            max-height: 25rem;
+            overflow: scroll;
         }
         span{
             align-items: center;
@@ -162,7 +177,7 @@
     p{
         font-family: PPNeueMontreal;
         padding: 0.8rem 1.2rem;
-        font-size: 26px;
+        font-size: $text-size-medium;
         line-height: 2rem;
     }
     &__thumbnail{
@@ -360,7 +375,7 @@
             max-height: 5.2rem;
         }
     }
-    .section__moreStudyInfo__splited{
+    .program-index .section__moreStudyInfo__splited{
         border-top: none;
     }
 }

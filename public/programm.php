@@ -13,11 +13,15 @@
     <main>
         <section class="section-hero program-hero">
             <img class="section-hero__hero-img" srcset="/media/Projekte.png 193w, /media/Projekte.png 278w" sizes="(max-width: 480px) 120px" alt="rundgang pixelated text">
+            <span class="program-hero__hero-span"></span>
             <div class="section-hero__content">
                 <p>Der Rundgang der FH Salzburg bringt Kreativität und Technologie auf das nächste Level. Die Studierenden von MultiMediaArt, MultiMediaTechnology und Human-Computer Interaction versuchen sich in politische und technologische Neuerungen zu integrieren, um diese für die Zukunft anwenden zu können. Sie beschäftigen sich neben dem Einsatz unterschiedlicher technischer Innovationen und neuen Medien, vor allem auch mit aktuellen, kritischen Fragestellungen und bieten Lösungsvorschläge für die Zukunft an.</p>
                 <span></span>
-                <img src="/media/logo-icon-big.png" alt="Rundgang Logo Icon Big">
-                <span></span>
+                <!-- <video class="section-hero__content__media" id="hero-logo" autoplay loop>
+                    <source src="/media/animations/grey_logo.mp4" type="video/mp4">
+                    Your browser does not support HTML video. Please update or use newer browser.
+                </video> -->
+                <img class="section-hero__content__media" src="/media/logo-icon-big.png" alt="Rundgang Logo Icon Big">
             </div>
         </section>
         <div class="program-container">
@@ -26,6 +30,7 @@
                 <h3>Stadtkino Hallein<br>Kuffergasse 2</h3>
             </div>
             <div class="program-container__table">
+                
                 <div class="program-container__table__list">
                     <?php
                         $program_block_entry_time = "10:00";
@@ -91,7 +96,9 @@
                     ?>
 
                 </div>
+                
                 <div class="program-container__table__filler">
+                    
                     <img class="filler-pixels" src="/media/px-bg-trans.png" alt="pixlated background image filler">
                     <img class="filler-pixels" src="/media/px-bg-trans.png" alt="pixlated background image filler">
                     <div class="program-container__table__filler__tickets">
@@ -103,6 +110,38 @@
                             <a href="#" class="program-container__table__filler__tickets__link" target="_blank">5. Filmblock</a>
                     </div>
                     <img class="filler-pixels" src="/media/px-bg-trans.png" alt="pixlated background image filler">
+                    <?php 
+                        $popup_title = "Kinotickets"; 
+                        $popup_message = "Bitte reserviere <br>dir vorab deine <br>kostenlosen Tickets!";
+                        $popup_id = "Kinotickets_1";
+                        include 'components/popup.php';
+                    ?>
+
+                    <?php 
+                        $popup_title = "Kinotickets"; 
+                        $popup_message = "Bitte reserviere <br>dir vorab deine <br>kostenlosen Tickets!";
+                        $popup_id = "Kinotickets_1";
+                        include 'components/popup.php';
+                    ?>
+                    <?php 
+                        $popup_title = "Kinotickets"; 
+                        $popup_message = "Achtung, <br>Kinoplätze <br>nur begrenzt <br>verfügbar!";
+                        $popup_id = "Kinotickets_1";
+                        include 'components/popup.php';
+                    ?>
+
+                    <?php 
+                        $popup_title = "Kinotickets"; 
+                        $popup_message = "Bitte reserviere <br>dir vorab deine <br>kostenlosen Tickets!";
+                        $popup_id = "Kinotickets_1";
+                        include 'components/popup.php';
+                    ?>
+                    <?php 
+                        $popup_title = "Kinotickets"; 
+                        $popup_message = "Achtung, <br>Kinoplätze <br>nur begrenzt <br>verfügbar!";
+                        $popup_id = "Kinotickets_1";
+                        include 'components/popup.php';
+                    ?>
                 </div>
             </div>
             
@@ -159,7 +198,7 @@
                         $program_block_entry_text = "Das Speeddating bietet die einmalige Chance 10 Salzburger Agenturen in einer lockeren und unverbindlichen Atmosphäre persönlich kennenzulernen.";
                         $program_block_entry_rbuttons_set = false;
                         $entry_items = array(
-                            array("Anmeldung 2. runde","#"),
+                            array("Anmeldung 2. Runde","#"),
                             array("mehr zum Speeddating","#")
                         );
                         include "components/program_block_entry_3.php";
@@ -170,7 +209,7 @@
                         $program_block_entry_text = "Bernd Siebenhofer und Ulrich Gahleitner.";
                         $program_block_entry_rbuttons_set = false;
                         $entry_items = array(
-                            array("mehr zum Project","#")
+                            array("mehr zum Projekt","#")
                         );
                         include "components/program_block_entry_3.php";
                     ?>
@@ -180,7 +219,7 @@
                         $program_block_entry_text = "Das Speeddating bietet die einmalige Chance 10 Salzburger Agenturen in einer lockeren und unverbindlichen Atmosphäre persönlich kennenzulernen.";
                         $program_block_entry_rbuttons_set = false;
                         $entry_items = array(
-                            array("Anmeldung 3. runde","#"),
+                            array("Anmeldung 3. Runde","#"),
                             array("mehr zum Speeddating","#")
                         );
                         include "components/program_block_entry_3.php";
@@ -191,7 +230,7 @@
                         $program_block_entry_text = 'Kilian Kofler aka. „Killin’ Void“.';
                         $program_block_entry_rbuttons_set = false;
                         $entry_items = array(
-                            array("mehr zum Project","#")
+                            array("mehr zum Projekt","#")
                         );
                         include "components/program_block_entry_3.php";
                     ?>
@@ -201,7 +240,7 @@
                         $program_block_entry_text = 'Elisa Visca';
                         $program_block_entry_rbuttons_set = false;
                         $entry_items = array(
-                            array("mehr zum Project","#")
+                            array("mehr zum Projekt","#")
                         );
                         include "components/program_block_entry_3.php";
                     ?>
@@ -233,6 +272,44 @@
                     </div>
                     <img class="filler-pixels" src="/media/px-bg-trans.png" alt="pixlated background image filler">
                     <img class="" src="/media/MOBILE_not_a_robot.svg" alt="pixlated I am not a robot image filler">
+
+                    <?php 
+                        $popup_title = "Speeddating"; 
+                        $popup_message = "Super fürs <br>Pflichtpraktikum!";
+                        $popup_id = "Speeddating_1";
+                        include 'components/popup.php';
+                    ?>
+                    <?php 
+                        $popup_title = "Speeddating"; 
+                        $popup_message = "Du magst nicht allein?<br>Geht auch als Gruppe!";
+                        $popup_id = "Speeddating_1";
+                        include 'components/popup.php';
+                    ?>
+                    <?php 
+                        $popup_title = "Speeddating"; 
+                        $popup_message = "Melde dich jetzt an,<br>es zahlt sich aus!";
+                        $popup_id = "Speeddating_1";
+                        include 'components/popup.php';
+                    ?>
+                    <?php 
+                        $popup_title = "Speeddating"; 
+                        $popup_message = "Du magst nicht allein?<br>Geht auch als Gruppe!";
+                        $popup_id = "Speeddating_1";
+                        include 'components/popup.php';
+                    ?>
+
+                    <?php 
+                        $popup_title = "Speeddating"; 
+                        $popup_message = "Du magst nicht allein?<br>Geht auch als Gruppe!";
+                        $popup_id = "Speeddating_1";
+                        include 'components/popup.php';
+                    ?>
+                    <?php 
+                        $popup_title = "Speeddating"; 
+                        $popup_message = "Melde dich jetzt an,<br>es zahlt sich aus!";
+                        $popup_id = "Speeddating_1";
+                        include 'components/popup.php';
+                    ?>
                 </div>
             </div>
         </div>	
@@ -242,4 +319,7 @@
 </body>
 <script src="/js/captcha.js"></script>
 <script src="/js/burgerMenuHandler.js"></script>
+<script>
+    document.getElementById("hero-logo").play();
+</script>
 </html>

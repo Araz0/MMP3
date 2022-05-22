@@ -1,6 +1,6 @@
 <nav class="main-menu">
     <ul>
-        <li><a href="/"><img src="/media/logo-icon.png" alt="Rundgang Logo Icon"></a></li>
+        <li><a href="/"><img src="/media/logo-icon.svg" alt="Rundgang Logo Icon"></a></li>
         <li><button id="burgerButton">Menu</button></li>
         <?php 
         if (!isSet($_SESSION['fhsUser'])) { ?> 
@@ -12,11 +12,11 @@
     </ul>
     <ul>
         <li><a href="/">Home</a></li>
-        <li><a href="/programm.php">Programm</a></li>
-        <li><a href="/speeddating.php">Speeddating</a></li>
-        <li><a href="/tickets.php">Tickets</a></li>
-        <li><a href="/projects.php">Projekte</a></li>
-        <li><a href="/about.php">About</a></li>
+        <li><a href="/soon.php">Programm</a></li>
+        <li><a href="/soon.php">Speeddating</a></li>
+        <li><a href="/soon.php">Tickets</a></li>
+        <li><a href="/soon.php">Projekte</a></li>
+        <li><a href="/soon.php">About</a></li>
         <?php 
         if (!isSet($_SESSION['fhsUser'])) { ?> 
             <li><a href="/auth/authorized.php">login</a></li>

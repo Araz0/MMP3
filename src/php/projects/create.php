@@ -177,7 +177,7 @@
             <input type="hidden" name="project_excerpt" value="excerpt here of description" id="project_excerpt" required>
             
 
-            <label for="project_description"><b>Full description</b></label>
+            <label for="project_description"><b>Description (max. 120 Wörter)</b></label>
             <textarea name="project_description" id="project_description" placeholder="please write project description here" cols="50" required></textarea>
             
             
@@ -219,7 +219,7 @@
                 <option value="Werbespot">Werbespot</option>
             </select>
 
-            <label for="project_tags"><b>Project tags</b></label>
+            <label for="project_tags"><b>Project tags (6 tags minimum)</b></label>
             <input type="text" name="project_tags" placeholder="tag1, tag2, tag3" value="" id="project_tags" required>
 
             <label for="project_members"><b>Project members</b></label>

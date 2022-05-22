@@ -15,10 +15,12 @@
         if (isset($entry_items)) {
             foreach ($entry_items as $ei => $item) {
             ?>
-                <div class="program-container__table__entry__slots__item__link">
-                    <a href="<?php echo $item[1];?>"><?php echo $item[0];?></a>
-                    <img src="/media/icon-dropup.png" alt="arrow to another link">
-                </div>
+                <a class="keep-label" href="<?php echo $item[1];?>">
+                    <div class="program-container__table__entry__slots__item__link">
+                        <p class="keep-label"><?php echo $item[0];?></p>
+                        <img src="/media/icon-dropup.png" alt="arrow to another link">
+                    </div>
+                </a>
             <?php 
             }
         }

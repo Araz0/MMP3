@@ -12,6 +12,9 @@ function toggleMenu() {
     }
 }
 
+let program_tables = document.querySelector(".program-container__table");
+document.querySelector(".program-container__table").children[1].style.height = document.querySelector(".program-container__table").children[0].clientHeight+"px";
+
 burgerbutton.addEventListener("click", toggleMenu);
 
 function toggleStudy(e) {
@@ -30,11 +33,13 @@ function toggleProject(e) {
         parentElm.getElementsByClassName("projects__container__project__description")[0].classList.toggle("show-project");
         parentElm.getElementsByClassName("projects__container__project__tags")[0].classList.toggle("show-project");
         parentElm.getElementsByClassName("projects__container__project__members")[0].classList.toggle("show-project");
+        parentElm.getElementsByClassName("projects__container__project__members")[0].classList.toggle("clamp_projects");
         parentElm.getElementsByClassName("projects__container__project__degree")[0].classList.toggle("show-project");
     }else{
         parentElm.getElementsByClassName("projects__container__project__description")[0].classList.toggle("show-project");
         parentElm.getElementsByClassName("projects__container__project__tags")[0].classList.toggle("show-project");
         parentElm.getElementsByClassName("projects__container__project__members")[0].classList.toggle("show-project");
+        parentElm.getElementsByClassName("projects__container__project__members")[0].classList.toggle("clamp_projects");
         parentElm.getElementsByClassName("projects__container__project__degree")[0].classList.toggle("show-project");
     }
     parentElm.classList.toggle("Project-opend");
@@ -111,12 +116,15 @@ function filterCategory(e) {
             }
         }
     }
+    toggleFilterCategory(document.getElementById("categoryfilterid"));
 }
 if (document.getElementsByClassName("program-container__table__entry__slots__item__link")) {
     if (viewport_width <= 1470) {
         let links = document.getElementsByClassName("program-container__table__entry__slots__item__link");
         for (let i = 0; i < links.length; i++) {
-            links[i].children[0].innerText = "About";
+            if (links[i].children[0].classList.contains("keep-label") == false) {
+                links[i].children[0].innerText = "About";
+            }
         }
     }
 }

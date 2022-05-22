@@ -19,8 +19,6 @@
     }
     img{
         width: 26px;
-        -webkit-animation: infiniteRotate 2s linear infinite; /* Safari */
-        animation: infiniteRotate 2s linear infinite;
     }
     .main-menu__search-icon{
         width: 17px;
@@ -100,14 +98,3 @@
 }
 /* Extra large devices (large desktops, 1200px and up) */
 @media (min-width: 1200px) {}
-
-/* Safari 4.0 - 8.0 */
-@-webkit-keyframes infiniteRotate {    
-    0% { -webkit-transform: rotate(0deg); }
-    100% { -webkit-transform: rotate(360deg); }
-}
-/* Standard syntax */
-@keyframes infinite-rotate {  
-    0% { -webkit-transform: rotate(0deg); }
-    100% { -webkit-transform: rotate(360deg); }
-}

@@ -14,17 +14,17 @@
     <main>
         <?php 
             $popup_title = "Soon..."; 
-            $popup_message = "Page coming soon... <br>Stay tooned";
+            $popup_message = "Page coming soon... <br>Stay tuned";
             include 'components/popup.php';
         ?>
         <?php 
             $popup_title = "Soon..."; 
-            $popup_message = "Page coming soon... <br>Stay tooned";
+            $popup_message = "Page coming soon... <br>Stay tuned";
             include 'components/popup.php';
         ?>
         <?php 
             $popup_title = "Soon..."; 
-            $popup_message = "Page coming soon... <br>Stay tooned";
+            $popup_message = "Page coming soon... <br>Stay tuned";
             include 'components/popup.php';
         ?>
     </main>

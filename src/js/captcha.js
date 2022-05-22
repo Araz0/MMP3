@@ -1,6 +1,22 @@
-// Make the DIV element draggable:
-var captchas = document.querySelectorAll('.captcha-container');
 var viewport_width = document.documentElement.clientWidth;
+var captchas = document.querySelectorAll('.captcha-container');
+
+captchas.forEach(element => {
+    dragElement(element);
+
+    element.style.top = randomIntFromInterval(1, element.parentElement.clientHeight - element.clientHeight)+"px";
+    if (viewport_width < 790) {
+        element.style.left = randomIntFromInterval(1, element.parentElement.clientWidth - element.clientWidth)+"px";
+        element.style.top = randomIntFromInterval(1, element.parentElement.clientHeight - element.clientHeight)+"px";
+    } else if (viewport_width < 1280) {
+        element.style.left = randomIntFromInterval(1, element.parentElement.clientWidth - element.clientWidth)+"px";
+    } else if (viewport_width > 1280) {
+        element.style.left = randomIntFromInterval(1, element.parentElement.clientWidth - element.clientWidth)+"px";
+        element.style.top = randomIntFromInterval(1, element.parentElement.clientHeight - element.clientHeight)+"px";
+        // element.style.left = (Math.floor(Math.random() * 75) + 1)+"%";
+    }
+});
+
 
 if (viewport_width < 790) {
     var heroCaptchas = document.querySelector('.section-hero').querySelectorAll('.captcha-window');
@@ -12,6 +28,9 @@ if (viewport_width < 790) {
     var studypopups = document.querySelector('.section__moreStudyInfo').querySelectorAll('.popup');
     hidebutone(studypopups);
 
+}
+function randomIntFromInterval(min, max) {
+    return Math.floor(Math.random() * (max - min + 1) + min)
 }
 function hidebutone(nodeCollection){
     let savedIndex = Math.floor(Math.random() * nodeCollection.length);
@@ -27,35 +46,7 @@ function hideall(nodeCollection){
     }
 }
 
-captchas.forEach(element => {
-    dragElement(element);
-    const xH = element.getAttribute("xH");
-    const xV = element.getAttribute("xV");
 
-    // if (element.getAttribute("sideH") == "right") {
-    //     element.style.right = (Math.floor(Math.random() * xH) + 1)+"%";
-    //     element.style.left = "auto";
-    // } else {
-    //     element.style.left = (Math.floor(Math.random() * xH) + 1)+"%";
-    // }
-    // if (element.getAttribute("sideV") == "buttom") {
-    //     element.style.buttom = (Math.floor(Math.random() * xV) + 1)+"%";
-    //     element.style.top = "auto";
-    // } else {
-    //     element.style.top = (Math.floor(Math.random() * xV) + 1)+"%";
-    // }
-    element.style.top = (Math.floor(Math.random() * 25) + 2)+"rem";
-    if (viewport_width < 790) {
-        element.style.left = (Math.floor(Math.random() * 40) + 1)+"%";
-        element.style.top = (Math.floor(Math.random() * 35) + 2)+"rem";
-    } else if (viewport_width < 1280) {
-        element.style.left = (Math.floor(Math.random() * 50) + 1)+"%";
-    } else if (viewport_width > 1280) {
-        element.style.left = (Math.floor(Math.random() * 75) + 1)+"%";
-    }
-    
-    
-});
 
 function closeCaptchaOnClick(e){
     e.parentElement.parentElement.remove();
@@ -64,8 +55,8 @@ function closeCaptchaOnClick(e){
 
 function closeSectionCaptchasOnVerify(e){
     var section_captchas = e.parentElement.parentElement.parentElement.querySelectorAll('.captcha-container');
+    
     e.parentElement.parentElement.remove();
-
     for (let i = 0; i < section_captchas.length; i++) {
         const element = section_captchas[i];
         setTimeout(function(i) {
@@ -73,6 +64,8 @@ function closeSectionCaptchasOnVerify(e){
         },500 * i,i);
         
     };
+    document.getElementById("hero-video").play();
+    document.getElementById("hero-logo").play();
 }
 let sleep = ms => {  
     return 

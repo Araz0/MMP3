@@ -5,7 +5,7 @@
 
 <?php 
 
-    $pagetitle = "Create Project";
+    $pagetitle = "Update Project";
     require '../functions.php';
     require "../components/head.php";
     $user = getUser($_SESSION['fhsUser']);
@@ -178,7 +178,7 @@
             <input type="hidden" name="project_excerpt" value="<?php echo $project->excerpt; ?>" id="project_excerpt" required>
             
 
-            <label for="project_description"><b>Full description</b></label>
+            <label for="project_description"><b>Description (max. 120 Wörter)</b></label>
             <textarea name="project_description" id="project_description" rows="4" cols="50" required><?php echo $project->description; ?></textarea>
             
 
@@ -236,7 +236,7 @@
                     <option value="Werbespot" <?php echo $project->category == 'Werbespot' ? ' selected ' : '';?>>Werbespot</option>
                 </select>
             
-            <label for="project_tags"><b>Project tags</b></label>
+            <label for="project_tags"><b>Project tags (6 tags minimum)</b></label>
             <input type="text" name="project_tags" value="<?php echo $project->tags; ?>" id="project_tags" required>
             
             <label for="project_members"><b>Project members</b></label>

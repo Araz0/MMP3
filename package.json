@@ -4,6 +4,8 @@
   "description": "rundgang mmp3 projekt fuer die FH-salzburg",
   "main": "index.js",
   "scripts": {
+    "start": "sudo service apache2 start && sudo service postgresql start",
+    "stop": "sudo service apache2 stop && sudo service postgresql stop",
     "build:php": "rsync -rvz --progress ./src/php/ ./public --delete",
     "build:sass": "sass ./src/styles/index.scss ./public/style.css",
     "build:images": "rsync -vaE --progress ./src/media/ ./public/media",

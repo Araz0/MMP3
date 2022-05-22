@@ -1,13 +1,20 @@
 .program-hero{
     grid-template-columns: repeat(6, 1fr);
     display: grid;
-    grid-template-areas: "hero hero hero hero hero ." "header header header header header header";
+    grid-template-areas: "hero hero hero hero hero span" "header header header header header header";
     img{
         grid-area: hero;
+        padding: 1rem; 
+        border-right: $grid-gap-line;
+    }
+    &__hero-span{
+        grid-area: span;
+        // border-left: $grid-gap-line;
     }
     .section-hero__content{
         grid-area: header;
-        grid-template-areas: "content content content span1 logo span2";
+        grid-template-areas: "content content content content span1 logo";
+        margin-top: 0 !important;
         p{
             grid-area: content;
         }
@@ -16,9 +23,6 @@
         }
         span:nth-child(2){
             grid-area: span1;
-        }
-        span:nth-child(4){
-            grid-area: span2;
         }
     }
 }
@@ -58,6 +62,7 @@
             margin-left: 1.5rem;
         }
         &__list{
+            height: fit-content;
             grid-area: entry;
         }
         &__entry{
@@ -65,6 +70,7 @@
         }
 
         &__filler-2{
+            position: relative;
             grid-area: filler;
             display: grid;
             grid-template-columns: repeat(2, 1fr);
@@ -79,18 +85,17 @@
             }
             img:nth-child(4){
                 grid-area: img3;
+                padding: 1rem;
+                border-top: $grid-gap-line;
             }
-            .program-container__table__filler__tickets{
-                //height: fit-content;
-            }
-
         }
         &__filler{
+            position: relative;
             grid-area: filler;
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             grid-template-areas: "img1 img1" "img1 img1" "img2 ticket" "img3 img3" "img3 img3";
-            grid-auto-rows: minmax(min-content, 17.2rem);
+            //grid-auto-rows: minmax(min-content, 17.2rem);
             
             img:nth-child(1){
                 grid-area: img1;
@@ -103,14 +108,11 @@
             }
             &__tickets{
                 grid-area: ticket;
-                position: sticky;
-                top: 2rem;
                 display: flex;
                 flex-direction: column;
                 background-color: $color-gray;
                 border: $grid-gap-line;
                 border-right: none;
-                z-index: 20;
                 &__head{
                     margin-bottom: 3rem;
                 }
@@ -128,9 +130,15 @@
         }
     }
 }
-.program-container__table{
-    //border-bottom: $grid-gap-line;
+.program-container__table__filler-2{
+    .program-container__table__filler__tickets{
+        border-top: none !important;
+    }
 }
+.program-container__table__filler__tickets a:nth-child(2){
+    margin-top: auto;
+}
+
 .program-container__table__entry:not(:first-child){
     border-top: $grid-gap-line;
 }
@@ -141,6 +149,7 @@
     grid-template-areas: "time title title title"
                         "spn desc desc btns";
     height: fit-content;
+    margin-bottom: -3px;
     .program-container__table__entry__btns{
         grid-area: btns;
     }
@@ -172,7 +181,7 @@
                         "fillerl slots slots slots";
     height: fit-content;
     .program-container__table__entry__filler-r{
-        border-top: $grid-gap-line;
+        // border-top: $grid-gap-line;
     }
     .program-container__table__entry__title{
         border-bottom: $grid-gap-line;
@@ -242,10 +251,17 @@
             margin-top: -3px;
             &__title{
                 grid-area: title;
+                height: fit-content;
                 border-right: $grid-gap-line;
                 margin-right: -2px;
-                display: flex;
-                justify-content: space-between;
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                p:first-child{
+                    grid-column: span 2;
+                }
+                p:last-child{
+                    text-align: right;
+                }
             }
             
             &__link{
@@ -260,6 +276,8 @@
                 padding: 0.5rem 1.8rem;
                 font-size: 26px;
                 line-height: 2rem;
+                border-bottom: $grid-gap-line2px;
+                border-top: $grid-gap-line2px;
                 img{
                     width: fit-content;
                     height: fit-content;
@@ -269,9 +287,127 @@
         }
     }
 }
+.program-container__table__entry{
+    .program-container__table__entry__slots__item__title{
+        p{
+            text-align: left;
+        }
+    }
+}
 @media (max-width: 992px) {
+    .program-index{
+        .section-hero__hero-img{
+            margin-bottom: 15px;
+        }
+    }
+    .program-hero{
+        grid-template-areas: "hero hero hero hero hero hero" "header header header header header header";
+    }
+    .program-container {
+        p{
+            font-size: $text-size-small;
+            padding: 0.5rem 0.8rem;
+        }
+    }
+
+    .program-container__table__entry__filler-r{
+        max-height: 3rem;
+    }
     .program-container__table{
         grid-template-columns: repeat(4, 1fr);
         grid-template-areas: "entry entry entry entry" "filler filler filler filler";
+    }
+    .program-container__table__filler{
+        grid-template-areas: "ticket img2";
+        grid-auto-rows: auto;
+        &__tickets{
+            border-bottom: none;
+            border-right: $grid-gap-line;
+            border-left: none;
+            z-index: 9;
+        }
+    }
+    .program-container__table__filler-2{
+        grid-template-areas: "ticket img1" "img2 img2";
+
+        img:nth-child(1){
+            max-height: 16rem;
+        }
+        img:nth-child(3){
+            max-height: 13rem;
+        }
+        img:nth-child(4){
+            display: none;
+        }
+        .program-container__table__filler__tickets{
+            border-right: $grid-gap-line;
+            border-left: none;
+            &__head{
+                margin-bottom: 6rem;
+            }
+            &__link:first-child{
+                margin-top: auto;
+            }
+        }
+    }
+    .program-container__table__entry{
+        grid-template-areas: "time title title fillerr" "slots slots slots slots";
+        grid-template-rows: auto;
+    }
+    .program-container__table__entry h3{
+        font-size: $text-size-medium;
+        margin: 1rem 0.5rem;
+    } 
+    .program-container__table__entry p, .program-container__table__entry__slots__item__link{
+        font-size: $text-size-small;
+    }
+    .program-container__table__entry p{
+        padding: 0.5rem 0.5rem
+    }
+    .program-container__table__entry__slots__item__link{
+        padding: 0.2rem 0.6rem;
+        border-radius: 0;
+        border:none;
+        border-top: $grid-gap-line;
+    }
+    .program-container__table__entry__slots__item{
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-areas: "title title title link";
+    }
+    .program-container__table__filler__tickets{
+        &__link{
+            font-size: $text-size-medium;
+            padding: 0.3rem 0.8rem;
+        }
+    }
+    .program-container__table__entry-2{
+        grid-template-areas: "time title title title" "desc desc desc desc" "slots slots slots slots";
+        grid-template-rows: auto;
+        .program-container__table__entry__time h3, .program-container__table__entry__title h3{
+            padding: 1rem 0.5rem;
+            margin: 0;
+        }
+        p{
+            font-size: $text-size-small;
+            padding: 0.5rem 0.8rem;
+        }
+        .program-container__table__entry__filler-r{
+            display: none;
+        }
+        .program-container__table__entry__slots__item__title{
+            word-wrap: inherit;
+        }
+    }
+    .program-container__table__entry-3{
+        grid-template-areas: "time title title title" "desc desc desc btns";
+        grid-template-rows: auto;
+        .program-container__table__entry__desc p{
+            font-size: $text-size-small;
+            padding: 0.5rem 0.8rem;
+        }
+        .program-container__table__entry__time h3, .program-container__table__entry__title h3{
+            padding: 0.5rem;
+            margin: 0;
+        }
     }
 }

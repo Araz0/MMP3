@@ -23,7 +23,7 @@ h3{
   font-size: $h3-size-big;
   line-height: $h3-linehight-big
 }
-@media (max-width: 1340px) {
+@media (max-width: 1540px) {
   h3{
     font-size: $h3-size-medium;
     line-height: $h3-linehight-medium;
@@ -83,6 +83,7 @@ form {
   height: 100%;
   width: 100%;
   background-image: url("/media/px-bg.png");
+  overflow: hidden;
 }
 .pushleft2rem{
   margin-left: 3.5rem;
