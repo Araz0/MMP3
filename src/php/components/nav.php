@@ -12,7 +12,7 @@
     </ul>
     <ul>
         <li><a href="/">Home</a></li>
-        <li><a href="/soon.php">Programm</a></li>
+        <li><a href="/programm.php">Programm</a></li>
         <li><a href="/soon.php">Speeddating</a></li>
         <li><a href="/soon.php">Tickets</a></li>
         <li><a href="/soon.php">Projekte</a></li>

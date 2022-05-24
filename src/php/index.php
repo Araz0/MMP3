@@ -29,7 +29,7 @@
         ?>
         <?php 
         $popup_title = "03/06/2022"; 
-        $popup_message = "09:00 Uhr <br>FH Salzburg <br>Puch Urstein <br><span class='pushleft2rem'></span>23:00 Uhr <br><span class='pushleft2rem'></span>Afterparty";
+        $popup_message = "14:00 Uhr <br>FH Salzburg <br>Puch Urstein <br><span class='pushleft2rem'></span>23:00 Uhr <br><span class='pushleft2rem'></span>Afterparty";
         include 'components/popup.php';
         ?>
         <?php

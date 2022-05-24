@@ -37,9 +37,9 @@
                         $program_block_entry_title = "1. Filmblock";
                         $program_block_entry_rfiller = true;
                         $entry_items = array(
-                                            array("Sündenbock","https://wwww.rundgang-fhsalzburg.com"),
-                                            array("Das verräterische Herz","https://wwww.rundgang-fhsalzburg.com"),
-                                            array("Komm, wir gehen.","https://wwww.rundgang-fhsalzburg.com")
+                                            array("Sündenbock","/soon.php"),
+                                            array("Das verräterische Herz","/soon.php"),
+                                            array("Komm, wir gehen.","/soon.php")
                                         );
                         include "components/program_block_entry.php";
                     ?>
@@ -48,11 +48,11 @@
                         $program_block_entry_title = "2. Filmblock";
                         $program_block_entry_rfiller = false;
                         $entry_items = array(
-                                            array("VERA","https://wwww.rundgang-fhsalzburg.com"),
-                                            array("Social Score System","https://wwww.rundgang-fhsalzburg.com"),
-                                            array("Kom O ba dia.","https://wwww.rundgang-fhsalzburg.com"),
-                                            array("La Manera","https://wwww.rundgang-fhsalzburg.com"),
-                                            array("Overflow","https://wwww.rundgang-fhsalzburg.com")
+                                            array("VERA","/soon.php"),
+                                            array("Social Score System","/soon.php"),
+                                            array("Kum å ba dia","/soon.php"),
+                                            array("La Manera","/soon.php"),
+                                            array("Overflow","/soon.php")
                                         );
                         include "components/program_block_entry.php";
                     ?>
@@ -61,10 +61,11 @@
                         $program_block_entry_title = "3. Filmblock";
                         $program_block_entry_rfiller = false;
                         $entry_items = array(
-                                            array("Namik","https://wwww.rundgang-fhsalzburg.com"),
-                                            array("Babushka","https://wwww.rundgang-fhsalzburg.com"),
-                                            array("Leo","https://wwww.rundgang-fhsalzburg.com"),
-                                            array("FLOCK","https://wwww.rundgang-fhsalzburg.com")
+                                            array("Namik","/soon.php"),
+                                            array("Babushka","/soon.php"),
+                                            array("Leo","/soon.php"),
+                                            array("FLOCK","/soon.php"),
+                                            array("Träume","/soon.php")
                                         );
                         include "components/program_block_entry.php";
                     ?>
@@ -73,11 +74,11 @@
                         $program_block_entry_title = "4. Filmblock";
                         $program_block_entry_rfiller = false;
                         $entry_items = array(
-                                            array("Sould","https://wwww.rundgang-fhsalzburg.com"),
-                                            array("90 bpm","https://wwww.rundgang-fhsalzburg.com"),
-                                            array("Journey.","https://wwww.rundgang-fhsalzburg.com"),
-                                            array("train cabin","https://wwww.rundgang-fhsalzburg.com"),
-                                            array("Express Yourself","https://wwww.rundgang-fhsalzburg.com")
+                                            array("Sould","/soon.php"),
+                                            array("Dreaming Moria","/soon.php"),
+                                            array("Journey.","/soon.php"),
+                                            array("train cabin","/soon.php"),
+                                            array("Express Yourself","/soon.php")
                                         );
                         include "components/program_block_entry.php";
                     ?>
@@ -86,11 +87,12 @@
                         $program_block_entry_title = "5. Filmblock";
                         $program_block_entry_rfiller = false;
                         $entry_items = array(
-                                            array("Kugellager","https://wwww.rundgang-fhsalzburg.com"),
-                                            array("Ein tödliches Wochenende","https://wwww.rundgang-fhsalzburg.com"),
-                                            array("Der Erbsenzähler","https://wwww.rundgang-fhsalzburg.com"),
-                                            array("The Showdown","https://wwww.rundgang-fhsalzburg.com"),
-                                            array("Wer bin ich?","https://wwww.rundgang-fhsalzburg.com")
+                                            array("Kugellager","/soon.php"),
+                                            array("Ein tödliches Wochenende","/soon.php"),
+                                            array("Der Erbsenzähler","/soon.php"),
+                                            array("The Showdown","/soon.php"),
+                                            array("Wer bin ich?","/soon.php"),
+                                            array("Saint Jeffery","/soon.php")
                                         );
                         include "components/program_block_entry.php";
                     ?>
@@ -173,11 +175,11 @@
                         $program_block_entry_rbuttons_set = false;
                         $second_entry_set = false;
                         $entry_items = array(
-                            array("Kugellager","14:00","https://wwww.rundgang-fhsalzburg.com"),
-                            array("Ein tödliches Wochenende","14:00","https://wwww.rundgang-fhsalzburg.com"),
-                            array("Der Erbsenzähler","14:00","https://wwww.rundgang-fhsalzburg.com"),
-                            array("The Showdown","14:00","https://wwww.rundgang-fhsalzburg.com"),
-                            array("Wer bin ich?","14:00","https://wwww.rundgang-fhsalzburg.com")
+                            array("Kugellager","14:00","/soon.php"),
+                            array("Ein tödliches Wochenende","14:00","/soon.php"),
+                            array("Der Erbsenzähler","14:00","/soon.php"),
+                            array("The Showdown","14:00","/soon.php"),
+                            array("Wer bin ich?","14:00","/soon.php")
                         );
                         include "components/program_block_entry_2.php";
                     ?>
@@ -190,6 +192,14 @@
                             array("Anmeldung 1. runde","#"),
                             array("mehr zum Speeddating","#")
                         );
+                        include "components/program_block_entry_3.php";
+                    ?>
+                    <?php
+                        $program_block_entry_time = "15:00";
+                        $program_block_entry_title = "Web Dev Meetup";
+                        $program_block_entry_text = "Im Hörsaal 012 halten die Web Studierenden Vorträge zu technischen Aspekten ihrer Projekten.";
+                        $program_block_entry_rbuttons_set = false;
+                        $entry_items = array(array("Mehr Information","https://www.meetup.com/salzburgwebdev/events/285542979/"));
                         include "components/program_block_entry_3.php";
                     ?>
                     <?php
@@ -252,13 +262,11 @@
                         $program_block_entry_rbuttons_set = false;
                         $second_entry_set = true;
                         $entry_items = array(
-                            array("DJ Socke Blabla","23:00","#"),
-                            array("DJ Synged","00:30","#"),
-                            array("Sick n’ young","01:30","#"),
-                            array("Julius b2b Kenji Araki ","02:45","#"),
-                            array("DJ Shanti","03:45","#"),
-                            array("DJ Marcopolo yolo","05:00","#"),
-                            array("Killin Void","06:00","#")
+                            array("Ion Diary","23:00","#"),
+                            array("Philip Law","00:00","#"),
+                            array("Projectdeeothought","01:00","#"),
+                            array("Next21 b2b Synged","02:00","#"),
+                            array("Killin`Void b2b Feistling","03:30","#")
                         );
                         include "components/program_block_entry_2.php";
                     ?>
