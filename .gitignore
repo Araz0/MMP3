@@ -7,3 +7,4 @@ vendor/
 config.php
 package-lock.json
 /public/
+public/
