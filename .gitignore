@@ -5,3 +5,5 @@ vendor/
 *.fig
 .DS_Store
 config.php
+package-lock.json
+/public/
