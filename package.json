@@ -4,15 +4,14 @@
   "description": "rundgang mmp3 projekt fuer die FH-salzburg",
   "main": "index.js",
   "scripts": {
-    "start": "sudo service apache2 start && sudo service postgresql start",
-    "stop": "sudo service apache2 stop && sudo service postgresql stop",
+    "start": "sudo service apache2 start",
+    "stop": "sudo service apache2 stop",
     "build:php": "rsync -rvz --progress ./src/php/ ./public --delete",
     "build:sass": "sass ./src/styles/index.scss ./public/style.css",
     "build:images": "rsync -vaE --progress ./src/media/ ./public/media",
     "build:js": "rsync -vaE --progress ./src/js/ ./public/js",
     "build:files": "rsync -vaE --progress ./src/files/ ./public",
     "build:fonts": "rsync -vaE --progress ./src/fonts/ ./public/fonts",
-    "build:rights": "sudo chown arabaz:www-data ~/sites/mmp3/public/storage && sudo chmod 775 ~/sites/mmp3/public/storage",
     "build": "npm-run-all build:*"
   },
   "repository": {
@@ -33,6 +32,7 @@
   "homepage": "https://github.com/Araz0/MMP3#readme",
   "dependencies": {
     "esbuild": "^0.14.21",
-    "npm-run-all": "^4.1.5"
+    "npm-run-all": "^4.1.5",
+    "sass": "^1.52.1"
   }
 }
