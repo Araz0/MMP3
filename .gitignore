@@ -5,6 +5,9 @@ vendor/
 *.fig
 .DS_Store
 config.php
-testing.php
 
+package-lock.json
+public/*
+testing.php
 fpdf-ignore/
+
