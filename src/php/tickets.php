@@ -5,18 +5,21 @@
 <?php
 $pagetitle = "Tickets | Rundgang FH-Salzburg";
 require "components/head.php";
-if (isset($_post['create_ticket'])) {
-}
 ?>
+
+
+<!-- <?php
+        if (isset($_POST['create_ticket'])) {
+            echo $_POST['firstname'] . ' ' . $_POST['lastname'] . " Anzahl: " . $_POST['amount'];
+        }
+        ?> 
+-->
 
 <body>
     <?php // $captcha_image_path = "media/logo-icon.png"; include 'components/captcha.php';
     ?>
 
     <?php require "components/nav.php"; ?>
-    <!-- <form action="tickets.php" method="post">
-        <button type="submit" name='create_ticket'></button>
-    </form> -->
     <main>
         <section class="section-hero tickets-hero">
             <img class="tickets-hero__hero-img" src="/media/Tickets.svg" sizes="(max-width: 480px) 120px"
