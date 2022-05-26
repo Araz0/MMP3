@@ -37,8 +37,8 @@
             align-items: center;
 
             img {
-                width: 10em;
-                height: 10em;
+                width: 100%;
+                height: fit-content;
                 padding: 1em;
                 aspect-ratio: 1/1;
             }
