@@ -5,3 +5,6 @@ vendor/
 *.fig
 .DS_Store
 config.php
+testing.php
+
+fpdf-ignore/
