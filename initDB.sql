@@ -51,6 +51,14 @@ CREATE TABLE captchas (
 	solution VARCHAR(255) NOT NULL
 );
 
+CREATE TABLE tickets (
+	ID serial PRIMARY KEY NOT NULL,
+	first_name VARCHAR(255) NOT NULL,
+	last_name VARCHAR(255) NOT NULL,
+	film_block VARCHAR(255) NOT NULL,
+	amount INTEGER NOT NULL
+);
+
 /*
 departments varchar(255) NOT NULL, // MMT,MMA,HCI,KMU,HTB,SMB,SMC,ITS,AIS,HTW,BWI,IMT,SOZA,PDM,BMA,HEB,GUK,OTH,ETH,PTH,RET 
   categories varchar(255) NOT NULL, // MMP1,MMP2,MMP2a,MMP2b,MMP3,Master Project 
