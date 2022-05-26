@@ -56,7 +56,9 @@ CREATE TABLE tickets (
 	first_name VARCHAR(255) NOT NULL,
 	last_name VARCHAR(255) NOT NULL,
 	film_block VARCHAR(255) NOT NULL,
-	amount INTEGER NOT NULL
+	amount INTEGER NOT NULL,
+	t_time VARCHAR(255) NOT NULL,
+	t_date VARCHAR(255) NOT NULL
 );
 
 /*
