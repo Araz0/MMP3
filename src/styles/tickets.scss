@@ -327,6 +327,10 @@
 
     .tickets-hero {
         grid-template-areas: "hero hero hero hero hero hero""header header header header header header";
+
+        &__hero-img {
+            border-right: none;
+        }
     }
 
     .tickets-container {
@@ -390,6 +394,13 @@
             }
         }
 
+        &__speeddating {
+            &__block {
+                &__link {
+                    padding: 0.5rem 0.5rem;
+                }
+            }
+        }
 
         &__speeddating__block__infos__round__speeddating {
             display: none;
