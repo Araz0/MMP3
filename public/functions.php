@@ -137,6 +137,19 @@ function createUser($username, $email, $first_name, $last_name, $studies, $role)
     $sth->execute();
 }
 
+function createTicket($first_name, $last_name, $film_block, $amount) {
+    global $dbh;
+    
+    $query = "INSERT INTO users (first_name, last_name, film_block, amount) VALUES (:first_name, :last_name, :film_block, :amount)";
+    $sth = $dbh->prepare($query);
+    $sth->bindParam('first_name', $first_name, PDO::PARAM_STR);
+    $sth->bindParam('last_name', $last_name, PDO::PARAM_STR);
+    $sth->bindParam('film_block', $film_block, PDO::PARAM_STR);
+    $sth->bindParam('amount', $amount, PDO::PARAM_STR);
+
+    $sth->execute();
+}
+
 function createProject($sufix, $title, $subtitle, $excerpt, $description, $thumbnail, $members, $degree, $category, $tags, $links, $user_id) {
     global $dbh;
     $links = json_encode($links);

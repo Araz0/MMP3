@@ -5,12 +5,18 @@
 <?php 
     $pagetitle = "Tickets | Rundgang FH-Salzburg";
     require "components/head.php"; 
+    if (isset($_post['create_ticket'])) {
+        
+    }
 ?>
 
 <body>
     <?php // $captcha_image_path = "media/logo-icon.png"; include 'components/captcha.php';?>
 
     <?php require "components/nav.php"; ?>
+    <form action="tickets.php" method="post">
+        <button type="submit" name='create_ticket'></button>
+    </form>
     <main>
         <?php 
             $popup_title = "Soon..."; 
