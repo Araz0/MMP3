@@ -13,7 +13,7 @@
     "build:files": "rsync -vaE --progress ./src/files/ ./public",
     "build:fonts": "rsync -vaE --progress ./src/fonts/ ./public/fonts",
     "build": "npm-run-all build:*",
-    "watch": "watch 'npm run build' src/"
+    "watch": "watch 'npm run build' src/; echo New Changes at && date +'%T'"
   },
   "repository": {
     "type": "git",

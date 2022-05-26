@@ -1,0 +1,398 @@
+.tickets-hero {
+    grid-template-columns: repeat(6, 1fr);
+    display: grid;
+    grid-template-areas: "hero hero hero hero hero span""header header header header header header";
+
+    &__hero-img {
+        grid-area: hero;
+        padding: 1rem;
+        border-right: $grid-gap-line;
+    }
+
+    &__hero-span {
+        grid-area: span;
+        position: relative;
+    }
+
+    .section-hero__content {
+        grid-area: header;
+        grid-template-areas: "content content content span1 logo ";
+        margin-top: 0 !important;
+
+        p {
+            grid-area: content;
+        }
+
+        &__media {
+            padding: 0;
+            margin: 0;
+            height: 100%;
+            width: 100%;
+            grid-area: logo;
+            border-left: $grid-gap-line;
+            border-right: $grid-gap-line;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            img {
+                width: 10em;
+                height: 10em;
+                padding: 1em;
+                aspect-ratio: 1/1;
+            }
+        }
+
+        span:nth-child(2) {
+            grid-area: span1;
+        }
+    }
+}
+
+.tickets-container {
+    font-family: PPNeueMontreal;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: repeat(2, 0fr);
+    display: grid;
+    grid-template-areas:
+        "tickets-header tickets-header tickets-header speeddating-header speeddating-header speeddating-header"
+        "tickets tickets tickets speeddating speeddating speeddating";
+    border-bottom: $grid-gap-line;
+    min-height: 70vh;
+
+    p {
+        font-family: PPNeueMontreal;
+        padding: 0.5rem 0.8rem;
+        font-size: $text-size-big;
+        line-height: 2rem;
+    }
+
+    &__header {
+        position: sticky;
+        top: 2rem;
+        z-index: 10;
+        display: grid;
+        // grid-template-columns: 3fr 3fr;
+        border-bottom: $grid-gap-line;
+        border-top: $grid-gap-line;
+        background-color: $color-gray;
+
+        h3 {
+            padding: 1rem 1.5rem;
+        }
+
+        h3:nth-child(1) {
+            border-right: $grid-gap-line;
+        }
+
+        &__tickets {
+            grid-area: tickets-header;
+            height: fit-content;
+
+        }
+
+        &__speeddating {
+            grid-area: speeddating-header;
+            height: fit-content;
+        }
+    }
+
+    &__block {
+        &__collapsible {
+            cursor: pointer;
+            width: 100%;
+            border: none;
+            text-align: left;
+            outline: none;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-areas: "tickets-text header time ";
+
+            &__tickets_text {
+                grid-area: tickets-text;
+                padding: 0.5rem 0.8rem;
+                font-size: $text-size-big;
+                line-height: 2rem;
+                display: flex;
+                align-items: center;
+                border-right: $grid-gap-line;
+
+                &::before {
+                    grid-area: tickets-text;
+                    content: " ";
+                    color: white;
+                    background-image: url(/media/icon-dropup.svg);
+                    background-repeat: no-repeat;
+                    background-size: contain;
+                    font-weight: bold;
+                    float: left;
+                    width: 0.8em;
+                    height: 0.8em;
+                    margin: 0 10px;
+                    background-position: center;
+                    transform: rotate(90deg);
+                    transition: transform 100ms ease-out;
+                }
+            }
+
+            &__name {
+                grid-area: header;
+                display: flex;
+                align-items: center;
+            }
+
+            &__time {
+                grid-area: time;
+                display: flex;
+                align-items: center;
+                justify-content: end;
+                border-right: $grid-gap-line;
+            }
+        }
+
+
+        .active .tickets-container__block__collapsible__tickets_text::before {
+            transform: rotate(180deg);
+        }
+
+        &__entry {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.2s ease-out;
+            border-bottom: $grid-gap-line;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-areas: "info block block";
+
+            &__form {
+                border-top: $grid-gap-line;
+                grid-area: info;
+                border-right: $grid-gap-line;
+
+                form {
+                    grid-template-columns: none;
+                }
+
+                input {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    border: $grid-gap-line;
+                    border-radius: 20px;
+                    background-color: transparent;
+                    font-family: PPNeueMontreal;
+                    padding: 0.5rem 1.8rem;
+                    margin: 0.5rem auto;
+                    font-size: $text-size-small;
+                    line-height: 2rem;
+                    border-bottom: $grid-gap-line2px;
+                    border-top: $grid-gap-line2px;
+                    width: 90%;
+
+                }
+
+                &__name p {
+                    font-size: $text-size-small !important;
+                }
+
+
+                &__amount {
+                    display: flex;
+                    align-items: center;
+
+                    p {
+                        font-size: $text-size-small !important;
+                    }
+
+                    input {
+                        max-width: 5em;
+                    }
+                }
+
+
+            }
+
+            &__details {
+                grid-area: block;
+                border-top: $grid-gap-line;
+                border-right: $grid-gap-line;
+                padding: 20px;
+
+                &__text {
+                    font-size: $text-size-small !important;
+                    padding: 0.5rem 0 !important;
+                }
+
+                &__button {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    border: $grid-gap-line;
+                    border-radius: 20px;
+                    background-color: transparent;
+                    font-family: PPNeueMontreal;
+                    padding: 0.5rem 1.5rem;
+                    margin: 0.5rem 0;
+                    font-size: $text-size-big;
+                    line-height: 2rem;
+                    border-bottom: $grid-gap-line2px;
+                    border-top: $grid-gap-line2px;
+                    float: right;
+                }
+            }
+        }
+
+    }
+
+    &__tickets {
+        grid-area: tickets;
+    }
+}
+
+.tickets-container__speeddating {
+    grid-area: speeddating;
+
+    &__block {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-areas: "infos infos button";
+        border-bottom: $grid-gap-line;
+
+        &__infos {
+            grid-area: infos;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0.5rem 0.8rem;
+            border-right: $grid-gap-line;
+
+            &__round {
+                display: flex;
+                align-items: center;
+            }
+
+            &__time {
+                text-align: right;
+            }
+
+        }
+
+
+        &__link {
+            grid-area: button;
+            display: flex;
+            width: 100%;
+            height: 100%;
+            justify-content: space-between;
+            align-items: center;
+            border: $grid-gap-line;
+            border-radius: 20px;
+            background-color: transparent;
+            font-family: PPNeueMontreal;
+            padding: 0.5rem 1.5rem;
+            // margin: 0.5rem 0;            
+            font-size: $text-size-big;
+            line-height: 2rem;
+            border-bottom: $grid-gap-line2px;
+            border-top: $grid-gap-line2px;
+            float: right;
+
+            &::after {
+                grid-area: tickets-text;
+                content: " ";
+                color: white;
+                background-image: url(/media/icon-dropup.svg);
+                background-repeat: no-repeat;
+                background-size: contain;
+                font-weight: bold;
+                float: right;
+                width: 0.8em;
+                height: 0.8em;
+                margin: 0 10px;
+                background-position: center;
+                transform: rotate(90deg);
+                transition: transform 100ms ease-out;
+            }
+        }
+    }
+}
+
+@media (max-width: 992px) {
+    .tickets-index {
+        .section-hero__hero-img {
+            margin-bottom: 15px;
+        }
+    }
+
+    .tickets-hero {
+        grid-template-areas: "hero hero hero hero hero hero""header header header header header header";
+    }
+
+    .tickets-container {
+        p {
+            font-size: $text-size-small;
+            padding: 0.5rem 0.8rem;
+        }
+    }
+
+    .section-hero__content__media {
+        display: none !important;
+    }
+
+    .tickets-container {
+        grid-template-columns: repeat(1, 1fr);
+        grid-template-rows: repeat(4, 0fr);
+        display: grid;
+        grid-template-areas:
+            "tickets-header"
+            "tickets"
+            "speeddating-header"
+            "speeddating";
+        border-bottom: none;
+        min-height: 100vh;
+
+        &__header {
+            &__tickets {
+                grid-area: tickets-header;
+            }
+
+            &__speeddating {
+                border-top: none;
+            }
+        }
+
+        &__block {
+            &__entry {
+                grid-template-columns: repeat(2, 1fr);
+                grid-template-areas: "info block";
+
+                &__details {
+                    &__heading {
+                        &__filmblock {
+                            display: none;
+                        }
+                    }
+
+                    &__text {
+                        font-size: 16px !important;
+                        line-height: 1.5em !important;
+                        padding-top: 2em !important;
+                        padding-bottom: 2em !important;
+                    }
+
+                    &__button {
+                        margin: 0;
+                        padding: 0.5rem 0.5rem;
+                        font-size: $text-size-small;
+                    }
+                }
+            }
+        }
+
+
+        &__speeddating__block__infos__round__speeddating {
+            display: none;
+        }
+    }
+
+}

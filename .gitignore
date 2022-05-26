@@ -6,5 +6,4 @@ vendor/
 .DS_Store
 config.php
 package-lock.json
-/public/
-public/
+public/*
