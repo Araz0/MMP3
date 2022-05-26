@@ -137,17 +137,20 @@ function createUser($username, $email, $first_name, $last_name, $studies, $role)
     $sth->execute();
 }
 
-function createTicket($first_name, $last_name, $film_block, $amount) {
+function createTicket($first_name, $last_name, $film_block, $amount, $t_time, $t_date) {
     global $dbh;
     
-    $query = "INSERT INTO users (first_name, last_name, film_block, amount) VALUES (:first_name, :last_name, :film_block, :amount)";
+    $query = "INSERT INTO tickets (first_name, last_name, film_block, amount, t_time, t_date) VALUES (:first_name, :last_name, :film_block, :amount, :t_time, :t_date)";
     $sth = $dbh->prepare($query);
     $sth->bindParam('first_name', $first_name, PDO::PARAM_STR);
     $sth->bindParam('last_name', $last_name, PDO::PARAM_STR);
     $sth->bindParam('film_block', $film_block, PDO::PARAM_STR);
-    $sth->bindParam('amount', $amount, PDO::PARAM_STR);
+    $sth->bindParam('amount', $amount, PDO::PARAM_INT);
+    $sth->bindParam('t_time', $t_time, PDO::PARAM_STR);
+    $sth->bindParam('t_date', $t_date, PDO::PARAM_STR);
 
     $sth->execute();
+    return $dbh->lastInsertId();
 }
 
 function createProject($sufix, $title, $subtitle, $excerpt, $description, $thumbnail, $members, $degree, $category, $tags, $links, $user_id) {

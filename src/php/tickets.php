@@ -7,14 +7,6 @@ $pagetitle = "Tickets | Rundgang FH-Salzburg";
 require "components/head.php";
 ?>
 
-
-<!-- <?php
-        if (isset($_POST['create_ticket'])) {
-            echo $_POST['firstname'] . ' ' . $_POST['lastname'] . " Anzahl: " . $_POST['amount'];
-        }
-        ?> 
--->
-
 <body>
     <?php // $captcha_image_path = "media/logo-icon.png"; include 'components/captcha.php';
     ?>

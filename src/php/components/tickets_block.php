@@ -12,7 +12,9 @@
     </div>
     <div class="tickets-container__block__entry">
         <div class="tickets-container__block__entry__form">
-            <form action="tickets.php" method="post" id="tickets-form-<?php echo $tickets_block_id; ?>">
+            <form action="ticket-print.php" method="post" id="tickets-form-<?php echo $tickets_block_id; ?>">
+                <input type="hidden" name="block_id" value="<?php echo $tickets_block_id; ?>">
+                <input type="hidden" name="block_time" value="<?php echo $tickets_block_time; ?>">
                 <div class="tickets-container__block__entry__form__name">
                     <label for="tickets__entry_name">
                         <p>Name</p>
