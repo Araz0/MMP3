@@ -4,6 +4,7 @@ footer{
     border-top: $grid-gap-line;
     display: grid;
     grid-template-areas: "content" "empty";
+    width: 100%;
     .filler-pixels{
         display: none;
     }

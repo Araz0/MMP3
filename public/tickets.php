@@ -142,5 +142,6 @@ for (let i = 0; i < coll.length; i++) {
     });
 }
 </script>
-
+<script src="/js/captcha.js"></script>
+<script src="/js/burgerMenuHandler.js"></script>
 </html>

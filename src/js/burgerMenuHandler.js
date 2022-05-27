@@ -12,8 +12,11 @@ function toggleMenu() {
     }
 }
 
-let program_tables = document.querySelector(".program-container__table");
-document.querySelector(".program-container__table").children[1].style.height = document.querySelector(".program-container__table").children[0].clientHeight+"px";
+if (document.querySelector(".program-container__table")) {
+    let program_tables = document.querySelector(".program-container__table");
+    document.querySelector(".program-container__table").children[1].style.height = document.querySelector(".program-container__table").children[0].clientHeight+"px";
+}
+
 
 burgerbutton.addEventListener("click", toggleMenu);
 
