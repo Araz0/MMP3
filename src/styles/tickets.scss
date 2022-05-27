@@ -229,23 +229,105 @@
                     input {
                         max-width: 5em;
                     }
+
+
                 }
 
+                &__details {
+                    grid-area: block;
+                    border-top: $grid-gap-line;
+                    padding: 20px;
+
+                    &__text {
+                        font-size: $text-size-small !important;
+                        padding: 0.5rem 0 !important;
+                    }
+
+                    &__button {
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: center;
+                        border: $grid-gap-line;
+                        border-radius: 20px;
+                        background-color: transparent;
+                        font-family: PPNeueMontreal;
+                        padding: 0.5rem 1.5rem;
+                        margin: 0.5rem 0;
+                        font-size: $text-size-big;
+                        line-height: 2rem;
+                        border-bottom: $grid-gap-line2px;
+                        border-top: $grid-gap-line2px;
+                        float: right;
+                    }
+                }
+            }
+
+        }
+
+        &__tickets {
+            grid-area: tickets;
+
+            &__blocks {
+                border-bottom: $grid-gap-line;
+                border-right: $grid-gap-line;
+                background-color: $color-gray;
+                padding-bottom: 15vh;
+            }
+
+            &__filler {
+                height: fit-content;
+            }
+
+        }
+
+        &__speeddating {
+            grid-area: speeddating;
+
+            &__blocks {
+                padding-bottom: 15vh;
+                border-bottom: $grid-gap-line;
+                background-color: $color-gray;
 
             }
 
-            &__details {
-                grid-area: block;
-                border-top: $grid-gap-line;
-                padding: 20px;
+            &__filler {
+                height: fit-content;
+                position: relative;
 
-                &__text {
-                    font-size: $text-size-small !important;
-                    padding: 0.5rem 0 !important;
+            }
+
+
+            &__block {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                grid-template-areas: "infos infos button";
+                border-bottom: $grid-gap-line;
+
+                &__infos {
+                    grid-area: infos;
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    padding: 0.5rem 0.8rem;
+                    border-right: $grid-gap-line;
+
+                    &__round {
+                        display: flex;
+                        align-items: center;
+                    }
+
+                    &__time {
+                        text-align: right;
+                    }
+
                 }
 
-                &__button {
+
+                &__link {
+                    grid-area: button;
                     display: flex;
+                    width: 100%;
+                    height: 100%;
                     justify-content: space-between;
                     align-items: center;
                     border: $grid-gap-line;
@@ -253,247 +335,164 @@
                     background-color: transparent;
                     font-family: PPNeueMontreal;
                     padding: 0.5rem 1.5rem;
-                    margin: 0.5rem 0;
+                    // margin: 0.5rem 0;            
                     font-size: $text-size-big;
                     line-height: 2rem;
                     border-bottom: $grid-gap-line2px;
                     border-top: $grid-gap-line2px;
                     float: right;
-                }
-            }
-        }
 
-    }
-
-    &__tickets {
-        grid-area: tickets;
-
-        &__blocks {
-            border-bottom: $grid-gap-line;
-            border-right: $grid-gap-line;
-            background-color: $color-gray;
-            padding-bottom: 15vh;
-        }
-
-        &__filler {
-            height: fit-content;
-        }
-
-    }
-
-    &__speeddating {
-        grid-area: speeddating;
-
-        &__blocks {
-            padding-bottom: 15vh;
-            border-bottom: $grid-gap-line;
-            background-color: $color-gray;
-
-        }
-
-        &__filler {
-            height: fit-content;
-            position: relative;
-
-        }
-
-
-        &__block {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            grid-template-areas: "infos infos button";
-            border-bottom: $grid-gap-line;
-
-            &__infos {
-                grid-area: infos;
-                display: flex;
-                align-items: center;
-                justify-content: space-between;
-                padding: 0.5rem 0.8rem;
-                border-right: $grid-gap-line;
-
-                &__round {
-                    display: flex;
-                    align-items: center;
-                }
-
-                &__time {
-                    text-align: right;
-                }
-
-            }
-
-
-            &__link {
-                grid-area: button;
-                display: flex;
-                width: 100%;
-                height: 100%;
-                justify-content: space-between;
-                align-items: center;
-                border: $grid-gap-line;
-                border-radius: 20px;
-                background-color: transparent;
-                font-family: PPNeueMontreal;
-                padding: 0.5rem 1.5rem;
-                // margin: 0.5rem 0;            
-                font-size: $text-size-big;
-                line-height: 2rem;
-                border-bottom: $grid-gap-line2px;
-                border-top: $grid-gap-line2px;
-                float: right;
-
-                &::after {
-                    grid-area: tickets-text;
-                    content: " ";
-                    color: white;
-                    background-image: url(/media/icon-dropup.svg);
-                    background-repeat: no-repeat;
-                    background-size: contain;
-                    font-weight: bold;
-                    float: right;
-                    width: 0.8em;
-                    height: 0.8em;
-                    margin: 0 10px;
-                    background-position: center;
-                    transform: rotate(90deg);
-                    transition: transform 100ms ease-out;
-                }
-            }
-        }
-    }
-
-}
-
-
-@media (max-width: 992px) {
-    .tickets-index {
-        .section-hero__hero-img {
-            margin-bottom: 15px;
-        }
-    }
-
-    .tickets-hero {
-        grid-template-areas: "hero hero hero hero hero hero""header header header header header header";
-
-        &__hero-img {
-            border-right: none;
-        }
-    }
-
-    .tickets-container {
-        p {
-            font-size: $text-size-small;
-            padding: 0.5rem 0.8rem;
-        }
-    }
-
-    .section-hero__content__media {
-        display: none !important;
-    }
-
-    .tickets-container {
-        grid-template-columns: repeat(1, 1fr);
-        grid-template-rows: repeat(4, 0fr);
-        display: grid;
-        grid-template-areas:
-            "tickets-header"
-            "tickets"
-            "speeddating-header"
-            "speeddating";
-        border-bottom: none;
-        min-height: 100vh;
-
-        &__header {
-            &__tickets {
-                grid-area: tickets-header;
-
-                h3:nth-child(1) {
-                    border-right: none;
-                }
-            }
-
-            &__speeddating {
-                border-top: none;
-            }
-        }
-
-        &__block {
-            &__entry {
-                grid-template-columns: repeat(2, 1fr);
-                grid-template-areas: "info block";
-
-                &__details {
-                    &__heading {
-                        &__filmblock {
-                            display: none;
-                        }
-                    }
-
-                    &__text {
-                        font-size: 16px !important;
-                        line-height: 1.5em !important;
-                        padding-top: 2em !important;
-                        padding-bottom: 1em !important;
-                    }
-
-                    &__button {
-                        margin: 0;
-                        padding: 0.5rem 0.5rem;
-                        font-size: $text-size-small;
+                    &::after {
+                        grid-area: tickets-text;
+                        content: " ";
+                        color: white;
+                        background-image: url(/media/icon-dropup.svg);
+                        background-repeat: no-repeat;
+                        background-size: contain;
+                        font-weight: bold;
+                        float: right;
+                        width: 0.8em;
+                        height: 0.8em;
+                        margin: 0 10px;
+                        background-position: center;
+                        transform: rotate(90deg);
+                        transition: transform 100ms ease-out;
                     }
                 }
             }
         }
 
-        &__tickets {
-            &__blocks {
-                padding-bottom: 0;
-                border-bottom: none;
+    }
+
+
+    @media (max-width: 992px) {
+        .tickets-index {
+            .section-hero__hero-img {
+                margin-bottom: 15px;
+            }
+        }
+
+        .tickets-hero {
+            grid-template-areas: "hero hero hero hero hero hero""header header header header header header";
+
+            &__hero-img {
                 border-right: none;
             }
+        }
 
-            &__filler {
-                display: none;
+        .tickets-container {
+            p {
+                font-size: $text-size-small;
+                padding: 0.5rem 0.8rem;
             }
         }
 
+        .section-hero__content__media {
+            display: none !important;
+        }
 
-        &__speeddating {
-            &__blocks {
-                padding-bottom: 0;
+        .tickets-container {
+            grid-template-columns: repeat(1, 1fr);
+            grid-template-rows: repeat(4, 0fr);
+            display: grid;
+            grid-template-areas:
+                "tickets-header"
+                "tickets"
+                "speeddating-header"
+                "speeddating";
+            border-bottom: none;
+            min-height: 100vh;
 
-                :last-child {
-                    border-bottom: none;
+            &__header {
+                &__tickets {
+                    grid-area: tickets-header;
+
+                    h3:nth-child(1) {
+                        border-right: none;
+                    }
+                }
+
+                &__speeddating {
+                    border-top: none;
                 }
             }
 
             &__block {
-                &__link {
-                    padding: 0.5rem 0.5rem;
+                &__entry {
+                    grid-template-columns: repeat(2, 1fr);
+                    grid-template-areas: "info block";
+
+                    &__details {
+                        &__heading {
+                            &__filmblock {
+                                display: none;
+                            }
+                        }
+
+                        &__text {
+                            font-size: 16px !important;
+                            line-height: 1.5em !important;
+                            padding-top: 2em !important;
+                            padding-bottom: 1em !important;
+                        }
+
+                        &__button {
+                            margin: 0;
+                            padding: 0.5rem 0.5rem;
+                            font-size: $text-size-small;
+                        }
+                    }
+                }
+            }
+
+            &__tickets {
+                &__blocks {
+                    padding-bottom: 0;
+                    border-bottom: none;
+                    border-right: none;
                 }
 
+                &__filler {
+                    display: none;
+                }
             }
 
-            &__filler {
-                background-size: 200%;
+
+            &__speeddating {
+                &__blocks {
+                    padding-bottom: 0;
+
+                    :last-child {
+                        border-bottom: none;
+                    }
+                }
+
+                &__block {
+                    &__link {
+                        padding: 0.5rem 0.5rem;
+                    }
+
+                }
+
+                &__filler {
+                    background-size: 200%;
+                }
+            }
+
+            &__speeddating__block__infos__round__speeddating {
+                display: none;
             }
         }
 
-        &__speeddating__block__infos__round__speeddating {
-            display: none;
+        .tickets-spacer {
+            &__popups {
+                width: 100%;
+                height: 100%;
+                position: relative;
+                float: unset;
+                transform: unset;
+            }
         }
+
+
     }
-
-    .tickets-spacer {
-        &__popups {
-            width: 100%;
-            height: 100%;
-            position: relative;
-            float: unset;
-            transform: unset;
-        }
-    }
-
-
-}
