@@ -1,7 +1,18 @@
+.tickets-main {
+    background-image: url("/media/px-bg.png");
+}
+
+.tickets-spacer {
+    width: 100%;
+    height: 20vh;
+    position: relative;
+}
+
 .tickets-hero {
     grid-template-columns: repeat(6, 1fr);
     display: grid;
     grid-template-areas: "hero hero hero hero hero span""header header header header header header";
+    background-color: $color-gray;
 
     &__hero-img {
         grid-area: hero;
@@ -58,7 +69,6 @@
     grid-template-areas:
         "tickets-header tickets-header tickets-header speeddating-header speeddating-header speeddating-header"
         "tickets tickets tickets speeddating speeddating speeddating";
-    border-bottom: $grid-gap-line;
     min-height: 70vh;
 
     p {
@@ -82,19 +92,21 @@
             padding: 1rem 1.5rem;
         }
 
-        h3:nth-child(1) {
-            border-right: $grid-gap-line;
-        }
-
         &__tickets {
             grid-area: tickets-header;
             height: fit-content;
+
+            h3:nth-child(1) {
+                border-right: $grid-gap-line;
+            }
 
         }
 
         &__speeddating {
             grid-area: speeddating-header;
             height: fit-content;
+
+
         }
     }
 
@@ -147,7 +159,6 @@
                 display: flex;
                 align-items: center;
                 justify-content: end;
-                border-right: $grid-gap-line;
             }
         }
 
@@ -193,6 +204,7 @@
                 }
 
                 &__name p {
+                    padding-left: 1.5em;
                     font-size: $text-size-small !important;
                 }
 
@@ -202,6 +214,8 @@
                     align-items: center;
 
                     p {
+                        padding-left: 1.5em;
+
                         font-size: $text-size-small !important;
                     }
 
@@ -216,7 +230,6 @@
             &__details {
                 grid-area: block;
                 border-top: $grid-gap-line;
-                border-right: $grid-gap-line;
                 padding: 20px;
 
                 &__text {
@@ -247,76 +260,104 @@
 
     &__tickets {
         grid-area: tickets;
-    }
-}
 
-.tickets-container__speeddating {
-    grid-area: speeddating;
-
-    &__block {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        grid-template-areas: "infos infos button";
-        border-bottom: $grid-gap-line;
-
-        &__infos {
-            grid-area: infos;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 0.5rem 0.8rem;
+        &__blocks {
+            border-bottom: $grid-gap-line;
             border-right: $grid-gap-line;
+            background-color: $color-gray;
+            padding-bottom: 20vh;
+        }
 
-            &__round {
+        &__filler {
+            height: fit-content;
+        }
+
+    }
+
+    &__speeddating {
+        grid-area: speeddating;
+
+        &__blocks {
+            padding-bottom: 10vh;
+            border-bottom: $grid-gap-line;
+            background-color: $color-gray;
+
+        }
+
+        &__filler {
+            height: fit-content;
+            position: relative;
+
+        }
+
+
+        &__block {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-areas: "infos infos button";
+            border-bottom: $grid-gap-line;
+
+            &__infos {
+                grid-area: infos;
                 display: flex;
                 align-items: center;
+                justify-content: space-between;
+                padding: 0.5rem 0.8rem;
+                border-right: $grid-gap-line;
+
+                &__round {
+                    display: flex;
+                    align-items: center;
+                }
+
+                &__time {
+                    text-align: right;
+                }
+
             }
 
-            &__time {
-                text-align: right;
-            }
 
-        }
-
-
-        &__link {
-            grid-area: button;
-            display: flex;
-            width: 100%;
-            height: 100%;
-            justify-content: space-between;
-            align-items: center;
-            border: $grid-gap-line;
-            border-radius: 20px;
-            background-color: transparent;
-            font-family: PPNeueMontreal;
-            padding: 0.5rem 1.5rem;
-            // margin: 0.5rem 0;            
-            font-size: $text-size-big;
-            line-height: 2rem;
-            border-bottom: $grid-gap-line2px;
-            border-top: $grid-gap-line2px;
-            float: right;
-
-            &::after {
-                grid-area: tickets-text;
-                content: " ";
-                color: white;
-                background-image: url(/media/icon-dropup.svg);
-                background-repeat: no-repeat;
-                background-size: contain;
-                font-weight: bold;
+            &__link {
+                grid-area: button;
+                display: flex;
+                width: 100%;
+                height: 100%;
+                justify-content: space-between;
+                align-items: center;
+                border: $grid-gap-line;
+                border-radius: 20px;
+                background-color: transparent;
+                font-family: PPNeueMontreal;
+                padding: 0.5rem 1.5rem;
+                // margin: 0.5rem 0;            
+                font-size: $text-size-big;
+                line-height: 2rem;
+                border-bottom: $grid-gap-line2px;
+                border-top: $grid-gap-line2px;
                 float: right;
-                width: 0.8em;
-                height: 0.8em;
-                margin: 0 10px;
-                background-position: center;
-                transform: rotate(90deg);
-                transition: transform 100ms ease-out;
+
+                &::after {
+                    grid-area: tickets-text;
+                    content: " ";
+                    color: white;
+                    background-image: url(/media/icon-dropup.svg);
+                    background-repeat: no-repeat;
+                    background-size: contain;
+                    font-weight: bold;
+                    float: right;
+                    width: 0.8em;
+                    height: 0.8em;
+                    margin: 0 10px;
+                    background-position: center;
+                    transform: rotate(90deg);
+                    transition: transform 100ms ease-out;
+                }
             }
         }
     }
+
 }
+
 
 @media (max-width: 992px) {
     .tickets-index {
@@ -359,6 +400,10 @@
         &__header {
             &__tickets {
                 grid-area: tickets-header;
+
+                h3:nth-child(1) {
+                    border-right: none;
+                }
             }
 
             &__speeddating {
@@ -382,7 +427,7 @@
                         font-size: 16px !important;
                         line-height: 1.5em !important;
                         padding-top: 2em !important;
-                        padding-bottom: 2em !important;
+                        padding-bottom: 1em !important;
                     }
 
                     &__button {
@@ -394,11 +439,37 @@
             }
         }
 
+        &__tickets {
+            &__blocks {
+                padding-bottom: 0;
+                border-bottom: none;
+                border-right: none;
+            }
+
+            &__filler {
+                display: none;
+            }
+        }
+
+
         &__speeddating {
+            &__blocks {
+                padding-bottom: 0;
+
+                :last-child {
+                    border-bottom: none;
+                }
+            }
+
             &__block {
                 &__link {
                     padding: 0.5rem 0.5rem;
                 }
+
+            }
+
+            &__filler {
+                background-size: 200%;
             }
         }
 

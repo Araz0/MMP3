@@ -35,7 +35,11 @@
                         <p><?php echo $item[0];?></p><p><?php echo $item[1];?></p>
                     </div>
                     <div class="program-container__table__entry__slots__item__link">
-                        <a href="<?php echo $item[2];?>">mehr zum Film</a>
+                        <a href="<?php echo $item[2];?>">
+                            <p>
+                                <?php echo isset($item[3]) ? $item[3] : "mehr zum Film";?> 
+                            </p>
+                        </a>
                         <img src="/media/icon-dropup.png" alt="arrow to another link">
                     </div>
                 </div>
