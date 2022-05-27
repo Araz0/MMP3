@@ -45,6 +45,7 @@ if (isset($_POST['create_ticket'])) {
 
 
     // save as pdf
+    $pdf->SetTitle("Rundgang Ticket ".$ticket_id);
     $pdf->Output();
 }else{
     // if user visits this page manually without post data
