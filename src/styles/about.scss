@@ -2,7 +2,7 @@
     background-image: url("/media/px-bg.png");
 }
 
-.about-spacer {
+.about-filler {
     width: 100%;
     height: 30vh;
     position: relative;
@@ -21,6 +21,7 @@
     display: grid;
     grid-template-areas: "hero hero hero hero hero span""header header header header header header";
     background-color: $color-gray;
+    border-bottom: $grid-gap-line;
 
     &__hero-img {
         grid-area: hero;
@@ -69,14 +70,158 @@
     }
 }
 
+.about-container {
+    font-family: PPNeueMontreal;
+
+    p {
+        font-family: PPNeueMontreal;
+        padding: 0.5rem 0.8rem;
+        font-size: $text-size-big;
+        line-height: 2rem;
+    }
+
+    &__blocks {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+
+        > :nth-child(odd) {
+            border-right: $grid-gap-line;
+        }
+    }
+
+    &__block {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        border-bottom: $grid-gap-line;
+
+        &__media {
+            grid-area: video;
+            background-color: $color-gray;
+            width: 100%;
+            height: 100%;
+
+            img {
+                max-height: unset;
+                height: 100%;
+                width: auto;
+                object-fit: cover;
+            }
+        }
+
+        &__details {
+            grid-area: details;
+            background-color: $color-gray;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            justify-content: space-between;
+
+            &__name {
+                padding-top: 1rem;
+                padding-left: 0.75rem;
+            }
+
+            &__role {
+                padding-bottom: 1rem;
+                padding-left: 0.75rem;
+            }
+        }
+
+        &__filler {
+            grid-area: bg;
+            height: 100%;
+            position: relative;
+        }
+    }
+
+    &__block-r {
+        grid-template-areas: "video details bg";
+
+        &__media {
+            border-right: $grid-gap-line;
+
+        }
+
+        &__details {
+            border-right: $grid-gap-line;
+        }
+    }
+
+    &__block-l {
+        grid-template-areas: "bg video details";
+
+        &__media {
+            border-left: $grid-gap-line;
+        }
+
+        &__details {
+            border-left: $grid-gap-line;
+        }
+    }
+
+    &__thanks-to {
+        display: grid;
+        grid-template-columns: repeat(6, 2fr);
+        grid-template-areas:
+            "thanks thanks name name name name"
+            "filler filler name name name name";
+
+        &__heading {
+            padding-top: 1rem;
+            padding-left: 0.75rem;
+
+        }
+
+        &__person {
+            //grid-area: name;
+            background-color: $color-gray;
+
+            min-height: 20em;
+
+            border-left: $grid-gap-line;
+            border-bottom: $grid-gap-line;
+
+            &__details {
+                display: flex;
+                flex-direction: column;
+                height: 100%;
+                justify-content: space-between;
+
+                &__name {
+                    padding-top: 1rem;
+                    padding-left: 0.75rem;
+                }
+
+                &__role {
+                    padding-bottom: 1rem;
+                    padding-left: 0.75rem;
+                }
+            }
+
+        }
+
+        &__heading {
+            grid-area: thanks;
+            background-color: $color-gray;
+        }
+
+        &__filler {
+            grid-area: filler;
+            width: 100%;
+            height: 100%;
+        }
+    }
+
+}
+
 @media (max-width: 992px) {
-    .tickets-index {
+    .about-index {
         .section-hero__hero-img {
             margin-bottom: 15px;
         }
     }
 
-    .tickets-hero {
+    .about-hero {
         grid-template-areas: "hero hero hero hero hero hero""header header header header header header";
 
         &__hero-img {
@@ -84,18 +229,75 @@
         }
     }
 
-    .tickets-container {
+    .about-container {
         p {
             font-size: $text-size-small;
             padding: 0.5rem 0.8rem;
         }
+
+        &__blocks {
+            grid-template-columns: repeat(1, 1fr);
+
+            > :nth-child(odd) {
+                border-right: none;
+            }
+        }
+
+        &__block {
+            grid-template-columns: repeat(2, 1fr);
+            border-left: none;
+            border-right: none;
+
+            &__filler {
+                display: none;
+            }
+
+            &__media {
+                img {
+                    width: auto;
+                    height: 100%;
+                }
+            }
+
+            &__details {
+                border-left: none;
+                border-right: none;
+
+            }
+
+            &:nth-child(odd) {
+                grid-template-areas: "video details";
+
+                >.about-container__block__media {
+                    border-right: $grid-gap-line;
+
+                }
+
+
+            }
+
+            &:nth-child(even) {
+                grid-template-areas: "details video";
+
+                >.about-container__block__media {
+                    border-right: none;
+                    border-left: none;
+                }
+
+                >.about-container__block__details {
+                    border-right: $grid-gap-line;
+                }
+
+            }
+        }
+
     }
 
     .section-hero__content__media {
         display: none !important;
     }
 
-    .tickets-spacer {
+    .about-filler {
         &__popups {
             width: 100%;
             height: 100%;
