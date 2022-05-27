@@ -15,7 +15,7 @@
         <li><a href="/programm.php">Programm</a></li>
         <li><a href="/soon.php">Speeddating</a></li>
         <li><a href="/tickets.php">Tickets</a></li>
-        <li><a href="/soon.php">Projekte</a></li>
+        <li><a href="/projects/">Projekte</a></li>
         <li><a href="/about.php">About</a></li>
         <?php
         if (!isset($_SESSION['fhsUser'])) { ?>

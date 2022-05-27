@@ -216,7 +216,7 @@ require "components/head.php";
                     $program_block_entry_text = "Das Speeddating bietet die einmalige Chance 10 Salzburger Agenturen in einer lockeren und unverbindlichen Atmosphäre persönlich kennenzulernen.";
                     $program_block_entry_rbuttons_set = false;
                     $entry_items = array(
-                        array("Anmeldung 1. runde", "#"),
+                        array("Anmeldung 1. runde", "https://fh-salzburg.jobteaser.com/de/events/149599-speedating-fuer-mma-mmt-hci-studierende"),
                         array("mehr zum Speeddating", "#")
                     );
                     include "components/program_block_entry_3.php";
@@ -235,7 +235,7 @@ require "components/head.php";
                     $program_block_entry_text = "Das Speeddating bietet die einmalige Chance 10 Salzburger Agenturen in einer lockeren und unverbindlichen Atmosphäre persönlich kennenzulernen.";
                     $program_block_entry_rbuttons_set = false;
                     $entry_items = array(
-                        array("Anmeldung 2. Runde", "#"),
+                        array("Anmeldung 2. Runde", "https://fh-salzburg.jobteaser.com/de/events/149599-speedating-fuer-mma-mmt-hci-studierende"),
                         array("mehr zum Speeddating", "#")
                     );
                     include "components/program_block_entry_3.php";
@@ -256,7 +256,7 @@ require "components/head.php";
                     $program_block_entry_text = "Das Speeddating bietet die einmalige Chance verschiedene Salzburger Agenturen in einer lockeren und unverbindlichen Atmosphäre persönlich kennenzulernen.";
                     $program_block_entry_rbuttons_set = false;
                     $entry_items = array(
-                        array("Anmeldung 3. Runde", "#"),
+                        array("Anmeldung 3. Runde", "https://fh-salzburg.jobteaser.com/de/events/149599-speedating-fuer-mma-mmt-hci-studierende"),
                         array("mehr zum Speeddating", "#")
                     );
                     include "components/program_block_entry_3.php";
@@ -304,7 +304,7 @@ require "components/head.php";
                         <h3 class="program-container__table__filler__tickets__head">Tickets</h3>
                         <a href="#" class="program-container__table__filler__tickets__link"
                             target="_blank">Speeddating</a>
-                        <a href="#" class="program-container__table__filler__tickets__link" target="_blank">Anmeldung
+                        <a href="https://fh-salzburg.jobteaser.com/de/events/149599-speedating-fuer-mma-mmt-hci-studierende" class="program-container__table__filler__tickets__link" target="_blank">Anmeldung
                             Veranstaltung</a>
                     </div>
                     <img class="filler-pixels" src="/media/px-bg-trans.png" alt="pixlated background image filler">
