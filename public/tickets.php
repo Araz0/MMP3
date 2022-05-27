@@ -96,21 +96,23 @@ require "components/head.php";
             </div>
         </div>
         <div class="tickets-spacer">
-            <?php
-            $popup_title = "Speeddating";
-            $popup_message = "Super fürs Pflichtpraktikum!";
-            include 'components/popup.php';
-            ?>
-            <?php
-            $popup_title = "Speeddating";
-            $popup_message = "Melde dich jetzt an, es zahlt sich aus!";
-            include 'components/popup.php';
-            ?>
-            <?php
-            $popup_title = "Speeddating";
-            $popup_message = "Du magst nicht allein? Geht auch als Gruppe!";
-            include 'components/popup.php';
-            ?>
+            <div class="tickets-spacer__popups">
+                <?php
+                $popup_title = "Speeddating";
+                $popup_message = "Super fürs Pflichtpraktikum!";
+                include 'components/popup.php';
+                ?>
+                <?php
+                $popup_title = "Speeddating";
+                $popup_message = "Melde dich jetzt an, es zahlt sich aus!";
+                include 'components/popup.php';
+                ?>
+                <?php
+                $popup_title = "Speeddating";
+                $popup_message = "Du magst nicht allein? Geht auch als Gruppe!";
+                include 'components/popup.php';
+                ?>
+            </div>
         </div>
 
     </main>

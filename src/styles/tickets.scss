@@ -4,8 +4,16 @@
 
 .tickets-spacer {
     width: 100%;
-    height: 20vh;
+    height: 30vh;
     position: relative;
+
+    &__popups {
+        width: 50%;
+        height: 150%;
+        position: relative;
+        float: right;
+        transform: translate(0, -30%);
+    }
 }
 
 .tickets-hero {
@@ -69,7 +77,6 @@
     grid-template-areas:
         "tickets-header tickets-header tickets-header speeddating-header speeddating-header speeddating-header"
         "tickets tickets tickets speeddating speeddating speeddating";
-    min-height: 70vh;
 
     p {
         font-family: PPNeueMontreal;
@@ -265,7 +272,7 @@
             border-bottom: $grid-gap-line;
             border-right: $grid-gap-line;
             background-color: $color-gray;
-            padding-bottom: 20vh;
+            padding-bottom: 15vh;
         }
 
         &__filler {
@@ -278,7 +285,7 @@
         grid-area: speeddating;
 
         &__blocks {
-            padding-bottom: 10vh;
+            padding-bottom: 15vh;
             border-bottom: $grid-gap-line;
             background-color: $color-gray;
 
@@ -477,5 +484,16 @@
             display: none;
         }
     }
+
+    .tickets-spacer {
+        &__popups {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            float: unset;
+            transform: unset;
+        }
+    }
+
 
 }
