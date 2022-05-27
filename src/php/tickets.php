@@ -12,7 +12,7 @@ require "components/head.php";
     ?>
 
     <?php require "components/nav.php"; ?>
-    <main>
+    <main class="tickets-main">
         <section class="section-hero tickets-hero">
             <img class="tickets-hero__hero-img" src="/media/Tickets.svg" sizes="(max-width: 480px) 120px"
                 alt="rundgang pixelated text">
@@ -44,50 +44,73 @@ require "components/head.php";
                 <h3>02/06/2022<br>Stadtkino Hallein</h3>
             </div>
             <div class="tickets-container__tickets">
-                <?php
-                $tickets_block_time = "10:00";
-                $tickets_block_id = "1";
-                include "components/tickets_block.php";
-                ?>
-                <?php
-                $tickets_block_time = "12:30";
-                $tickets_block_id = "2";
-                include "components/tickets_block.php";
-                ?>
-                <?php
-                $tickets_block_time = "15:00";
-                $tickets_block_id = "3";
-                include "components/tickets_block.php";
-                ?>
-                <?php
-                $tickets_block_time = "17:15";
-                $tickets_block_id = "4";
-                include "components/tickets_block.php";
-                ?>
-                <?php
-                $tickets_block_time = "19:45";
-                $tickets_block_id = "5";
-                include "components/tickets_block.php";
-                ?>
+                <div class="tickets-container__tickets__blocks">
+                    <?php
+                    $tickets_block_time = "10:00";
+                    $tickets_block_id = "1";
+                    include "components/tickets_block.php";
+                    ?>
+                    <?php
+                    $tickets_block_time = "12:30";
+                    $tickets_block_id = "2";
+                    include "components/tickets_block.php";
+                    ?>
+                    <?php
+                    $tickets_block_time = "15:00";
+                    $tickets_block_id = "3";
+                    include "components/tickets_block.php";
+                    ?>
+                    <?php
+                    $tickets_block_time = "17:15";
+                    $tickets_block_id = "4";
+                    include "components/tickets_block.php";
+                    ?>
+                    <?php
+                    $tickets_block_time = "19:45";
+                    $tickets_block_id = "5";
+                    include "components/tickets_block.php";
+                    ?>
+                </div>
             </div>
             <div class="tickets-container__header tickets-container__header__speeddating">
                 <h3>03/06/2022<br>Speeddating</ü>
             </div>
             <div class="tickets-container__speeddating">
+                <div class="tickets-container__speeddating__blocks">
+                    <?php
+                    $speeddating_block_time = "15:00";
+                    $speeddating_block_id = "1";
+                    include "components/tickets_speeddating_block.php";
+                    ?>
+                    <?php
+                    $speeddating_block_time = "16:15";
+                    $speeddating_block_id = "2";
+                    include "components/tickets_speeddating_block.php";
+                    ?>
+                    <?php
+                    $speeddating_block_time = "18:30";
+                    $speeddating_block_id = "3";
+                    include "components/tickets_speeddating_block.php";
+                    ?>
+                </div>
+            </div>
+        </div>
+        <div class="tickets-spacer">
+            <div class="tickets-spacer__popups">
                 <?php
-                $speeddating_block_time = "15:00";
-                $speeddating_block_id = "1";
-                include "components/tickets_speeddating_block.php";
+                $popup_title = "Speeddating";
+                $popup_message = "Super fürs Pflichtpraktikum!";
+                include 'components/popup.php';
                 ?>
                 <?php
-                $speeddating_block_time = "16:15";
-                $speeddating_block_id = "2";
-                include "components/tickets_speeddating_block.php";
+                $popup_title = "Speeddating";
+                $popup_message = "Melde dich jetzt an, es zahlt sich aus!";
+                include 'components/popup.php';
                 ?>
                 <?php
-                $speeddating_block_time = "18:30";
-                $speeddating_block_id = "3";
-                include "components/tickets_speeddating_block.php";
+                $popup_title = "Speeddating";
+                $popup_message = "Du magst nicht allein? Geht auch als Gruppe!";
+                include 'components/popup.php';
                 ?>
             </div>
         </div>

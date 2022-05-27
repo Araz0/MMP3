@@ -4,10 +4,10 @@
         <li><button id="burgerButton">Menu</button></li>
         <?php
         if (!isset($_SESSION['fhsUser'])) { ?>
-            <li><a href="/auth/authorized.php">login</a></li>
+        <li><a href="/auth/authorized.php">login</a></li>
         <?php } else { ?>
-            <li><a href="/projects/myprojects.php">My Projects</a></li>
-            <li><a href="/logout.php">logout</a></li>
+        <li><a href="/projects/myprojects.php">My Projects</a></li>
+        <li><a href="/logout.php">logout</a></li>
         <?php } ?>
     </ul>
     <ul>
@@ -16,13 +16,13 @@
         <li><a href="/soon.php">Speeddating</a></li>
         <li><a href="/tickets.php">Tickets</a></li>
         <li><a href="/soon.php">Projekte</a></li>
-        <li><a href="/soon.php">About</a></li>
+        <li><a href="/about.php">About</a></li>
         <?php
         if (!isset($_SESSION['fhsUser'])) { ?>
-            <li><a href="/auth/authorized.php">login</a></li>
+        <li><a href="/auth/authorized.php">login</a></li>
         <?php } else { ?>
-            <li><a href="/projects/myprojects.php">My Projects</a></li>
-            <li><a href="/logout.php">logout</a></li>
+        <li><a href="/projects/myprojects.php">My Projects</a></li>
+        <li><a href="/logout.php">logout</a></li>
         <?php } ?>
     </ul>
 
