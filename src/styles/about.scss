@@ -177,11 +177,11 @@
             "filler filler name name name name"
             "filler2 filler2 filler2 more more more";
 
-        > :nth-child(5n) {
+        > :nth-child(6) {
             border-right: none;
         }
 
-        > :nth-child(9n) {
+        > :nth-child(10) {
             border-right: none;
         }
 
