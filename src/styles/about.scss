@@ -332,6 +332,11 @@
 }
 
 @media (max-width: 992px) {
+
+    .about-main {
+        background-size: 150%;
+    }
+
     .about-index {
         .section-hero__hero-img {
             margin-bottom: 15px;
@@ -415,15 +420,47 @@
         }
 
         &__thanks-to {
-            grid-template-columns: repeat(4, minmax(0, 1fr));
-            grid-template-areas: unset;
+            // grid-template-columns: repeat(4, 1fr);
+            // grid-template-areas: "thanks thanks thanks .""name name name name""filler filler filler filler""more more more more""filler2 filler2 filler2 filler2";
+            display: flex;
+            flex-wrap: wrap;
 
             &__person {
-                grid-area: unset;
+                width: 50%;
+                min-height: 15em;
             }
 
+            > :nth-child(odd) {
+                border-right: none;
+            }
+
+            > :nth-last-child(3) {
+                border-right: $grid-gap-line !important;
+            }
+
+
             &__heading {
-                grid-area: unset;
+                width: 75%;
+                padding: 2rem 0.75rem;
+                border-right: $grid-gap-line !important;
+            }
+
+
+            &__more {
+                border-top: $grid-gap-line;
+                border-bottom: $grid-gap-line;
+
+                margin: 12rem 0;
+            }
+
+            &__filler {
+                flex-basis: 50%;
+                border-bottom: $grid-gap-line;
+                min-height: 15em;
+            }
+
+            &__filler-2 {
+                display: none;
             }
         }
 

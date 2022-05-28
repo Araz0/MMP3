@@ -83,12 +83,17 @@ require "components/head.php";
                 ?>
             </div>
             <div class="about-container__thanks-to">
-                <h3 class="about-container__thanks-to__heading">Danke, an alle die uns geholfen haben:</h3>
+                <div class="about-container__thanks-to__heading">
+                    <h3>Danke, an alle die uns geholfen haben:</h3>
+                </div>
                 <?php
                 $person_name = "FH-Prof. Dipl. Designerin Viktoria Schneider-Kirjuchina";
                 $person_role = "Projektbetreuung";
                 include "components/about_entry_small.php";
                 ?>
+
+                <div class="about-container__thanks-to__filler"></div>
+
                 <?php
                 $person_name = "Araz Al Hamdani";
                 $person_role = "Programmierung";
@@ -135,7 +140,6 @@ require "components/head.php";
                         Elias Handschuh, Sarah Hartl, Lisa Grall, Jasmin Schlögl, Phillip Laa, Johanna Steiner,
                         Alexander Mader, Nico Weiser</p>
                 </div>
-                <div class="about-container__thanks-to__filler"></div>
                 <div class="about-container__thanks-to__filler-2"></div>
             </div>
             <div class="about-container__concept">
