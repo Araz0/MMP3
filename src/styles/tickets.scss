@@ -6,6 +6,7 @@
     width: 100%;
     position: relative;
     min-height: 15rem;
+
     &__popups {
         width: 50%;
         height: 150%;
@@ -369,6 +370,11 @@
             margin-bottom: 15px;
         }
     }
+
+    .tickets-main {
+        background-size: 150%;
+    }
+
 
     .tickets-hero {
         grid-template-areas: "hero hero hero hero hero hero""header header header header header header";
