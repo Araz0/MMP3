@@ -136,6 +136,7 @@ require "components/head.php";
                         Alexander Mader, Nico Weiser</p>
                 </div>
                 <div class="about-container__thanks-to__filler"></div>
+                <div class="about-container__thanks-to__filler-2"></div>
             </div>
             <div class="about-container__concept">
                 <div class="about-container__concept__heading">

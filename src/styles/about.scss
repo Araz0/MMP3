@@ -1,5 +1,5 @@
 .about-main {
-    background-image: url("/media/px-bg");
+    background-image: url("/media/px-bg.png");
     overflow: hidden;
 }
 
@@ -162,7 +162,6 @@
             border-right: $grid-gap-line;
         }
 
-        &__details {}
 
         &__filler {
             border-right: $grid-gap-line;
@@ -172,11 +171,19 @@
 
     &__thanks-to {
         display: grid;
-        grid-template-columns: repeat(6, 2fr);
+        grid-template-columns: repeat(6, minmax(0, 1fr));
         grid-template-areas:
             "thanks thanks name name name name"
             "filler filler name name name name"
-            "filler filler filler2 more more more";
+            "filler2 filler2 filler2 more more more";
+
+        > :nth-child(5n) {
+            border-right: none;
+        }
+
+        > :nth-child(9n) {
+            border-right: none;
+        }
 
         &__person {
             //grid-area: name;
@@ -184,7 +191,7 @@
 
             min-height: 20em;
 
-            border-left: $grid-gap-line;
+            border-right: $grid-gap-line;
             border-bottom: $grid-gap-line;
 
             &__details {
@@ -192,6 +199,11 @@
                 flex-direction: column;
                 height: 100%;
                 justify-content: space-between;
+
+                p {
+                    // font-size: $text-size-medium;                    
+                    word-wrap: break-word;
+                }
 
                 &__name {
                     padding-top: 1rem;
@@ -211,13 +223,22 @@
             background-color: $color-gray;
             padding-top: 1rem;
             padding-left: 0.75rem;
-
+            border-bottom: $grid-gap-line;
+            border-right: $grid-gap-line;
         }
 
         &__filler {
             grid-area: filler;
             width: 100%;
             height: 100%;
+            border-right: $grid-gap-line;
+        }
+
+        &__filler-2 {
+            grid-area: filler2;
+            width: 100%;
+            height: 100%;
+            border-right: $grid-gap-line;
         }
 
         &__more {
@@ -225,7 +246,6 @@
             width: 100%;
             height: 100%;
             background-color: $color-gray;
-            border-left: $grid-gap-line;
 
             p {
                 font-size: $text-size-small;
@@ -337,7 +357,7 @@
         }
 
         &__blocks {
-            grid-template-columns: repeat(1, 1fr);
+            grid-template-columns: repeat(1, minmax(0, 1fr));
 
             > :nth-child(odd) {
                 border-right: none;
@@ -355,7 +375,7 @@
 
             &__media {
                 img {
-                    width: auto;
+                    width: 100%;
                     height: 100%;
                 }
             }
@@ -395,9 +415,16 @@
         }
 
         &__thanks-to {
-            grid-template-columns: repeat(4, 2fr);
-            grid-template-areas:
-                "thanks thanks thanks filler""span span filler2 filler2"
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            grid-template-areas: unset;
+
+            &__person {
+                grid-area: unset;
+            }
+
+            &__heading {
+                grid-area: unset;
+            }
         }
 
         &__concept {
