@@ -398,8 +398,6 @@
                     border-right: $grid-gap-line;
 
                 }
-
-
             }
 
             &:nth-child(even) {
@@ -413,10 +411,7 @@
                 >.about-container__block__details {
                     border-right: $grid-gap-line;
                 }
-
             }
-
-
         }
 
         &__thanks-to {
@@ -437,6 +432,11 @@
             > :nth-last-child(3) {
                 border-right: $grid-gap-line !important;
             }
+
+            > :nth-child(6) {
+                border-right: $grid-gap-line !important;
+            }
+
 
 
             &__heading {
