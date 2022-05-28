@@ -38,7 +38,7 @@
 
     .section-hero__content {
         grid-area: header;
-        grid-template-areas: "content content content span1 logo ";
+        grid-template-areas: "content content content filler logo ";
         margin-top: 0 !important;
 
         p {
@@ -51,7 +51,6 @@
             height: 100%;
             width: 100%;
             grid-area: logo;
-            border-left: $grid-gap-line;
             border-right: $grid-gap-line;
             display: flex;
             justify-content: center;
@@ -65,9 +64,13 @@
             }
         }
 
-        span:nth-child(2) {
-            grid-area: span1;
+        &__filler {
+            width: 100%;
+            height: 100%;
+            grid-area: filler;
+            border-right: $grid-gap-line;
         }
+
     }
 }
 
@@ -156,11 +159,14 @@
         grid-template-areas: "bg video details";
 
         &__media {
-            border-left: $grid-gap-line;
+            border-right: $grid-gap-line;
         }
 
-        &__details {
-            border-left: $grid-gap-line;
+        &__details {}
+
+        &__filler {
+            border-right: $grid-gap-line;
+
         }
     }
 
@@ -320,6 +326,10 @@
         }
     }
 
+    .section-hero__content__filler {
+        display: none;
+    }
+
     .about-container {
         p {
             font-size: $text-size-small;
@@ -387,8 +397,15 @@
         &__thanks-to {
             grid-template-columns: repeat(4, 2fr);
             grid-template-areas:
-                "thanks thanks thanks filler"
-                "name name filler2 filler"
+                "thanks thanks thanks filler""span span filler2 filler2"
+        }
+
+        &__concept {
+            display: none;
+        }
+
+        &__socials {
+            display: none;
         }
 
     }

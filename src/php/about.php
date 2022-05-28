@@ -25,6 +25,7 @@ require "components/head.php";
                     Roboter sind und uns solche Themen nicht egal sind! Mit dem Rundgang verschaffen wir dem
                     Abschlussjahrgang 2022 die Möglichkeit dies der Öffentlichkeit zu präsentieren.
                 </p>
+                <div class="section-hero__content__filler"></div>
                 <div class="section-hero__content__media">
                     <img src="/media/logo-icon-big.png" alt="Rundgang Logo Icon Big">
                 </div>

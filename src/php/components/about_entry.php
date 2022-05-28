@@ -11,7 +11,7 @@
             <p><?php echo $person_role; ?></p>
         </div>
     </div>
-    <div class="about-container__block__filler">
+    <div class="about-container__block__filler about-container__block-<?php echo $bg_dir; ?>__filler">
         <?php
         $popup_title = "Instagram";
         $popup_message = $insta_handle;
