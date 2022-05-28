@@ -83,6 +83,8 @@
 
     &__blocks {
         display: grid;
+        grid-auto-columns: minmax(0, 1fr);
+
         grid-template-columns: repeat(2, 1fr);
 
         > :nth-child(odd) {
@@ -92,6 +94,8 @@
 
     &__block {
         display: grid;
+        grid-auto-columns: minmax(0, 1fr);
+
         grid-template-columns: repeat(3, 1fr);
         border-bottom: $grid-gap-line;
 
@@ -376,6 +380,15 @@
                 }
 
             }
+
+
+        }
+
+        &__thanks-to {
+            grid-template-columns: repeat(4, 2fr);
+            grid-template-areas:
+                "thanks thanks thanks filler"
+                "name name filler2 filler"
         }
 
     }
@@ -384,13 +397,4 @@
         display: none !important;
     }
 
-    .about-filler {
-        &__popups {
-            width: 100%;
-            height: 100%;
-            position: relative;
-            float: unset;
-            transform: unset;
-        }
-    }
 }
