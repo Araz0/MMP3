@@ -164,7 +164,7 @@
             <?php 
                 foreach ($all_projects as $i => $project) {
             ?>
-                <div class="projects__container__project">
+                <div id="project-<?php echo $project->id; ?>" class="projects__container__project">
                     <div class="projects__container__project__thumbnail">
                         <img src="<?php echo $project->thumbnail; ?>" alt="<?php echo $project->title; ?> thumbnail image">
                     </div>  

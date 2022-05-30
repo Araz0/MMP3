@@ -44,9 +44,9 @@ require "components/head.php";
                     $program_block_entry_title = "1. Filmblock";
                     $program_block_entry_rfiller = true;
                     $entry_items = array(
-                        array("Sündenbock", "/soon.php"),
-                        array("Das verräterische Herz", "/soon.php"),
-                        array("Komm, wir gehen.", "/soon.php")
+                        array("Sündenbock", "/projects/#project-25"),
+                        array("Das verräterische Herz", "/projects/#project-11"),
+                        array("Komm, wir gehen.", "/projects/#")
                     );
                     include "components/program_block_entry.php";
                     ?>
@@ -55,11 +55,11 @@ require "components/head.php";
                     $program_block_entry_title = "2. Filmblock";
                     $program_block_entry_rfiller = false;
                     $entry_items = array(
-                        array("VERA", "/soon.php"),
-                        array("Social Score System", "/soon.php"),
-                        array("Kum å ba dia", "/soon.php"),
-                        array("Voice Poison, DYMSY", "/soon.php"),
-                        array("Overflow", "/soon.php")
+                        array("VERA", "/projects/#project-65"),
+                        array("Social Score System", "/project-64"),
+                        array("Kum å ba dia", "/projects/#project-6"),
+                        array("Voice Poison, DYMSY", "/projects/#project-73"),
+                        array("Overflow", "/projects/#project-29")
                     );
                     include "components/program_block_entry.php";
                     ?>
@@ -68,11 +68,11 @@ require "components/head.php";
                     $program_block_entry_title = "3. Filmblock";
                     $program_block_entry_rfiller = false;
                     $entry_items = array(
-                        array("Namik", "/soon.php"),
-                        array("Dreaming Moria", "/soon.php"),
-                        array("Leo", "/soon.php"),
-                        array("FLOCK", "/soon.php"),
-                        array("Träume", "/soon.php")
+                        array("Namik", "/projects/#project-34"),
+                        array("Dreaming Moria", "/projects/#"),
+                        array("Leo", "/projects/#project-30"),
+                        array("FLOCK", "/projects/#project-21"),
+                        array("Träume", "/projects/#")
                     );
                     include "components/program_block_entry.php";
                     ?>
@@ -84,8 +84,8 @@ require "components/head.php";
                         array("Sould", "/soon.php"),
                         array("Kugellager", "/soon.php"),
                         array("Journey", "/soon.php"),
-                        array("Train Cabin", "/soon.php"),
-                        array("Express Yourself", "/soon.php")
+                        array("Train Cabin", "/projects/#project-33"),
+                        array("Express Yourself", "/projects/#project-70")
                     );
                     include "components/program_block_entry.php";
                     ?>
@@ -94,11 +94,11 @@ require "components/head.php";
                     $program_block_entry_title = "5. Filmblock";
                     $program_block_entry_rfiller = false;
                     $entry_items = array(
-                        array("Babushka", "/soon.php"),
-                        array("Ein tödliches Wochenende", "/soon.php"),
+                        array("Babushka", "projects/#project-37"),
+                        array("Ein tödliches Wochenende", "/projects/#project-50"),
                         array("Der Erbsenzähler (Trailer)", "/soon.php"),
-                        array("The Showdown", "/soon.php"),
-                        array("Wer bin ich?", "/soon.php"),
+                        array("The Showdown", "/projects/#project-3"),
+                        array("Wer bin ich?", "/projects/#project-55"),
                         array("Saint Jeffery", "/soon.php")
                     );
                     include "components/program_block_entry.php";
@@ -187,26 +187,25 @@ require "components/head.php";
                     $program_block_entry_rbuttons_set = false;
                     $second_entry_set = false;
                     $entry_items = array(
-                        array("Das verräterische Herz", "", "/soon.php"),
-                        array("Komm, wir gehen.", "", "/soon.php"),
-                        array("VERA (Trailer)", "", "/soon.php"),
-                        array("Social Score System", "", "/soon.php"),
-                        array("Kum å ba dia", "", "/soon.php"),
-                        array("Voice Poison, DYMSY", "", "/soon.php"),
-                        array("Overflow", "", "/soon.php"),
-                        array("Namik", "", "/soon.php"),
-                        array("Leo", "", "/soon.php"),
-                        array("FLOCK", "", "/soon.php"),
-                        array("Träume", "", "/soon.php"),
-                        array("Sould", "", "/soon.php"),
-                        array("Journey", "", "/soon.php"),
-                        array("Train Cabin", "", "/soon.php"),
-                        array("Express Yourself", "", "/soon.php"),
-                        array("Train Cabin", "", "/soon.php"),
-                        array("Ein tödliches Wochenende", "", "/soon.php"),
-                        array("Der Erbsenzähler (Trailer)", "", "/soon.php"),
-                        array("The Showdown", "", "/soon.php"),
-                        array("Wer bin ich?", "", "/soon.php"),
+                        array("Das verräterische Herz", "", "/projects/#project-11"),
+                        array("Komm, wir gehen.", "", "/projects/#"),
+                        array("VERA (Trailer)", "", "/projects/#project-65"),
+                        array("Social Score System", "", "/projects/#project-64"),
+                        array("Kum å ba dia", "", "/projects/#project-6"),
+                        array("DYMS - Voice Poison", "", "/projects/#project-73"),
+                        array("Overflow", "", "/projects/#project-29"),
+                        array("Namik", "", "/projects/#project-34"),
+                        array("Leo", "", "/projects/#project-30"),
+                        array("FLOCK", "", "/projects/#project-21"),
+                        array("Träume", "", "/projects/#"),
+                        array("Sould", "", "/projects/#"),
+                        array("Journey", "", "/projects/#"),
+                        array("Train Cabin", "", "/projects/#project-33"),
+                        array("Express Yourself", "", "/projects/#project-70"),
+                        array("Ein tödliches Wochenende", "", "/projects/#project-50"),
+                        array("Der Erbsenzähler (Trailer)", "", "/projects/#"),
+                        array("The Showdown", "", "/projects/#project-3"),
+                        array("Wer bin ich?", "", "/projects/#project-55"),
                     );
                     include "components/program_block_entry_2.php";
                     ?>
