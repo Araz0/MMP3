@@ -462,6 +462,49 @@ require "components/head.php";
                     alt="FH Salzburg Map">
                 <img class="program-container__map-images__image-mobile" src="/media/Rundgang_Karte.svg"
                     alt="FH Salzburg Map">
+
+                <div class="program-container__map__filler">
+                    <img class="filler-pixels" src="/media/px-bg-trans.png" alt="pixlated background image filler">
+                    <?php
+                    $popup_title = "Speeddating";
+                    $popup_message = "Super für's <br>Pflichtpraktikum!";
+                    $popup_id = "Speeddating_1";
+                    include 'components/popup.php';
+                    ?>
+                    <?php
+                    $popup_title = "Speeddating";
+                    $popup_message = "Du magst nicht allein?<br>Geht auch als Gruppe!";
+                    $popup_id = "Speeddating_1";
+                    include 'components/popup.php';
+                    ?>
+                    <?php
+                    $popup_title = "Speeddating";
+                    $popup_message = "Melde dich jetzt an,<br>es zahlt sich aus!";
+                    $popup_id = "Speeddating_1";
+                    include 'components/popup.php';
+                    ?>
+                    <?php
+                    $popup_title = "Speeddating";
+                    $popup_message = "Du magst nicht allein?<br>Geht auch als Gruppe!";
+                    $popup_id = "Speeddating_1";
+                    include 'components/popup.php';
+                    ?>
+
+                    <?php
+                    $popup_title = "Speeddating";
+                    $popup_message = "Du magst nicht allein?<br>Geht auch als Gruppe!";
+                    $popup_id = "Speeddating_1";
+                    include 'components/popup.php';
+                    ?>
+                    <?php
+                    $popup_title = "Speeddating";
+                    $popup_message = "Melde dich jetzt an,<br>es zahlt sich aus!";
+                    $popup_id = "Speeddating_1";
+                    include 'components/popup.php';
+                    ?>
+
+                </div>
+
             </div>
         </div>
     </main>
