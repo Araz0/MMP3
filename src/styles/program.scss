@@ -1,43 +1,53 @@
-.program-hero{
+.program-hero {
     grid-template-columns: repeat(6, 1fr);
     display: grid;
-    grid-template-areas: "hero hero hero hero hero span" "header header header header header header";
-    img{
+    grid-template-areas: "hero hero hero hero hero span""header header header header header header";
+
+    img {
         grid-area: hero;
-        padding: 1rem; 
+        padding: 1rem;
         border-right: $grid-gap-line;
     }
-    &__hero-span{
+
+    &__hero-span {
         grid-area: span;
         // border-left: $grid-gap-line;
     }
-    .section-hero__content{
+
+    .section-hero__content {
         grid-area: header;
         grid-template-areas: "content content content content span1 logo";
         margin-top: 0 !important;
-        p{
+
+        p {
             grid-area: content;
         }
-        img{
+
+        img {
             grid-area: logo;
         }
-        span:nth-child(2){
+
+        span:nth-child(2) {
             grid-area: span1;
         }
     }
 }
-.program-container{
+
+.program-container {
     font-family: PPNeueMontreal;
-    p{
+
+    p {
         font-family: PPNeueMontreal;
         padding: 0.5rem 1.8rem;
         font-size: 26px;
         line-height: 2rem;
     }
-    &__header:nth-child(1){
+
+    &__header:nth-child(1) {
         border-top: $grid-gap-line;
     }
-    &__header{
+
+    &__header {
         position: sticky;
         top: 2rem;
         z-index: 10;
@@ -45,78 +55,95 @@
         grid-template-columns: 3fr 3fr;
         border-bottom: $grid-gap-line;
         background-color: $color-gray;
-        h3{
+
+        h3 {
             padding: 1rem 1.5rem;
         }
-        h3:nth-child(1){
+
+        h3:nth-child(1) {
             border-right: $grid-gap-line;
         }
     }
-    
-    &__table{
+
+    &__table {
         position: relative;
         display: grid;
-        grid-template-columns: repeat(6, 1fr);;
+        grid-template-columns: repeat(6, 1fr);
+        ;
         grid-template-areas: "entry entry entry entry filler filler";
-        h3{
+        border-bottom: $grid-gap-line;
+
+
+        h3 {
             margin-left: 1.5rem;
         }
-        &__list{
+
+        &__list {
             height: fit-content;
             grid-area: entry;
         }
-        &__entry{
+
+        &__entry {
             grid-area: entry;
         }
 
-        &__filler-2{
+        &__filler-2 {
             position: relative;
             grid-area: filler;
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             grid-template-rows: auto auto 1fr;
-            grid-template-areas: "img1 ticket" "img2 img2" "img2 img2" "img3 img3";
+            grid-template-areas: "img1 ticket""img2 img2""img2 img2""img3 img3";
+
             //grid-auto-rows: minmax(min-content, max-content);
-            img:nth-child(1){
+            img:nth-child(1) {
                 grid-area: img1;
             }
-            img:nth-child(3){
+
+            img:nth-child(3) {
                 grid-area: img2;
             }
-            img:nth-child(4){
+
+            img:nth-child(4) {
                 grid-area: img3;
                 padding: 1rem;
                 border-top: $grid-gap-line;
             }
         }
-        &__filler{
+
+        &__filler {
             position: relative;
             grid-area: filler;
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            grid-template-areas: "img1 img1" "img1 img1" "img2 ticket" "img3 img3" "img3 img3";
+            grid-template-areas: "img1 img1""img1 img1""img2 ticket""img3 img3""img3 img3";
             //grid-auto-rows: minmax(min-content, 17.2rem);
-            
-            img:nth-child(1){
+
+            img:nth-child(1) {
                 grid-area: img1;
             }
-            img:nth-child(3){
+
+            img:nth-child(3) {
                 grid-area: img2;
             }
-            img:nth-child(4){
+
+            img:nth-child(4) {
                 grid-area: img3;
             }
-            &__tickets{
+
+            &__tickets {
                 grid-area: ticket;
                 display: flex;
                 flex-direction: column;
                 background-color: $color-gray;
                 border: $grid-gap-line;
                 border-right: none;
-                &__head{
+
+                &__head {
                     margin-bottom: 3rem;
                 }
-                &__link{
+
+                &__link {
                     padding: 0.2rem 1.5rem;
                     border: $grid-gap-line;
                     border-radius: 20px;
@@ -129,157 +156,283 @@
             }
         }
     }
+
+    &__map {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        grid-template-areas: "details";
+        position: relative;
+        min-height: 120vh;
+
+        &__image {
+            position: absolute;
+            right: 0;
+            top: 0;
+            max-height: 120vh;
+            max-width: unset;
+            width: 65vw;
+            height: auto;
+            padding-top: 1.5rem;
+            z-index: 1;
+        }
+
+        &__image-mobile {
+            display: none;
+        }
+
+        &__blocks {
+            grid-area: details;
+        }
+
+
+        &__details {
+
+            border-bottom: $grid-gap-line;
+
+            position: relative;
+
+            &__heading {
+                padding-left: 1.5rem;
+                padding-top: 1.5rem;
+            }
+
+            &__description {
+                padding: 0.5rem;
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                width: 35vw;
+                border-top: $grid-gap-line;
+                border-right: $grid-gap-line;
+
+                &__block {
+                    display: flex;
+
+                    p {
+                        font-size: $text-size-small;
+                        padding-right: 0;
+                        padding-left: 1em;
+                        padding-top: 0;
+                        padding-bottom: 0;
+                    }
+                }
+            }
+
+            &__floor-right {
+                text-align: right;
+                position: absolute;
+                right: 0;
+                bottom: 0;
+                z-index: 2;
+
+            }
+
+        }
+
+        &__filler {
+            width: 100%;
+            height: 30vh;
+            position: relative;
+        }
+    }
+
+    &__map-images {
+        &__image {
+            display: block;
+            width: 100%;
+        }
+
+        &__image-mobile {
+            display: none;
+            transform: translate(0, -4%);
+            position: relative;
+            width: 100%;
+        }
+    }
+
+
 }
-.program-container__table__filler-2{
-    .program-container__table__filler__tickets{
+
+.program-container__table__filler-2 {
+    .program-container__table__filler__tickets {
         border-top: none !important;
     }
 }
-.program-container__table__filler__tickets a:nth-child(2){
+
+.program-container__table__filler__tickets a:nth-child(2) {
     margin-top: auto;
 }
 
-.program-container__table__entry:not(:first-child){
+.program-container__table__entry:not(:first-child) {
     border-top: $grid-gap-line;
 }
-.program-container__table__entry-3{ 
+
+.program-container__table__entry-3 {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: 6rem auto;
     grid-template-areas: "time title title title"
-                        "spn desc desc btns";
+        "spn desc desc btns";
     height: fit-content;
     margin-bottom: -3px;
-    .program-container__table__entry__btns{
+
+    .program-container__table__entry__btns {
         grid-area: btns;
     }
-    .program-container__table__entry__title, .program-container__table__entry__time{
+
+    .program-container__table__entry__title,
+    .program-container__table__entry__time {
         border-top: $grid-gap-line;
         border-bottom: $grid-gap-line;
     }
-    .program-container__table__entry__btns{
+
+    .program-container__table__entry__btns {
         border-right: $grid-gap-line;
         border-bottom: $grid-gap-line;
-        .program-container__table__entry__slots__item__link{
+
+        .program-container__table__entry__slots__item__link {
             margin-top: -3px;
             margin-left: -3px;
             margin-right: -3px;
         }
     }
 }
-.program-container__table__entry-2:last-child{
-    .program-container__table__entry__title, .program-container__table__entry__time{
+
+.program-container__table__entry-2:last-child {
+
+    .program-container__table__entry__title,
+    .program-container__table__entry__time {
         border-bottom: none !important;
         border-top: $grid-gap-line;
     }
 }
-.program-container__table__entry-2{ 
+
+.program-container__table__entry-2 {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: 6rem auto;
     grid-template-areas: "time title title fillerr"
-                        "spn desc desc fillerr"
-                        "fillerl slots slots slots";
+        "spn desc desc fillerr"
+        "fillerl slots slots slots";
     height: fit-content;
-    .program-container__table__entry__filler-r{
+
+    .program-container__table__entry__filler-r {
         // border-top: $grid-gap-line;
     }
-    .program-container__table__entry__title{
+
+    .program-container__table__entry__title {
         border-bottom: $grid-gap-line;
     }
-    .program-container__table__entry__time{
+
+    .program-container__table__entry__time {
         border-bottom: $grid-gap-line;
     }
 }
-.program-container__table__entry__desc{
+
+.program-container__table__entry__desc {
     grid-area: desc;
     border-right: $grid-gap-line;
 }
-.program-container__table__entry{
+
+.program-container__table__entry {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: 6rem auto;
     grid-template-areas: "time title title fillerr"
-                        "fillerl slots slots slots";
+        "fillerl slots slots slots";
     height: fit-content;
-    &__span{
+
+    &__span {
         grid-area: spn;
         border-right: $grid-gap-line;
     }
-    &__time{
+
+    &__time {
         grid-area: time;
         display: grid;
         border-right: $grid-gap-line;
-        h3{
+
+        h3 {
             align-self: center;
         }
     }
-    &__title{
+
+    &__title {
         grid-area: title;
         display: grid;
         border-right: $grid-gap-line;
-        h3{
+
+        h3 {
             align-self: center;
         }
     }
-    &__filler-r{
+
+    &__filler-r {
         grid-area: fillerr;
         border-right: $grid-gap-line;
     }
-    &__filler-l{
+
+    &__filler-l {
         grid-area: fillerl;
         border-right: $grid-gap-line;
         border-top: $grid-gap-line;
     }
-    &__slots{
+
+    &__slots {
         grid-area: slots;
         height: fit-content;
         border-top: $grid-gap-line;
         border-right: $grid-gap-line;
         margin-bottom: -3px;
-        &__item > *{
+
+        &__item>* {
             height: 3rem;
         }
-        &__item:not(:last-child){
-            .program-container__table__entry__slots__item__title{
+
+        &__item:not(:last-child) {
+            .program-container__table__entry__slots__item__title {
                 border-bottom: $grid-gap-line;
             }
         }
-        &__item{
+
+        &__item {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             grid-template-areas: "title title link";
             margin-top: -3px;
-            &__title{
+
+            &__title {
                 grid-area: title;
                 height: fit-content;
                 border-right: $grid-gap-line;
                 margin-right: -2px;
                 display: grid;
                 grid-template-columns: repeat(3, 1fr);
-                p:first-child{
+
+                p:first-child {
                     grid-column: span 2;
                 }
-                p:last-child{
+
+                p:last-child {
                     text-align: right;
                 }
             }
-            
-            &__link{
+
+            &__link {
                 grid-area: link;
                 display: flex;
                 justify-content: space-between;
                 align-items: center;
                 border: $grid-gap-line;
                 border-radius: 20px;
-    
+
                 font-family: PPNeueMontreal;
                 padding: 0.5rem 1.8rem;
                 font-size: 26px;
                 line-height: 2rem;
                 border-bottom: $grid-gap-line2px;
                 border-top: $grid-gap-line2px;
-                img{
+
+                img {
                     width: fit-content;
                     height: fit-content;
                     transform: rotate(90deg);
@@ -288,127 +441,234 @@
         }
     }
 }
-.program-container__table__entry{
-    .program-container__table__entry__slots__item__title{
-        p{
+
+.program-container__table__entry {
+    .program-container__table__entry__slots__item__title {
+        p {
             text-align: left;
         }
     }
 }
+
 @media (max-width: 992px) {
-    .program-index{
-        .section-hero__hero-img{
+    .program-index {
+        .section-hero__hero-img {
             margin-bottom: 15px;
         }
     }
-    .program-hero{
-        grid-template-areas: "hero hero hero hero hero hero" "header header header header header header";
+
+    .program-hero {
+        grid-template-areas: "hero hero hero hero hero hero""header header header header header header";
     }
+
     .program-container {
-        p{
+        p {
             font-size: $text-size-small;
             padding: 0.5rem 0.8rem;
         }
     }
 
-    .program-container__table__entry__filler-r{
+    .program-container__table__entry__filler-r {
         max-height: 3rem;
     }
-    .program-container__table{
+
+    .program-container__table {
         grid-template-columns: repeat(4, 1fr);
-        grid-template-areas: "entry entry entry entry" "filler filler filler filler";
+        grid-template-areas: "entry entry entry entry""filler filler filler filler";
+        border-bottom: none;
     }
-    .program-container__table__filler{
+
+    .program-container__table__filler {
         grid-template-areas: "ticket img2";
         grid-auto-rows: auto;
-        &__tickets{
+
+        &__tickets {
             border-bottom: none;
             border-right: $grid-gap-line;
             border-left: none;
             z-index: 9;
         }
     }
-    .program-container__table__filler-2{
-        grid-template-areas: "ticket img1" "img2 img2";
 
-        img:nth-child(1){
+    .program-container__table__filler-2 {
+        grid-template-areas: "ticket img1""img2 img2";
+
+        img:nth-child(1) {
             max-height: 16rem;
         }
-        img:nth-child(3){
+
+        img:nth-child(3) {
             max-height: 13rem;
         }
-        img:nth-child(4){
+
+        img:nth-child(4) {
             display: none;
         }
-        .program-container__table__filler__tickets{
+
+        .program-container__table__filler__tickets {
             border-right: $grid-gap-line;
             border-left: none;
-            &__head{
+
+            &__head {
                 margin-bottom: 6rem;
             }
-            &__link:first-child{
+
+            &__link:first-child {
                 margin-top: auto;
             }
         }
     }
-    .program-container__table__entry{
-        grid-template-areas: "time title title fillerr" "slots slots slots slots";
+
+    .program-container__table__entry {
+        grid-template-areas: "time title title fillerr""slots slots slots slots";
         grid-template-rows: auto;
     }
-    .program-container__table__entry h3{
+
+    .program-container__table__entry h3 {
         font-size: $text-size-medium;
         margin: 1rem 0.5rem;
-    } 
-    .program-container__table__entry p, .program-container__table__entry__slots__item__link{
+    }
+
+    .program-container__table__entry p,
+    .program-container__table__entry__slots__item__link {
         font-size: $text-size-small;
     }
-    .program-container__table__entry p{
+
+    .program-container__table__entry p {
         padding: 0.5rem 0.5rem
     }
-    .program-container__table__entry__slots__item__link{
+
+    .program-container__table__entry__slots__item__link {
         padding: 0.2rem 0.6rem;
         border-radius: 0;
-        border:none;
+        border: none;
         border-top: $grid-gap-line;
     }
-    .program-container__table__entry__slots__item{
+
+    .program-container__table__entry__slots__item {
         grid-template-columns: repeat(4, 1fr);
         grid-template-areas: "title title title link";
     }
-    .program-container__table__filler__tickets{
-        &__link{
+
+    .program-container__table__filler__tickets {
+        &__link {
             font-size: $text-size-medium;
             padding: 0.3rem 0.8rem;
         }
     }
-    .program-container__table__entry-2{
-        grid-template-areas: "time title title title" "desc desc desc desc" "slots slots slots slots";
+
+    .program-container__table__entry-2 {
+        grid-template-areas: "time title title title""desc desc desc desc""slots slots slots slots";
         grid-template-rows: auto;
-        .program-container__table__entry__time h3, .program-container__table__entry__title h3{
+
+        .program-container__table__entry__time h3,
+        .program-container__table__entry__title h3 {
             padding: 1rem 0.5rem;
             margin: 0;
         }
-        p{
+
+        p {
             font-size: $text-size-small;
             padding: 0.5rem 0.8rem;
         }
-        .program-container__table__entry__filler-r{
+
+        .program-container__table__entry__filler-r {
             display: none;
         }
-        .program-container__table__entry__slots__item__title{
+
+        .program-container__table__entry__slots__item__title {
             word-wrap: inherit;
         }
     }
-    .program-container__table__entry-3{
-        grid-template-areas: "time title title title" "desc desc desc btns";
+
+    .program-container__table__entry-3 {
+        grid-template-areas: "time title title title""desc desc desc btns";
         grid-template-rows: auto;
-        .program-container__table__entry__desc p{
+
+        .program-container__table__entry__desc p {
             font-size: $text-size-small;
             padding: 0.5rem 0.8rem;
         }
-        .program-container__table__entry__time h3, .program-container__table__entry__title h3{
+
+        .program-container__table__entry__time h3,
+        .program-container__table__entry__title h3 {
             padding: 0.5rem;
             margin: 0;
         }
+    }
+
+    .program-container {
+        &__map {
+            grid-template-areas: "graphic""details";
+
+            &__image {
+                display: none;
+            }
+
+            &__image-mobile {
+                display: block;
+                transform: translate(0, -4%);
+                position: relative;
+                width: 100%;
+            }
+
+            &__details {
+                width: 100%;
+
+                &__heading {
+                    padding-left: 1.5rem;
+                    padding-top: 1.5rem;
+                }
+
+                &__description {
+                    padding: 0.5rem;
+                    display: grid;
+                    grid-template-columns: repeat(2, 1fr);
+                    width: 100%;
+                    border-top: none;
+                    border-right: none;
+
+                    &__block {
+                        display: flex;
+
+                        p {
+                            font-size: $text-size-small;
+                            padding-right: 0;
+                            padding-left: 1em;
+                            padding-top: 0;
+                            padding-bottom: 0;
+                        }
+                    }
+                }
+
+                &__floor-right {
+                    text-align: right;
+                    position: absolute;
+                    right: 0;
+                    bottom: 0;
+                    z-index: 2;
+                    display: none;
+                }
+            }
+
+            &__filler {
+                width: 100%;
+                height: 30vh;
+            }
+        }
+
+        &__map-images {
+            &__image {
+                display: none;
+            }
+
+            &__image-mobile {
+                display: block;
+                transform: translate(0, -4%);
+                position: relative;
+                width: 100%;
+            }
+        }
+
     }
 }

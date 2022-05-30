@@ -1,60 +1,97 @@
-footer{
+footer {
     font-family: 'PPNeueMontreal';
     border-bottom: $grid-gap-line;
     border-top: $grid-gap-line;
     display: grid;
-    grid-template-areas: "content" "empty";
+    grid-template-areas: "sponsor""content";
+    grid-template-columns: repeat(1, 1fr);
+    background-image: url("/media/px-bg.png");
     width: 100%;
-    .filler-pixels{
+
+    .filler-pixels {
         display: none;
     }
-    .footer-content{
+
+    .footer-content__right {
         grid-area: content;
-        li{
-            font-size:  1.60rem;
+        background-color: $color-gray;
+
+        li {
+            font-size: 1.60rem;
             width: 100%;
             border-bottom: $grid-gap-line;
             padding: 0.5rem 1rem;
         }
-        p{
+
+        p {
             padding: 0.5rem;
             font-size: $text-size-big;
             line-height: $text-linehight-big;
         }
     }
-    
+
+    .footer-content__left__logos {
+        grid-area: sponsor;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        background-color: $color-gray;
+
+        border-bottom: $grid-gap-line;
+
+
+
+        &__logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            max-height: 6rem;
+            padding: 0.5em;
+        }
+
+    }
+
+
+    img {
+        width: auto;
+        object-fit: fill;
+
+    }
 }
+
 @media (max-width: 768px) {
-    footer{
-        .footer-content{
-            p{
+    footer {
+        .footer-content__right {
+            p {
                 padding: 0.5rem;
                 font-size: $text-size-small;
                 line-height: $text-linehight-small;
             }
         }
-        
+
     }
 }
+
 /* Medium devices (tablets, 768px and up) The navbar toggle appears at this breakpoint */
 @media (min-width: 768px) {}
+
 /* Large devices (desktops, 992px and up) */
 @media (min-width: 992px) {
-    footer{
-        display: grid;
-        grid-template-areas: "pxbg pxbg content";
-        grid-template-columns: 1fr 1fr 1fr;
-        .filler-pixels{
-            display: block;
-            grid-area: pxbg;
-            max-height: 29rem;
+    footer {
+        grid-template-areas: "sponsor . content";
+        grid-template-columns: repeat(3, 1fr);
+
+        .footer-content__left__logos {
+            border-right: $grid-gap-line;
+
         }
-        .footer-content{
-            grid-area: content;
+
+        .footer-content__right {
             border-left: $grid-gap-line;
         }
-        
+
+        img {}
     }
 }
+
 /* Extra large devices (large desktops, 1200px and up) */
 @media (min-width: 1200px) {}

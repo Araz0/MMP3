@@ -13,7 +13,6 @@
     <ul>
         <li><a href="/">Home</a></li>
         <li><a href="/programm.php">Programm</a></li>
-        <li><a href="/soon.php">Speeddating</a></li>
         <li><a href="/tickets.php">Tickets</a></li>
         <li><a href="/projects/">Projekte</a></li>
         <li><a href="/about.php">About</a></li>
@@ -31,7 +30,6 @@
     <ul>
         <li><a href="/">Home</a></li>
         <li><a href="programm.php">Programm</a></li>
-        <li><a href="/speeddating.php">Speeddating</a></li>
         <li><a href="/tickets.php">Tickets</a></li>
         <li><a href="/projects/">Projekte</a></li>
         <li><a href="/about.php">About</a></li>

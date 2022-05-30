@@ -303,7 +303,8 @@ require "components/head.php";
                         <h3 class="program-container__table__filler__tickets__head">Tickets</h3>
                         <a href="#" class="program-container__table__filler__tickets__link"
                             target="_blank">Speeddating</a>
-                        <a href="https://fh-salzburg.jobteaser.com/de/events/149599-speedating-fuer-mma-mmt-hci-studierende" class="program-container__table__filler__tickets__link" target="_blank">Anmeldung
+                        <a href="https://fh-salzburg.jobteaser.com/de/events/149599-speedating-fuer-mma-mmt-hci-studierende"
+                            class="program-container__table__filler__tickets__link" target="_blank">Anmeldung
                             Veranstaltung</a>
                     </div>
                     <img class="filler-pixels" src="/media/px-bg-trans.png" alt="pixlated background image filler">
@@ -347,6 +348,120 @@ require "components/head.php";
                     include 'components/popup.php';
                     ?>
                 </div>
+            </div>
+            <!-- <div class="program-container__map">
+                <img class="program-container__map__image" src="/media/program_map.svg" alt="FH Salzburg Map">
+                <img class="program-container__map__image-mobile" src="/media/Rundgang_Karte.svg" alt="FH Salzburg Map">
+                <div class="program-container__map__blocks">
+                    <?php
+                    $program_map = array(
+                        "map_story" => "3. OG",
+                        "map_locations" => array(
+                            "Das verräterische Herz",
+                            "Komm, wir gehen.",
+                            "VERA (Trailer)",
+                            "Social Score System",
+                            "Kum å ba dia",
+                            "DYMS - Voice Poison",
+                            "Train Cabin",
+                            "Express Yourself",
+                            "Ein tödliches Wochenende",
+                            "Der Erbsenzähler (Trailer)",
+                            "The Showdown",
+                            "Wer bin ich?",
+                        )
+                    );
+                    include "components/program_map_details.php";
+                    ?>
+                    <?php
+                    $program_map = array(
+                        "map_story" => "EG",
+                        "map_locations" => array(
+                            "Das verräterische Herz",
+                            "Komm, wir gehen.",
+                            "VERA (Trailer)",
+                            "Social Score System",
+                            "Kum å ba dia",
+                            "DYMS - Voice Poison",
+                            "Overflow",
+                            "Namik",
+                            "Leo",
+                            "FLOCK",
+                            "Träume",
+                            "Sould",
+                        )
+                    );
+                    include "components/program_map_details.php";
+                    ?>
+                    <?php
+                    $program_map = array(
+                        "map_story" => "UG",
+                        "map_locations" => array(
+                            "Namik",
+                            "Leo",
+                            "FLOCK",
+                            "Träume",
+                            "Sould",
+                            "Journey",
+                            "Train Cabin",
+                            "Express Yourself",
+                            "Ein tödliches Wochenende",
+                            "Der Erbsenzähler (Trailer)",
+                            "The Showdown",
+                            "Wer bin ich?",
+                        )
+                    );
+                    include "components/program_map_details.php";
+                    ?>
+                </div>
+                <div class="program-container__map__filler">
+                    <img class="filler-pixels" src="/media/px-bg-trans.png" alt="pixlated background image filler">
+                    <?php
+                    $popup_title = "Speeddating";
+                    $popup_message = "Super für's <br>Pflichtpraktikum!";
+                    $popup_id = "Speeddating_1";
+                    include 'components/popup.php';
+                    ?>
+                    <?php
+                    $popup_title = "Speeddating";
+                    $popup_message = "Du magst nicht allein?<br>Geht auch als Gruppe!";
+                    $popup_id = "Speeddating_1";
+                    include 'components/popup.php';
+                    ?>
+                    <?php
+                    $popup_title = "Speeddating";
+                    $popup_message = "Melde dich jetzt an,<br>es zahlt sich aus!";
+                    $popup_id = "Speeddating_1";
+                    include 'components/popup.php';
+                    ?>
+                    <?php
+                    $popup_title = "Speeddating";
+                    $popup_message = "Du magst nicht allein?<br>Geht auch als Gruppe!";
+                    $popup_id = "Speeddating_1";
+                    include 'components/popup.php';
+                    ?>
+
+                    <?php
+                    $popup_title = "Speeddating";
+                    $popup_message = "Du magst nicht allein?<br>Geht auch als Gruppe!";
+                    $popup_id = "Speeddating_1";
+                    include 'components/popup.php';
+                    ?>
+                    <?php
+                    $popup_title = "Speeddating";
+                    $popup_message = "Melde dich jetzt an,<br>es zahlt sich aus!";
+                    $popup_id = "Speeddating_1";
+                    include 'components/popup.php';
+                    ?>
+
+                </div>
+            </div> -->
+
+            <div class="program-container__map-images">
+                <img class="program-container__map-images__image" src="/media/Rundgang_Karte_desktop.svg"
+                    alt="FH Salzburg Map">
+                <img class="program-container__map-images__image-mobile" src="/media/Rundgang_Karte.svg"
+                    alt="FH Salzburg Map">
             </div>
         </div>
     </main>
