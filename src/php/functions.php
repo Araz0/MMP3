@@ -139,6 +139,8 @@ function createUser($username, $email, $first_name, $last_name, $studies, $role)
 
 function createTicket($first_name, $last_name, $film_block, $amount, $t_time, $t_date) {
     global $dbh;
+    $first_name = strip_tags($first_name);
+    $last_name = strip_tags($last_name);
     
     $query = "INSERT INTO tickets (first_name, last_name, film_block, amount, t_time, t_date) VALUES (:first_name, :last_name, :film_block, :amount, :t_time, :t_date)";
     $sth = $dbh->prepare($query);
@@ -156,6 +158,11 @@ function createTicket($first_name, $last_name, $film_block, $amount, $t_time, $t
 function createProject($sufix, $title, $subtitle, $excerpt, $description, $thumbnail, $members, $degree, $category, $tags, $links, $user_id) {
     global $dbh;
     $links = json_encode($links);
+    $sufix = strip_tags($sufix);
+    $title = strip_tags($title);
+    $description = strip_tags($description);
+    $members = strip_tags($members);
+    $tags = strip_tags($tags);
     
     $query = "INSERT INTO projects (sufix, title, subtitle, excerpt, description, thumbnail, members, degree, category, tags, links, user_id) VALUES (:sufix, :title, :subtitle, :excerpt, :description, :thumbnail, :members, :degree, :category, :tags, :links, :user_id)";
     $sth = $dbh->prepare($query);
@@ -180,6 +187,11 @@ function updateProject($sufix, $title, $subtitle, $excerpt, $description, $thumb
     global $dbh;
 
     $links = json_encode($links);
+    $sufix = strip_tags($sufix);
+    $title = strip_tags($title);
+    $description = strip_tags($description);
+    $members = strip_tags($members);
+    $tags = strip_tags($tags);
     
     $query = "UPDATE projects SET sufix=:sufix, title=:title, subtitle=:subtitle, excerpt=:excerpt, description=:description, thumbnail=:thumbnail, members=:members, degree=:degree, category=:category, tags=:tags, links=:links WHERE id=:Project_id";
     $sth = $dbh->prepare($query);

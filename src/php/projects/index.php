@@ -166,10 +166,14 @@
             ?>
                 <div id="project-<?php echo $project->id; ?>" class="projects__container__project">
                     <div class="projects__container__project__thumbnail">
-                        <img src="<?php echo $project->thumbnail; ?>" alt="<?php echo $project->title; ?> thumbnail image">
+                    <?php 
+                        $title = strip_tags($project->title); 
+                        $description = strip_tags($project->description)
+                    ?>
+                        <img src="<?php echo $project->thumbnail; ?>" alt="<?php echo $title; ?> thumbnail image">
                     </div>  
                     <div class="projects__container__project__title">
-                        <h3><?php echo $project->title; ?></h3>
+                        <h3><?php echo $title; ?></h3>
                         <span onclick="toggleProject(this)"></span>
                     </div>  
                     <div class="projects__container__project__tags">
@@ -193,7 +197,7 @@
                     <p class="projects__container__project__degree"><?php echo $project->degree; ?></p>
                     <p class="projects__container__project__category"><?php echo $project->category; ?></p>
                     <div class="projects__container__project__description">
-                        <p><?php echo $project->description; ?></p>
+                        <p><?php echo $description; ?></p>
                     </div>
 
                 </div>
