@@ -212,7 +212,7 @@ require "components/head.php";
                     <?php
                     $program_block_entry_time = "15:00";
                     $program_block_entry_title = "Speeddating 1. Runde";
-                    $program_block_entry_text = "Das Speeddating bietet die einmalige Chance 10 Salzburger Agenturen in einer lockeren und unverbindlichen Atmosphäre persönlich kennenzulernen.";
+                    $program_block_entry_text = "Das Speeddating bietet die einmalige Chance verschiedene Salzburger Agenturen in einer lockeren und unverbindlichen Atmosphäre persönlich kennenzulernen.";
                     $program_block_entry_rbuttons_set = false;
                     $entry_items = array(
                         array("Anmeldung 1. runde", "https://fh-salzburg.jobteaser.com/de/events/149599-speedating-fuer-mma-mmt-hci-studierende"),
@@ -231,7 +231,7 @@ require "components/head.php";
                     <?php
                     $program_block_entry_time = "16:15";
                     $program_block_entry_title = "Speeddating 2. Runde";
-                    $program_block_entry_text = "Das Speeddating bietet die einmalige Chance 10 Salzburger Agenturen in einer lockeren und unverbindlichen Atmosphäre persönlich kennenzulernen.";
+                    $program_block_entry_text = "Das Speeddating bietet die einmalige Chance verschiedene Salzburger Agenturen in einer lockeren und unverbindlichen Atmosphäre persönlich kennenzulernen.";
                     $program_block_entry_rbuttons_set = false;
                     $entry_items = array(
                         array("Anmeldung 2. Runde", "https://fh-salzburg.jobteaser.com/de/events/149599-speedating-fuer-mma-mmt-hci-studierende"),

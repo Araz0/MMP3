@@ -358,3 +358,21 @@ function delete_captcha($path){
     $sth->bindParam('path', $path, PDO::PARAM_INT);
     $sth->execute();
 }
+
+function getTickets(){
+    global $dbh;
+    $query = "SELECT * FROM tickets";
+    $sth = $dbh->prepare($query);
+    $sth->execute();
+    return $sth->fetchAll();
+}
+function checkInTicket($ticket_id){
+    global $dbh;
+
+    $query = "UPDATE tickets SET checked_in=true WHERE id=:id";
+    $sth = $dbh->prepare($query);
+
+    $sth->bindParam('id', $ticket_id, PDO::PARAM_INT);
+    
+    $sth->execute();
+}

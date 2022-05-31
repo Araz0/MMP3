@@ -16,7 +16,7 @@
         $user_projects = getUserProjectbyUserId($user_id);
     }
     if (!isset($user_id)) {
-        header('Location: /405.php');
+        header('Location: /403.php');
     }
     
 ?>

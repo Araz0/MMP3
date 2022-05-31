@@ -3,10 +3,10 @@ require('fpdf.php');
 require 'functions.php';
 if (isset($_POST['create_ticket'])) {
     //fetch data
-    $ticket_first_name = $_POST['firstname'];
-    $ticket_last_name = $_POST['lastname'];
+    $ticket_first_name = strip_tags($_POST['firstname']);
+    $ticket_last_name = strip_tags($_POST['lastname']);
     $ticket_block_id = $_POST['block_id'];
-    $ticket_amount = $_POST['amount'];
+    $ticket_amount = strip_tags($_POST['amount']);
     $ticket_time = $_POST['block_time'];
     $ticket_date = "2022/06/02";
 

@@ -2,17 +2,18 @@
 $color-white: #fafafa;
 $color-gray: #d1d1d1; //#c4c4c4
 $color-black: #161615;
-
+$color-red: #df7070;
+$color-green: #aff7a5;
 // font
 @font-face {
-    font-family: 'PPNeueMontreal';
-    src: url('fonts/PPNeueMontreal-Medium.woff');
+  font-family: "PPNeueMontreal";
+  src: url("fonts/PPNeueMontreal-Medium.woff");
 }
 
 // font sizes
 $h1-size: 3rem;
 $h1-size-small: 1.75rem;
-$h2-size-small: 1.60rem;
+$h2-size-small: 1.6rem;
 $h3-size-big: 70px;
 $h3-linehight-big: 70px;
 

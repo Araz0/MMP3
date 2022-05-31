@@ -1,0 +1,72 @@
+.main-tickets_container {
+  display: flex;
+  font-family: PPNeueMontreal;
+  width: fit-content;
+  margin: 2rem auto;
+
+  .section-tickets_block {
+    background-color: $color-gray;
+    display: flex;
+    flex-direction: column;
+    &__header {
+      border: 2px solid black;
+      text-align: center;
+      padding: 1rem;
+      h2 {
+        margin-bottom: 0.2rem;
+      }
+      span {
+        background-color: #df7070;
+        padding: 2px 1rem;
+      }
+    }
+    .ticket__continer {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      border: 2px solid black;
+      padding: 1rem;
+      margin-top: -1px;
+      &__holder {
+        font-size: 24px;
+        line-height: 24px;
+      }
+      button {
+        border: none;
+        height: 2rem;
+        width: fit-content;
+        margin-left: auto;
+        border-radius: 5px;
+        padding: 0.5rem;
+        background: $color-green;
+        border: 1px solid gray;
+        cursor: pointer;
+      }
+    }
+    .hide-ticket {
+      display: none;
+    }
+    .checked-ticket {
+      display: none !important;
+    }
+  }
+}
+.tickets-search__container {
+  margin: 2rem auto;
+  width: fit-content;
+  text-align: center;
+  position: sticky;
+  top: 2rem;
+  background-color: $color-gray;
+  padding: 1rem;
+  h1 {
+    font-family: "lores-12";
+    font-size: 3rem;
+    margin-bottom: 0.5rem;
+  }
+  input {
+    height: 3rem;
+    min-width: 17rem;
+    padding: 1rem;
+  }
+}

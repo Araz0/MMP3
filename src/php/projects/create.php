@@ -11,7 +11,7 @@
     require "../components/head.php";
     $user_id = getUser($_SESSION['fhsUser'])->id;
     if (!isset($user_id)) {
-        header('Location: /405.php');
+        header('Location: /403.php');
     }
     
     if (isset($_POST['create_project'])) {
