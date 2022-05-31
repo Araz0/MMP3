@@ -9,7 +9,7 @@
         </div>
 
     </div>
-    <a href="/soon.php">
+    <a href="https://fh-salzburg.jobteaser.com/de/events/149599-speedating-fuer-mma-mmt-hci-studierende">
         <button class="tickets-container__speeddating__block__link">
             Anmeldung
         </button>

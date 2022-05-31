@@ -290,9 +290,9 @@ require "components/head.php";
                     $entry_items = array(
                         array("Ion Diary", "23:00", "https://open.spotify.com/artist/615guvLRaA5wZijj7SmwaM?si=dQljEoTcRdmqc48P9v6BPg", "reinhören"),
                         array("Nex21 b2b Synged", "00:00", "https://linktr.ee/rundgang_nex21_synged", "reinhören"),
-                        array("Killin’ Void b2b Feistling", "01:00", "https://linktr.ee/rundgang_killinvoid_feistling", "reinhören"),
-                        array("Projectdeepthought", "02:00", "https://soundcloud.com/projectdeepthought", "reinhören"),
-                        array("Philip Law", "03:30", "https://soundcloud.com/philiplawmusic", "reinhören")
+                        array("Killin’ Void b2b Feistling", "01:30", "https://linktr.ee/rundgang_killinvoid_feistling", "reinhören"),
+                        array("Projectdeepthought", "03:00", "https://soundcloud.com/projectdeepthought", "reinhören"),
+                        array("Philip Law", "04:00", "https://soundcloud.com/philiplawmusic", "reinhören")
                     );
                     include "components/program_block_entry_2.php";
                     ?>
