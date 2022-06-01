@@ -18,7 +18,7 @@
         $user_projects = getUserProjectbyUserId($user_id);
     }
     if (!isset($user_id)) {
-        header('Location: /403.php');
+        header('Location: /401.php');
     }
 
     if (isset($_POST['checkin_Ticket'])) {

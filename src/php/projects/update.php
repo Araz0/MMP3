@@ -17,7 +17,7 @@
     }else{
         $project = getProjectbySufixAndUser($_GET['pid'], $user_id);
         if ($user_id != $project->user_id) {
-            header('Location: /403.php');
+            header('Location: /401.php');
         }
     }
     if (!isset($project->id)) {
