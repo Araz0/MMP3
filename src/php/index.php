@@ -190,7 +190,7 @@
         <div class="section__socials__information">
             <p>Folge Rundgang auf Social Media um nichts zu verpassen.</p>
             <ul>
-                <li><a href="https://www.instagram.com/rundgang.fhsalzburg/" target="_blank">Instagram</a></li>
+                <li><a href="https://www.instagram.com/rundgang.fhsalzburg" target="_blank">Instagram</a></li>
                 <li><a href="https://www.facebook.com/rundgang.fhsalzburg" target="_blank">Facebook</a></li>
                 <li><a href="https://www.tiktok.com/@rundgang.fhsalzburg" target="_blank">TikTok</a></li>
             </ul>

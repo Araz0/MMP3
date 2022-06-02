@@ -34,6 +34,7 @@
                     <div class="program-container__table__entry__slots__item__title">
                         <p><?php echo $item[0];?></p><p><?php echo $item[1];?></p>
                     </div>
+                    <?php if ($item[2] != "") {?>
                     <div class="program-container__table__entry__slots__item__link">
                         <a href="<?php echo $item[2];?>">
                             <p>
@@ -42,6 +43,7 @@
                         </a>
                         <img src="/media/icon-dropup.png" alt="arrow to another link">
                     </div>
+                    <?php } ?>
                 </div>
             <?php 
             }

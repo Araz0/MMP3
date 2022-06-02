@@ -192,9 +192,9 @@ require "components/head.php";
                 <div class="about-container__socials__social-panel">
                     <p>Folge Rundgang auf Social Media um nichts zu verpassen.</p>
                     <div class="about-container__socials__social-panel__buttons">
-                        <a href="/soon.php"><button>Instagram</button></a>
-                        <a href="/soon.php"><button>Facebook</button></a>
-                        <a href="/soon.php"><button>TikTok</button></a>
+                        <a href="https://www.instagram.com/rundgang.fhsalzburg" target="_blank"><button>Instagram</button></a>
+                        <a href="https://www.facebook.com/rundgang.fhsalzburg" target="_blank"><button>Facebook</button></a>
+                        <a href="https://www.tiktok.com/@rundgang.fhsalzburg" target="_blank"><button>TikTok</button></a>
                     </div>
                 </div>
             </div>

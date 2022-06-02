@@ -3,7 +3,7 @@ require 'config.php';
 $sufixRegex = "/^([a-zA-Z0-9]+([_-]?[a-zA-Z0-9])*){3,64}$/"; 
 $errors = array();
 $storage_folder = "storage";
-$admins = array("fhs41238", "fhs44373","fhs44332","fhs44366", "fhs44380","fhs44318");
+$admins = array("fhs41238", "fhs44373","fhs44332","fhs44366", "fhs44380","fhs44318", "fhs41377", "fhs45464", "fhs44349");
 $isAdmin = false;
 
 function makeStrUrlReady($string){

@@ -46,7 +46,7 @@ require "components/head.php";
                     $entry_items = array(
                         array("Sündenbock", "/projects/#project-25"),
                         array("Das verräterische Herz", "/projects/#project-11"),
-                        array("Komm, wir gehen.", "/projects/#")
+                        array("Komm, wir gehen.", "")
                     );
                     include "components/program_block_entry.php";
                     ?>
@@ -56,7 +56,7 @@ require "components/head.php";
                     $program_block_entry_rfiller = false;
                     $entry_items = array(
                         array("VERA", "/projects/#project-65"),
-                        array("Social Score System", "/project-64"),
+                        array("Social Score System", "/projects/#project-64"),
                         array("Kum å ba dia", "/projects/#project-6"),
                         array("Voice Poison, DYMSY", "/projects/#project-73"),
                         array("Overflow", "/projects/#project-29")
@@ -69,10 +69,10 @@ require "components/head.php";
                     $program_block_entry_rfiller = false;
                     $entry_items = array(
                         array("Namik", "/projects/#project-34"),
-                        array("Dreaming Moria", "/projects/#"),
+                        array("Dreaming Moria", ""),
                         array("Leo", "/projects/#project-30"),
                         array("FLOCK", "/projects/#project-21"),
-                        array("Träume", "/projects/#")
+                        array("Träume", "")
                     );
                     include "components/program_block_entry.php";
                     ?>
@@ -81,9 +81,9 @@ require "components/head.php";
                     $program_block_entry_title = "4. Filmblock";
                     $program_block_entry_rfiller = false;
                     $entry_items = array(
-                        array("Sould", "/soon.php"),
-                        array("Kugellager", "/soon.php"),
-                        array("Journey", "/soon.php"),
+                        array("Sould", ""),
+                        array("Kugellager", ""),
+                        array("Journey", ""),
                         array("Train Cabin", "/projects/#project-33"),
                         array("Express Yourself", "/projects/#project-70")
                     );
@@ -96,10 +96,10 @@ require "components/head.php";
                     $entry_items = array(
                         array("Babushka", "projects/#project-37"),
                         array("Ein tödliches Wochenende", "/projects/#project-50"),
-                        array("Der Erbsenzähler (Trailer)", "/soon.php"),
+                        array("Der Erbsenzähler (Trailer)", ""),
                         array("The Showdown", "/projects/#project-3"),
                         array("Wer bin ich?", "/projects/#project-55"),
-                        array("Saint Jeffery", "/soon.php")
+                        array("Saint Jeffery", "")
                     );
                     include "components/program_block_entry.php";
                     ?>
@@ -188,7 +188,7 @@ require "components/head.php";
                     $second_entry_set = false;
                     $entry_items = array(
                         array("Das verräterische Herz", "", "/projects/#project-11"),
-                        array("Komm, wir gehen.", "", "/projects/#"),
+                        array("Komm, wir gehen.", "", ""),
                         array("VERA (Trailer)", "", "/projects/#project-65"),
                         array("Social Score System", "", "/projects/#project-64"),
                         array("Kum å ba dia", "", "/projects/#project-6"),
@@ -197,13 +197,13 @@ require "components/head.php";
                         array("Namik", "", "/projects/#project-34"),
                         array("Leo", "", "/projects/#project-30"),
                         array("FLOCK", "", "/projects/#project-21"),
-                        array("Träume", "", "/projects/#"),
-                        array("Sould", "", "/projects/#"),
-                        array("Journey", "", "/projects/#"),
+                        array("Träume", "", ""),
+                        array("Sould", "", ""),
+                        array("Journey", "", ""),
                         array("Train Cabin", "", "/projects/#project-33"),
                         array("Express Yourself", "", "/projects/#project-70"),
                         array("Ein tödliches Wochenende", "", "/projects/#project-50"),
-                        array("Der Erbsenzähler (Trailer)", "", "/projects/#"),
+                        array("Der Erbsenzähler (Trailer)", "", ""),
                         array("The Showdown", "", "/projects/#project-3"),
                         array("Wer bin ich?", "", "/projects/#project-55"),
                     );
@@ -215,8 +215,7 @@ require "components/head.php";
                     $program_block_entry_text = "Das Speeddating bietet die einmalige Chance verschiedene Salzburger Agenturen in einer lockeren und unverbindlichen Atmosphäre persönlich kennenzulernen.";
                     $program_block_entry_rbuttons_set = false;
                     $entry_items = array(
-                        array("Anmeldung 1. runde", "https://fh-salzburg.jobteaser.com/de/events/149599-speedating-fuer-mma-mmt-hci-studierende"),
-                        array("mehr zum Speeddating", "#")
+                        array("Anmeldung 1. runde", "https://fh-salzburg.jobteaser.com/de/events/149599-speedating-fuer-mma-mmt-hci-studierende")
                     );
                     include "components/program_block_entry_3.php";
                     ?>
@@ -234,8 +233,7 @@ require "components/head.php";
                     $program_block_entry_text = "Das Speeddating bietet die einmalige Chance verschiedene Salzburger Agenturen in einer lockeren und unverbindlichen Atmosphäre persönlich kennenzulernen.";
                     $program_block_entry_rbuttons_set = false;
                     $entry_items = array(
-                        array("Anmeldung 2. Runde", "https://fh-salzburg.jobteaser.com/de/events/149599-speedating-fuer-mma-mmt-hci-studierende"),
-                        array("mehr zum Speeddating", "#")
+                        array("Anmeldung 2. Runde", "https://fh-salzburg.jobteaser.com/de/events/149599-speedating-fuer-mma-mmt-hci-studierende")
                     );
                     include "components/program_block_entry_3.php";
                     ?>
@@ -244,9 +242,7 @@ require "components/head.php";
                     $program_block_entry_title = 'Performance „Tonotopy“';
                     $program_block_entry_text = "Bernd Siebenhofer und Ulrich Gahleitner.";
                     $program_block_entry_rbuttons_set = false;
-                    $entry_items = array(
-                        array("mehr zum Projekt", "#")
-                    );
+                    $entry_items = array();
                     include "components/program_block_entry_3.php";
                     ?>
                     <?php
@@ -255,8 +251,7 @@ require "components/head.php";
                     $program_block_entry_text = "Das Speeddating bietet die einmalige Chance verschiedene Salzburger Agenturen in einer lockeren und unverbindlichen Atmosphäre persönlich kennenzulernen.";
                     $program_block_entry_rbuttons_set = false;
                     $entry_items = array(
-                        array("Anmeldung 3. Runde", "https://fh-salzburg.jobteaser.com/de/events/149599-speedating-fuer-mma-mmt-hci-studierende"),
-                        array("mehr zum Speeddating", "#")
+                        array("Anmeldung 3. Runde", "https://fh-salzburg.jobteaser.com/de/events/149599-speedating-fuer-mma-mmt-hci-studierende")
                     );
                     include "components/program_block_entry_3.php";
                     ?>
@@ -265,9 +260,7 @@ require "components/head.php";
                     $program_block_entry_title = 'Performance „I Regret“';
                     $program_block_entry_text = 'Kilian Kofler aka. „Killin’ Void“.';
                     $program_block_entry_rbuttons_set = false;
-                    $entry_items = array(
-                        array("mehr zum Projekt", "#")
-                    );
+                    $entry_items = array();
                     include "components/program_block_entry_3.php";
                     ?>
                     <?php
@@ -275,9 +268,7 @@ require "components/head.php";
                     $program_block_entry_title = 'Performance „Nexus“';
                     $program_block_entry_text = 'Elisa Visca';
                     $program_block_entry_rbuttons_set = false;
-                    $entry_items = array(
-                        array("mehr zum Projekt", "#")
-                    );
+                    $entry_items = array();
                     include "components/program_block_entry_3.php";
                     ?>
                     <?php
